@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */; };
-		20056ECE2C62412F000B661B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECD2C62412F000B661B /* ContentView.swift */; };
 		20056ED02C624130000B661B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ECF2C624130000B661B /* Assets.xcassets */; };
 		20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ED22C624130000B661B /* Preview Assets.xcassets */; };
 		20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EDC2C624130000B661B /* TWB_EcommerceTests.swift */; };
 		20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */; };
 		20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */; };
+		2075F3A42C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
+		2075F3A52C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
+		2075F3A62C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
+		20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB05E62C62597A00A3DF38 /* SplashView.swift */; };
+		20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		20056EC82C62412F000B661B /* TWB-Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWB-Ecommerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceApp.swift; sourceTree = "<group>"; };
-		20056ECD2C62412F000B661B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		20056ECF2C624130000B661B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20056ED22C624130000B661B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20056ED82C624130000B661B /* TWB-EcommerceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TWB-EcommerceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,9 @@
 		20056EE22C624130000B661B /* TWB-EcommerceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TWB-EcommerceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITests.swift; sourceTree = "<group>"; };
 		20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2075F3A32C636F670010536E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		20BB05E62C62597A00A3DF38 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +100,12 @@
 		20056ECA2C62412F000B661B /* TWB-Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				2075F39E2C635F360010536E /* Base Components */,
+				20BB05E12C62572300A3DF38 /* Features */,
 				20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */,
-				20056ECD2C62412F000B661B /* ContentView.swift */,
 				20056ECF2C624130000B661B /* Assets.xcassets */,
 				20056ED12C624130000B661B /* Preview Content */,
+				20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */,
 			);
 			path = "TWB-Ecommerce";
 			sourceTree = "<group>";
@@ -125,6 +133,86 @@
 				20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */,
 			);
 			path = "TWB-EcommerceUITests";
+			sourceTree = "<group>";
+		};
+		2075F39E2C635F360010536E /* Base Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Base Components";
+			sourceTree = "<group>";
+		};
+		2075F39F2C636E9F0010536E /* Login Signup */ = {
+			isa = PBXGroup;
+			children = (
+				2075F3A22C636ECC0010536E /* Views */,
+				2075F3A12C636EC70010536E /* Models */,
+				2075F3A02C636EBD0010536E /* View Models */,
+			);
+			path = "Login Signup";
+			sourceTree = "<group>";
+		};
+		2075F3A02C636EBD0010536E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		2075F3A12C636EC70010536E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2075F3A22C636ECC0010536E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2075F3A32C636F670010536E /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20BB05E12C62572300A3DF38 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2075F39F2C636E9F0010536E /* Login Signup */,
+				20BB05E22C62572C00A3DF38 /* Splash */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		20BB05E22C62572C00A3DF38 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				20BB05E52C6257B000A3DF38 /* View Models */,
+				20BB05E42C6257A800A3DF38 /* Models */,
+				20BB05E32C62579A00A3DF38 /* Views */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		20BB05E32C62579A00A3DF38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20BB05E62C62597A00A3DF38 /* SplashView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20BB05E42C6257A800A3DF38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20BB05E52C6257B000A3DF38 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */,
 				20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */,
 				20056ED02C624130000B661B /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +346,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20056ECE2C62412F000B661B /* ContentView.swift in Sources */,
+				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
+				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2075F3A52C636F670010536E /* LoginView.swift in Sources */,
 				20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2075F3A62C636F670010536E /* LoginView.swift in Sources */,
 				20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */,
 				20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */,
 			);
@@ -428,8 +520,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,8 +549,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
