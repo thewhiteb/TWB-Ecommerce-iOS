@@ -16,6 +16,32 @@
 		2075F3A42C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
 		2075F3A52C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
 		2075F3A62C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
+		209A33622C6B406D008B8D9B /* Baskerville.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33612C6B406D008B8D9B /* Baskerville.ttf */; };
+		209A33642C6B40AC008B8D9B /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33632C6B40AC008B8D9B /* Lato-Black.ttf */; };
+		209A336E2C6B4255008B8D9B /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33652C6B4254008B8D9B /* Lato-BoldItalic.ttf */; };
+		209A336F2C6B4255008B8D9B /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33662C6B4254008B8D9B /* Lato-Regular.ttf */; };
+		209A33702C6B4255008B8D9B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33672C6B4255008B8D9B /* Lato-BlackItalic.ttf */; };
+		209A33712C6B4255008B8D9B /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33682C6B4255008B8D9B /* Lato-Italic.ttf */; };
+		209A33722C6B4255008B8D9B /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33692C6B4255008B8D9B /* Lato-LightItalic.ttf */; };
+		209A33732C6B4255008B8D9B /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336A2C6B4255008B8D9B /* Lato-Thin.ttf */; };
+		209A33742C6B4255008B8D9B /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336B2C6B4255008B8D9B /* Lato-ThinItalic.ttf */; };
+		209A33752C6B4255008B8D9B /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336C2C6B4255008B8D9B /* Lato-Light.ttf */; };
+		209A33762C6B4255008B8D9B /* Latobold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336D2C6B4255008B8D9B /* Latobold.ttf */; };
+		209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33772C6B628B008B8D9B /* PhoneNumberField.swift */; };
+		209A33792C6B628B008B8D9B /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33772C6B628B008B8D9B /* PhoneNumberField.swift */; };
+		209A337A2C6B628B008B8D9B /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33772C6B628B008B8D9B /* PhoneNumberField.swift */; };
+		209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
+		209A337E2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
+		209A337F2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
+		209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33802C6B899B008B8D9B /* SocialButton.swift */; };
+		209A33822C6B899B008B8D9B /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33802C6B899B008B8D9B /* SocialButton.swift */; };
+		209A33832C6B899B008B8D9B /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33802C6B899B008B8D9B /* SocialButton.swift */; };
+		209A33852C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
+		209A33862C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
+		209A33872C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
+		209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
+		209A338A2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
+		209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
 		20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB05E62C62597A00A3DF38 /* SplashView.swift */; };
 		20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -48,6 +74,23 @@
 		20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITests.swift; sourceTree = "<group>"; };
 		20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2075F3A32C636F670010536E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		209A33352C64CB74008B8D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		209A33612C6B406D008B8D9B /* Baskerville.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baskerville.ttf; sourceTree = "<group>"; };
+		209A33632C6B40AC008B8D9B /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		209A33652C6B4254008B8D9B /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		209A33662C6B4254008B8D9B /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		209A33672C6B4255008B8D9B /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		209A33682C6B4255008B8D9B /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		209A33692C6B4255008B8D9B /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		209A336A2C6B4255008B8D9B /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		209A336B2C6B4255008B8D9B /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		209A336C2C6B4255008B8D9B /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		209A336D2C6B4255008B8D9B /* Latobold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Latobold.ttf; sourceTree = "<group>"; };
+		209A33772C6B628B008B8D9B /* PhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberField.swift; sourceTree = "<group>"; };
+		209A337C2C6B85D0008B8D9B /* SimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
+		209A33802C6B899B008B8D9B /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		209A33842C6CCE3E008B8D9B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Country.swift; path = "TWB-Ecommerce/Features/Login Signup/Views/Country.swift"; sourceTree = SOURCE_ROOT; };
+		209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
 		20BB05E62C62597A00A3DF38 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +143,8 @@
 		20056ECA2C62412F000B661B /* TWB-Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				209A33352C64CB74008B8D9B /* Info.plist */,
+				209A331C2C64C99A008B8D9B /* fonts */,
 				2075F39E2C635F360010536E /* Base Components */,
 				20BB05E12C62572300A3DF38 /* Features */,
 				20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */,
@@ -138,6 +183,7 @@
 		2075F39E2C635F360010536E /* Base Components */ = {
 			isa = PBXGroup;
 			children = (
+				209A337B2C6B85BD008B8D9B /* Buttons */,
 			);
 			path = "Base Components";
 			sourceTree = "<group>";
@@ -162,6 +208,7 @@
 		2075F3A12C636EC70010536E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				209A33842C6CCE3E008B8D9B /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,8 +217,37 @@
 			isa = PBXGroup;
 			children = (
 				2075F3A32C636F670010536E /* LoginView.swift */,
+				209A33772C6B628B008B8D9B /* PhoneNumberField.swift */,
+				209A33802C6B899B008B8D9B /* SocialButton.swift */,
+				209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		209A331C2C64C99A008B8D9B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				209A33672C6B4255008B8D9B /* Lato-BlackItalic.ttf */,
+				209A33652C6B4254008B8D9B /* Lato-BoldItalic.ttf */,
+				209A33682C6B4255008B8D9B /* Lato-Italic.ttf */,
+				209A336C2C6B4255008B8D9B /* Lato-Light.ttf */,
+				209A33692C6B4255008B8D9B /* Lato-LightItalic.ttf */,
+				209A33662C6B4254008B8D9B /* Lato-Regular.ttf */,
+				209A336A2C6B4255008B8D9B /* Lato-Thin.ttf */,
+				209A336B2C6B4255008B8D9B /* Lato-ThinItalic.ttf */,
+				209A336D2C6B4255008B8D9B /* Latobold.ttf */,
+				209A33632C6B40AC008B8D9B /* Lato-Black.ttf */,
+				209A33612C6B406D008B8D9B /* Baskerville.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		209A337B2C6B85BD008B8D9B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				209A337C2C6B85D0008B8D9B /* SimpleButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		20BB05E12C62572300A3DF38 /* Features */ = {
@@ -319,9 +395,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209A33702C6B4255008B8D9B /* Lato-BlackItalic.ttf in Resources */,
+				209A33752C6B4255008B8D9B /* Lato-Light.ttf in Resources */,
+				209A33742C6B4255008B8D9B /* Lato-ThinItalic.ttf in Resources */,
+				209A33722C6B4255008B8D9B /* Lato-LightItalic.ttf in Resources */,
 				20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */,
 				20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */,
+				209A33732C6B4255008B8D9B /* Lato-Thin.ttf in Resources */,
 				20056ED02C624130000B661B /* Assets.xcassets in Resources */,
+				209A336E2C6B4255008B8D9B /* Lato-BoldItalic.ttf in Resources */,
+				209A33762C6B4255008B8D9B /* Latobold.ttf in Resources */,
+				209A336F2C6B4255008B8D9B /* Lato-Regular.ttf in Resources */,
+				209A33642C6B40AC008B8D9B /* Lato-Black.ttf in Resources */,
+				209A33712C6B4255008B8D9B /* Lato-Italic.ttf in Resources */,
+				209A33622C6B406D008B8D9B /* Baskerville.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +433,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
+				209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
+				209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
+				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
+				209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,8 +448,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209A338A2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 				2075F3A52C636F670010536E /* LoginView.swift in Sources */,
 				20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */,
+				209A33822C6B899B008B8D9B /* SocialButton.swift in Sources */,
+				209A33792C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
+				209A33862C6CCE3E008B8D9B /* Country.swift in Sources */,
+				209A337E2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,9 +462,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209A33872C6CCE3E008B8D9B /* Country.swift in Sources */,
+				209A337A2C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				2075F3A62C636F670010536E /* LoginView.swift in Sources */,
+				209A33832C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */,
 				20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */,
+				209A337F2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
+				209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +619,7 @@
 				DEVELOPMENT_TEAM = 2QMDK88745;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -546,6 +649,7 @@
 				DEVELOPMENT_TEAM = 2QMDK88745;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
