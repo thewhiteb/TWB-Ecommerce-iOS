@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct SocialButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    let imageName: String
+        let action: () -> Void  // Closure for button action
+
+        var body: some View {
+            Button(action: action) {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .padding()  // Add padding around the image
+            }
+            .frame(maxWidth: .infinity, maxHeight: 60)  // Set the size of the button
+            .background(Color(red: 0.97, green: 0.97, blue: 0.97))  // Light grey background
+        }
 }
 
 #Preview {
-    SocialButton()
+    SocialButton(imageName: "google_logo") {
+           // Example action
+           print("Google button clicked!")
+       }
 }
