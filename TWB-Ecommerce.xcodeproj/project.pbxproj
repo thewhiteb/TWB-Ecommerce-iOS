@@ -44,6 +44,23 @@
 		209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
 		20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB05E62C62597A00A3DF38 /* SplashView.swift */; };
 		20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */; };
+		20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5252C870A6F0060354A /* BannerSlide.swift */; };
+		20C0D5272C870A6F0060354A /* BannerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5252C870A6F0060354A /* BannerSlide.swift */; };
+		20C0D5282C870A6F0060354A /* BannerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5252C870A6F0060354A /* BannerSlide.swift */; };
+		20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D52A2C8715580060354A /* TrendingProductItem.swift */; };
+		20C0D52C2C8715580060354A /* TrendingProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D52A2C8715580060354A /* TrendingProductItem.swift */; };
+		20C0D52D2C8715580060354A /* TrendingProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D52A2C8715580060354A /* TrendingProductItem.swift */; };
+		20C0D5302C8725A20060354A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D52F2C8725A20060354A /* Lottie */; };
+		20C0D5322C8727480060354A /* HeartAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 20C0D5312C8727480060354A /* HeartAnimation.json */; };
+		20C0D5332C8727480060354A /* HeartAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 20C0D5312C8727480060354A /* HeartAnimation.json */; };
+		20C0D5342C8727480060354A /* HeartAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 20C0D5312C8727480060354A /* HeartAnimation.json */; };
+		20C0D5362C8727E70060354A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D5352C8727E70060354A /* Lottie */; };
+		20C0D5382C8730C10060354A /* TwitterHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5372C8730C10060354A /* TwitterHeart.swift */; };
+		20C0D5392C8730C10060354A /* TwitterHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5372C8730C10060354A /* TwitterHeart.swift */; };
+		20C0D53A2C8730C10060354A /* TwitterHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5372C8730C10060354A /* TwitterHeart.swift */; };
+		20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
+		20C0D53D2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
+		20C0D53E2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +110,11 @@
 		209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
 		20BB05E62C62597A00A3DF38 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		20C0D5252C870A6F0060354A /* BannerSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSlide.swift; sourceTree = "<group>"; };
+		20C0D52A2C8715580060354A /* TrendingProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingProductItem.swift; sourceTree = "<group>"; };
+		20C0D5312C8727480060354A /* HeartAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartAnimation.json; sourceTree = "<group>"; };
+		20C0D5372C8730C10060354A /* TwitterHeart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterHeart.swift; sourceTree = "<group>"; };
+		20C0D53B2C873CB60060354A /* TrendingProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingProductList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5302C8725A20060354A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5362C8727E70060354A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +172,7 @@
 				2075F39E2C635F360010536E /* Base Components */,
 				20BB05E12C62572300A3DF38 /* Features */,
 				20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */,
+				20C0D5312C8727480060354A /* HeartAnimation.json */,
 				20056ECF2C624130000B661B /* Assets.xcassets */,
 				20056ED12C624130000B661B /* Preview Content */,
 				20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */,
@@ -253,6 +278,7 @@
 		20BB05E12C62572300A3DF38 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				20C0D5232C870A350060354A /* Home */,
 				2075F39F2C636E9F0010536E /* Login Signup */,
 				20BB05E22C62572C00A3DF38 /* Splash */,
 			);
@@ -291,6 +317,33 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		20C0D5232C870A350060354A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				20C0D5242C870A410060354A /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		20C0D5242C870A410060354A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20C0D5292C87152D0060354A /* Trendind Product */,
+				20C0D5252C870A6F0060354A /* BannerSlide.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20C0D5292C87152D0060354A /* Trendind Product */ = {
+			isa = PBXGroup;
+			children = (
+				20C0D52A2C8715580060354A /* TrendingProductItem.swift */,
+				20C0D5372C8730C10060354A /* TwitterHeart.swift */,
+				20C0D53B2C873CB60060354A /* TrendingProductList.swift */,
+			);
+			path = "Trendind Product";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +360,9 @@
 			dependencies = (
 			);
 			name = "TWB-Ecommerce";
+			packageProductDependencies = (
+				20C0D52F2C8725A20060354A /* Lottie */,
+			);
 			productName = "TWB-Ecommerce";
 			productReference = 20056EC82C62412F000B661B /* TWB-Ecommerce.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +381,9 @@
 				20056EDA2C624130000B661B /* PBXTargetDependency */,
 			);
 			name = "TWB-EcommerceTests";
+			packageProductDependencies = (
+				20C0D5352C8727E70060354A /* Lottie */,
+			);
 			productName = "TWB-EcommerceTests";
 			productReference = 20056ED82C624130000B661B /* TWB-EcommerceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -379,6 +438,9 @@
 				Base,
 			);
 			mainGroup = 20056EBF2C62412F000B661B;
+			packageReferences = (
+				20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 20056EC92C62412F000B661B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -400,6 +462,7 @@
 				209A33742C6B4255008B8D9B /* Lato-ThinItalic.ttf in Resources */,
 				209A33722C6B4255008B8D9B /* Lato-LightItalic.ttf in Resources */,
 				20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */,
+				20C0D5322C8727480060354A /* HeartAnimation.json in Resources */,
 				20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */,
 				209A33732C6B4255008B8D9B /* Lato-Thin.ttf in Resources */,
 				20056ED02C624130000B661B /* Assets.xcassets in Resources */,
@@ -416,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5332C8727480060354A /* HeartAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5342C8727480060354A /* HeartAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,14 +498,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
+				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
+				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
 				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
+				20C0D5382C8730C10060354A /* TwitterHeart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,9 +517,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D53D2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A338A2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 				2075F3A52C636F670010536E /* LoginView.swift in Sources */,
+				20C0D5392C8730C10060354A /* TwitterHeart.swift in Sources */,
+				20C0D52C2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */,
+				20C0D5272C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33822C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				209A33792C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				209A33862C6CCE3E008B8D9B /* Country.swift in Sources */,
@@ -462,14 +535,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D53E2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33872C6CCE3E008B8D9B /* Country.swift in Sources */,
 				209A337A2C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				2075F3A62C636F670010536E /* LoginView.swift in Sources */,
+				20C0D52D2C8715580060354A /* TrendingProductItem.swift in Sources */,
+				20C0D5282C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33832C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */,
 				20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */,
 				209A337F2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
+				20C0D53A2C8730C10060354A /* TwitterHeart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +861,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20C0D52F2C8725A20060354A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		20C0D5352C8727E70060354A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20056EC02C62412F000B661B /* Project object */;
 }

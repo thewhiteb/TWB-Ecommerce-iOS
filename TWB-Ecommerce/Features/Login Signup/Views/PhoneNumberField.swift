@@ -26,7 +26,7 @@ struct PhoneNumberField: View {
             // Phone Number Field
             TextField("Phone Number", text: $phoneNumber)
                 .keyboardType(.phonePad)
-                .padding(.leading, 8)  // Add some padding to the left of the TextField
+                .padding(.leading, 0)  // Add some padding to the left of the TextField
         }
         .padding()
         .overlay(
@@ -34,7 +34,10 @@ struct PhoneNumberField: View {
                 .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
         )
         .sheet(isPresented: $isCountryPickerPresented) {
-            CountryPickerView(selectedCountry: $selectedCountry)
+            CountryPickerView(onCountrySelected: { selectedCountry in
+                self.selectedCountry = selectedCountry // Update selected country
+            })
+            .presentationDetents([.fraction(0.8), .large])
         }
     }
 }
