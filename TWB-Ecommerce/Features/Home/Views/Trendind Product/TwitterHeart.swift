@@ -46,6 +46,7 @@ struct TwitterHeart: View {
                 delay: 0.5,
                 color: angle
             ))
+
         }
         return arr
     }
@@ -109,10 +110,10 @@ struct TwitterHeart: View {
                     .frame(width: pos.size, height: pos.size)
                     .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? pos.duration : 0).delay(touch ? 0.3 : 0))
                     .opacity(touch ? 0.4 : 1)
-                    .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 1 : 0).delay(touch ? 1.5 : 0))
+                    .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 0.5 : 0).delay(touch ? 1.5 : 0))
                     .scaleEffect(x: touch ? 0 : 1, y: touch ? 0 : 1, anchor: .center)
                     .offset(x: touch ? pos.x2 : 0, y: touch ? pos.y2 : 0)
-                    .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 1.8 : 0).delay(touch ? pos.delay : 0))
+                    .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 0.5 : 0).delay(touch ? pos.delay : 0))
             }
         }.frame(width: 20, height: 20)
     }

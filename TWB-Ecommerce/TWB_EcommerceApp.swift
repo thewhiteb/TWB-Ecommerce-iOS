@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct TWB_EcommerceApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             SplashView()

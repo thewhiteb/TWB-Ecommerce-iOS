@@ -61,6 +61,15 @@
 		20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
 		20C0D53D2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
 		20C0D53E2C873CB60060354A /* TrendingProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D53B2C873CB60060354A /* TrendingProductList.swift */; };
+		20C0D5412C88356C0060354A /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D5402C88356C0060354A /* FacebookBasics */; };
+		20C0D5432C88356C0060354A /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D5422C88356C0060354A /* FacebookCore */; };
+		20C0D5452C88356C0060354A /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D5442C88356C0060354A /* FacebookLogin */; };
+		20C0D5482C883D390060354A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5472C883D390060354A /* AppDelegate.swift */; };
+		20C0D5492C883D390060354A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5472C883D390060354A /* AppDelegate.swift */; };
+		20C0D54A2C883D390060354A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5472C883D390060354A /* AppDelegate.swift */; };
+		20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D54C2C8843B90060354A /* FBLoginManager.swift */; };
+		20C0D54E2C8843B90060354A /* FBLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D54C2C8843B90060354A /* FBLoginManager.swift */; };
+		20C0D54F2C8843B90060354A /* FBLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D54C2C8843B90060354A /* FBLoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +124,9 @@
 		20C0D5312C8727480060354A /* HeartAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartAnimation.json; sourceTree = "<group>"; };
 		20C0D5372C8730C10060354A /* TwitterHeart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterHeart.swift; sourceTree = "<group>"; };
 		20C0D53B2C873CB60060354A /* TrendingProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingProductList.swift; sourceTree = "<group>"; };
+		20C0D5462C8839FA0060354A /* TWB-Ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-Ecommerce.entitlements"; sourceTree = "<group>"; };
+		20C0D5472C883D390060354A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		20C0D54C2C8843B90060354A /* FBLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +134,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5452C88356C0060354A /* FacebookLogin in Frameworks */,
 				20C0D5302C8725A20060354A /* Lottie in Frameworks */,
+				20C0D5432C88356C0060354A /* FacebookCore in Frameworks */,
+				20C0D5412C88356C0060354A /* FacebookBasics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +182,7 @@
 		20056ECA2C62412F000B661B /* TWB-Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				20C0D5462C8839FA0060354A /* TWB-Ecommerce.entitlements */,
 				209A33352C64CB74008B8D9B /* Info.plist */,
 				209A331C2C64C99A008B8D9B /* fonts */,
 				2075F39E2C635F360010536E /* Base Components */,
@@ -176,6 +192,7 @@
 				20056ECF2C624130000B661B /* Assets.xcassets */,
 				20056ED12C624130000B661B /* Preview Content */,
 				20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */,
+				20C0D5472C883D390060354A /* AppDelegate.swift */,
 			);
 			path = "TWB-Ecommerce";
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 		2075F39F2C636E9F0010536E /* Login Signup */ = {
 			isa = PBXGroup;
 			children = (
+				20C0D54B2C88439E0060354A /* manager */,
 				2075F3A22C636ECC0010536E /* Views */,
 				2075F3A12C636EC70010536E /* Models */,
 				2075F3A02C636EBD0010536E /* View Models */,
@@ -344,6 +362,14 @@
 			path = "Trendind Product";
 			sourceTree = "<group>";
 		};
+		20C0D54B2C88439E0060354A /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				20C0D54C2C8843B90060354A /* FBLoginManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,6 +388,9 @@
 			name = "TWB-Ecommerce";
 			packageProductDependencies = (
 				20C0D52F2C8725A20060354A /* Lottie */,
+				20C0D5402C88356C0060354A /* FacebookBasics */,
+				20C0D5422C88356C0060354A /* FacebookCore */,
+				20C0D5442C88356C0060354A /* FacebookLogin */,
 			);
 			productName = "TWB-Ecommerce";
 			productReference = 20056EC82C62412F000B661B /* TWB-Ecommerce.app */;
@@ -440,6 +469,7 @@
 			mainGroup = 20056EBF2C62412F000B661B;
 			packageReferences = (
 				20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				20C0D53F2C88356B0060354A /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 20056EC92C62412F000B661B /* Products */;
 			projectDirPath = "";
@@ -501,11 +531,13 @@
 				20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
+				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
+				20C0D5482C883D390060354A /* AppDelegate.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
 				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
@@ -517,12 +549,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C0D5492C883D390060354A /* AppDelegate.swift in Sources */,
 				20C0D53D2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A338A2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 				2075F3A52C636F670010536E /* LoginView.swift in Sources */,
 				20C0D5392C8730C10060354A /* TwitterHeart.swift in Sources */,
 				20C0D52C2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */,
+				20C0D54E2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				20C0D5272C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33822C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				209A33792C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
@@ -538,11 +572,13 @@
 				20C0D53E2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33872C6CCE3E008B8D9B /* Country.swift in Sources */,
 				209A337A2C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
+				20C0D54F2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				2075F3A62C636F670010536E /* LoginView.swift in Sources */,
 				20C0D52D2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5282C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33832C6B899B008B8D9B /* SocialButton.swift in Sources */,
 				20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */,
+				20C0D54A2C883D390060354A /* AppDelegate.swift in Sources */,
 				20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */,
 				209A337F2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
@@ -690,6 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TWB-Ecommerce/TWB-Ecommerce.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
@@ -720,6 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TWB-Ecommerce/TWB-Ecommerce.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
@@ -871,6 +909,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		20C0D53F2C88356B0060354A /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -883,6 +929,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		20C0D5402C88356C0060354A /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0D53F2C88356B0060354A /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		20C0D5422C88356C0060354A /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0D53F2C88356B0060354A /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		20C0D5442C88356C0060354A /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0D53F2C88356B0060354A /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
