@@ -17,8 +17,8 @@ struct Spark: Hashable {
     var y: CGFloat = 0
     var x2: CGFloat = 0
     var y2: CGFloat = 0
-    var duration: Double = 1.5
-    var delay: Double = 1.2
+    var duration: Double = 0.5
+    var delay: Double = 0.2
     var color: Double
 }
 
@@ -43,7 +43,7 @@ struct TwitterHeart: View {
                 y: CGFloat(longDistance * sin(rad)),
                 x2: CGFloat((longDistance + 10) * cos(rad)),
                 y2: CGFloat((longDistance + 10) * sin(rad)),
-                delay: 0.5,
+                delay: 0.3,
                 color: angle
             ))
 
@@ -71,7 +71,7 @@ struct TwitterHeart: View {
                         .aspectRatio(contentMode: .fit)
                         .opacity(touch ? 1 : 0)
                         .foregroundColor(Color(UIColor.systemRed))
-                        .animation(Animation.timingCurve(0.17,1.67,0.61,0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.8 : 0))
+                        .animation(Animation.timingCurve(0.17,1.67,0.61,0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.3 : 0))
 
                 }.frame(width: 25)
    

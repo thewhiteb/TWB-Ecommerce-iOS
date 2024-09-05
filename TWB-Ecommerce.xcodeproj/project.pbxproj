@@ -10,9 +10,6 @@
 		20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */; };
 		20056ED02C624130000B661B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ECF2C624130000B661B /* Assets.xcassets */; };
 		20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ED22C624130000B661B /* Preview Assets.xcassets */; };
-		20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EDC2C624130000B661B /* TWB_EcommerceTests.swift */; };
-		20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */; };
-		20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */; };
 		2075F3A42C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
 		2075F3A52C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
 		2075F3A62C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
@@ -95,10 +92,7 @@
 		20056ECF2C624130000B661B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20056ED22C624130000B661B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20056ED82C624130000B661B /* TWB-EcommerceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TWB-EcommerceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		20056EDC2C624130000B661B /* TWB_EcommerceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceTests.swift; sourceTree = "<group>"; };
 		20056EE22C624130000B661B /* TWB-EcommerceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TWB-EcommerceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITests.swift; sourceTree = "<group>"; };
-		20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2075F3A32C636F670010536E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		209A33352C64CB74008B8D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		209A33612C6B406D008B8D9B /* Baskerville.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baskerville.ttf; sourceTree = "<group>"; };
@@ -127,6 +121,7 @@
 		20C0D5462C8839FA0060354A /* TWB-Ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-Ecommerce.entitlements"; sourceTree = "<group>"; };
 		20C0D5472C883D390060354A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C0D54C2C8843B90060354A /* FBLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginManager.swift; sourceTree = "<group>"; };
+		20C0D5502C888E5A0060354A /* TWB-Ecommerce.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TWB-Ecommerce.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +157,8 @@
 		20056EBF2C62412F000B661B = {
 			isa = PBXGroup;
 			children = (
+				20C0D5502C888E5A0060354A /* TWB-Ecommerce.xctestplan */,
 				20056ECA2C62412F000B661B /* TWB-Ecommerce */,
-				20056EDB2C624130000B661B /* TWB-EcommerceTests */,
-				20056EE52C624130000B661B /* TWB-EcommerceUITests */,
 				20056EC92C62412F000B661B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -203,23 +197,6 @@
 				20056ED22C624130000B661B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		20056EDB2C624130000B661B /* TWB-EcommerceTests */ = {
-			isa = PBXGroup;
-			children = (
-				20056EDC2C624130000B661B /* TWB_EcommerceTests.swift */,
-			);
-			path = "TWB-EcommerceTests";
-			sourceTree = "<group>";
-		};
-		20056EE52C624130000B661B /* TWB-EcommerceUITests */ = {
-			isa = PBXGroup;
-			children = (
-				20056EE62C624130000B661B /* TWB_EcommerceUITests.swift */,
-				20056EE82C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift */,
-			);
-			path = "TWB-EcommerceUITests";
 			sourceTree = "<group>";
 		};
 		2075F39E2C635F360010536E /* Base Components */ = {
@@ -555,7 +532,6 @@
 				2075F3A52C636F670010536E /* LoginView.swift in Sources */,
 				20C0D5392C8730C10060354A /* TwitterHeart.swift in Sources */,
 				20C0D52C2C8715580060354A /* TrendingProductItem.swift in Sources */,
-				20056EDD2C624130000B661B /* TWB_EcommerceTests.swift in Sources */,
 				20C0D54E2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				20C0D5272C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33822C6B899B008B8D9B /* SocialButton.swift in Sources */,
@@ -577,9 +553,7 @@
 				20C0D52D2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5282C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33832C6B899B008B8D9B /* SocialButton.swift in Sources */,
-				20056EE72C624130000B661B /* TWB_EcommerceUITests.swift in Sources */,
 				20C0D54A2C883D390060354A /* AppDelegate.swift in Sources */,
-				20056EE92C624130000B661B /* TWB_EcommerceUITestsLaunchTests.swift in Sources */,
 				209A337F2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 				20C0D53A2C8730C10060354A /* TwitterHeart.swift in Sources */,
