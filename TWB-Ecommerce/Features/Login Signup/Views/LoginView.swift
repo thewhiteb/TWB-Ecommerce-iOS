@@ -10,8 +10,9 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var phoneNumber: String = ""
+    @State private var err : String = ""
     @ObservedObject var fbmanager = FBLoginManager()
-    
+    @State private var userInfo: (username: String, email: String)?
     var body: some View {
         VStack{
             HStack{
@@ -71,6 +72,15 @@ struct LoginView: View {
             HStack{
                 SocialButton(imageName: "google_logo", action: {
                     
+                    Task {
+                        do {
+                            let result = try await GoogleLoginManager().googleOauth()
+                            userInfo = result
+                            print("Username: \(result.username), Email: \(result.email)")
+                        } catch AuthenticationError.runtimeError(let errorMessage) {
+                            err = errorMessage
+                        }
+                    }
                 })
                 Spacer()
                 SocialButton(imageName: "apple_logo", action: {

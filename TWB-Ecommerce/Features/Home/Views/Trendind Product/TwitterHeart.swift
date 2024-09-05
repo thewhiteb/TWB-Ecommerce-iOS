@@ -31,7 +31,6 @@ struct TwitterHeart: View {
 
     private var positions: [Spark] {
         var arr: [Spark] = []
-        let shortDistance: Double = 10
         let longDistance: Double = 20
 
         for i in 0...6 {
