@@ -39,6 +39,7 @@
 		209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
 		209A338A2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
 		209A338B2C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
+		20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */; };
 		20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB05E62C62597A00A3DF38 /* SplashView.swift */; };
 		20BB05E92C625ED100A3DF38 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */; };
 		20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5252C870A6F0060354A /* BannerSlide.swift */; };
@@ -116,6 +117,8 @@
 		209A33802C6B899B008B8D9B /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		209A33842C6CCE3E008B8D9B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Country.swift; path = "TWB-Ecommerce/Features/Login Signup/Views/Country.swift"; sourceTree = SOURCE_ROOT; };
 		209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
+		20A4141B2C8B31C300D03BC4 /* TWB-EcommerceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-EcommerceDebug.entitlements"; sourceTree = "<group>"; };
+		20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		20BB05E62C62597A00A3DF38 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		20BB05E82C625ED100A3DF38 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		20C0D5252C870A6F0060354A /* BannerSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSlide.swift; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 		20056ECA2C62412F000B661B /* TWB-Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				20A4141B2C8B31C300D03BC4 /* TWB-EcommerceDebug.entitlements */,
 				20C0D55B2C8991A80060354A /* GoogleService-Info.plist */,
 				20C0D5462C8839FA0060354A /* TWB-Ecommerce.entitlements */,
 				209A33352C64CB74008B8D9B /* Info.plist */,
@@ -355,6 +359,7 @@
 			children = (
 				20C0D54C2C8843B90060354A /* FBLoginManager.swift */,
 				20C0D55F2C89A0D80060354A /* GoogleLoginManager.swift */,
+				20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */,
+				20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20C0D5482C883D390060354A /* AppDelegate.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
@@ -719,11 +725,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "TWB-Ecommerce/TWB-Ecommerce.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "TWB-Ecommerce/TWB-EcommerceDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QMDK88745;
+				DEVELOPMENT_TEAM = HTLHQV8AQ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";

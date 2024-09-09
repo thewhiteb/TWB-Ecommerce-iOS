@@ -84,7 +84,7 @@ struct LoginView: View {
                 })
                 Spacer()
                 SocialButton(imageName: "apple_logo", action: {
-                    
+                    AppleSignInManager.shared.startSignInWithAppleFlow()
                 })
                 Spacer()
                 SocialButton(imageName: "facebook_logo", action: {
