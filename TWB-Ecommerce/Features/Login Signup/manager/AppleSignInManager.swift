@@ -6,12 +6,13 @@
 //
 
 import AuthenticationServices
+import SwiftUI
 
-class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate {
+class AppleSignInManager: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
     
-    static let shared = AppleSignInManager()
-    
-    // Function to initiate Sign in with Apple
+    @Published var userInfo: (username: String, email: String)?
+    @Published var errorMessage: String?
+
     func startSignInWithAppleFlow() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -26,20 +27,19 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
+            let fullName = appleIDCredential.fullName?.givenName ?? "No Name"
+            let email = appleIDCredential.email ?? "No Email"
             
-            // Handle successful login here
-            print("Apple Sign-In Successful!")
-            print("User ID: \(userIdentifier)")
-            print("Full Name: \(String(describing: fullName))")
-            print("Email: \(String(describing: email))")
+            DispatchQueue.main.async {
+                self.userInfo = (username: fullName, email: email)
+            }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error in sign-in process
-        print("Apple Sign-In Failed: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.errorMessage = error.localizedDescription
+        }
     }
 }
 
