@@ -31,7 +31,6 @@ struct TwitterHeart: View {
 
     private var positions: [Spark] {
         var arr: [Spark] = []
-        let shortDistance: Double = 10
         let longDistance: Double = 20
 
         for i in 0...6 {
@@ -73,12 +72,13 @@ struct TwitterHeart: View {
                         .foregroundColor(Color(UIColor.systemRed))
                         .animation(Animation.timingCurve(0.17,1.67,0.61,0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.3 : 0))
 
-                }.frame(width: 25)
+                }.frame(width: 20)
    
-            }.frame(width: 25)
+            }.frame(width: 20)
 
         }
-        .frame(width: 25)
+        .frame(width: 20)
+        .contentShape(Rectangle())
         .onTapGesture{
             if self.start {
                 return
