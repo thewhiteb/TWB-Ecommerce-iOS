@@ -1,5 +1,5 @@
 {
-  "originHash" : "3c25d77b2102d8bd3beb6a55918b6334c5c7a0007c5393b759714c56d41cfbb8",
+  "originHash" : "3234f4c7b26f8e33c372a1e28fa4d7fee95e9239c673bebd4eb81399ef146f2f",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "194a6706acbd25e4ef639bcaddea16e8758a3e27",
         "version" : "1.2024011602.0"
+      }
+    },
+    {
+      "identity" : "acarousel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JWAutumn/ACarousel.git",
+      "state" : {
+        "revision" : "8a322513580f21288fd87eb3a1341c247b3e2a76",
+        "version" : "0.2.0"
       }
     },
     {

@@ -30,7 +30,8 @@ struct TabContentView: View {
                 }
             }
             .frame(maxHeight: .infinity) // This ensures the content takes up the available space
-
+            .ignoresSafeArea(.all, edges: .top) // Extends the view behind the status bar
+            
             // Custom Tab Bar with Top Border
             VStack(spacing: 0) {
                 // Top border for the tab bar
@@ -41,39 +42,39 @@ struct TabContentView: View {
                 // Tab buttons
                 HStack(alignment: .top) {  // Align items to the top
                     Spacer()
-                    tabBarButton(image: "HomeIcon_Sel", text: "Home", tag: 0)
+                    tabBarButton(image: "HomeIcon_Sel", selectedImage: "HomeIcon_UnSel", text: "Home", tag: 0)
                     Spacer()
-                    tabBarButton(image: "SearchIcon_UnSel", text: "Search", tag: 1)
+                    tabBarButton(image: "SearchIcon_Sel", selectedImage: "SearchIcon_UnSel", text: "Search", tag: 1)
                     Spacer()
-                    tabBarButton(image: "WhiteBTQIcon_UnSel", text: "", tag: 2, isWhiteBTQ: true) // Larger image for this
+                    tabBarButton(image: "WhiteBTQIcon_Sel", selectedImage: "WhiteBTQIcon_UnSel", text: "", tag: 2, isWhiteBTQ: true)
                     Spacer()
-                    tabBarButton(image: "BagIcon_UnSel", text: "Bag", tag: 3)
+                    tabBarButton(image: "BagIcon_Sel", selectedImage: "BagIcon_UnSel", text: "Bag", tag: 3)
                     Spacer()
-                    tabBarButton(image: "ProfileIcon_UnSel", text: "Profile", tag: 4)
+                    tabBarButton(image: "ProfileIcon_Sel", selectedImage: "ProfileIcon_UnSel", text: "Profile", tag: 4)
                     Spacer()
                 }
                 .padding(.vertical, 20)
                 .background(Color.white)
             }
         }
-        .edgesIgnoringSafeArea(.bottom) // Ensures the content extends to the bottom edge of the screen
+        .ignoresSafeArea(.all, edges: .bottom) // Ensures the content extends behind the tab bar area
     }
     
-    private func tabBarButton(image: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {
+    private func tabBarButton(image: String, selectedImage: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {
         Button(action: {
             selectedTab = tag
         }) {
             VStack(alignment: .center, spacing: 0) {
-                // Adjust the size conditionally for WhiteBTQ and align it to the top
-                Image(image)
+                // Display selected or unselected image based on the current selected tab
+                Image(selectedTab == tag ? image : selectedImage)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: isWhiteBTQ ? 35 : 24, height: isWhiteBTQ ? 35 : 24) // Larger size for WhiteBTQ
-                    .padding(.top, isWhiteBTQ ? 0 : 0) // Optional: Adjust padding for WhiteBTQ
                 
                 if !text.isEmpty {
                     Text(text)
                         .font(.custom("Baskerville", size: 12)) // Custom font applied here
                         .foregroundColor(selectedTab == tag ? .black : .gray)
-                        .padding(.top,5)
+                        .padding(.top, 5)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .top) // Make sure the content takes up the full width and aligns to the top

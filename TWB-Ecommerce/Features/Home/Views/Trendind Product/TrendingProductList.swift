@@ -9,13 +9,21 @@ import SwiftUI
 
 struct TrendingProductList: View {
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 16) {
-                TrendingProductItem(imageName: "Image 1", itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
-                TrendingProductItem(imageName: "Image 1", itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
-                TrendingProductItem(imageName: "Image 1", itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+        ScrollView(.horizontal,showsIndicators: false) {
+            LazyHStack() {
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+                TrendingProductItem(  images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+                                      itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
             }
-            .padding()
         }
     }
 }

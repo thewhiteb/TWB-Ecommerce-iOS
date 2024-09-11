@@ -9,13 +9,170 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("Home")
-            .font(.largeTitle)
-            .padding()
+        ScrollView {
+            VStack {
+                BannerSlide()
+                
+                VStack(spacing: 0) {
+                    Text("Trending Products")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("Highlight Of The Week")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                .padding(.top, 40)
+                
+                TrendingProductList()
+                    .padding(.top, 30)
+                    .padding(.leading, 10)
+                
+                FeatureProductsBanner()
+                    .padding(.top, 30)
+                
+                VStack(spacing: 0) {
+                    Text("GIFT BY OCCASION")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("For Perfect Moments")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                
+                SimpleGiftOccasionList()
+                    .padding(.top, 30)
+                
+                NowOpeningBanner()
+                    .padding(.top, 50)
+                
+                VStack(spacing: 0) {
+                    Text("SHOP BY STYLE")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("Explore our latest floral styles")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                .padding(.top, 40)
+                
+                ShopByStyles()
+                    .padding(.top, 20)
+                
+                VStack(spacing: 0) {
+                    Text("New Arrivals")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("Explore Our Latest Blooms!")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                .padding(.top, 20)
+                
+                NewArrivals()
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
+                    .padding(.top, 30)
+                
+                BorderButton(title: "View New Collection", action: {
+                    // Example action
+                    print("Bordered Button clicked!")
+                })
+                
+                VStack(spacing: 0) {
+                    Text("Gift By Color")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("Choose the Perfect Gift by Color")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                .padding(.top, 40)
+                
+                GiftByColor()
+                    .padding(.top, 30)
+                
+                VStack(spacing: 0){
+                    Text("Shop By Flowers")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .padding(.top,40)
+                    
+                    Text("Pick Your Favorite Flowers")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                    
+                    ShopByFlowers()
+                        .padding(.top,30)
+                        .padding(.bottom,50)
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .background(Color(red: 0.93, green: 0.95, blue: 0.96))
+
+                VStack(spacing: 0) {
+                    Text("On Sale")
+                        .font(Font.custom("Baskerville", size: 20))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Text("Great Deal Await")
+                        .font(Font.custom("Baskerville", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                        .padding(.top, 2)
+                }
+                .padding(.top, 40)
+                
+                OnSale()
+                    .padding(.top,30)
+                    .padding(.leading,10)
+                    .padding(.trailing,10)
+                
+                BorderButton(title: "View All", action: {
+                    // Example action
+                    print("Bordered Button clicked!")
+                })
+                .padding(.top,40)
+                .padding(.bottom,40)
+                
+                
+            }
+        }
+        .background(Color.white) // Set the parent background to white
+        .edgesIgnoringSafeArea(.top) // Scroll under the status bar
     }
 }
-
 
 #Preview {
     HomeView()
 }
+
