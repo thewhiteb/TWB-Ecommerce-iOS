@@ -43,17 +43,19 @@ class GoogleLoginManager: ObservableObject {
                 throw AuthenticationError.runtimeError("Failed to retrieve user details")
             }
             
+            // Update userInfo and print it
             DispatchQueue.main.async {
                 self.userInfo = (username: username, email: email)
+                print("Google User Info: Username: \(username), Email: \(email)")
             }
         } catch {
             DispatchQueue.main.async {
                 self.errorMessage = error.localizedDescription
+                print("Google Sign-In Error: \(error.localizedDescription)")
             }
         }
     }
 }
-
 
 enum AuthenticationError: Error {
     case runtimeError(String)

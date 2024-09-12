@@ -49,7 +49,7 @@ struct SplashView: View {
             .padding()
             .background(Color.white)
             .navigationDestination(isPresented: $navigateToNextScreen) {
-                LoginView()
+                TabContentView()
             }
         }
         .background(Color.white)

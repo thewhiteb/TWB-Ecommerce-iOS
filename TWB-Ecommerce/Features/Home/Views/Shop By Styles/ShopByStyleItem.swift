@@ -22,7 +22,7 @@ struct ShopByStyleItem: View {
             Image(item.imageName)
                 .resizable() // Make image resizable
                 .scaledToFit() // Ensure the image scales proportionally
-                .frame(width: .infinity, height: 180) // Set a fixed size for the image
+                .frame(height: 180) // Set a fixed size for the image
                 .padding(0)
         }
         .frame(width: 130, height: 220) // Fix the frame size of the VStack

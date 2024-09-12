@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.presentationMode) var presentationMode  // To handle navigation back
     @State private var phoneNumber: String = ""
     @State private var err: String = ""
     
@@ -22,9 +23,15 @@ struct LoginView: View {
         VStack {
             // Top bar with cross icon
             HStack {
-                Image("cross")
-                    .padding(.leading, 16)
-                    .padding(.top, 20)
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()  // Go back to the previous view
+                }) {
+                    Image("cross")
+                        .resizable()
+                        .frame(width: 24, height: 24) // Adjust the size of the cross image
+                }
+                .padding(.leading, 16)
+                .padding(.top, 20)
                 Spacer()
             }
 
@@ -101,23 +108,6 @@ struct LoginView: View {
 
             Spacer()
 
-            // Displaying user info or errors after login attempts
-            if let userInfo = googleManager.userInfo {
-                Text("Google User: \(userInfo.username), Email: \(userInfo.email)")
-            }
-            
-            if let userInfo = appleManager.userInfo {
-                Text("Apple User: \(userInfo.username), Email: \(userInfo.email)")
-            }
-
-            if let error = googleManager.errorMessage {
-                Text("Google Sign-In Error: \(error)").foregroundColor(.red)
-            }
-
-            if let error = appleManager.errorMessage {
-                Text("Apple Sign-In Error: \(error)").foregroundColor(.red)
-            }
-
             // Option for creating a new account
             HStack {
                 Text("Don't have an account?")
@@ -129,14 +119,17 @@ struct LoginView: View {
                 }) {
                     Text("Create one")
                         .font(.custom("Baskerville", size: 14))
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .underline()
                         .foregroundColor(.black)
                 }
             }
-            .padding(.bottom, 20) // Adjust bottom padding as needed
+            .padding(.bottom, 50) // Adjust bottom padding as needed
         }
         .navigationBarBackButtonHidden(true) // Hide back button
+        .onTapGesture {
+            UIApplication.shared.hideKeyboard()  // Dismiss the keyboard when tapping outside
+        }
     }
 }
 
