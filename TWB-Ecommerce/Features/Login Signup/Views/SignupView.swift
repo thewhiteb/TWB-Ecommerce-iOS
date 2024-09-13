@@ -1,4 +1,11 @@
 //
+//  SignupView.swift
+//  TWB-Ecommerce
+//
+//  Created by Khurram Ansar on 12/09/2024.
+//
+
+//
 //  LoginView.swift
 //  TWB-Ecommerce
 //
@@ -7,12 +14,14 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct SignupView: View {
     @Environment(\.presentationMode) var presentationMode  // To handle navigation back
     @State private var phoneNumber: String = ""
     @State private var err: String = " "
     @State private var navigateToOtp = false  // To control navigation to OtpView
-    @State private var navigateToSignup = false  // To control navigation to SignupView
+    @State private var email: String = ""
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
     
     // Managers for handling social logins
     @ObservedObject var fbManager = FBLoginManager()            // Facebook login manager
@@ -38,7 +47,7 @@ struct LoginView: View {
                 
                 // Welcome text
                 HStack {
-                    Text("Welcome!")
+                    Text("Sign Up")
                         .font(.custom("Baskerville", size: 38))
                         .fontWeight(.semibold)
                         .padding(.top, 50)
@@ -48,20 +57,33 @@ struct LoginView: View {
                 
                 // Subheading text
                 HStack {
-                    Text("Log in to your account to access joyful gifting.")
+                    Text("Sign up to access joyful gifting.")
                         .font(.custom("Baskerville", size: 18))
                         .padding(.leading, 17)
                         .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                     Spacer()
                 }
                 
+                HStack(spacing :0){
+                    SimpleTextField(text: $firstName, hint: "Frist Name")
+                    Spacer()
+                    SimpleTextField(text: $lastName, hint: "Last Name")
+                }
+                .padding(.top,50)
+                .padding(.horizontal,15)
+                
                 // Phone number input field
                 PhoneNumberField(phoneNumber: $phoneNumber)
-                    .frame(height: 60) // Set height to 60
+                    .frame(height: 40) // Set height to 40
                     .frame(maxWidth: .infinity) // Make it span the full width
                     .padding(.leading, 16)
                     .padding(.trailing, 16)
-                    .padding(.top, 50) // Optional: Adjust top padding as needed
+                    .padding(.top, 20) // Optional: Adjust top padding as needed
+                
+                SimpleTextField(text: $email, hint: "Email")
+                    .padding(.top,20)
+                    .padding(.horizontal,15)
+                
                 
                 // Show error message if the phone number is empty
                 Text(err)
@@ -71,7 +93,7 @@ struct LoginView: View {
                     .padding(.leading,20)
                 
                 // Login button
-                SimpleButton(title: "Login", action: {
+                SimpleButton(title: "Sign Up", action: {
                     if phoneNumber.isEmpty {
                         // Show error if the phone number is empty
                         err = "Please enter your phone number"
@@ -124,15 +146,14 @@ struct LoginView: View {
                 // Option for creating a new account
                 HStack {
                     Spacer()
-                    Text("Don't have an account?")
+                    Text("You have an account??")
                         .font(.custom("Baskerville", size: 14))
                         .foregroundColor(.gray)
                     
-                    // Button to navigate to SignupView
                     Button(action: {
-                        navigateToSignup = true  // Trigger navigation to SignupView
+                        // Action for creating an account
                     }) {
-                        Text("Create one")
+                        Text("Login")
                             .font(.custom("Baskerville", size: 14))
                             .fontWeight(.semibold)
                             .underline()
@@ -146,9 +167,6 @@ struct LoginView: View {
             .navigationDestination(isPresented: $navigateToOtp) {
                 OtpView(phoneNumber: phoneNumber)  // Navigate and pass the phone number
             }
-            .navigationDestination(isPresented: $navigateToSignup) {
-                SignupView()  // Navigate to SignupView
-            }
             .navigationBarBackButtonHidden(true) // Hide back button
             .onTapGesture {
                 UIApplication.shared.hideKeyboard()  // Dismiss the keyboard when tapping outside
@@ -158,5 +176,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    SignupView()
 }
+

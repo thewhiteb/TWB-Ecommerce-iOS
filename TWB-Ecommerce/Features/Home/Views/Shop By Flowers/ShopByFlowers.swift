@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct ShopByFlowers: View {
+    @State private var scrollOffset: CGFloat = 0.25  // Start progress at 25%
+    @State private var maxScrollWidth: CGFloat = 0  // To store the scrollable width
+    @State private var contentWidth: CGFloat = 0    // To store the total content width
     
     // Sample data using the GiftItem model
     let items = [
