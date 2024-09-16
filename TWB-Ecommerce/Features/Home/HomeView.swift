@@ -12,8 +12,8 @@ struct HomeView: View {
 
     var body: some View {
         ZStack(alignment: .top) {
-            ScrollView {
-                VStack {
+            ScrollView(.vertical, showsIndicators :false) {
+                VStack() {
                     BannerSlide()
                     
                     VStack(spacing: 0) {
@@ -34,7 +34,6 @@ struct HomeView: View {
                     TrendingProductList()
                         .padding(.top, 30)
                         .padding(.leading, 10)
-                        .padding(.trailing,10)
                     
                     FeatureProductsBanner()
                         .padding(.top, 30)
@@ -56,7 +55,6 @@ struct HomeView: View {
                     SimpleGiftOccasionList()
                         .padding(.top, 30)
                         .padding(.leading, 10)
-                        .padding(.trailing,10)
                     NowOpeningBanner()
                         .padding(.top, 50)
                     
@@ -187,6 +185,7 @@ struct HomeView: View {
                     }
                 )
             }
+            
             
             // Gradient shadow at the top of the view when scrolled down
             if showTopShadow {

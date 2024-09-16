@@ -61,6 +61,7 @@ struct SimpleGiftOccasionList: View {
                 .frame(height: 1)  // Use `1` for a thin, visible progress bar
                 .scaleEffect(x: 1, y: 0.5, anchor: .center)  // Scale down the height
                 .padding(.top, 20)
+                .padding(.trailing,10)
         }
        
     }
