@@ -10,12 +10,18 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text("Profile")
-            .font(.largeTitle)
-            .padding()
+        NavigationView {
+            VStack {
+                NavigationLink(destination: LoginView()) {
+                    Text("Profile")
+                        .font(.largeTitle)
+                        .padding()
+                        .foregroundColor(.blue) // Optional: Make the text look clickable
+                }
+            }
+        }
     }
 }
-
 #Preview {
     ProfileView()
 }

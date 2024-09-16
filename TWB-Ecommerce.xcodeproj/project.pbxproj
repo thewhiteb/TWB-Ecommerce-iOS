@@ -22,11 +22,8 @@
 		209A33742C6B4255008B8D9B /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336B2C6B4255008B8D9B /* Lato-ThinItalic.ttf */; };
 		209A33752C6B4255008B8D9B /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336C2C6B4255008B8D9B /* Lato-Light.ttf */; };
 		209A33762C6B4255008B8D9B /* Latobold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336D2C6B4255008B8D9B /* Latobold.ttf */; };
-		209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33772C6B628B008B8D9B /* PhoneNumberField.swift */; };
 		209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
-		209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33802C6B899B008B8D9B /* SocialButton.swift */; };
 		209A33852C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
-		209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */; };
 		20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */; };
 		20A414212C8EC31400D03BC4 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414202C8EC31400D03BC4 /* TabContentView.swift */; };
 		20A414232C8EC85700D03BC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414222C8EC85700D03BC4 /* HomeView.swift */; };
@@ -47,6 +44,17 @@
 		20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEC62C91CA980074471B /* ShopByFlowers.swift */; };
 		20C0CECB2C91CDF60074471B /* OnSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CECA2C91CDF60074471B /* OnSale.swift */; };
 		20C0CECD2C91CFBB0074471B /* OnSaleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CECC2C91CFBB0074471B /* OnSaleItem.swift */; };
+		20C0CED02C92C6B70074471B /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CECF2C92C6B70074471B /* CountryPickerView.swift */; };
+		20C0CED22C92C6D50074471B /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CED12C92C6D50074471B /* PhoneNumberField.swift */; };
+		20C0CED42C92C7060074471B /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CED32C92C7060074471B /* SocialButton.swift */; };
+		20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CED62C92C7F60074471B /* UIApplication.swift */; };
+		20C0CEE42C92D5500074471B /* OTPView in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0CEE32C92D5500074471B /* OTPView */; };
+		20C0CEE82C92D5AB0074471B /* OtpFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEE72C92D5AB0074471B /* OtpFieldView.swift */; };
+		20C0CEEA2C92F71F0074471B /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEE92C92F71F0074471B /* OtpView.swift */; };
+		20C0CEEC2C92F9A10074471B /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEEB2C92F9A10074471B /* SkipButton.swift */; };
+		20C0CEEE2C931A8F0074471B /* MoreOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEED2C931A8F0074471B /* MoreOptions.swift */; };
+		20C0CEF02C9322CE0074471B /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEEF2C9322CE0074471B /* SignupView.swift */; };
+		20C0CEF22C9323400074471B /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0CEF12C9323400074471B /* SimpleTextField.swift */; };
 		20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D5252C870A6F0060354A /* BannerSlide.swift */; };
 		20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0D52A2C8715580060354A /* TrendingProductItem.swift */; };
 		20C0D5302C8725A20060354A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 20C0D52F2C8725A20060354A /* Lottie */; };
@@ -91,11 +99,8 @@
 		209A336B2C6B4255008B8D9B /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		209A336C2C6B4255008B8D9B /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		209A336D2C6B4255008B8D9B /* Latobold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Latobold.ttf; sourceTree = "<group>"; };
-		209A33772C6B628B008B8D9B /* PhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberField.swift; sourceTree = "<group>"; };
 		209A337C2C6B85D0008B8D9B /* SimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
-		209A33802C6B899B008B8D9B /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		209A33842C6CCE3E008B8D9B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Country.swift; path = "TWB-Ecommerce/Features/Login Signup/Views/Country.swift"; sourceTree = SOURCE_ROOT; };
-		209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
 		20A4141B2C8B31C300D03BC4 /* TWB-EcommerceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-EcommerceDebug.entitlements"; sourceTree = "<group>"; };
 		20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		20A414202C8EC31400D03BC4 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +122,16 @@
 		20C0CEC62C91CA980074471B /* ShopByFlowers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopByFlowers.swift; sourceTree = "<group>"; };
 		20C0CECA2C91CDF60074471B /* OnSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSale.swift; sourceTree = "<group>"; };
 		20C0CECC2C91CFBB0074471B /* OnSaleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSaleItem.swift; sourceTree = "<group>"; };
+		20C0CECF2C92C6B70074471B /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
+		20C0CED12C92C6D50074471B /* PhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberField.swift; sourceTree = "<group>"; };
+		20C0CED32C92C7060074471B /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		20C0CED62C92C7F60074471B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		20C0CEE72C92D5AB0074471B /* OtpFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpFieldView.swift; sourceTree = "<group>"; };
+		20C0CEE92C92F71F0074471B /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
+		20C0CEEB2C92F9A10074471B /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
+		20C0CEED2C931A8F0074471B /* MoreOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptions.swift; sourceTree = "<group>"; };
+		20C0CEEF2C9322CE0074471B /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		20C0CEF12C9323400074471B /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		20C0D5252C870A6F0060354A /* BannerSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSlide.swift; sourceTree = "<group>"; };
 		20C0D52A2C8715580060354A /* TrendingProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingProductItem.swift; sourceTree = "<group>"; };
 		20C0D5312C8727480060354A /* HeartAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartAnimation.json; sourceTree = "<group>"; };
@@ -145,6 +160,7 @@
 				20FE05722C902E4E0022E022 /* ACarousel in Frameworks */,
 				20C0D5452C88356C0060354A /* FacebookLogin in Frameworks */,
 				20C0D5532C8987DD0060354A /* FirebaseAuth in Frameworks */,
+				20C0CEE42C92D5500074471B /* OTPView in Frameworks */,
 				20C0D5582C89884C0060354A /* GoogleSignInSwift in Frameworks */,
 				20C0D5302C8725A20060354A /* Lottie in Frameworks */,
 				20C0D5432C88356C0060354A /* FacebookCore in Frameworks */,
@@ -204,6 +220,7 @@
 		2075F39E2C635F360010536E /* Base Components */ = {
 			isa = PBXGroup;
 			children = (
+				20C0CED52C92C7E50074471B /* Extentions */,
 				209A337B2C6B85BD008B8D9B /* Buttons */,
 			);
 			path = "Base Components";
@@ -238,8 +255,10 @@
 		2075F3A22C636ECC0010536E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				20FE056B2C8F38950022E022 /* Components */,
+				20C0CECE2C92C68F0074471B /* Components */,
 				2075F3A32C636F670010536E /* LoginView.swift */,
+				20C0CEE92C92F71F0074471B /* OtpView.swift */,
+				20C0CEEF2C9322CE0074471B /* SignupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +286,7 @@
 			children = (
 				209A337C2C6B85D0008B8D9B /* SimpleButton.swift */,
 				20C0CEBE2C91BF0A0074471B /* BorderButton.swift */,
+				20C0CEEB2C92F9A10074471B /* SkipButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -410,6 +430,35 @@
 			path = "On Sale";
 			sourceTree = "<group>";
 		};
+		20C0CECE2C92C68F0074471B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				20C0CEDF2C92D41E0074471B /* OTP */,
+				20C0CECF2C92C6B70074471B /* CountryPickerView.swift */,
+				20C0CED12C92C6D50074471B /* PhoneNumberField.swift */,
+				20C0CED32C92C7060074471B /* SocialButton.swift */,
+				20C0CEF12C9323400074471B /* SimpleTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		20C0CED52C92C7E50074471B /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				20C0CED62C92C7F60074471B /* UIApplication.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		20C0CEDF2C92D41E0074471B /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				20C0CEE72C92D5AB0074471B /* OtpFieldView.swift */,
+				20C0CEED2C931A8F0074471B /* MoreOptions.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
 		20C0D5232C870A350060354A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,16 +523,6 @@
 			path = "Banner Slider";
 			sourceTree = "<group>";
 		};
-		20FE056B2C8F38950022E022 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				209A33772C6B628B008B8D9B /* PhoneNumberField.swift */,
-				209A33802C6B899B008B8D9B /* SocialButton.swift */,
-				209A33882C6CCEF0008B8D9B /* CountryPickerView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		20FE05732C9036370022E022 /* Gift By Occasion */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +583,7 @@
 				20C0D5552C89884C0060354A /* GoogleSignIn */,
 				20C0D5572C89884C0060354A /* GoogleSignInSwift */,
 				20FE05712C902E4E0022E022 /* ACarousel */,
+				20C0CEE32C92D5500074471B /* OTPView */,
 			);
 			productName = "TWB-Ecommerce";
 			productReference = 20056EC82C62412F000B661B /* TWB-Ecommerce.app */;
@@ -579,6 +619,7 @@
 				20C0D5512C8987DD0060354A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				20C0D5542C89884C0060354A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				20FE05702C902E4D0022E022 /* XCRemoteSwiftPackageReference "ACarousel" */,
+				20C0CEE22C92D5500074471B /* XCRemoteSwiftPackageReference "otpview-swiftui" */,
 			);
 			productRefGroup = 20056EC92C62412F000B661B /* Products */;
 			projectDirPath = "";
@@ -627,32 +668,39 @@
 				20FE05782C9042410022E022 /* ItemModel.swift in Sources */,
 				20FE056D2C8F38EA0022E022 /* FeatureProducts.swift in Sources */,
 				20A414302C8EC99500D03BC4 /* WhiteBTQView.swift in Sources */,
+				20C0CEE82C92D5AB0074471B /* OtpFieldView.swift in Sources */,
 				20C0CEBB2C91ADDE0074471B /* TrendingProduct.swift in Sources */,
 				20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
-				209A33782C6B628B008B8D9B /* PhoneNumberField.swift in Sources */,
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
+				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				20A414292C8EC8D100D03BC4 /* BagView.swift in Sources */,
 				20C0CEB52C9198560074471B /* ShopByStyleItem.swift in Sources */,
 				20FE056F2C9028750022E022 /* FeatureProductsBanner.swift in Sources */,
+				20C0CEEA2C92F71F0074471B /* OtpView.swift in Sources */,
+				20C0CEEE2C931A8F0074471B /* MoreOptions.swift in Sources */,
 				20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */,
-				209A33812C6B899B008B8D9B /* SocialButton.swift in Sources */,
+				20C0CEF02C9322CE0074471B /* SignupView.swift in Sources */,
 				20C0CECD2C91CFBB0074471B /* OnSaleItem.swift in Sources */,
+				20C0CEEC2C92F9A10074471B /* SkipButton.swift in Sources */,
+				20C0CED02C92C6B70074471B /* CountryPickerView.swift in Sources */,
 				20A414232C8EC85700D03BC4 /* HomeView.swift in Sources */,
 				20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20C0CEBF2C91BF0A0074471B /* BorderButton.swift in Sources */,
 				20C0CEC22C91C2CD0074471B /* GiftByColor.swift in Sources */,
+				20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */,
 				20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */,
+				20C0CED22C92C6D50074471B /* PhoneNumberField.swift in Sources */,
 				20C0CEC52C91C8480074471B /* GiftItem.swift in Sources */,
+				20C0CEF22C9323400074471B /* SimpleTextField.swift in Sources */,
 				20C0D5482C883D390060354A /* AppDelegate.swift in Sources */,
 				20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
 				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
-				209A33892C6CCEF0008B8D9B /* CountryPickerView.swift in Sources */,
 				20C0CECB2C91CDF60074471B /* OnSale.swift in Sources */,
 				20C0CEB82C919D8E0074471B /* NewArrivals.swift in Sources */,
 				20FE057C2C9058E80022E022 /* OffsetReader.swift in Sources */,
@@ -871,6 +919,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		20C0CEE22C92D5500074471B /* XCRemoteSwiftPackageReference "otpview-swiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mukeshsolanki/otpview-swiftui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -914,6 +970,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		20C0CEE32C92D5500074471B /* OTPView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C0CEE22C92D5500074471B /* XCRemoteSwiftPackageReference "otpview-swiftui" */;
+			productName = OTPView;
+		};
 		20C0D52F2C8725A20060354A /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 20C0D52E2C8725A20060354A /* XCRemoteSwiftPackageReference "lottie-spm" */;

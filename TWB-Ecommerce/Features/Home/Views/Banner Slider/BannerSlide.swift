@@ -10,7 +10,7 @@ import SwiftUI
 struct BannerSlide: View {
     
     @State private var currentPage = 0
-    let images = ["App_Template1-1", "App_Template2-1","App_Template1-1"]
+    let images = ["MainBanner1", "MainBanner2","MainBanner3"]
     
     var body: some View {
         VStack {
@@ -18,8 +18,9 @@ struct BannerSlide: View {
                 ForEach(0..<images.count, id: \.self) { index in
                     Image(images[index])
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 500)
+                        .aspectRatio(contentMode: .fill)  // Maintains aspect ratio, fills the available width
+                        .frame(height: 500)  // Set height to 300
+                        .clipped()  // Ensures the image doesn't overflow the frame
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))

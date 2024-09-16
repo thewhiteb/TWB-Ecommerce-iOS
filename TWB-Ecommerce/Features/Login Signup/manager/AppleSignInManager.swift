@@ -30,16 +30,21 @@ class AppleSignInManager: NSObject, ObservableObject, ASAuthorizationControllerD
             let fullName = appleIDCredential.fullName?.givenName ?? "No Name"
             let email = appleIDCredential.email ?? "No Email"
             
+            // Update the userInfo and print it
             DispatchQueue.main.async {
                 self.userInfo = (username: fullName, email: email)
+                print("Apple User Info: Username: \(fullName), Email: \(email), User Identifier: \(userIdentifier)")
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        // Handle error and print it
         DispatchQueue.main.async {
             self.errorMessage = error.localizedDescription
+            print("Apple Sign-In Error: \(error.localizedDescription)")
         }
     }
 }
+
 

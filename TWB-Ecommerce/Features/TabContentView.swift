@@ -58,6 +58,7 @@ struct TabContentView: View {
             }
         }
         .ignoresSafeArea(.all, edges: .bottom) // Ensures the content extends behind the tab bar area
+        .navigationBarBackButtonHidden(true) // Hide back button
     }
     
     private func tabBarButton(image: String, selectedImage: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {

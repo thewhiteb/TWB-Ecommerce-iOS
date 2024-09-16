@@ -9,6 +9,10 @@ import SwiftUI
 
 struct SimpleGiftOccasionList: View {
     
+    @State private var scrollOffset: CGFloat = 0.25  // Start progress at 25%
+    @State private var maxScrollWidth: CGFloat = 0  // To store the scrollable width
+    @State private var contentWidth: CGFloat = 0    // To store the total content width
+    
     // Sample list of items
     @State private var items: [ItemModel] = [
         ItemModel(imageName: "GiftCake3", itemText: "Class of 2024"),
@@ -21,21 +25,45 @@ struct SimpleGiftOccasionList: View {
     ]
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                // Use FirstItemView for the first item
-                if let firstItem = items.first {
-                    FirstItemView(item: firstItem)
+        VStack{
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack() {
+                    // Use FirstItemView for the first item
+                    if let firstItem = items.first {
+                        FirstItemView(item: firstItem)
+                    }
+                    
+                    // Use ItemView for the remaining items
+                    ForEach(items.dropFirst()) { item in
+                        ItemView(item: item)
+                    }
                 }
                 
-                // Use ItemView for the remaining items
-                ForEach(items.dropFirst()) { item in
-                    ItemView(item: item)
-                }
+                .background(
+                    GeometryReader { outerGeometry in
+                        Color.clear
+                            .onAppear {
+                                maxScrollWidth = outerGeometry.size.width
+                            }
+                            .onChange(of: outerGeometry.frame(in: .global).minX) { value in
+                                // Update the scroll offset based on the current scroll position
+                                let newOffset = -value / (maxScrollWidth - UIScreen.main.bounds.width)
+                                let scaledOffset = newOffset * 0.75 + 0.25  // Scale to start at 25%
+                                scrollOffset = min(max(scaledOffset, 0.25), 1)  // Clamp between 0.25 and 1
+                            }
+                    })
             }
-            .padding(.horizontal, 10)
+            .frame(height: 250) // Adjusted height to fit the content
+            
+            // Custom progress bar with a very thin height
+            ProgressView(value: scrollOffset, total: 1)
+                .progressViewStyle(LinearProgressViewStyle(tint: Color.black))
+                .frame(height: 1)  // Use `1` for a thin, visible progress bar
+                .scaleEffect(x: 1, y: 0.5, anchor: .center)  // Scale down the height
+                .padding(.top, 20)
+                .padding(.trailing,10)
         }
-        .frame(height: 250) // Adjusted height to fit the content
+       
     }
 }
 
