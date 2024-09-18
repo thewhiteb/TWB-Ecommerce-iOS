@@ -18,54 +18,16 @@ struct TrendingProductItem: View {
     
     var body: some View {
         VStack(spacing : 0) {
-            ZStack {
-//                // Image slider using TabView
-//                TabView(selection: $currentPage) {
-//                    ForEach(0..<images.count, id: \.self) { index in
-//                        Image(images[index])
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(width: 167, height: 195)
-//                            .clipped()
-//                            .tag(index)
-//                    }
-//                }
-//                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide default page indicator
-//                .frame(width: 167, height: 195)
-                
+            ZStack {             
                 Image(images[0])
                     .resizable()
                     .scaledToFill()
                     .frame(width: 167, height: 195)
                     .clipped()
 
-//                // Custom page indicator dots
-//                VStack {
-//                    Spacer()
-//                    HStack(spacing: 5) { // Customize the spacing between indicators
-//                        ForEach(0..<images.count, id: \.self) { index in
-//                            Circle()
-//                                .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
-//                                .foregroundColor(currentPage == index ? .white : .white)
-//                        }
-//                    }
-//                    .padding(.bottom, 10)
-//                }
+
 
                 HStack {
-//                    VStack(alignment: .leading) {
-//                        if isCustomizable {
-//                            Text("Customizable")
-//                                .font(.custom("Lato", size: 10))
-//                                .padding(6)
-//                                .background(Color.black.opacity(0.7))
-//                                .foregroundColor(.white)
-//                                .padding(8)
-//                        }
-//                        Spacer()
-//                    }
-//                    .padding(.top, 5)
-//                    .padding(.leading, 5)
                     
                     Spacer()
                     
