@@ -122,9 +122,11 @@ struct BagItemView: View {
             ZStack {
                 VStack(alignment: .leading) {
                     Text("Tube Acrylic 018")
-                        .font(.getFont(name: .libreRegular, size: 12))
+                        .font(.getFont(name: .libreBold, size: 12))
+                        .foregroundColor(.black)
                     Text("AED 447")
-                        .font(.getFont(name: .libreRegular, size: 16))
+                        .font(.getFont(name: .libreBold, size: 16))
+                        .foregroundColor(.black)
                     Text("Including VAT")
                         .font(.getFont(name: .libreRegular, size: 10))
                     addDeleteView()

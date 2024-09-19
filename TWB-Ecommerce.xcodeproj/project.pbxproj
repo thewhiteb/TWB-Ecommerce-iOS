@@ -83,6 +83,7 @@
 		5E9C29EB2C9AC485009EEA4A /* LibreBaskerville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */; };
 		5E9C29EC2C9AC485009EEA4A /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */; };
 		5E9C29EE2C9AC5EA009EEA4A /* Fonts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */; };
+		5ED005582C9BFDC7003B899B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED005572C9BFDC7003B899B /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,7 @@
 		5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Italic.ttf"; sourceTree = "<group>"; };
 		5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
 		5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Extension.swift"; sourceTree = "<group>"; };
+		5ED005572C9BFDC7003B899B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +449,7 @@
 			children = (
 				20C0CED62C92C7F60074471B /* UIApplication.swift */,
 				5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */,
+				5ED005572C9BFDC7003B899B /* Color+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A414212C8EC31400D03BC4 /* TabContentView.swift in Sources */,
+				5ED005582C9BFDC7003B899B /* Color+Extension.swift in Sources */,
 				20C0CEBD2C91BCA10074471B /* NewArrivalItem.swift in Sources */,
 				5E9C29EE2C9AC5EA009EEA4A /* Fonts+Extension.swift in Sources */,
 				20A414262C8EC88100D03BC4 /* SearchView.swift in Sources */,
