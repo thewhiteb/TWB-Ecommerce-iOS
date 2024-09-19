@@ -11,4 +11,5 @@ import SwiftUI
 struct Constants {
     static let gray: Color = .init(hex: "#757575")
     static let lightGray: Color = .init(hex: "#F7F7F7")
+    static let cherry: Color = .init(hex: "#950828")
 }

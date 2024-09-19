@@ -13,6 +13,7 @@ public enum FontNames: String {
     case libreItalic = "LibreBaskerville-Italic"
     case libreRegular = "LibreBaskerville-Regular"
     case baskerville = "Baskerville"
+    case latoBold = "Latobold"
 }
 
 extension Font {
