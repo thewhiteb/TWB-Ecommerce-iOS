@@ -84,6 +84,7 @@
 		5E9C29EC2C9AC485009EEA4A /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */; };
 		5E9C29EE2C9AC5EA009EEA4A /* Fonts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */; };
 		5ED005582C9BFDC7003B899B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED005572C9BFDC7003B899B /* Color+Extension.swift */; };
+		5ED0055B2C9BFFA9003B899B /* Color+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0055A2C9BFFA9003B899B /* Color+Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
 		5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Extension.swift"; sourceTree = "<group>"; };
 		5ED005572C9BFDC7003B899B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		5ED0055A2C9BFFA9003B899B /* Color+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Constants.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 		2075F39E2C635F360010536E /* Base Components */ = {
 			isa = PBXGroup;
 			children = (
+				5ED005592C9BFF92003B899B /* Constants */,
 				20C0CED52C92C7E50074471B /* Extentions */,
 				209A337B2C6B85BD008B8D9B /* Buttons */,
 			);
@@ -589,6 +592,14 @@
 			path = Libre_Baskerville;
 			sourceTree = "<group>";
 		};
+		5ED005592C9BFF92003B899B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5ED0055A2C9BFFA9003B899B /* Color+Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,6 +743,7 @@
 				20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */,
 				20C0CED22C92C6D50074471B /* PhoneNumberField.swift in Sources */,
 				20C0CEC52C91C8480074471B /* GiftItem.swift in Sources */,
+				5ED0055B2C9BFFA9003B899B /* Color+Constants.swift in Sources */,
 				20C0CEF22C9323400074471B /* SimpleTextField.swift in Sources */,
 				20C0D5482C883D390060354A /* AppDelegate.swift in Sources */,
 				20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */,

@@ -18,7 +18,11 @@ struct BagView: View {
                 EmptyBagView()
                 Spacer()
             } else {
-                BagListingView(items: items)
+                VStack {
+                    BagListingView(items: items)
+                        .padding(.top, 10)
+                }
+                .background(Constants.lightGray)
             }
         }
         .safeAreaInset(edge: .top) {
@@ -68,7 +72,7 @@ struct BagListingView: View {
     var body: some View {
         ScrollView {
             ForEach(items) { item in
-                LazyVStack(alignment: .leading, content: {
+                LazyVStack(alignment: .leading, spacing: 10, content: {
                     BagItemView(ietm: item)
                 })
             }
@@ -113,31 +117,68 @@ let items: [BagViewItemModel] = [.init(id: "Tube Acrylic 018",
 struct BagItemView: View {
     @State var ietm: BagViewItemModel
     var body: some View {
-        HStack {
-            Image(.tube018)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 127, height: 161)
-                .padding(.leading)
-            ZStack {
-                VStack(alignment: .leading) {
-                    Text("Tube Acrylic 018")
-                        .font(.getFont(name: .libreBold, size: 12))
-                        .foregroundColor(.black)
-                    Text("AED 447")
-                        .font(.getFont(name: .libreBold, size: 16))
-                        .foregroundColor(.black)
-                    Text("Including VAT")
-                        .font(.getFont(name: .libreRegular, size: 10))
-                    addDeleteView()
-                    horizontalText(firstText: "Letter: ", secondText: "A")
-                    horizontalText(firstText: "Flavour: ", secondText: "Vanilla Mistikkah")
-                    horizontalText(firstText: "Topper: ", secondText: "Congratulations (AED 32)")
-                    Spacer()
+        VStack {
+            HStack {
+                Image(.tube018)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 127, height: 161)
+                ZStack {
+                    VStack(alignment: .leading) {
+                        Text("Tube Acrylic 018")
+                            .font(.getFont(name: .libreBold, size: 12))
+                            .foregroundColor(.black)
+                        Text("AED 447")
+                            .font(.getFont(name: .libreBold, size: 16))
+                            .foregroundColor(.black)
+                        Text("Including VAT")
+                            .font(.getFont(name: .libreRegular, size: 10))
+                            .foregroundColor(Constants.gray)
+                        addDeleteView()
+                            .padding([.top, .bottom], 16)
+                        horizontalText(firstText: "Letter: ", secondText: "A")
+                        horizontalText(firstText: "Flavour: ", secondText: "Vanilla Mistikkah")
+                        horizontalText(firstText: "Topper: ", secondText: "Congratulations (AED 32)")
+                        Spacer()
+                    }
+                    .padding(.top, 5)
                 }
-                .padding(.top, 5)
+                .padding(.leading, 12)
+                Spacer()
             }
+            .padding(.leading, 15)
+            Divider()
+                .padding(.top, 16)
+            HStack {
+                HStack {
+                    Button {
+                        print("Move to wish list")
+                    } label: {
+                        Image(.heart)
+                            .resizable()
+                            .frame(width: 17, height: 17)
+                    }
+                    Text("Move to Wishlist")
+                        .font(.getFont(name: .libreRegular, size: 10))
+                        .foregroundStyle(.black)
+                }
+                .padding(.leading, 15)
+                Spacer()
+                HStack {
+                    Text("Total")
+                        .font(.getFont(name: .libreRegular, size: 12))
+                        .foregroundStyle(Constants.gray)
+                    Image(.line)
+                        .resizable()
+                        .frame(width: 1, height: 13)
+                    Text("AED 479")
+                        .font(.getFont(name: .libreBold, size: 12))
+                }
+                .padding(.trailing, 16)
+            }
+            .padding([.bottom, .top], 16)
         }
+        .background(.white)
     }
 
     @ViewBuilder
@@ -146,8 +187,10 @@ struct BagItemView: View {
         HStack {
             Text(firstText)
                 .font(.getFont(name: .libreRegular, size: 12))
+                .foregroundColor(Constants.gray)
             Text(secondText)
-                .font(.getFont(name: .libreRegular, size: 12))
+                .font(.getFont(name: .libreBold, size: 12))
+                .foregroundColor(.black)
         }
     }
 
