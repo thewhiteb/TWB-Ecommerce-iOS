@@ -18,7 +18,8 @@ struct BagListingView: View {
                     })
                 }
                 getTrendingItemsView()
-                    .padding()
+                    .padding([.leading, .trailing], 16)
+                    .background(Constants.white)
             }
             grandTotalView()
                 .padding(16)
@@ -69,7 +70,13 @@ struct BagListingView: View {
 
     @ViewBuilder
     func getTrendingItemsView() -> some View {
-        
+        VStack(alignment: .leading) {
+            Text("You May Also Like")
+                .font(.getFont(name: .libreBold, size: 18))
+                .foregroundStyle(Constants.black)
+                .padding([.top, .bottom], 30)
+            NewArrivals()
+        }
     }
 }
 
