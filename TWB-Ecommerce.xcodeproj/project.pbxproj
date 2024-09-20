@@ -75,6 +75,10 @@
 		20C95CD62C981FC900B5174D /* FeatureProductParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CD52C981FC900B5174D /* FeatureProductParallax.swift */; };
 		20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CD82C98316F00B5174D /* ListTabItem.swift */; };
 		20C95CE02C9AE56E00B5174D /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CDF2C9AE56E00B5174D /* ListingItemView.swift */; };
+		20C95CE22C9B0BF200B5174D /* TabListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CE12C9B0BF200B5174D /* TabListItem.swift */; };
+		20C95CE42C9B0FDA00B5174D /* TabListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CE32C9B0FDA00B5174D /* TabListView.swift */; };
+		20C95CE72C9C108300B5174D /* TabListSmallItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CE62C9C108300B5174D /* TabListSmallItem.swift */; };
+		20C95CE92C9C121100B5174D /* TabListSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CE82C9C121100B5174D /* TabListSmallView.swift */; };
 		20FE056D2C8F38EA0022E022 /* FeatureProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */; };
 		20FE056F2C9028750022E022 /* FeatureProductsBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE056E2C9028750022E022 /* FeatureProductsBanner.swift */; };
 		20FE05722C902E4E0022E022 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 20FE05712C902E4E0022E022 /* ACarousel */; };
@@ -151,6 +155,10 @@
 		20C95CD52C981FC900B5174D /* FeatureProductParallax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProductParallax.swift; sourceTree = "<group>"; };
 		20C95CD82C98316F00B5174D /* ListTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabItem.swift; sourceTree = "<group>"; };
 		20C95CDF2C9AE56E00B5174D /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
+		20C95CE12C9B0BF200B5174D /* TabListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabListItem.swift; sourceTree = "<group>"; };
+		20C95CE32C9B0FDA00B5174D /* TabListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabListView.swift; sourceTree = "<group>"; };
+		20C95CE62C9C108300B5174D /* TabListSmallItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabListSmallItem.swift; sourceTree = "<group>"; };
+		20C95CE82C9C121100B5174D /* TabListSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabListSmallView.swift; sourceTree = "<group>"; };
 		20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProducts.swift; sourceTree = "<group>"; };
 		20FE056E2C9028750022E022 /* FeatureProductsBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProductsBanner.swift; sourceTree = "<group>"; };
 		20FE05742C9036630022E022 /* GiftByOccasionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftByOccasionList.swift; sourceTree = "<group>"; };
@@ -528,6 +536,7 @@
 		20C95CD22C981E1B00B5174D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20C95CE52C9B120600B5174D /* Tab View */,
 				20C95CD32C981E2F00B5174D /* ListingScreenView.swift */,
 				20C95CDF2C9AE56E00B5174D /* ListingItemView.swift */,
 			);
@@ -547,6 +556,17 @@
 			children = (
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		20C95CE52C9B120600B5174D /* Tab View */ = {
+			isa = PBXGroup;
+			children = (
+				20C95CE12C9B0BF200B5174D /* TabListItem.swift */,
+				20C95CE32C9B0FDA00B5174D /* TabListView.swift */,
+				20C95CE62C9C108300B5174D /* TabListSmallItem.swift */,
+				20C95CE82C9C121100B5174D /* TabListSmallView.swift */,
+			);
+			path = "Tab View";
 			sourceTree = "<group>";
 		};
 		20FE05692C8F38790022E022 /* Feature Products */ = {
@@ -719,7 +739,9 @@
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
+				20C95CE22C9B0BF200B5174D /* TabListItem.swift in Sources */,
 				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
+				20C95CE72C9C108300B5174D /* TabListSmallItem.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				20A414292C8EC8D100D03BC4 /* BagView.swift in Sources */,
@@ -738,6 +760,7 @@
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20C0CEBF2C91BF0A0074471B /* BorderButton.swift in Sources */,
 				20C0CEC22C91C2CD0074471B /* GiftByColor.swift in Sources */,
+				20C95CE42C9B0FDA00B5174D /* TabListView.swift in Sources */,
 				20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */,
 				20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */,
 				20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */,
@@ -756,6 +779,7 @@
 				20C0D5382C8730C10060354A /* TwitterHeart.swift in Sources */,
 				20A4142C2C8EC90800D03BC4 /* ProfileView.swift in Sources */,
 				20C0D5602C89A0D80060354A /* GoogleLoginManager.swift in Sources */,
+				20C95CE92C9C121100B5174D /* TabListSmallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,12 +922,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twb.TWB-Ecommerce";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -921,7 +945,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QMDK88745;
+				DEVELOPMENT_TEAM = HTLHQV8AQ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";
@@ -929,12 +953,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twb.TWB-Ecommerce";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
