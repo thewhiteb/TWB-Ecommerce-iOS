@@ -15,8 +15,8 @@ struct OnSale: View {
     
     // Sample list of items
     @State private var items: [TrendingProduct] = [
-        TrendingProduct(images: ["Bouquets"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365 - 30%", isCustomizable: true),
-        TrendingProduct(images: ["Bouquets"], itemName: "Round Bouquet", itemPrice: "AED 250 - 20%", isCustomizable: true)
+        TrendingProduct(images: ["Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365 - 30%", isCustomizable: true),
+        TrendingProduct(images: ["Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250 - 20%", isCustomizable: true)
     ]
     
     var body: some View {
