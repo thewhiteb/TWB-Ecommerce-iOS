@@ -24,6 +24,10 @@
 		209A33762C6B4255008B8D9B /* Latobold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336D2C6B4255008B8D9B /* Latobold.ttf */; };
 		209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
 		209A33852C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
+		209B77B32C9DB23200BEDC1A /* ArtWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209B77B22C9DB23200BEDC1A /* ArtWork.swift */; };
+		209B77B52C9DB72100BEDC1A /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209B77B42C9DB72100BEDC1A /* BottomView.swift */; };
+		209B77B72C9DB79100BEDC1A /* GridViewItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209B77B62C9DB79100BEDC1A /* GridViewItems.swift */; };
+		209B77B92C9DB85A00BEDC1A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209B77B82C9DB85A00BEDC1A /* HeaderView.swift */; };
 		20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */; };
 		20A414212C8EC31400D03BC4 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414202C8EC31400D03BC4 /* TabContentView.swift */; };
 		20A414232C8EC85700D03BC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414222C8EC85700D03BC4 /* HomeView.swift */; };
@@ -109,6 +113,10 @@
 		209A336D2C6B4255008B8D9B /* Latobold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Latobold.ttf; sourceTree = "<group>"; };
 		209A337C2C6B85D0008B8D9B /* SimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		209A33842C6CCE3E008B8D9B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Country.swift; path = "TWB-Ecommerce/Features/Login Signup/Views/Country.swift"; sourceTree = SOURCE_ROOT; };
+		209B77B22C9DB23200BEDC1A /* ArtWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWork.swift; sourceTree = "<group>"; };
+		209B77B42C9DB72100BEDC1A /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		209B77B62C9DB79100BEDC1A /* GridViewItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewItems.swift; sourceTree = "<group>"; };
+		209B77B82C9DB85A00BEDC1A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		20A4141B2C8B31C300D03BC4 /* TWB-EcommerceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-EcommerceDebug.entitlements"; sourceTree = "<group>"; };
 		20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		20A414202C8EC31400D03BC4 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
@@ -305,6 +313,19 @@
 				20C0CEEB2C92F9A10074471B /* SkipButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		209B77AF2C9DB1DF00BEDC1A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				20C95CDF2C9AE56E00B5174D /* ListingItemView.swift */,
+				20C95CE52C9B120600B5174D /* Tab View */,
+				209B77B22C9DB23200BEDC1A /* ArtWork.swift */,
+				209B77B42C9DB72100BEDC1A /* BottomView.swift */,
+				209B77B62C9DB79100BEDC1A /* GridViewItems.swift */,
+				209B77B82C9DB85A00BEDC1A /* HeaderView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		20A414242C8EC87200D03BC4 /* Search */ = {
@@ -536,9 +557,8 @@
 		20C95CD22C981E1B00B5174D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				20C95CE52C9B120600B5174D /* Tab View */,
+				209B77AF2C9DB1DF00BEDC1A /* Components */,
 				20C95CD32C981E2F00B5174D /* ListingScreenView.swift */,
-				20C95CDF2C9AE56E00B5174D /* ListingItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -734,7 +754,9 @@
 				20A414302C8EC99500D03BC4 /* WhiteBTQView.swift in Sources */,
 				20C95CD42C981E2F00B5174D /* ListingScreenView.swift in Sources */,
 				20C0CEE82C92D5AB0074471B /* OtpFieldView.swift in Sources */,
+				209B77B52C9DB72100BEDC1A /* BottomView.swift in Sources */,
 				20C0CEBB2C91ADDE0074471B /* TrendingProduct.swift in Sources */,
+				209B77B32C9DB23200BEDC1A /* ArtWork.swift in Sources */,
 				20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
@@ -756,6 +778,7 @@
 				20C0CEEC2C92F9A10074471B /* SkipButton.swift in Sources */,
 				20C0CED02C92C6B70074471B /* CountryPickerView.swift in Sources */,
 				20A414232C8EC85700D03BC4 /* HomeView.swift in Sources */,
+				209B77B72C9DB79100BEDC1A /* GridViewItems.swift in Sources */,
 				20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */,
 				20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */,
 				20C0CEBF2C91BF0A0074471B /* BorderButton.swift in Sources */,
@@ -771,6 +794,7 @@
 				20C0D5482C883D390060354A /* AppDelegate.swift in Sources */,
 				20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */,
 				20BB05E72C62597A00A3DF38 /* SplashView.swift in Sources */,
+				209B77B92C9DB85A00BEDC1A /* HeaderView.swift in Sources */,
 				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				20C0CECB2C91CDF60074471B /* OnSale.swift in Sources */,
 				20C0CEB82C919D8E0074471B /* NewArrivals.swift in Sources */,

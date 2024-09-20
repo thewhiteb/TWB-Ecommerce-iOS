@@ -19,26 +19,26 @@ struct TabListView: View {
     ]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 15) {
-                ForEach(listTabItems, id: \.imageText) { item in
-                    TabListItem(listTabItem: item)
-                        .scaleEffect(scale)  // Apply the scale effect to each item
-                        .animation(.easeOut, value: scale)
+        VStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15 * scale) {  // Dynamically adjust spacing based on scale
+                    ForEach(listTabItems, id: \.imageText) { item in
+                        TabListItem(listTabItem: item, scale: scale)  // Pass scale to TabListItem
+
+                    }
                 }
+                .padding(.horizontal, 10)  // Adjust padding dynamically
             }
-            .padding(.horizontal, 10)
         }
-        .frame(height: 160 * scale)   // Adjust the height based on the scale
         .background(Color.white)
     }
 }
 
 //// Preview with sample data
 struct TabListItemScrollView_Previews: PreviewProvider {
-   
     static var previews: some View {
         TabListView(scale: 1.0)
     }
 }
+
 
