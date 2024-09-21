@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct BagListingView: View {
-    let items: [BagViewItemModel]
+    @State var totalAmount: Int = 0
+    @State var items: [BagViewItemModel] {
+        didSet {
+            var total: Int = 0
+            for item in items {
+                total += (item.count * item.totalPrice)
+            }
+            totalAmount = total
+        }
+    }
+
     var body: some View {
         VStack {
             ScrollView {
                 ForEach(items) { item in
                     LazyVStack(alignment: .leading, spacing: 10, content: {
-                        BagItemView(ietm: item)
+                        BagItemView(item: item)
                     })
                 }
                 getTrendingItemsView()
@@ -39,7 +49,7 @@ struct BagListingView: View {
                         .foregroundStyle(Constants.gray)
                 }
                 Spacer()
-                Text("AED 2,155")
+                Text("AED \(totalAmount)")
                     .font(.getFont(name: .libreBold, size: 12))
                     .foregroundStyle(Constants.black)
             }
@@ -75,7 +85,7 @@ struct BagListingView: View {
                 .font(.getFont(name: .libreBold, size: 18))
                 .foregroundStyle(Constants.black)
                 .padding([.top, .bottom], 30)
-            NewArrivals()
+            TrendingProductList()
         }
     }
 }

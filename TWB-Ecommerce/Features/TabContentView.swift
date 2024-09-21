@@ -22,7 +22,7 @@ struct TabContentView: View {
                 case 2:
                     WhiteBTQView()
                 case 3:
-                    BagView(count: 1)
+                    BagView(items: items)
                 case 4:
                     ProfileView()
                 default:

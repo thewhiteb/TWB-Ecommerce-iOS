@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct BagView: View {
-    @State var count: Int
+    @State var items: [BagViewItemModel]
     var body: some View {
         VStack {
-            getTitleView(count: count)
+            getTitleView(count: items.count)
             Spacer()
-            if count == 0 {
+            if items.count == 0 {
                 EmptyBagView()
                 Spacer()
             } else {
@@ -40,5 +40,5 @@ struct BagView: View {
 }
 
 #Preview {
-    BagView(count: 1)
+    BagView(items: items)
 }

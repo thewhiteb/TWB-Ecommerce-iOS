@@ -9,16 +9,16 @@ import Foundation
 
 struct BagViewItemModel: Equatable, Hashable, Identifiable {
     let id: String
-    let price: Float
-    var count: Int
+    let price: Int
+    var count: Int = 1
     let letters: String?
     let flavour: String?
     let topper: String
     let customisedTopper: Bool
-    let vat: Float // Question: is it for a single product or for all product. Like count is 2, then for 2 or for 1
+    let vat: Int // Question: is it for a single product or for all product. Like count is 2, then for 2 or for 1
     let imageURL: String
-    var totalPrice: Float {
-        (Float(count) * price) + vat
+    var totalPrice: Int {
+        (count * price) + vat
     }
 }
 
@@ -27,7 +27,7 @@ let items: [BagViewItemModel] = [.init(id: "Tube Acrylic 018",
                                        count: 1,
                                        letters: "A",
                                        flavour: "Vanilla Mistikkah",
-                                       topper: "Congratulations (AED 32",
+                                       topper: "Congratulations (AED 32)",
                                        customisedTopper: false,
                                        vat: 10,
                                        imageURL: ""),
@@ -36,7 +36,7 @@ let items: [BagViewItemModel] = [.init(id: "Tube Acrylic 018",
                                        count: 2,
                                        letters: "A",
                                        flavour: "Vanilla Mistikkah",
-                                       topper: "Congratulations (AED 32",
-                                       customisedTopper: false,
+                                       topper: "Congratulations (AED 32)",
+                                       customisedTopper: true,
                                        vat: 10,
                                        imageURL: "")]
