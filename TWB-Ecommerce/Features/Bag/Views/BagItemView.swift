@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BagItemView: View {
     @State var item: BagViewItemModel
+    @State var customTopperViewExpansion = false
+
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -21,7 +23,7 @@ struct BagItemView: View {
             }
             .padding(.leading, 15)
             .padding(.top, 12)
-            if item.customisedTopper {
+            if item.customisedTopper && !customTopperViewExpansion {
                 getCustomisedTopperView()
                     .padding([.leading, .trailing], 16)
             }
@@ -118,8 +120,9 @@ struct BagItemView: View {
                 if item.customisedTopper {
                     Button {
                         print("Arrow clicked")
+                        customTopperViewExpansion.toggle()
                     } label: {
-                        let image: ImageResource = .upArrow
+                        let image: ImageResource = customTopperViewExpansion ? .upArrow : .downArrow
                         Image(image)
                     }
                 }
