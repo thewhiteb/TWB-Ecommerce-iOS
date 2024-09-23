@@ -9,22 +9,18 @@ import SwiftUI
 
 struct BagListingView: View {
     @State var totalAmount: Int = 0
-    @State var items: [BagViewItemModel] {
-        didSet {
-            var total: Int = 0
-            for item in items {
-                total += (item.count * item.totalPrice)
-            }
-            totalAmount = total
-        }
-    }
+    @Binding var items: [BagViewItemModel]
 
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(items) { item in
+                ForEach($items) { item in
                     LazyVStack(alignment: .leading, spacing: 10, content: {
-                        BagItemView(item: item)
+                        BagItemView(item: item, onDelete: {
+                            withAnimation(.easeInOut) {
+                                removeElement(id: item.id)
+                            }
+                        })
                     })
                 }
                 getTrendingItemsView()
@@ -33,6 +29,19 @@ struct BagListingView: View {
             }
             grandTotalView()
                 .padding(16)
+        }
+        .onAppear {
+            updateTotal()
+        }
+        .onChange(of: items) { oldValue, newValue in
+            updateTotal()
+        }
+    }
+
+    // Function to remove the element from the array
+    private func removeElement(id: String) {
+        if let index = items.firstIndex(where: { $0.id == id }) {
+            items.remove(at: index)
         }
     }
     
@@ -88,8 +97,16 @@ struct BagListingView: View {
             TrendingProductList()
         }
     }
+
+    private func updateTotal() {
+        var total: Int = 0
+        for item in items {
+            total += (item.count * item.totalPrice)
+        }
+        totalAmount = total
+    }
 }
 
 #Preview {
-    BagListingView(items: items)
+    BagListingView(items: .constant(items))
 }

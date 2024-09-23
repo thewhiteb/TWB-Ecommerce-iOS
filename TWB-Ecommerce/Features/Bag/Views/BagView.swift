@@ -19,7 +19,7 @@ struct BagView: View {
                 Spacer()
             } else {
                 VStack {
-                    BagListingView(items: items)
+                    BagListingView(items: $items)
                         .padding(.top, 10)
                 }
                 .background(Constants.lightGray)

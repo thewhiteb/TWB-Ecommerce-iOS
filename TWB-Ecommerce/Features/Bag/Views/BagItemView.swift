@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BagItemView: View {
-    @State var item: BagViewItemModel
+    @Binding var item: BagViewItemModel
     @State var customTopperViewExpansion = false
+    let onDelete: () -> Void // Closure passed from parent to handle deletion
 
     var body: some View {
         VStack {
@@ -52,9 +53,18 @@ struct BagItemView: View {
     func addDeleteView(item: Binding<BagViewItemModel>) -> some View {
         HStack(spacing: 18){
             Button {
-                print("Delete or Minus")
+                if item.wrappedValue.count > 1 {
+                    item.wrappedValue.count = item.wrappedValue.count - 1
+                } else {
+                    onDelete()
+                }
             } label: {
-                Image(.delete)
+                if item.count.wrappedValue > 1  {
+                    Image(.minus)
+                        .frame(height: 9)
+                } else {
+                    Image(.delete)
+                }
             }
             Text("\(item.wrappedValue.count)")
                 .font(.getFont(name: .libreBold, size: 14))
@@ -82,7 +92,7 @@ struct BagItemView: View {
             }
             Image(.line)
             Button {
-                print("delete")
+                onDelete()
             } label: {
                 Image(.close)
                     .resizable()
@@ -119,8 +129,9 @@ struct BagItemView: View {
                 horizontalText(firstText: "Topper: ", secondText: item.topper)
                 if item.customisedTopper {
                     Button {
-                        print("Arrow clicked")
-                        customTopperViewExpansion.toggle()
+                        withAnimation(.easeInOut) {
+                            customTopperViewExpansion.toggle()
+                        }
                     } label: {
                         let image: ImageResource = customTopperViewExpansion ? .upArrow : .downArrow
                         Image(image)
@@ -188,5 +199,7 @@ struct BagItemView: View {
 }
 
 #Preview {
-    BagItemView(item: items[0])
+    BagItemView(item: .constant(items[0]), onDelete: {
+        
+    })
 }
