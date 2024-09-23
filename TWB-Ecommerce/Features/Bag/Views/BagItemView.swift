@@ -111,7 +111,7 @@ struct BagItemView: View {
                 Spacer()
                 getEditDeleteView()
             }
-            Text("AED \(item.totalPrice)")
+            Text("AED \(item.price + item.vat)")
                 .font(.getFont(name: .libreBold, size: 16))
                 .foregroundColor(.black)
             Text("Including VAT")
@@ -189,8 +189,7 @@ struct BagItemView: View {
                 Image(.line)
                     .resizable()
                     .frame(width: 1, height: 13)
-                let price = 479
-                Text("AED \(price)")
+                Text("AED \(item.totalPrice)")
                     .font(.getFont(name: .libreBold, size: 12))
             }
             .padding(.trailing, 16)

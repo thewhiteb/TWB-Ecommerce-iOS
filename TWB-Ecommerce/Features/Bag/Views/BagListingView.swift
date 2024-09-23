@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BagListingView: View {
-    @State var totalAmount: Int = 0
+    @State var totalAmount: Float = 0
     @Binding var items: [BagViewItemModel]
 
     var body: some View {
@@ -58,7 +58,8 @@ struct BagListingView: View {
                         .foregroundStyle(Constants.gray)
                 }
                 Spacer()
-                Text("AED \(totalAmount)")
+                let totalPrice = String(format: "%0.1f", totalAmount)
+                Text("AED " + totalPrice)
                     .font(.getFont(name: .libreBold, size: 12))
                     .foregroundStyle(Constants.black)
             }
@@ -99,9 +100,9 @@ struct BagListingView: View {
     }
 
     private func updateTotal() {
-        var total: Int = 0
+        var total: Float = 0.0
         for item in items {
-            total += (item.count * item.totalPrice)
+            total += Float((item.count) * item.totalPrice)
         }
         totalAmount = total
     }
