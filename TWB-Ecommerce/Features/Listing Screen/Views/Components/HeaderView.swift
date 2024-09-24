@@ -17,7 +17,7 @@ struct HeaderView: View {
     var body: some View {
         GeometryReader { proxy in
             let minY = proxy.frame(in: .named("SCROLL")).minY
-            let height = size.height * 0.45
+            let height = size.height * 0.30
             let progress = minY / (height * (minY > 0 ? 0.5 : 1))
             let titleProgress = minY / height
             
@@ -43,20 +43,30 @@ struct HeaderView: View {
                 Text(title)
                     .font(Font.custom("Baskerville", size: 20))
                     .fontWeight(.semibold)
-                    .opacity(-titleProgress > 1 ? 1 : 0) // Adjust opacity to control when the text fades in
-                    .offset(y: -titleProgress > 1 ? 0 : 45)
-                    .animation(.easeOut(duration: 0.25), value: -titleProgress > 0.85)
+                    .opacity(mapProgressToOpacityTitle(progress: titleProgress)) 
+                    
             })
             .padding(.top, safeArea.top + 10)
             .padding([.horizontal, .bottom], 15)
             .background(
                 Color.white
-                    .opacity(-progress > 1 ? 1 : 0)
+                    .opacity(mapProgressToOpacity(progress: progress))
             )
             .offset(y: -minY)
         }
         .frame(height: 35)
     }
+    
+    func mapProgressToOpacity(progress: CGFloat) -> CGFloat {
+        // If the progress crosses -1.10, return 1 (fully visible), otherwise 0 (invisible)
+        return progress <= -1.2 ? 1 : 0
+    }
+    
+    func mapProgressToOpacityTitle(progress: CGFloat) -> CGFloat {
+        // If the title's progress crosses -1.10, return 1 (fully visible), otherwise 0 (invisible)
+        return progress <= -1.10 ? 1 : 0
+    }
+    
 }
 
 #Preview {

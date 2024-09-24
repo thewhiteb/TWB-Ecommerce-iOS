@@ -13,11 +13,12 @@ struct ArtWork: View {
     var size: CGSize
     
     var body: some View {
-        let height = size.height * 0.45
+        let height = size.height * 0.30
         GeometryReader { proxy in
             let size = proxy.size
             let minY = proxy.frame(in: .named("SCROLL")).minY
             let progress = minY / (height * (minY > 0 ? 0.7 : 0.9))
+            
             
             VStack{
                 
@@ -35,17 +36,21 @@ struct ArtWork: View {
                                         .white.opacity(0.1 - progress),
                                         .white.opacity(0.1 - progress),
                                         .white.opacity(0.1 - progress),
-                                        .white.opacity(0.2 - progress),
-                                        .white.opacity(0.2 - progress),
-                                        .white.opacity(0.3 - progress),
-                                        .white.opacity(0.5 - progress),
+                                        .white.opacity(0.1 - progress),
+                                        .white.opacity(0.1 - progress),
+                                        .white.opacity(0.1 - progress),
+                                        .white.opacity(0.1 - progress),
                                     ], startPoint: .top, endPoint: .bottom)
                                 )
-                                .opacity(minY < 0 ? 1 : 0)
+                                
                             
                         }
                     })
                     .offset(y: -minY)
+                    .onChange(of: minY){ newValue in
+                        print("MinY Banner")
+                        
+                    }
                 
             }
             
@@ -61,5 +66,5 @@ struct ArtWork: View {
         
         ArtWork(safeArea: safeArea, size: size)
     }
-   
+    
 }

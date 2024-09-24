@@ -16,15 +16,15 @@ struct TabListItem: View {
             ZStack {
                 Rectangle()
                     .fill(Color(red: 0.83, green: 0.87, blue: 0.9).opacity(0.3))
-                    .frame(width: 118 , height: 124 * scale)  // Adjust size dynamically
+                    .frame(width: 118 , height: 124 )  // Adjust size dynamically
                 
                 // Centered image
                 Image(listTabItem.imageName)
                     .resizable()
                     .scaledToFit()
-                    .padding(10 * scale)  // Adjust padding dynamically
+                    .padding(10)  // Adjust padding dynamically
             }
-            .frame(width: 118 , height: 124 * scale)  // Adjust size dynamically
+            .frame(width: 118 , height: 124)  // Adjust size dynamically
 
             Text(listTabItem.imageText.uppercased())
                 .font(Font.custom("Lato", size: 10))  // Adjust font size dynamically
