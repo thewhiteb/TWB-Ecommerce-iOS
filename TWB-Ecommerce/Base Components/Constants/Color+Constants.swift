@@ -14,4 +14,5 @@ struct Constants {
     static let cherry: Color = .init(hex: "#950828")
     static let black: Color = .init(hex: "#000000")
     static let white: Color = .init(hex: "#FFFFFF")
+    static let clear: Color = .clear
 }
