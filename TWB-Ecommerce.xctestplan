@@ -1,0 +1,22 @@
+{
+  "configurations" : [
+    {
+      "id" : "D46C3E69-439B-4156-B8F5-CF16134092D0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TWB-Ecommerce.xcodeproj",
+      "identifier" : "20056EC72C62412F000B661B",
+      "name" : "TWB-Ecommerce"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
