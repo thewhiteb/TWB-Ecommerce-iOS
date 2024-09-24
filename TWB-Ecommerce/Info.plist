@@ -47,6 +47,9 @@
 		<string>Lato-Thin.ttf</string>
 		<string>Lato-ThinItalic.ttf</string>
 		<string>Baskervile.ttf</string>
+		<string>LibreBaskerville-Bold.ttf</string>
+		<string>LibreBaskerville-Italic.ttf</string>
+		<string>LibreBaskerville-Regular.ttf</string>
 	</array>
 </dict>
 </plist>
