@@ -87,8 +87,9 @@
 		20FE057C2C9058E80022E022 /* OffsetReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE057B2C9058E80022E022 /* OffsetReader.swift */; };
 		20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */; };
 		20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */; };
-		5E1BD9A12CA189670060AA6D /* LogoutProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BD9A02CA189670060AA6D /* LogoutProfileView.swift */; };
 		5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BD9A22CA18B970060AA6D /* String+Extension.swift */; };
+		5E90685D2CA2C49700C9EFE9 /* LogoutProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E90685C2CA2C49700C9EFE9 /* LogoutProfileView.swift */; };
+		5E90685F2CA2E96600C9EFE9 /* LoginProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E90685E2CA2E96600C9EFE9 /* LoginProfileView.swift */; };
 		5E9C29EA2C9AC485009EEA4A /* LibreBaskerville-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */; };
 		5E9C29EB2C9AC485009EEA4A /* LibreBaskerville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */; };
 		5E9C29EC2C9AC485009EEA4A /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */; };
@@ -178,8 +179,9 @@
 		20FE057B2C9058E80022E022 /* OffsetReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetReader.swift; sourceTree = "<group>"; };
 		20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleGiftOccasionList.swift; sourceTree = "<group>"; };
 		20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowOpeningBanner.swift; sourceTree = "<group>"; };
-		5E1BD9A02CA189670060AA6D /* LogoutProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutProfileView.swift; sourceTree = "<group>"; };
 		5E1BD9A22CA18B970060AA6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5E90685C2CA2C49700C9EFE9 /* LogoutProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutProfileView.swift; sourceTree = "<group>"; };
+		5E90685E2CA2E96600C9EFE9 /* LoginProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileView.swift; sourceTree = "<group>"; };
 		5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.ttf"; sourceTree = "<group>"; };
 		5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Italic.ttf"; sourceTree = "<group>"; };
 		5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
@@ -344,8 +346,9 @@
 		20A4142A2C8EC8F500D03BC4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5E1BD9A02CA189670060AA6D /* LogoutProfileView.swift */,
 				20A4142B2C8EC90800D03BC4 /* ProfileView.swift */,
+				5E90685C2CA2C49700C9EFE9 /* LogoutProfileView.swift */,
+				5E90685E2CA2E96600C9EFE9 /* LoginProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				20A414292C8EC8D100D03BC4 /* BagView.swift in Sources */,
+				5E90685D2CA2C49700C9EFE9 /* LogoutProfileView.swift in Sources */,
 				20C0CEB52C9198560074471B /* ShopByStyleItem.swift in Sources */,
 				20C95CE02C9AE56E00B5174D /* ListingItemView.swift in Sources */,
 				20FE056F2C9028750022E022 /* FeatureProductsBanner.swift in Sources */,
@@ -844,8 +848,8 @@
 				20C0CEBF2C91BF0A0074471B /* BorderButton.swift in Sources */,
 				5ED0055D2C9C41E7003B899B /* EmptyBagView.swift in Sources */,
 				5EAA61392C9C438500089A90 /* BagListingView.swift in Sources */,
+				5E90685F2CA2E96600C9EFE9 /* LoginProfileView.swift in Sources */,
 				20C0CEC22C91C2CD0074471B /* GiftByColor.swift in Sources */,
-				5E1BD9A12CA189670060AA6D /* LogoutProfileView.swift in Sources */,
 				20C95CE42C9B0FDA00B5174D /* TabListView.swift in Sources */,
 				20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */,
 				20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */,
