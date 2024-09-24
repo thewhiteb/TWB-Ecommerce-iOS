@@ -15,10 +15,10 @@ struct NewArrivals: View {
     
     // Sample list of items
     @State private var items: [TrendingProduct] = [
-        TrendingProduct(images: ["Bouquets"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
-        TrendingProduct(images: ["Bouquets"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
-        TrendingProduct(images: ["Bouquets"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
-        TrendingProduct(images: ["Bouquets"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false)
+        TrendingProduct(images: ["Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
+        TrendingProduct(images: ["Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
+        TrendingProduct(images: ["Bouquet1"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
+        TrendingProduct(images: ["Bouquet1"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false)
     ]
     
     var body: some View {

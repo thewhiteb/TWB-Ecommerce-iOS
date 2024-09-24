@@ -18,9 +18,9 @@ struct BannerSlide: View {
                 ForEach(0..<images.count, id: \.self) { index in
                     Image(images[index])
                         .resizable()
-                        .aspectRatio(contentMode: .fill)  // Maintains aspect ratio, fills the available width
-                        .frame(height: 500)  // Set height to 300
-                        .clipped()  // Ensures the image doesn't overflow the frame
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 500)
+                        .clipped() 
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))

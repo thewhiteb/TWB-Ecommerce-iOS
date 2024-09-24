@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var showTopShadow = false  // State to control the shadow visibility
 
     var body: some View {
+        
         ZStack(alignment: .top) {
             ScrollView(.vertical, showsIndicators :false) {
                 VStack() {
@@ -35,7 +36,7 @@ struct HomeView: View {
                         .padding(.top, 30)
                         .padding(.leading, 10)
                     
-                    FeatureProductsBanner()
+                    FeatureProductParallax()
                         .padding(.top, 30)
                     
                     VStack(spacing: 0) {
