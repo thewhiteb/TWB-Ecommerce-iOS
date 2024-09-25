@@ -13,6 +13,7 @@ struct HeaderView: View {
     var safeArea: EdgeInsets
     var size: CGSize
     
+    var onBackButtonPressed: () -> Void
     
     var body: some View {
         GeometryReader { proxy in
@@ -24,6 +25,7 @@ struct HeaderView: View {
             HStack(spacing: 15) {
                 Button {
                     // Back button action
+                    onBackButtonPressed()
                 } label: {
                     Image("back")
                         .font(.title3)
@@ -59,7 +61,7 @@ struct HeaderView: View {
     
     func mapProgressToOpacity(progress: CGFloat) -> CGFloat {
         // If the progress crosses -1.10, return 1 (fully visible), otherwise 0 (invisible)
-        return progress <= -1.2 ? 1 : 0
+        return progress <= -1.35 ? 1 : 0
     }
     
     func mapProgressToOpacityTitle(progress: CGFloat) -> CGFloat {
@@ -75,6 +77,8 @@ struct HeaderView: View {
         let size = $0.size
         @State var text = "Acrylic Boxes"
         
-        HeaderView(title: text, safeArea: safeArea, size: size)
+        HeaderView(title: text, safeArea: safeArea, size: size,onBackButtonPressed: {
+            
+        })
     }
 }

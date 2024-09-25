@@ -17,6 +17,7 @@ struct BottomView: View {
             
             GridViewItems()
                 .padding(.top,30)
+                .padding(.bottom,70)
         }
         .zIndex(0)
     }

@@ -208,17 +208,33 @@ struct HomeView: View {
                 }
                 .background(Color.white) // Set the parent background to white
                 .edgesIgnoringSafeArea(.top) // Scroll under the status bar
-                .navigationDestination(isPresented: $isShowingDetail) {
-                                if let selectedItem = selectedItem {
-                                    // Navigate to ListingScreenView when an item is selected
-                                    GeometryReader { geometry in
-                                        let safeArea = geometry.safeAreaInsets
-                                        let size = geometry.size
-                                        ListingScreenView(title: .constant(selectedItem), safeArea: safeArea, size: size)
-                                            .ignoresSafeArea(.container, edges: .top)
-                                    }
-                                }
+                .overlay(){
+                    if isShowingDetail {
+                        if let selectedItem = selectedItem {
+                            // Navigate to ListingScreenView when an item is selected
+                            GeometryReader { geometry in
+                                let safeArea = geometry.safeAreaInsets
+                                let size = geometry.size
+                                ListingScreenView(title: .constant(selectedItem), safeArea: safeArea, size: size,onBackButtonPressed: {
+                                    isShowingDetail.toggle()
+                                })
+                                .background(Color.white)
+                                    .ignoresSafeArea(.container, edges: .top)
                             }
+                        }
+                    }
+                }
+//                .navigationDestination(isPresented: $isShowingDetail) {
+//                                if let selectedItem = selectedItem {
+//                                    // Navigate to ListingScreenView when an item is selected
+//                                    GeometryReader { geometry in
+//                                        let safeArea = geometry.safeAreaInsets
+//                                        let size = geometry.size
+//                                        ListingScreenView(title: .constant(selectedItem), safeArea: safeArea, size: size)
+//                                            .ignoresSafeArea(.container, edges: .top)
+//                                    }
+//                                }
+//                            }
             }
            
         }
