@@ -14,7 +14,9 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             getHeaderView()
-            ProfileListingView(items: profileItems)
+                .padding([.leading, .trailing], 16)
+                .padding(.top, isUserLoggedIn ? 10 : 30)
+            ProfileListingView(items: profileItems, isUserLoggedIn: isUserLoggedIn)
         }
         .safeAreaInset(edge: .top) {
             Color.clear.frame(height: 50)
