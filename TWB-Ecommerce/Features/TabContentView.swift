@@ -11,6 +11,7 @@ struct TabContentView: View {
     @State private var selectedTab = 0
     
     var body: some View {
+        
         VStack(spacing: 0) {
             // Content area that fills the available space
             ZStack {

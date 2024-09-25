@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 628516">
+<rect id="Rectangle 8442" y="1" width="16" height="15" fill="black"/>
+<g id="check">
+<mask id="mask0_10875_48097" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+<rect id="Bounding box" width="16" height="16" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_10875_48097)">
+<path id="check_2" d="M6.58088 11.0192L4.00781 8.42947L4.60396 7.83333L6.58088 9.79358L11.3911 5L11.9873 5.6128L6.58088 11.0192Z" fill="white"/>
+</g>
+</g>
+</g>
+</svg>
