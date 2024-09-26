@@ -88,6 +88,7 @@
 		20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */; };
 		20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */; };
 		5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BD9A22CA18B970060AA6D /* String+Extension.swift */; };
+		5E69268B2CA54BC000F0EC98 /* SocialMediaLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */; };
 		5E90685D2CA2C49700C9EFE9 /* ProfileListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */; };
 		5E9068612CA2EC7500C9EFE9 /* ProfileListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9068602CA2EC7500C9EFE9 /* ProfileListItemModel.swift */; };
 		5E9C29EA2C9AC485009EEA4A /* LibreBaskerville-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */; };
@@ -180,6 +181,7 @@
 		20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleGiftOccasionList.swift; sourceTree = "<group>"; };
 		20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowOpeningBanner.swift; sourceTree = "<group>"; };
 		5E1BD9A22CA18B970060AA6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaLinks.swift; sourceTree = "<group>"; };
 		5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListingView.swift; sourceTree = "<group>"; };
 		5E9068602CA2EC7500C9EFE9 /* ProfileListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListItemModel.swift; sourceTree = "<group>"; };
 		5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.ttf"; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 			children = (
 				20A4142B2C8EC90800D03BC4 /* ProfileView.swift */,
 				5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */,
+				5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				20C0CEEE2C931A8F0074471B /* MoreOptions.swift in Sources */,
 				20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */,
 				20C0CEF02C9322CE0074471B /* SignupView.swift in Sources */,
+				5E69268B2CA54BC000F0EC98 /* SocialMediaLinks.swift in Sources */,
 				20C0CECD2C91CFBB0074471B /* OnSaleItem.swift in Sources */,
 				20C0CEEC2C92F9A10074471B /* SkipButton.swift in Sources */,
 				20C0CED02C92C6B70074471B /* CountryPickerView.swift in Sources */,

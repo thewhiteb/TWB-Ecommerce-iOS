@@ -31,11 +31,13 @@ struct ProfileListingView: View {
                     .padding(.bottom, 10)
                 getFourthSectionView()
                     .padding(.bottom, 10)
-                if isUserLoggedIn{
+                if isUserLoggedIn {
                     getFifthSectionView()
                         .padding(.bottom, 10)
                 }
             }
+            SocialMediaLinks()
+                .padding([.top, .bottom], 30)
         }
         .scrollIndicators(.hidden)
     }
