@@ -8,38 +8,44 @@
 import SwiftUI
 
 struct TabListItem: View {
-    let listTabItem: ListTabItem
-    let scale: CGFloat  // Add a scale parameter to dynamically adjust size
-
+    let listTabItem : ListTabItem
+    
     var body: some View {
-        VStack {
+        
+        VStack{
+            
             ZStack {
+                
                 Rectangle()
                     .fill(Color(red: 0.83, green: 0.87, blue: 0.9).opacity(0.3))
-                    .frame(width: 118 , height: 124 )  // Adjust size dynamically
+                    .frame(width: 118, height: 124)
                 
                 // Centered image
                 Image(listTabItem.imageName)
                     .resizable()
                     .scaledToFit()
-                    .padding(10)  // Adjust padding dynamically
+                    .padding(10)
+                
             }
-            .frame(width: 118 , height: 124)  // Adjust size dynamically
-
+            .frame(width: 118, height: 124)
+            
             Text(listTabItem.imageText.uppercased())
-                .font(Font.custom("Lato", size: 10))  // Adjust font size dynamically
+                .font(
+                    Font.custom("Lato", size: 10))
                 .fontWeight(.bold)
                 .foregroundColor(.black)
-                .padding(.top, 10)  // Adjust top padding dynamically
+                .padding(.top,10)
         }
+        
     }
 }
+
 
 struct TabListItem_Previews: PreviewProvider {
     static var previews: some View {
         let tabListItem = ListTabItem(imageName: "tube_acrylic", imageText: "Tube Acrylic")
         
-        TabListItem(listTabItem: tabListItem, scale: 1.0)  // Provide a scale for preview
+        TabListItem(listTabItem: tabListItem)
             .previewLayout(.sizeThatFits) // Ensures the view will fit the preview
     }
 }

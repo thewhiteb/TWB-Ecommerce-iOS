@@ -15,17 +15,11 @@ struct ShopByStyles: View {
         ItemModel(imageName: "Bouquets", itemText: "BOUQUETS"),
         ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES")
     ]
-    
-    var onItemSelected: (String) -> Void
-    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing : 15) {
                 ForEach(items) { item in
                     ShopByStyleItem(item: item)
-                        .onTapGesture {
-                            onItemSelected(item.imageName) // Trigger the closure with the selected item text
-                        }
                 }
             }
             .padding()
@@ -34,7 +28,5 @@ struct ShopByStyles: View {
     }
 }
 #Preview {
-    ShopByStyles { selectedItem in
-            print("Selected Item: \(selectedItem)") 
-        }
+    ShopByStyles()
 }
