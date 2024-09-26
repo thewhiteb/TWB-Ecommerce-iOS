@@ -41,7 +41,7 @@ struct DetailScreenView: View {
         .edgesIgnoringSafeArea(.top)
     }
 }
-
+//Test
 
 #Preview {
     DetailScreenView()
