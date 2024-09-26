@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProfileListingView: View {
-    let items: [ListItem]
     let isUserLoggedIn: Bool
     
     private let logoutSections = 3
@@ -41,24 +40,13 @@ struct ProfileListingView: View {
         }
         .scrollIndicators(.hidden)
     }
-    
-    private func getDestionationView(for item: ListItem) -> some View {
-        Rectangle()
-            .background(.red)
-    }
-    
-    private func getListItemRow(for item: ListItem) -> some View {
-        NavigationRow(image: item.icon, text: item.id)
-    }
 
     private func getFirstSectionView() -> some View {
         LazyVStack(spacing: 0) {
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Notifications",
-                                           icon: .notification)
-                getListItemRow(for: item)
+                NavigationRow(image: .notification, text: "Notifications")
             }
         }
     }
@@ -68,50 +56,38 @@ struct ProfileListingView: View {
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "My Orders",
-                                           icon: .order)
-                getListItemRow(for: item)
+                NavigationRow(image: .order, text: "My Orders")
 
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Personal Details",
-                                           icon: .personal)
-                getListItemRow(for: item)
+                NavigationRow(image: .personal, text: "Personal Details")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "My Favourite",
-                                           icon: .favourite)
-                getListItemRow(for: item)
+                NavigationRow(image: .favourite, text: "My Favourite")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem =  .init(id: "Coupons",
-                                            icon: .coupons)
-                getListItemRow(for: item)
+                NavigationRow(image: .coupons, text: "Coupons")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Address Book",
-                                           icon: .addressBook)
-                getListItemRow(for: item)
+                NavigationRow(image: .addressBook, text: "Address Book")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Payment Cards",
-                                           icon: .payment)
-                getListItemRow(for: item)
+                NavigationRow(image: .payment, text: "Payment Cards")
             }
         }
     }
@@ -121,25 +97,19 @@ struct ProfileListingView: View {
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Settings",
-                                            icon: .setting)
-                getListItemRow(for: item)
+                NavigationRow(image: .setting, text: "Settings")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Need Help? Call or Whatsapp us",
-                                           icon: .support)
-                getListItemRow(for: item)
+                NavigationRow(image: .support, text: "Need Help? Call or Whatsapp us")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "About TWB",
-                                           icon: .about)
-                getListItemRow(for: item)
+                NavigationRow(image: .about, text: "About TWB")
             }
         }
     }
@@ -149,17 +119,13 @@ struct ProfileListingView: View {
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Terms & Condition",
-                                           icon: .terms)
-                getListItemRow(for: item)
+                NavigationRow(image: .terms, text: "Terms & Condition")
             }
             Divider()
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Privacy Policy",
-                                           icon: .privacy)
-                getListItemRow(for: item)
+                NavigationRow(image: .privacy, text: "Privacy Policy")
             }
         }
     }
@@ -169,14 +135,12 @@ struct ProfileListingView: View {
             NavigationLink {
                 
             } label: {
-                let item: ListItem = .init(id: "Logout",
-                                          icon: .logout)
-                getListItemRow(for: item)
+                NavigationRow(image: .logout, text: "Logout")
             }
         }
     }
 }
 
 #Preview {
-    ProfileListingView(items: profileItems, isUserLoggedIn: true)
+    ProfileListingView(isUserLoggedIn: true)
 }

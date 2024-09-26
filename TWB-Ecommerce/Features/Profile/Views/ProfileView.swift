@@ -16,7 +16,7 @@ struct ProfileView: View {
             getHeaderView()
                 .padding([.leading, .trailing], 16)
                 .padding(.top, isUserLoggedIn ? 10 : 30)
-            ProfileListingView(items: profileItems, isUserLoggedIn: isUserLoggedIn)
+            ProfileListingView(isUserLoggedIn: isUserLoggedIn)
         }
         .safeAreaInset(edge: .top) {
             Color.clear.frame(height: 50)
