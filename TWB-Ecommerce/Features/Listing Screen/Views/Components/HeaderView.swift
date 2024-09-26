@@ -43,7 +43,7 @@ struct HeaderView: View {
             }
             .overlay(content: {
                 Text(title)
-                    .font(Font.custom("Baskerville", size: 20))
+                    .font(Font.custom("Baskerville", size: 22))
                     .fontWeight(.semibold)
                     .opacity(mapProgressToOpacityTitle(progress: titleProgress)) 
                     

@@ -16,7 +16,7 @@ struct SimpleButtonWhite: View {
             action()  // Perform the action passed in
         }) {
             Text(text)
-                .font(Font.custom("Baskerville", size: 12))  // Customize text style
+                .font(Font.custom("Baskerville", size: 14))  // Customize text style
                 .foregroundColor(Color.gray)  // Text color
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: 40)  // Ensure the button fills available space

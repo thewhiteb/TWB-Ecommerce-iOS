@@ -25,7 +25,7 @@ struct ListingItemView: View {
                         ForEach(0..<images.count, id: \.self) { index in
                             Image(images[index])
                                 .resizable()
-                                .scaledToFill()
+                                .scaledToFit()
                                 .frame(width: geometry.size.width, height: 195) // Fixed height, dynamic width
                                 .clipped()
                                 .tag(index)
@@ -72,7 +72,7 @@ struct ListingItemView: View {
                         }
                     }
                 }
-                .background(Color(red: 0.93, green: 0.95, blue: 0.96))
+                .background(Color(hex: "#F5F5F5"))
 
                 // Item name
                 Text(itemName)

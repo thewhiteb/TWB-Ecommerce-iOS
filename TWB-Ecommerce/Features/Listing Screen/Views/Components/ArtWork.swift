@@ -22,7 +22,7 @@ struct ArtWork: View {
             
             VStack{
                 
-                Image("Featured_Banner1")
+                Image("Featured_Banner2")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: size.width, height: size.height + (minY > 0 ? minY : 0))

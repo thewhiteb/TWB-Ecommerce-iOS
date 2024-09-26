@@ -40,7 +40,7 @@ struct ListingScreenView: View {
                                     Spacer()
                                     Text(title)
                                         .font(
-                                            Font.custom("Baskerville", size: 20)
+                                            Font.custom("Baskerville", size: 22)
                                         )
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)

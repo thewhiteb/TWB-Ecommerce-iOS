@@ -28,7 +28,7 @@ struct ShopByStyleItem: View {
         .frame(width: 130, height: 220) // Fix the frame size of the VStack
         .padding()
         .background(Color.white)
-        .shadow(color: .black.opacity(0.15), radius: 6.5, x: 1, y: 5)
+        .shadow(color: .black.opacity(0.15), radius: 2.5, x: 1, y: 1)
     }
 }
 

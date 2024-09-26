@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ShopByStyles: View {
     @State private var items: [ItemModel] = [
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"),
-        ItemModel(imageName: "Bouquets", itemText: "BOUQUETS"),
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"),
-        ItemModel(imageName: "Bouquets", itemText: "BOUQUETS"),
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES")
+        ItemModel(imageName: "AcrylicBox", itemText: "Acrylic Boxes"),
+        ItemModel(imageName: "Bouquets", itemText: "Bouquets"),
+        ItemModel(imageName: "AcrylicBox", itemText: "Acrylic Boxes"),
+        ItemModel(imageName: "Bouquets", itemText: "Bouquets"),
+        ItemModel(imageName: "AcrylicBox", itemText: "Bouquets")
     ]
     
     var onItemSelected: (String) -> Void
@@ -24,7 +24,7 @@ struct ShopByStyles: View {
                 ForEach(items) { item in
                     ShopByStyleItem(item: item)
                         .onTapGesture {
-                            onItemSelected(item.imageName) // Trigger the closure with the selected item text
+                            onItemSelected(item.itemText) // Trigger the closure with the selected item text
                         }
                 }
             }
