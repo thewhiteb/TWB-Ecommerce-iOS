@@ -20,7 +20,8 @@ struct TabContentView: View {
                 case 1:
                     SearchView()
                 case 2:
-                    WhiteBTQView()
+//                    WhiteBTQView()
+                    MenuView()
                 case 3:
                     BagView(items: items)
                 case 4:

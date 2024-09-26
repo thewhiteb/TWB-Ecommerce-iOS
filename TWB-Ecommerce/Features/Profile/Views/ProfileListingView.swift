@@ -48,17 +48,7 @@ struct ProfileListingView: View {
     }
     
     private func getListItemRow(for item: ListItem) -> some View {
-        HStack(alignment: .center) {
-            Image(item.icon)
-            Text(item.id)
-                .font(.getFont(name: .libreRegular, size: 12))
-                .foregroundStyle(Constants.black)
-            Spacer()
-            Image(.nextArrow)
-        }
-        .padding(.leading, 16)
-        .frame(height: 81)
-        .background(Constants.white)
+        NavigationRow(image: item.icon, text: item.id)
     }
 
     private func getFirstSectionView() -> some View {

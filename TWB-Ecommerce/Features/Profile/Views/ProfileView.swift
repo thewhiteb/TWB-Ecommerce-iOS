@@ -87,45 +87,45 @@ struct ProfileView: View {
 }
 
 
-struct MenuView: View {
-    enum MenuItem: String {
-        case staff = "Staff"
-        case projects = "Projects"
-        case invoices = "Invoices"
-        case about = "About"
-        case feedback = "Fourth"
-
-        static let infoSection: [MenuItem] = [.staff, .projects, .invoices]
-        static let helpSection: [MenuItem] = [.about, .feedback]
-    }
-
-    var body: some View {
-        NavigationView {
-            List {
-                makeSection(title: "Info", items: MenuItem.infoSection)
-                makeSection(title: "Help", items: MenuItem.helpSection)
-            }
-            .navigationBarTitle("Menu")
-        }
-    }
-
-    private func makeSection(title: String, items: [MenuItem]) -> some View {
-        Section(header: Text(title)) {
-            ForEach(items, id: \.self) { item in
-                NavigationLink(destination: self.destination(forItem: item)) {
-                    Text(item.rawValue)
-                }
-            }
-        }
-    }
-
-    private func destination(forItem item: MenuItem) -> some View {
-        switch item {
-            case .staff: return AnyView(Text("Staff View"))
-            case .projects: return AnyView(Text("Projects View"))
-            case .invoices: return AnyView(Text("Invoices View"))
-            case .about: return AnyView(Text("About View"))
-            case .feedback: return AnyView(Text("Feedback View"))
-        }
-    }
-}
+//struct MenuView: View {
+//    enum MenuItem: String {
+//        case staff = "Staff"
+//        case projects = "Projects"
+//        case invoices = "Invoices"
+//        case about = "About"
+//        case feedback = "Fourth"
+//
+//        static let infoSection: [MenuItem] = [.staff, .projects, .invoices]
+//        static let helpSection: [MenuItem] = [.about, .feedback]
+//    }
+//
+//    var body: some View {
+//        NavigationView {
+//            List {
+//                makeSection(title: "Info", items: MenuItem.infoSection)
+//                makeSection(title: "Help", items: MenuItem.helpSection)
+//            }
+//            .navigationBarTitle("Menu")
+//        }
+//    }
+//
+//    private func makeSection(title: String, items: [MenuItem]) -> some View {
+//        Section(header: Text(title)) {
+//            ForEach(items, id: \.self) { item in
+//                NavigationLink(destination: self.destination(forItem: item)) {
+//                    Text(item.rawValue)
+//                }
+//            }
+//        }
+//    }
+//
+//    private func destination(forItem item: MenuItem) -> some View {
+//        switch item {
+//            case .staff: return AnyView(Text("Staff View"))
+//            case .projects: return AnyView(Text("Projects View"))
+//            case .invoices: return AnyView(Text("Invoices View"))
+//            case .about: return AnyView(Text("About View"))
+//            case .feedback: return AnyView(Text("Feedback View"))
+//        }
+//    }
+//}
