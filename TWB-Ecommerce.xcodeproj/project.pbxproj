@@ -23,6 +23,9 @@
 		204EFBAB2CA3FD25002D9986 /* SimpleButtonWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBAA2CA3FD25002D9986 /* SimpleButtonWhite.swift */; };
 		204EFBAD2CA3FED8002D9986 /* SimpleButtonBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBAC2CA3FED8002D9986 /* SimpleButtonBlack.swift */; };
 		204EFBB02CA41571002D9986 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBAF2CA41571002D9986 /* DetailScreenView.swift */; };
+		204EFBB42CA54BCC002D9986 /* DetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBB32CA54BCC002D9986 /* DetailBannerView.swift */; };
+		204EFBB62CA5523B002D9986 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBB52CA5523B002D9986 /* DetailHeaderView.swift */; };
+		204EFBB82CA55267002D9986 /* DetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204EFBB72CA55267002D9986 /* DetailBottomView.swift */; };
 		2075F3A42C636F670010536E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075F3A32C636F670010536E /* LoginView.swift */; };
 		209A33622C6B406D008B8D9B /* Baskerville.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33612C6B406D008B8D9B /* Baskerville.ttf */; };
 		209A33642C6B40AC008B8D9B /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A33632C6B40AC008B8D9B /* Lato-Black.ttf */; };
@@ -134,6 +137,9 @@
 		204EFBAA2CA3FD25002D9986 /* SimpleButtonWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonWhite.swift; sourceTree = "<group>"; };
 		204EFBAC2CA3FED8002D9986 /* SimpleButtonBlack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonBlack.swift; sourceTree = "<group>"; };
 		204EFBAF2CA41571002D9986 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
+		204EFBB32CA54BCC002D9986 /* DetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBannerView.swift; sourceTree = "<group>"; };
+		204EFBB52CA5523B002D9986 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		204EFBB72CA55267002D9986 /* DetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomView.swift; sourceTree = "<group>"; };
 		2075F3A32C636F670010536E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		209A33352C64CB74008B8D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		209A33612C6B406D008B8D9B /* Baskerville.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baskerville.ttf; sourceTree = "<group>"; };
@@ -337,9 +343,28 @@
 		204EFBAE2CA41558002D9986 /* Detail Screen */ = {
 			isa = PBXGroup;
 			children = (
-				204EFBAF2CA41571002D9986 /* DetailScreenView.swift */,
+				204EFBB22CA54BA0002D9986 /* View */,
 			);
 			path = "Detail Screen";
+			sourceTree = "<group>";
+		};
+		204EFBB12CA54B93002D9986 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				204EFBB32CA54BCC002D9986 /* DetailBannerView.swift */,
+				204EFBB52CA5523B002D9986 /* DetailHeaderView.swift */,
+				204EFBB72CA55267002D9986 /* DetailBottomView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		204EFBB22CA54BA0002D9986 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				204EFBB12CA54B93002D9986 /* Components */,
+				204EFBAF2CA41571002D9986 /* DetailScreenView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2075F39E2C635F360010536E /* Base Components */ = {
@@ -925,12 +950,14 @@
 				209B77B32C9DB23200BEDC1A /* ArtWork.swift in Sources */,
 				204EFB9A2CA2E947002D9986 /* Occasion.swift in Sources */,
 				20C0D53C2C873CB60060354A /* TrendingProductList.swift in Sources */,
+				204EFBB82CA55267002D9986 /* DetailBottomView.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
 				20C95CE22C9B0BF200B5174D /* TabListItem.swift in Sources */,
 				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
 				20C95CE72C9C108300B5174D /* TabListSmallItem.swift in Sources */,
+				204EFBB62CA5523B002D9986 /* DetailHeaderView.swift in Sources */,
 				204EFB9D2CA2EBF2002D9986 /* ColorDropdownView.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				204EFB922CA2D6DE002D9986 /* SortSheet.swift in Sources */,
@@ -958,6 +985,7 @@
 				5EAA61392C9C438500089A90 /* BagListingView.swift in Sources */,
 				20C0CEC22C91C2CD0074471B /* GiftByColor.swift in Sources */,
 				20C95CE42C9B0FDA00B5174D /* TabListView.swift in Sources */,
+				204EFBB42CA54BCC002D9986 /* DetailBannerView.swift in Sources */,
 				20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */,
 				20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */,
 				20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */,

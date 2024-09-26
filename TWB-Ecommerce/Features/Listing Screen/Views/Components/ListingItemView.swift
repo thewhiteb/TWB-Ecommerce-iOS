@@ -41,7 +41,7 @@ struct ListingItemView: View {
                             ForEach(0..<images.count, id: \.self) { index in
                                 Circle()
                                     .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
-                                    .foregroundColor(currentPage == index ? .white : .white)
+                                    .foregroundColor(currentPage == index ? .black : .gray)
                             }
                         }
                         .padding(.bottom, 10)

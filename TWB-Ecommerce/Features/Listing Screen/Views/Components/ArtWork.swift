@@ -47,10 +47,6 @@ struct ArtWork: View {
                         }
                     })
                     .offset(y: -minY)
-                    .onChange(of: minY){ newValue in
-                        print("MinY Banner")
-                        
-                    }
                 
             }
             
