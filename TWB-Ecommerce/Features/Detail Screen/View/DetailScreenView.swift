@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0  // Track the header opacity
-    @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height  // Initial banner height
+    @State private var bannerHeight: CGFloat = 0.7 * UIScreen.main.bounds.height  // Initial banner height
     
     private enum CoordinateSpaces {
         case scrollView
@@ -21,7 +21,7 @@ struct DetailScreenView: View {
             ScrollView(showsIndicators: false) {
                 GeometryReader { geo in
                     DetailBannerView(
-                        images: ["DetailBanner", "DetailBanner", "DetailBanner"],
+                        images: ["Bouquet1", "Test", "Bouquet1"],
                         coordinateSpace: CoordinateSpaces.scrollView,
                         defaultHeight: bannerHeight
                     )

@@ -32,7 +32,7 @@ struct DetailBannerView< Space: Hashable>: View {
                             .tag(index)
                     }
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))  // Disable default indicators
                 .frame(width: proxy.size.width, height: defaultHeight)
                 
                 // Custom page indicator dots
