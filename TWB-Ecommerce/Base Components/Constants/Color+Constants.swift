@@ -16,4 +16,6 @@ struct Constants {
     static let white: Color = .init(hex: "#FFFFFF")
     static let clear: Color = .clear
     static let grayBorder: Color = .init(hex: "#D9D9D9")
+    static let imageBG: Color = .init(hex: "#F5F5F5")
+    static let bloodRed: Color = .init(hex: "#931935")
 }

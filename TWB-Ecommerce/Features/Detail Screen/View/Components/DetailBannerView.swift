@@ -26,7 +26,7 @@ struct DetailBannerView< Space: Hashable>: View {
                     ForEach(0..<images.count, id: \.self) { index in
                         Image(images[index])
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .frame(width: proxy.size.width, height: defaultHeight)
                             .clipped()
                             .tag(index)
@@ -43,9 +43,9 @@ struct DetailBannerView< Space: Hashable>: View {
                             .frame(width: 8, height: 8)
                     }
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 25)
             }
-            
+            .background(Constants.imageBG)
             .edgesIgnoringSafeArea(.horizontal)
             .frame(
                 width: proxy.size.width,
@@ -58,7 +58,7 @@ struct DetailBannerView< Space: Hashable>: View {
     private func offset(for proxy: GeometryProxy) -> CGFloat {
         let frame = proxy.frame(in: .named(coordinateSpace))
         if frame.minY < 0 {
-            return -frame.minY * 0.7
+            return -frame.minY * 0.65
         }
         return -frame.minY
     }
