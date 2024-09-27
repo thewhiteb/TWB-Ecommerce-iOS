@@ -108,6 +108,10 @@
 		20FE057C2C9058E80022E022 /* OffsetReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE057B2C9058E80022E022 /* OffsetReader.swift */; };
 		20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */; };
 		20FE05822C907F0A0022E022 /* NowOpeningBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */; };
+		5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BD9A22CA18B970060AA6D /* String+Extension.swift */; };
+		5E69268B2CA54BC000F0EC98 /* SocialMediaLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */; };
+		5E90685D2CA2C49700C9EFE9 /* ProfileListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */; };
+		5E9068612CA2EC7500C9EFE9 /* ProfileListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9068602CA2EC7500C9EFE9 /* ProfileListItemModel.swift */; };
 		5E9C29EA2C9AC485009EEA4A /* LibreBaskerville-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */; };
 		5E9C29EB2C9AC485009EEA4A /* LibreBaskerville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */; };
 		5E9C29EC2C9AC485009EEA4A /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */; };
@@ -218,6 +222,10 @@
 		20FE057B2C9058E80022E022 /* OffsetReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetReader.swift; sourceTree = "<group>"; };
 		20FE057D2C9071670022E022 /* SimpleGiftOccasionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleGiftOccasionList.swift; sourceTree = "<group>"; };
 		20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowOpeningBanner.swift; sourceTree = "<group>"; };
+		5E1BD9A22CA18B970060AA6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaLinks.swift; sourceTree = "<group>"; };
+		5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListingView.swift; sourceTree = "<group>"; };
+		5E9068602CA2EC7500C9EFE9 /* ProfileListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListItemModel.swift; sourceTree = "<group>"; };
 		5E9C29E72C9AC485009EEA4A /* LibreBaskerville-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.ttf"; sourceTree = "<group>"; };
 		5E9C29E82C9AC485009EEA4A /* LibreBaskerville-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Italic.ttf"; sourceTree = "<group>"; };
 		5E9C29E92C9AC485009EEA4A /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
@@ -475,7 +483,8 @@
 		20A4142A2C8EC8F500D03BC4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				20A4142B2C8EC90800D03BC4 /* ProfileView.swift */,
+				5E9068632CA2ECCF00C9EFE9 /* Views */,
+				5E9068622CA2ECC100C9EFE9 /* Models */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 				20C0CED62C92C7F60074471B /* UIApplication.swift */,
 				5E9C29ED2C9AC5EA009EEA4A /* Fonts+Extension.swift */,
 				5ED005572C9BFDC7003B899B /* Color+Extension.swift */,
+				5E1BD9A22CA18B970060AA6D /* String+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -771,6 +781,24 @@
 				20FE05812C907F0A0022E022 /* NowOpeningBanner.swift */,
 			);
 			path = "Now Opening";
+			sourceTree = "<group>";
+		};
+		5E9068622CA2ECC100C9EFE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E9068602CA2EC7500C9EFE9 /* ProfileListItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E9068632CA2ECCF00C9EFE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20A4142B2C8EC90800D03BC4 /* ProfileView.swift */,
+				5E90685C2CA2C49700C9EFE9 /* ProfileListingView.swift */,
+				5E69268A2CA54BC000F0EC98 /* SocialMediaLinks.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5E9C29E52C9AC2F9009EEA4A /* Lato */ = {
@@ -956,6 +984,7 @@
 				204EFBB82CA55267002D9986 /* DetailBottomView.swift in Sources */,
 				209A33852C6CCE3E008B8D9B /* Country.swift in Sources */,
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
+				5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
 				20C95CE22C9B0BF200B5174D /* TabListItem.swift in Sources */,
 				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
@@ -967,7 +996,9 @@
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				20A414292C8EC8D100D03BC4 /* BagView.swift in Sources */,
 				204EFBB02CA41571002D9986 /* DetailScreenView.swift in Sources */,
+				5E90685D2CA2C49700C9EFE9 /* ProfileListingView.swift in Sources */,
 				20C0CEB52C9198560074471B /* ShopByStyleItem.swift in Sources */,
+				5E9068612CA2EC7500C9EFE9 /* ProfileListItemModel.swift in Sources */,
 				20C95CE02C9AE56E00B5174D /* ListingItemView.swift in Sources */,
 				20D8DF8A2CA593900086CC62 /* DetailFullImageView.swift in Sources */,
 				20FE056F2C9028750022E022 /* FeatureProductsBanner.swift in Sources */,
@@ -976,6 +1007,7 @@
 				20C0CEEE2C931A8F0074471B /* MoreOptions.swift in Sources */,
 				20FE057E2C9071670022E022 /* SimpleGiftOccasionList.swift in Sources */,
 				20C0CEF02C9322CE0074471B /* SignupView.swift in Sources */,
+				5E69268B2CA54BC000F0EC98 /* SocialMediaLinks.swift in Sources */,
 				20C0CECD2C91CFBB0074471B /* OnSaleItem.swift in Sources */,
 				20C0CEEC2C92F9A10074471B /* SkipButton.swift in Sources */,
 				20C0CED02C92C6B70074471B /* CountryPickerView.swift in Sources */,
