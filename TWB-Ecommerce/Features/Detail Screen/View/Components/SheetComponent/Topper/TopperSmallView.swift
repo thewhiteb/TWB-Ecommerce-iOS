@@ -5,7 +5,6 @@ struct TopperSmallView: View {
     @Binding var text: String
     
     let toppers = [
-        TopperItem(name: "Without Topper", price: ""),
         TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 83"),
         TopperItem(name: "52 UAE", price: "AED 32"),
         TopperItem(name: "Love You", price: "AED 32"),
@@ -16,14 +15,12 @@ struct TopperSmallView: View {
         TopperItem(name: "Happy Anniversary", price: "AED 32"),
         TopperItem(name: "Best Wishes", price: "AED 32")
     ]
-    @State private var textFieldValue: String = ""
     
-    // Callback to return the selected flavour to the parent view
+    @State private var selectedTopper: TopperItem = TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 83")  // Default selected topper
+    @State private var showTopperLargeView = false  // State to show the large view
+    
+    // Callback to return the selected topper to the parent view
     var onSelectionChanged: (String) -> Void
-    
-    // Track the selected flavour
-    @State private var selectedTopper: String? = nil
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -34,11 +31,10 @@ struct TopperSmallView: View {
                     .fontWeight(.semibold)
                 
                 Spacer()
-                
             }
             .padding(.horizontal)
             
-            // ZStack for the dropdown
+            // Button to trigger the large topper sheet
             ZStack {
                 Rectangle()
                     .fill(Color.clear)
@@ -49,12 +45,16 @@ struct TopperSmallView: View {
                     )
                 
                 HStack {
-                    Text("Choose small topper")
+                    Text(selectedTopper.name)  // Show selected topper
                         .font(.getFont(name: .libreBold, size: 12))
                         .foregroundColor(Constants.gray)
                         .padding(.horizontal, 10)
                     
                     Spacer()
+                    
+                    Text(selectedTopper.price)  // Show selected topper price
+                        .font(.getFont(name: .libreBold, size: 12))
+                        .foregroundColor(Constants.gray)
                     
                     Image("DownArrow")
                         .padding(.horizontal, 10)
@@ -63,24 +63,46 @@ struct TopperSmallView: View {
             .frame(height: 56)  // Ensure the height matches the TextField
             .padding(.horizontal)
             .padding(.top, 30)
-            
-            // TextField for customized input
-            TextField("Input Customized Topper Text", text: $text)
-                .font(.getFont(name: .libreRegular, size: 12))
-                .frame(height: 56)  // Set fixed height to match the ZStack
-                .padding(.horizontal, 10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 0)
-                        .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
+            .onTapGesture {
+                showTopperLargeView.toggle()  // Open the large view when tapped
+            }
+            .sheet(isPresented: $showTopperLargeView) {
+                TopperLargeView(
+                    selectedTopper: $selectedTopper,
+                    toppers: toppers,
+                    onSelectionDone: { selected in
+                        // Handle the selection when the sheet is dismissed
+                        selectedTopper = selected
+                        if selected.name == "Customized Topper (3 Working Days)" {
+                            text = ""
+                        } else {
+                            text = selected.name
+                        }
+                        
+                        onSelectionChanged(selected.name)
+                    }
                 )
-                .padding(.horizontal)
-                .padding(.top, 10)
+                .presentationDetents([.fraction(0.7), .medium])
+            }
+            
+            // Show TextField if "Customized Topper" is selected
+            if selectedTopper.name == "Customized Topper (3 Working Days)" {
+                TextField("Input Customized Topper Text", text: $text)
+                    .font(.getFont(name: .libreRegular, size: 12))
+                    .frame(height: 56)  // Set fixed height to match the ZStack
+                    .padding(.horizontal, 10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 0)
+                            .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+            }
         }
     }
 }
 
 #Preview {
-    
     @Previewable @State var textFieldValue: String = ""
     
     TopperSmallView(text: $textFieldValue, onSelectionChanged: { selectedTopper in
