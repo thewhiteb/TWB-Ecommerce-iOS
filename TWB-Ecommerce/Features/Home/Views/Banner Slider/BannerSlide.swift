@@ -12,19 +12,24 @@ struct BannerSlide: View {
     @State private var currentPage = 0
     let images = ["MainBanner1", "MainBanner2","MainBanner3"]
     
+    var size: CGSize
+    
+    
     var body: some View {
+        let height = size.height * 0.55
+        
         VStack {
             TabView(selection: $currentPage) {
                 ForEach(0..<images.count, id: \.self) { index in
                     Image(images[index])
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(height: 500)
-                        .clipped() 
+                        .frame(height: height)
+                        .clipped()
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .frame(height: 500) // Frame for the TabView
+            .frame(height: height) // Frame for the TabView
             .onAppear {
                 setupPageControlAppearance()
             }
@@ -48,6 +53,10 @@ struct BannerSlide: View {
 }
 
 #Preview {
-    BannerSlide()
+    GeometryReader {
+       let size = $0.size
+       BannerSlide(size: size)
+    }
+  
 }
 

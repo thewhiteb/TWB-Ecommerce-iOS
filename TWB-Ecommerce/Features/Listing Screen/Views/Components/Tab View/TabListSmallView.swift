@@ -1,15 +1,15 @@
 //
-//  TabListView.swift
+//  TabListSmallView.swift
 //  TWB-Ecommerce
 //
-//  Created by Khurram Ansar on 18/09/2024.
+//  Created by Khurram Ansar on 19/09/2024.
 //
 
 import SwiftUI
 
-struct TabListView: View {
-    let scale: CGFloat  // Add a scale parameter to dynamically scale the items
 
+struct TabListSmallView: View {
+    let minY : CGFloat
     let listTabItems = [
         ListTabItem(imageName: "tube_acrylic", imageText: "Tube Acrylic"),
         ListTabItem(imageName: "single_acrylic", imageText: "Single Acrylic"),
@@ -17,28 +17,26 @@ struct TabListView: View {
         ListTabItem(imageName: "tube_acrylic", imageText: "Circle Acrylic"),
         ListTabItem(imageName: "tube_acrylic", imageText: "Letter")
     ]
-
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 15) {
                 ForEach(listTabItems, id: \.imageText) { item in
-                    TabListItem(listTabItem: item)
-                        .scaleEffect(scale)  // Apply the scale effect to each item
-                        .animation(.easeOut, value: scale)
+                    TabListSmallItem(listTabItem: item)
                 }
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 20)
+          
         }
-        .frame(height: 160 * scale)   // Adjust the height based on the scale
+        .frame(height: 60) // Adjust height for the scroll view
         .background(Color.white)
+        .shadow(color: Color.gray.opacity(0.1), radius: minY < -50 ? 5 :0, x: 0, y: minY < -50 ? 5 : 0)
     }
 }
 
-//// Preview with sample data
-struct TabListItemScrollView_Previews: PreviewProvider {
-   
+// Preview with sample data
+struct TabListSmallView_Previews: PreviewProvider {
     static var previews: some View {
-        TabListView(scale: 1.0)
+        TabListSmallView(minY: 10.0)
     }
 }
-

@@ -25,7 +25,7 @@ struct ListingItemView: View {
                         ForEach(0..<images.count, id: \.self) { index in
                             Image(images[index])
                                 .resizable()
-                                .scaledToFill()
+                                .scaledToFit()
                                 .frame(width: geometry.size.width, height: 195) // Fixed height, dynamic width
                                 .clipped()
                                 .tag(index)
@@ -41,26 +41,26 @@ struct ListingItemView: View {
                             ForEach(0..<images.count, id: \.self) { index in
                                 Circle()
                                     .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
-                                    .foregroundColor(currentPage == index ? .white : .white)
+                                    .foregroundColor(currentPage == index ? .black : .gray)
                             }
                         }
                         .padding(.bottom, 10)
                     }
 
                     HStack {
-                        VStack(alignment: .leading) {
-                            if isCustomizable {
-                                Text("Customizable")
-                                    .font(.custom("Lato", size: 10))
-                                    .padding(6)
-                                    .background(Color.black.opacity(0.7))
-                                    .foregroundColor(.white)
-                                    .padding(8)
-                            }
-                            Spacer()
-                        }
-                        .padding(.top, 5)
-                        .padding(.leading, 5)
+//                        VStack(alignment: .leading) {
+//                            if isCustomizable {
+//                                Text("Customizable")
+//                                    .font(.custom("Lato", size: 10))
+//                                    .padding(6)
+//                                    .background(Color.black.opacity(0.7))
+//                                    .foregroundColor(.white)
+//                                    .padding(8)
+//                            }
+//                            Spacer()
+//                        }
+//                        .padding(.top, 5)
+//                        .padding(.leading, 5)
                         
                         Spacer()
                         
@@ -72,7 +72,7 @@ struct ListingItemView: View {
                         }
                     }
                 }
-                .background(Color(red: 0.93, green: 0.95, blue: 0.96))
+                .background(Color(hex: "#F5F5F5"))
 
                 // Item name
                 Text(itemName)

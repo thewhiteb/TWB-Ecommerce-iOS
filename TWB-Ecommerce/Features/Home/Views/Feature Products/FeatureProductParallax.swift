@@ -37,7 +37,7 @@ struct FeatureProductParallax: View {
                        }
                    }
                }
-               .contentMargins(32)
+               .contentMargins(16)
                .scrollTargetBehavior(.paging)
                .scrollIndicators(.hidden)
                .frame(height: 600)

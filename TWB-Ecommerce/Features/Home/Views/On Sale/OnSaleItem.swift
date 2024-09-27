@@ -82,7 +82,7 @@ struct OnSaleItem: View {
                     VStack{
                         Image(images[0])
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .frame(width: geometry.size.width, height: 205) // Fixed height, dynamic width
                             .clipped()
                     }
@@ -100,7 +100,7 @@ struct OnSaleItem: View {
                         }
                     }
                 }
-                .background(Color(red: 0.93, green: 0.95, blue: 0.96))
+                .background(Color(hex: "#F5F5F5"))
                 
                 // Item name
                 Text(itemName)
