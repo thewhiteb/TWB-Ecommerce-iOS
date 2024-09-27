@@ -27,11 +27,12 @@ struct DetailHeaderView: View {
                     
                     Spacer()
                     
-                    // Uncomment if you want to add a title in the center of the header
-                    // Text("Product Detail")
-                    //     .font(.headline)
-                    //     .fontWeight(.semibold)
-                    //     .opacity(headerOpacity)
+                   
+                     Text("Tube Acrylic 018")
+                        .font(.getFont(name: .libreBold, size: 16))
+                         .fontWeight(.semibold)
+                         .opacity(headerOpacity)
+                         .padding(.leading, 32)
                     
                     Spacer()
                     
@@ -56,10 +57,9 @@ struct DetailHeaderView: View {
                 .padding(.top, topSafeAreaHeight + 50)
                 .padding(.horizontal)
                 .background(Color.white.opacity(headerOpacity))  // Background opacity depends on scroll
-                .shadow(color: Color.black.opacity(headerOpacity * 0.2), radius: 5, x: 0, y: 2)
-                
                 Spacer()  // Pushes the content of the VStack up
             }
+            .shadow(color: Color.black.opacity(headerOpacity * 0.2), radius: 5, x: 0, y: 2)
         }
         .frame(height: 50)  // Ensure it has a minimum height of 50
     }
