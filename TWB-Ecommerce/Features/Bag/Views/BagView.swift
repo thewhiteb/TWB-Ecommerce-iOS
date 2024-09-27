@@ -34,6 +34,8 @@ struct BagView: View {
     func getTitleView(count: Int) -> some View {
         HStack {
             Text("My Bag (\(count))")
+                .font(.getFont(name: .libreBold, size: 16))
+                .foregroundStyle(Constants.black)
         }
     }
 
