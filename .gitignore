@@ -107,5 +107,13 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods
+# Exclude xcuserstate files
+*.xcuserstate
+
+# Exclude .DS_Store files
 .DS_Store
+
+# Exclude .DS_Store file specifically from the TWB-Ecommerce directory
+TWB-Ecommerce/.DS_Store
+
+# End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods

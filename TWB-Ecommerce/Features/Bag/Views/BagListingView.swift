@@ -27,6 +27,7 @@ struct BagListingView: View {
                     .padding([.leading, .trailing], 16)
                     .background(Constants.white)
             }
+            .scrollIndicators(.hidden)
             grandTotalView()
                 .padding(16)
         }
@@ -71,6 +72,8 @@ struct BagListingView: View {
                     print("Continue shopping")
                 } label: {
                     Text("Continue shopping")
+                        .font(.getFont(name: .libreRegular))
+                        .foregroundStyle(Constants.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 50)
                 .border(Constants.black)
@@ -80,6 +83,8 @@ struct BagListingView: View {
                     print("Proceed to checkout")
                 } label: {
                     Text("Proceed to checkout")
+                        .font(.getFont(name: .libreRegular))
+                        .foregroundStyle(Constants.white)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 50)
                 .background(Constants.black)
