@@ -49,6 +49,8 @@ struct DetailScreenView: View {
         }
         .navigationBarBackButtonHidden(true) // Hide back button
         .edgesIgnoringSafeArea(.top)
+        
+        ///
     }
       
     
