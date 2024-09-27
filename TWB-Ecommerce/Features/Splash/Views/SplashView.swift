@@ -50,6 +50,8 @@ struct SplashView: View {
             .background(Color.white)
             .navigationDestination(isPresented: $navigateToNextScreen) {
                 TabContentView()
+                
+//                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
         }
         .background(Color.white)

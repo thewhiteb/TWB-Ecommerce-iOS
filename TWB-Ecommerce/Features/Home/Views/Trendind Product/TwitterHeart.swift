@@ -56,7 +56,7 @@ struct TwitterHeart: View {
 
                 sparks
                 ZStack {
-                    Image(systemName: "heart")
+                    Image("SmallEmptyHeart")
                         .resizable()
                         .scaleEffect(touch ? 0 : 1)
                         .aspectRatio(contentMode: .fit)
@@ -64,7 +64,7 @@ struct TwitterHeart: View {
                         .foregroundColor(Color(UIColor.white))
                         .animation(base)
 
-                    Image(systemName: "heart.fill")
+                    Image("SmallFillHeart")
                         .resizable()
                         .scaleEffect(touch ? 1 : 0)
                         .aspectRatio(contentMode: .fit)
@@ -72,12 +72,12 @@ struct TwitterHeart: View {
                         .foregroundColor(Color(UIColor.systemRed))
                         .animation(Animation.timingCurve(0.17,1.67,0.61,0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.3 : 0))
 
-                }.frame(width: 20)
+                }.frame(width: 24)
    
-            }.frame(width: 20)
+            }.frame(width: 24)
 
         }
-        .frame(width: 20)
+        .frame(width: 24)
         .contentShape(Rectangle())
         .onTapGesture{
             if self.start {
@@ -115,7 +115,7 @@ struct TwitterHeart: View {
                     .offset(x: touch ? pos.x2 : 0, y: touch ? pos.y2 : 0)
                     .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 0.5 : 0).delay(touch ? pos.delay : 0))
             }
-        }.frame(width: 20, height: 20)
+        }.frame(width: 24, height: 24)
     }
 }
 
