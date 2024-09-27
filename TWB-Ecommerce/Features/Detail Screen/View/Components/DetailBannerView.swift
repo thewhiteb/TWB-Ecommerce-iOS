@@ -78,7 +78,7 @@ struct DetailBannerViewPreview: View {
                 VStack {
                     // Using DetailBannerView in a named coordinate space for the GeometryReader
                     DetailBannerView(
-                        images: ["DetailBanner", "DetailBanner", "DetailBanner"],  // Example images
+                        images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
                         coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
                         defaultHeight: 600  // Example height for the banner
                     )

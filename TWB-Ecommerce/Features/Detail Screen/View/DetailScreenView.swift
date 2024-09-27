@@ -27,6 +27,8 @@ struct DetailScreenView: View {
                     )
                 }
                 .frame(height: bannerHeight)
+                
+                Spacer()
 
                 // Scroll content below the banner
                 DetailBottomView(bannerHeight: bannerHeight, headerOpacity: $headerOpacity)
