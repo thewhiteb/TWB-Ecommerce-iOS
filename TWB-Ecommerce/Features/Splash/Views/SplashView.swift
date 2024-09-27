@@ -49,9 +49,9 @@ struct SplashView: View {
             .padding()
             .background(Color.white)
             .navigationDestination(isPresented: $navigateToNextScreen) {
-//                TabContentView()
+                TabContentView()
                 
-                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
+//                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
         }
         .background(Color.white)

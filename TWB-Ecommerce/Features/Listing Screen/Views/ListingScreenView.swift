@@ -166,15 +166,15 @@ struct ListingScreenView: View {
     
 }
 
-#Preview {
-    @Previewable  @State var text = "Acrylic Boxes"
-    GeometryReader {
-        let safeArea = $0.safeAreaInsets
-        let size = $0.size
-        ListingScreenView(title: $text ,safeArea: safeArea, size: size,
-                          onBackButtonPressed: {
-            
-        })
-        .ignoresSafeArea(.container, edges: .top)
-    }
-}
+//#Preview {
+//    @State var text = "Acrylic Boxes"
+//    GeometryReader {
+//        let safeArea = $0.safeAreaInsets
+//        let size = $0.size
+//        ListingScreenView(title: $text ,safeArea: safeArea, size: size,
+//                          onBackButtonPressed: {
+//            
+//        })
+//        .ignoresSafeArea(.container, edges: .top)
+//    }
+//}

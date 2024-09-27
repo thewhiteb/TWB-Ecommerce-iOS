@@ -48,19 +48,19 @@ struct ListingItemView: View {
                     }
 
                     HStack {
-                        VStack(alignment: .leading) {
-                            if isCustomizable {
-                                Text("Customizable")
-                                    .font(.custom("Lato", size: 10))
-                                    .padding(6)
-                                    .background(Color.black.opacity(0.7))
-                                    .foregroundColor(.white)
-                                    .padding(8)
-                            }
-                            Spacer()
-                        }
-                        .padding(.top, 5)
-                        .padding(.leading, 5)
+//                        VStack(alignment: .leading) {
+//                            if isCustomizable {
+//                                Text("Customizable")
+//                                    .font(.custom("Lato", size: 10))
+//                                    .padding(6)
+//                                    .background(Color.black.opacity(0.7))
+//                                    .foregroundColor(.white)
+//                                    .padding(8)
+//                            }
+//                            Spacer()
+//                        }
+//                        .padding(.top, 5)
+//                        .padding(.leading, 5)
                         
                         Spacer()
                         

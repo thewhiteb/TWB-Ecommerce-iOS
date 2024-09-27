@@ -119,7 +119,7 @@ struct HomeView: View {
 //                                    .fontWeight(.semibold)
 //                                    .multilineTextAlignment(.center)
 //                                    .foregroundColor(.black)
-//                                
+//
 //                                Text("Choose the Perfect Gift by Color")
 //                                    .font(Font.custom("Baskerville", size: 14))
 //                                    .multilineTextAlignment(.center)
@@ -127,7 +127,7 @@ struct HomeView: View {
 //                                    .padding(.top, 2)
 //                            }
 //                            .padding(.top, 40)
-//                            
+//
 //                            GiftByColor()
 //                                .padding(.top, 30)
                             
