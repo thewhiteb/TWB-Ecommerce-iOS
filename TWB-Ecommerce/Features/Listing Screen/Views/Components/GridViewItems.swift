@@ -43,6 +43,3 @@ struct GridViewItems: View {
     }
 }
 
-#Preview {
-    GridViewItems()
-}

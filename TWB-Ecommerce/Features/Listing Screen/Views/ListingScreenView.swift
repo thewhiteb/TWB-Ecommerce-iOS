@@ -173,7 +173,7 @@ struct ListingScreenView: View {
 //        let size = $0.size
 //        ListingScreenView(title: $text ,safeArea: safeArea, size: size,
 //                          onBackButtonPressed: {
-//            
+//
 //        })
 //        .ignoresSafeArea(.container, edges: .top)
 //    }
