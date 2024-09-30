@@ -13,6 +13,8 @@ struct DetailBottomView: View {
     
     var onAddToBagClicked: (Bool) -> Void
     
+    var itemName : String
+    
     var body: some View {
         VStack {
             GeometryReader { geo -> Color in
@@ -28,7 +30,7 @@ struct DetailBottomView: View {
             // Scrollable content
             VStack(alignment :.center,spacing: 0) {
                 
-                Text("Tube Acrylic 018")
+                Text(itemName)
                     .font(
                         .getFont(name: .libreBold, size: 16)
                     )
@@ -111,5 +113,5 @@ struct DetailBottomView: View {
 #Preview {
     DetailBottomView(bannerHeight: 400, headerOpacity: .constant(0.0), onAddToBagClicked: { success in
         print("Add to bag clicked: \(success)")
-    })
+    }, itemName: "Tube Acrylic 018")
 }

@@ -11,12 +11,12 @@ struct HomeView: View {
     @State private var showTopShadow = false  // State to control the shadow visibilityr
     @State private var selectedItem: String?
     @State private var isShowingDetail = false  // Control navigation
-    
+   
     var body: some View {
         NavigationView {
             
             GeometryReader {
-
+                
                 let size = $0.size
                 
                 ZStack(alignment: .top) {
@@ -113,23 +113,23 @@ struct HomeView: View {
                                 print("Bordered Button clicked!")
                             })
                             
-//                            VStack(spacing: 0) {
-//                                Text("Gift By Color")
-//                                    .font(Font.custom("Baskerville", size: 22))
-//                                    .fontWeight(.semibold)
-//                                    .multilineTextAlignment(.center)
-//                                    .foregroundColor(.black)
-//
-//                                Text("Choose the Perfect Gift by Color")
-//                                    .font(Font.custom("Baskerville", size: 14))
-//                                    .multilineTextAlignment(.center)
-//                                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-//                                    .padding(.top, 2)
-//                            }
-//                            .padding(.top, 40)
-//
-//                            GiftByColor()
-//                                .padding(.top, 30)
+                            //                            VStack(spacing: 0) {
+                            //                                Text("Gift By Color")
+                            //                                    .font(Font.custom("Baskerville", size: 22))
+                            //                                    .fontWeight(.semibold)
+                            //                                    .multilineTextAlignment(.center)
+                            //                                    .foregroundColor(.black)
+                            //
+                            //                                Text("Choose the Perfect Gift by Color")
+                            //                                    .font(Font.custom("Baskerville", size: 14))
+                            //                                    .multilineTextAlignment(.center)
+                            //                                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                            //                                    .padding(.top, 2)
+                            //                            }
+                            //                            .padding(.top, 40)
+                            //
+                            //                            GiftByColor()
+                            //                                .padding(.top, 30)
                             
                             VStack(spacing: 0){
                                 Text("Shop By Flowers")
@@ -220,24 +220,13 @@ struct HomeView: View {
                                     isShowingDetail.toggle()
                                 })
                                 .background(Color.white)
-                                    .ignoresSafeArea(.container, edges: .top)
+                                .ignoresSafeArea(.container, edges: .top)
                             }
                         }
                     }
                 }
-//                .navigationDestination(isPresented: $isShowingDetail) {
-//                                if let selectedItem = selectedItem {
-//                                    // Navigate to ListingScreenView when an item is selected
-//                                    GeometryReader { geometry in
-//                                        let safeArea = geometry.safeAreaInsets
-//                                        let size = geometry.size
-//                                        ListingScreenView(title: .constant(selectedItem), safeArea: safeArea, size: size)
-//                                            .ignoresSafeArea(.container, edges: .top)
-//                                    }
-//                                }
-//                            }
             }
-           
+            
         }
         
     }
