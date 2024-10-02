@@ -44,8 +44,12 @@ struct LetterSmallView: View {
                         .underline()
                 }
                 .sheet(isPresented: $isQuickViewPresented) {
-                    LetterLargeView(selectedLetters: selectedLetters)
-                        .presentationDetents([.fraction(0.7), .large])
+                    LetterLargeView(
+                        allowMultipleSelection: allowMultipleSelection,
+                        maxSelectionCount: maxSelectionCount,
+                        selectedLetters: $selectedLetters  
+                    )
+                    .presentationDetents([.fraction(0.7), .large])
                 }
             }
             .padding(.horizontal)
@@ -64,12 +68,10 @@ struct LetterSmallView: View {
                                         .stroke(selectedLetters.contains(String(letter)) ? Color.black : Color.gray, lineWidth: 1)
                                 )
                                 
-                            
                             Text(String(letter))
                                 .font(.getFont(name: .libreRegular, size: 14))
                                 .foregroundColor(selectedLetters.contains(String(letter)) ? .white : Constants.gray)  // White text on black background
                         }
-                        
                         .onTapGesture {
                             selectLetter(String(letter))
                         }
@@ -78,6 +80,10 @@ struct LetterSmallView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 30)
             }
+        }
+        // Whenever selected letters change, notify the parent via the callback
+        .onChange(of: selectedLetters) { newSelectedLetters in
+            onSelectionChanged(newSelectedLetters)
         }
     }
     
@@ -94,11 +100,9 @@ struct LetterSmallView: View {
                 selectedLetters = [letter]  // Single selection
             }
         }
-        
-        // Call the callback to notify the parent view of the selected characters
-        onSelectionChanged(selectedLetters)
     }
 }
+
 
 #Preview {
     LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 3, onSelectionChanged: { selectedLetters in

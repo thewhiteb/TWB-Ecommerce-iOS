@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct BottomView: View {
+    var onItemSelected: (String) -> Void  // Closure to pass selected item back
+    
     var body: some View {
-        VStack{
+        VStack {
             Text("Showing 156 item(s)")
                 .font(Font.custom("Baskerville", size: 12))
                 .foregroundColor(Color(red: 0.35, green: 0.35, blue: 0.35))
-                .padding(.top,120)
+                .padding(.top, 120)
             
-            GridViewItems()
-                .padding(.top,30)
-                .padding(.bottom,70)
+            GridViewItems(onItemClick: { item in
+                onItemSelected(item.itemName)  // Pass the selected item name
+            })
+            .padding(.top, 30)
+            .padding(.bottom, 70)
         }
         .zIndex(0)
     }
 }
 
+
 #Preview {
-    BottomView()
+    BottomView(onItemSelected: {text in print(text)})
 }

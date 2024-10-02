@@ -44,7 +44,7 @@ struct DetailMainSheet: View {
             
             ScrollView{
                 
-                LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 3, onSelectionChanged: { selectedLetters in
+                LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 5, onSelectionChanged: { selectedLetters in
                     print("Selected letters: \(selectedLetters)")
                 })
                 
