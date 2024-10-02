@@ -9,17 +9,23 @@ import SwiftUI
 
 struct ShopByStyles: View {
     @State private var items: [ItemModel] = [
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"),
-        ItemModel(imageName: "Bouquets", itemText: "BOUQUETS"),
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"),
-        ItemModel(imageName: "Bouquets", itemText: "BOUQUETS"),
-        ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES")
+        ItemModel(imageName: "AcrylicBox", itemText: "Acrylic Boxes"),
+        ItemModel(imageName: "Bouquets", itemText: "Bouquets"),
+        ItemModel(imageName: "AcrylicBox", itemText: "Acrylic Boxes"),
+        ItemModel(imageName: "Bouquets", itemText: "Bouquets"),
+        ItemModel(imageName: "AcrylicBox", itemText: "Bouquets")
     ]
+    
+    var onItemSelected: (String) -> Void
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing : 15) {
                 ForEach(items) { item in
                     ShopByStyleItem(item: item)
+                        .onTapGesture {
+                            onItemSelected(item.itemText) // Trigger the closure with the selected item text
+                        }
                 }
             }
             .padding()
@@ -28,5 +34,7 @@ struct ShopByStyles: View {
     }
 }
 #Preview {
-    ShopByStyles()
+    ShopByStyles { selectedItem in
+            print("Selected Item: \(selectedItem)") 
+        }
 }
