@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DetailHeaderView: View {
     @Binding var headerOpacity: Double
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { geometry in
@@ -19,7 +18,7 @@ struct DetailHeaderView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                       
                     }) {
                         Image("back")
                             .foregroundColor(.black)

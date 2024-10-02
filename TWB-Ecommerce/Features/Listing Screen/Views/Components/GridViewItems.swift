@@ -2,7 +2,7 @@
 //  GridViewItems.swift
 //  TWB-Ecommerce
 //
-//  Created by Khurram Ansar on 20/09/2024.
+/////  Created by Khurram Ansar on 20/09/2024.
 //
 
 import SwiftUI
@@ -27,8 +27,6 @@ struct GridViewItems: View {
          TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Lavender Dreams", itemPrice: "AED 290", isCustomizable: true),
          TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Pink Peonies", itemPrice: "AED 450", isCustomizable: true),
          TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Orchid Splendor", itemPrice: "AED 400", isCustomizable: false),
-        
-        // Add more items as needed
     ]
     
     // Closure to handle item click
@@ -37,20 +35,20 @@ struct GridViewItems: View {
     var body: some View {
         LazyVGrid(columns: gridItems, spacing: 15) {
             ForEach(items, id: \.self) { item in
-                NavigationLink(
-                    destination: DetailScreenView(itemName: item.itemName)
-                ){
-                    ListingItemView(
-                        images: item.images,
-                        itemName: item.itemName,
-                        itemPrice: item.itemPrice,
-                        isCustomizable: item.isCustomizable
-                    )
+                ListingItemView(
+                    images: item.images,
+                    itemName: item.itemName,
+                    itemPrice: item.itemPrice,
+                    isCustomizable: item.isCustomizable
+                )
+                .onTapGesture {
+                    onItemClick(item)  // Trigger the item click closure
                 }
             }
         }
         .padding(.horizontal, 15)
     }
 }
+
 
 

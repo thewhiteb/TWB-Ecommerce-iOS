@@ -46,6 +46,7 @@ struct DetailScreenView: View {
             DetailHeaderView(headerOpacity: $headerOpacity)
             
         }
+        .background(Color.white)
         .sheet(isPresented: $isCustomizeDone) {
             DetailMainSheet()
                 .presentationDetents([.fraction(0.7), .large])
