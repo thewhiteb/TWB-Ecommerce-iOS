@@ -13,8 +13,7 @@ struct BannerAPI: Endpoint {
     var pathURL: String = "/banner"
     var headers: HTTPHeaders { getDefaultHeaders() }
     var httpMethod: HTTPMethod = .get
-    var baseURL: String = "https://dev-thewhitebtq-be.twb.ae"
-    var encoding: ParameterEncoding = URLEncoding.default
+    var encoding: JSONEncoding = .default
 }
 
 struct Banner: Codable {

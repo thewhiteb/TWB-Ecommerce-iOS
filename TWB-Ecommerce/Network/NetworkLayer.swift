@@ -8,19 +8,37 @@ protocol Endpoint {
     var headers: HTTPHeaders { get }
     var httpMethod: HTTPMethod { get }
     var baseURL: String { get }
-    var encoding: ParameterEncoding { get }   // Use `ParameterEncoding` instead of `URLEncoding` for flexibility
+    var encoding: JSONEncoding  { get } // Use `ParameterEncoding` instead of `URLEncoding` for flexibility
+    var params: [String: Any] { get }
 }
 
 
 extension Endpoint {
+
+    var params: [String: Any] {
+        return [:]
+    }
+
+    var baseURL: String {
+        return Constants.baseURL
+    }
+
     func call() async throws -> ResponseType {
         let completeURL = baseURL + pathURL
         guard let url = URL(string: completeURL) else {
             throw AFError.parameterEncodingFailed(reason: .missingURL)
         }
 
+        // Create Alamofire Request
+        let request = AF.request(url, method: httpMethod, parameters: params, encoding: encoding, headers: headers)
+
+        // Print cURL command
+        request.cURLDescription { curl in
+            print(curl)
+        }
+
         // Use Alamofire's built-in async/await functionality
-        let response = AF.request(url, method: httpMethod, encoding: encoding, headers: headers)
+        let response = request
             .validate()
             .serializingData()  // Alamofire’s built-in async/await version
 
@@ -33,7 +51,7 @@ extension Endpoint {
         }
     }
 
-    func parseData(using data: Data) throws -> ResponseType {
+    private func parseData(using data: Data) throws -> ResponseType {
         // Use JSONDecoder to decode the data into ResponseType
         do {
             let decoder = JSONDecoder()

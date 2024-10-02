@@ -53,6 +53,9 @@ struct SplashView: View {
                 
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
+            .onAppear {
+                callPerfumeAPI()
+            }
         }
         .background(Color.white)
     }
@@ -63,6 +66,42 @@ struct SplashView: View {
             
             for fontName in UIFont.fontNames(forFamilyName: familyNames) {
                 print("-- \(fontName)")
+            }
+        }
+    }
+
+    func callBannerAPI() {
+        Task {
+            do {
+                let response = try await BannerAPI().call()
+                print(response)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func callPerfumeAPI() {
+        Task {
+            do {
+                let bannerDictionary: [String: Any] = [
+                    "heading": "",
+                    "imageKey": "Announcement-Mobile-Template copy_2024-09-04 11.34.32 AM.jpg",
+                    "imageKeyForDesktop": "Announcement-Template-Black2_2024-09-04 11.26.19 AM.jpg",
+                    "description": "",
+                    "buttonName": "",
+                    "link": "https://www.twb.ae/flowers/abu-dhabi-showroom",
+                    "active": true,
+                    "bannerTypeEnum": "Announcement",
+                    "createdByUserId": "a30629db-e52a-41e5-aaee-a0014d969b30",
+                    "modifiedByUserId": "",
+                    "portalTypeEnum": "Flower"
+                ]
+                let endpoint = PerfumeAPI(params: bannerDictionary)
+                let response = try await endpoint.call()
+                print(response)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
