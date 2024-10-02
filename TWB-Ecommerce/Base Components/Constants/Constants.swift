@@ -12,4 +12,10 @@ struct Constants {
     static let snapChatString = "https://www.snapchat.com/add/twb_ae"
     static let tikTokString = "https://www.tiktok.com/@twb_flowers"
     static let instagramString = "https://www.instagram.com/twb_flowers/"
+
+    struct HeadersKeys {
+        static let deviceModel = "DEVICE_MODEL"
+        static let appVersion = "APP_VERSION"
+        static let osVersion = "OS_VERSION"
+    }
 }
