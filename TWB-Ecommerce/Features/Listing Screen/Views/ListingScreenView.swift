@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ListingScreenView: View {
     
-    @Binding var title: String
     @State private var scale: CGFloat = 1.0
     
     var safeArea: EdgeInsets
     var size: CGSize
     
+    
+    var title: String
+    
+    var onItemSelected: (String) -> Void
     var onBackButtonPressed: () -> Void
     @State private var isSortOptionClicked = false
     @State private var isFilterOptionClicked = false
@@ -81,7 +84,9 @@ struct ListingScreenView: View {
                         }
                         .zIndex(1)
                         
-                        BottomView()
+                        BottomView(onItemSelected: { selectedItem in
+                            onItemSelected(selectedItem)  // Handle item selection
+                        })
                         
                     }
                     .background(Color.white)
@@ -160,21 +165,29 @@ struct ListingScreenView: View {
             FiltersSheet()
                 .presentationDetents([.fraction(0.7), .large])
         }
+        .ignoresSafeArea(.container, edges: .top)
         
     }
     
     
 }
 
-//#Preview {
-//    @State var text = "Acrylic Boxes"
-//    GeometryReader {
-//        let safeArea = $0.safeAreaInsets
-//        let size = $0.size
-//        ListingScreenView(title: $text ,safeArea: safeArea, size: size,
-//                          onBackButtonPressed: {
-//            
-//        })
-//        .ignoresSafeArea(.container, edges: .top)
-//    }
-//}
+#Preview {
+    @Previewable @State var text = "Acrylic Boxes"
+    GeometryReader {
+        let safeArea = $0.safeAreaInsets
+        let size = $0.size
+        ListingScreenView(
+            safeArea: safeArea,
+            size: size,
+            title: "Shop By Style",
+            onItemSelected: { item in  // Move this argument before onBackButtonPressed
+               
+            },
+            onBackButtonPressed: {
+                
+            }
+        )
+        
+    }
+}

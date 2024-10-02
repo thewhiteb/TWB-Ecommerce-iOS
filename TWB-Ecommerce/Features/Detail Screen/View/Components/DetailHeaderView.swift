@@ -18,7 +18,7 @@ struct DetailHeaderView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        // Back button action
+                       
                     }) {
                         Image("back")
                             .foregroundColor(.black)
