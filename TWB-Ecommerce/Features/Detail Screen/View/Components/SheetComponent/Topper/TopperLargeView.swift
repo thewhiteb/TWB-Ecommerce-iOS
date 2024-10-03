@@ -45,10 +45,12 @@ struct TopperLargeView: View {
                 HStack {
                     Text(topper.name)
                         .font(.getFont(name: .libreRegular, size: 14))
-                    
-                    Text("(\(topper.price))")
-                        .font(.getFont(name: .libreRegular, size: 14))
-                        .foregroundColor(Constants.gray)
+                    if !topper.price.isEmpty{
+                        Text("(\(topper.price))")
+                            .font(.getFont(name: .libreRegular, size: 14))
+                            .foregroundColor(Constants.gray)
+                    }
+                   
                     
                     Spacer()
                     

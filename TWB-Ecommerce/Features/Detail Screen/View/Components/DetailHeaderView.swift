@@ -54,7 +54,7 @@ struct DetailHeaderView: View {
                 }
                 .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
                 .frame(height: 70)  // Set the fixed content height for the header
-                .padding(.top, topSafeAreaHeight + 50)
+                .padding(.top, totalHeight)
                 .padding(.horizontal)
                 .background(Color.white.opacity(headerOpacity))  // Background opacity depends on scroll
                 Spacer()  // Pushes the content of the VStack up
@@ -65,6 +65,6 @@ struct DetailHeaderView: View {
     }
 }
 
-#Preview {
-    DetailHeaderView(headerOpacity: .constant(1.0))
-}
+//#Preview {
+//    DetailHeaderView(headerOpacity: .constant(1.0))
+//}

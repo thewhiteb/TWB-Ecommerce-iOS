@@ -28,7 +28,7 @@ struct LetterSmallView: View {
             // Header
             HStack {
                 Text("Letter(s)")
-                    .font(.getFont(name: .libreRegular, size: 12))
+                    .font(.getFont(name: .libreRegular, size: 13))
                     .fontWeight(.semibold)
                 
                 Spacer()

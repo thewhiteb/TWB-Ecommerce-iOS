@@ -109,7 +109,7 @@ struct TabContentView: View {
                     }
                 }
             }
-            .ignoresSafeArea(.all, edges: .bottom)
+            .ignoresSafeArea()
         }
     }
     

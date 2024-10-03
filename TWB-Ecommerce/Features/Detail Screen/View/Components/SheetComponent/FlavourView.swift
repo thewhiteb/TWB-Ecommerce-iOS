@@ -22,7 +22,7 @@ struct FlavourView: View {
             // Header
             HStack {
                 Text("Flavour")
-                    .font(.getFont(name: .libreRegular, size: 12))
+                    .font(.getFont(name: .libreRegular, size: 13))
                     .fontWeight(.semibold)
                 
                 Spacer()

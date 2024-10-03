@@ -21,6 +21,7 @@ struct HeaderView: View {
             let height = size.height * 0.30
             let progress = minY / (height * (minY > 0 ? 0.5 : 1))
             let titleProgress = minY / height
+            let topSafeAreaHeight = proxy.safeAreaInsets.top
             
             HStack(spacing: 15) {
                 Button {
@@ -41,44 +42,58 @@ struct HeaderView: View {
                         .foregroundColor(.black)
                 }
             }
+            .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
+            .frame(height: 70)  // Set the fixed content height for the header
             .overlay(content: {
-                Text(title)
-                    .font(Font.custom("Baskerville", size: 22))
-                    .fontWeight(.semibold)
-                    .opacity(mapProgressToOpacityTitle(progress: titleProgress)) 
-                    
+                                Text(title)
+                                    .font(Font.custom("Baskerville", size: 22))
+                                    .fontWeight(.semibold)
+                                    .opacity(mapProgressToOpacityTitle(progress: titleProgress))
+                
             })
-            .padding(.top, safeArea.top + 10)
-            .padding([.horizontal, .bottom], 15)
+            .padding(.top, 50 + topSafeAreaHeight)
+            .padding(.horizontal)
             .background(
                 Color.white
                     .opacity(mapProgressToOpacity(progress: progress))
             )
             .offset(y: -minY)
         }
-        .frame(height: 35)
+        .frame(height: 50)
     }
     
     func mapProgressToOpacity(progress: CGFloat) -> CGFloat {
-        // If the progress crosses -1.10, return 1 (fully visible), otherwise 0 (invisible)
-        return progress <= -1.35 ? 1 : 0
+        let aMin: CGFloat = -1.25
+        let aMax: CGFloat = -1.00
+           
+           // Clamp the value of 'a' within the range [aMin, aMax]
+        let clampedA = max(min(progress, aMax), aMin)
+           
+           // Reverse the mapping: Map [aMax, aMin] to [0, 1]
+           return (aMax - clampedA) / (aMax - aMin)
     }
     
     func mapProgressToOpacityTitle(progress: CGFloat) -> CGFloat {
-        // If the title's progress crosses -1.10, return 1 (fully visible), otherwise 0 (invisible)
-        return progress <= -1.10 ? 1 : 0
+        let aMin: CGFloat = -1.25
+           let aMax: CGFloat = -1.00
+           
+           // Clamp the value of 'a' within the range [aMin, aMax]
+        let clampedA = max(min(progress, aMax), aMin)
+           
+           // Reverse the mapping: Map [aMax, aMin] to [0, 1]
+           return (aMax - clampedA) / (aMax - aMin)
     }
     
 }
 
-#Preview {
-    GeometryReader {
-        let safeArea = $0.safeAreaInsets
-        let size = $0.size
-        @State var text = "Acrylic Boxes"
-        
-        HeaderView(title: text, safeArea: safeArea, size: size,onBackButtonPressed: {
-            
-        })
-    }
-}
+//#Preview {
+//    GeometryReader {
+//        let safeArea = $0.safeAreaInsets
+//        let size = $0.size
+//        @State var text = "Acrylic Boxes"
+//
+//        HeaderView(title: text, safeArea: safeArea, size: size,onBackButtonPressed: {
+//
+//        })
+//    }
+//}

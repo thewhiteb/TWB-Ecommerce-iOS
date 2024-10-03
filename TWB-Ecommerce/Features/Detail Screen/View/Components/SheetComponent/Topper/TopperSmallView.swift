@@ -5,6 +5,7 @@ struct TopperSmallView: View {
     @Binding var text: String
     
     let toppers = [
+        TopperItem(name: "Without Topper", price: ""),
         TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 83"),
         TopperItem(name: "52 UAE", price: "AED 32"),
         TopperItem(name: "Love You", price: "AED 32"),
@@ -16,7 +17,7 @@ struct TopperSmallView: View {
         TopperItem(name: "Best Wishes", price: "AED 32")
     ]
     
-    @State private var selectedTopper: TopperItem = TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 83")  // Default selected topper
+    @State private var selectedTopper: TopperItem = TopperItem(name: "Choose topper", price: "")  // Default selected topper
     @State private var showTopperLargeView = false  // State to show the large view
     
     // Callback to return the selected topper to the parent view
@@ -27,7 +28,7 @@ struct TopperSmallView: View {
             // Header
             HStack {
                 Text("Topper")
-                    .font(.getFont(name: .libreRegular, size: 12))
+                    .font(.getFont(name: .libreRegular, size: 13))
                     .fontWeight(.semibold)
                 
                 Spacer()
@@ -52,9 +53,12 @@ struct TopperSmallView: View {
                     
                     Spacer()
                     
-                    Text(selectedTopper.price)  // Show selected topper price
-                        .font(.getFont(name: .libreBold, size: 12))
-                        .foregroundColor(Constants.gray)
+                    if !selectedTopper.price.isEmpty{
+                        Text(selectedTopper.price)  // Show selected topper price
+                            .font(.getFont(name: .libreBold, size: 12))
+                            .foregroundColor(Constants.gray)
+                    }
+                  
                     
                     Image("DownArrow")
                         .padding(.horizontal, 10)

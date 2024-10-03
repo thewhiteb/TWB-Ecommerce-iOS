@@ -10,10 +10,17 @@ import SwiftUI
 struct DetailBottomView: View {
     let bannerHeight: CGFloat
     @Binding var headerOpacity: Double
+    @State var customizedTextValue: String = ""
     
     var onAddToBagClicked: (Bool) -> Void
     
     var itemName : String
+    
+    let description = DescriptionModel(
+        mainDescription: "A gift box arrangement comes with delicious chocolate-dipped strawberries guaranteed to delight your lucky recipient!",
+        arrangementIncludes: ["Dessert Box Small", "Chocolate Dipped Strawberries"],
+        note: "Depending on the season, we might change some flowers, but don't stress! If we do, the substitute will be just as nice or even better than you picked."
+    )
     
     var body: some View {
         VStack {
@@ -103,6 +110,23 @@ struct DetailBottomView: View {
                     .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)  // Add shadow to the bottom buttons
                 }
                 .padding(.top, 10)
+                
+                
+                LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 5, onSelectionChanged: { selectedLetters in
+                    print("Selected letters: \(selectedLetters)")
+                })
+                .padding(.top, 50)
+                
+                FlavourView(onSelectionChanged: { selectedFlavour in
+                    print("Selected flavour: \(selectedFlavour)")
+                })
+                
+                TopperSmallView(text: $customizedTextValue, onSelectionChanged: { selectedTopper in
+                    print("Selected Topper: \(selectedTopper)")
+                })
+                
+                DescriptionView(description: description)
+                    .padding(.top, 30)
                 
                 
             }

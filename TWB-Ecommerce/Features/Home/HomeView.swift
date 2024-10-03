@@ -15,10 +15,8 @@ struct HomeView: View {
     var onItemSelected: (String) -> Void
    
     var body: some View {
-        NavigationView {
-            
-            GeometryReader {
-                
+        
+            GeometryReader { 
                 let size = $0.size
                 
                 ZStack(alignment: .top) {
@@ -85,8 +83,6 @@ struct HomeView: View {
                             .padding(.top, 40)
                             
                             ShopByStyles { itemName in
-//                                selectedItem = itemName
-//                                isShowingDetail = true
                                 onItemSelected(itemName)
                             }
                             .padding(.top, 20)
@@ -211,27 +207,8 @@ struct HomeView: View {
                     }
                 }
                 .background(Color.white) // Set the parent background to white
-                .edgesIgnoringSafeArea(.top) // Scroll under the status bar
-//                .overlay(){
-//                    if isShowingDetail {
-//                        if let selectedItem = selectedItem {
-//                            // Navigate to ListingScreenView when an item is selected
-//                            GeometryReader { geometry in
-//                                let safeArea = geometry.safeAreaInsets
-//                                let size = geometry.size
-//                                ListingScreenView(title: .constant(selectedItem), safeArea: safeArea, size: size,onBackButtonPressed: {
-//                                    isShowingDetail.toggle()
-//                                })
-//                                .background(Color.white)
-//                                .ignoresSafeArea(.container, edges: .top)
-//                            }
-//                        }
-//                    }
-//                }
+               
             }
-            
-        }
-        
     }
 }
 

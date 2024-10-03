@@ -13,7 +13,7 @@ struct DetailScreenView: View {
     @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height  // Initial banner height
     @State private var isCustomizeDone = false
    
-    
+ 
     private enum CoordinateSpaces {
         case scrollView
     }
@@ -51,8 +51,6 @@ struct DetailScreenView: View {
             DetailMainSheet()
                 .presentationDetents([.fraction(0.7), .large])
         }
-        .navigationBarBackButtonHidden(true)  // Hide back button
-        .edgesIgnoringSafeArea(.top)
     }
 }
 
