@@ -54,6 +54,8 @@ struct SplashView: View {
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
             .onAppear {
+                updateBannerAPI()
+                callBannerAPI()
                 callPerfumeAPI()
             }
         }
@@ -73,7 +75,7 @@ struct SplashView: View {
     func callBannerAPI() {
         Task {
             do {
-                let response = try await BannerAPI().call()
+                let response = try await AllBannerAPI().call()
                 print(response)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
@@ -100,6 +102,20 @@ struct SplashView: View {
                 let endpoint = PerfumeAPI(params: bannerDictionary)
                 let response = try await endpoint.call()
                 print(response)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func updateBannerAPI() {
+        Task {
+            do {
+                var response = try await GetBannerAPI(id: 78).call()
+                response.banner.active.toggle()
+                let secondResponse = try await UpdateBannerAPI(id: 78,
+                                                               params: response.banner.getBannerDictionary()).call()
+                print(secondResponse)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
             }

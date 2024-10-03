@@ -19,6 +19,7 @@ struct Constants {
         static let deviceModel = "DEVICE_MODEL"
         static let appVersion = "APP_VERSION"
         static let osVersion = "OS_VERSION"
+        static let contentType = "Content-Type"
     }
 
     static let baseURL = "https://dev-thewhitebtq-be.twb.ae"
