@@ -35,7 +35,7 @@ struct NewArrivalItem: View {
                         Spacer()
                         
                         VStack {
-                            TwitterHeart()
+                            TwitterHeart(width: 24, height: 24, imageIcon: "SmallEmptyHeart")
                                 .padding(.top, 15)
                                 .padding(.trailing, 10)
                             Spacer()

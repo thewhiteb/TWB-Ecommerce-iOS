@@ -129,6 +129,14 @@ struct ListingScreenView: View {
             .padding(.bottom, 30) // Add margin from the bottom
             .ignoresSafeArea()
         }
+        .gesture(
+                   DragGesture().onEnded { value in
+                       if value.translation.width > 50 {
+                           // Detect a right swipe and trigger the back button
+                           onBackButtonPressed()
+                       }
+                   }
+               )
         .sheet(isPresented: $isSortOptionClicked) {
             SortSheet()
                 .presentationDetents([.fraction(0.5), .medium])

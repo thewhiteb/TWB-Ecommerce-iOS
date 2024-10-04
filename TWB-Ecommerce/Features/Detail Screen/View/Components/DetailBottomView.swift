@@ -22,6 +22,11 @@ struct DetailBottomView: View {
         note: "Depending on the season, we might change some flowers, but don't stress! If we do, the substitute will be just as nice or even better than you picked."
     )
     
+    let careInstruction = CareInstructionModel(
+        mainDescription: "A gift box arrangement comes with delicious chocolate-dipped strawberries guaranteed to delight your lucky recipient! \n Second Line \n \n Third Line"
+    )
+    
+    @State var selectedWrapperColor: String? = nil
     var body: some View {
         VStack {
             GeometryReader { geo -> Color in
@@ -120,14 +125,67 @@ struct DetailBottomView: View {
                 FlavourView(onSelectionChanged: { selectedFlavour in
                     print("Selected flavour: \(selectedFlavour)")
                 })
+                .padding(.top,30)
                 
                 TopperSmallView(text: $customizedTextValue, onSelectionChanged: { selectedTopper in
                     print("Selected Topper: \(selectedTopper)")
                 })
+                .padding(.top,30)
+                
+                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Wrapping Color", isCollapsible: false)
+                    .padding(.top, 30)
+                
+                Rectangle()
+                    .fill(Constants.lightGray)
+                    .frame(height: 10)
+                
+                //                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Leather Bag Color", isCollapsible: false)
+                //                    .padding(.top, 30)
                 
                 DescriptionView(description: description)
                     .padding(.top, 30)
                 
+                Rectangle()
+                    .fill(Constants.lightGray)
+                    .frame(height: 1)
+                    .padding(.top, 10)
+                
+                CareInstructionView(careInstruction: careInstruction)
+                    .padding(.top, 10)
+                
+                NeedHelpSmallView()
+                    .padding(.top, 10)
+                
+                
+                HStack{
+                    Text("Related Products")
+                        .font(.getFont(name: .libreBold, size: 18))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                .padding(.top, 30)
+                .padding(.horizontal)
+                
+                RelatedProductsView()
+                    .padding(.top, 30)
+                
+                Rectangle()
+                    .fill(Constants.lightGray)
+                    .frame(height: 1)
+                    .padding(.top, 30)
+                
+                HStack{
+                    Text("Trending Products")
+                        .font(.getFont(name: .libreBold, size: 18))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                .padding(.top, 30)
+                .padding(.horizontal)
+                
+                RelatedProductsView()
+                    .padding(.top, 30)
+                    .padding(.bottom, 50)
                 
             }
         }

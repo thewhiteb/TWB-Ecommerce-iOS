@@ -27,6 +27,7 @@ struct LetterLargeView: View {
         GridItem(.flexible(), spacing: 15),
         GridItem(.flexible(), spacing: 15),
         GridItem(.flexible(), spacing: 15),
+        GridItem(.flexible(), spacing: 15),
         GridItem(.flexible(), spacing: 15)
     ]
     

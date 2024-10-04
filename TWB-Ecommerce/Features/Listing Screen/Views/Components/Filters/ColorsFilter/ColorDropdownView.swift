@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ColorDropdownView: View {
-    @Binding var selectedColors: [String]  // Binding to pass selected color names to the parent view
+    @Binding var selectedColor: String?  // Binding to pass the selected color name to the parent view
     @State private var isExpanded: Bool = false  // Control the expand/collapse state
+    
+    var title: String  // Pass title dynamically from parent view
+    var isCollapsible: Bool  // Pass whether the view should be collapsible
     
     let colors: [ColorOption] = [
         ColorOption(name: "Red", color: .red),
@@ -24,30 +27,32 @@ struct ColorDropdownView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             // Header for the section with expand/collapse toggle
             HStack {
-                Text("Colors")
+                Text(title)  // Use the dynamic title
                     .font(Font.custom("Baskerville", size: 16))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
                 
                 Spacer()
                 
-                // Expand/collapse icon
-                Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                    .foregroundColor(.gray)
+                // Show the expand/collapse icon only if the view is collapsible
+                if isCollapsible {
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                        .foregroundColor(.gray)
+                }
             }
             .contentShape(Rectangle()) // Make the whole header tappable
             .onTapGesture {
-                withAnimation(.easeInOut) {
-                    isExpanded.toggle()  // Toggle expand/collapse
+                if isCollapsible {  // Toggle expand/collapse only if collapsible
+                    withAnimation(.easeInOut) {
+                        isExpanded.toggle()
+                    }
                 }
             }
             
-            // Display colors if expanded
-            if isExpanded {
-                // Horizontal scrollable color circles
+            // Display colors if expanded or if the view is static
+            if isExpanded || !isCollapsible {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(colors) { colorOption in
@@ -56,25 +61,33 @@ struct ColorDropdownView: View {
                                     toggleSelection(for: colorOption)
                                 }
                             }) {
-                                ZStack {
-                                    Circle()
-                                        .fill(colorOption.color)
-                                        .frame(width: 40, height: 40)
-                                    
-                                    // Show a checkmark and outer circle with animation
-                                    if selectedColors.contains(colorOption.name) {
+                                VStack{
+                                    ZStack {
                                         Circle()
-                                            .stroke(Color.black, lineWidth: 1)
-                                            .frame(width: 45, height: 45)
-                                            .transition(.opacity)  // Animate circle appearance with fading
+                                            .fill(colorOption.color)
+                                            .frame(width: 40, height: 40)
                                         
-                                        Image(systemName: "checkmark")
-                                            .foregroundColor(.black)
-                                            .transition(.scale.combined(with: .opacity)) // Animate checkmark with scale and opacity
+                                        // Show a checkmark and outer circle with animation
+                                        if selectedColor == colorOption.name {
+                                            Circle()
+                                                .stroke(Color.black, lineWidth: 1)
+                                                .frame(width: 45, height: 45)
+                                                .transition(.opacity)  // Animate circle appearance with fading
+                                            
+                                            Image(systemName: "checkmark")
+                                                .foregroundColor(.black)
+                                                .transition(.scale.combined(with: .opacity)) // Animate checkmark with scale and opacity
+                                        }
                                     }
+                                    .frame(width: 50, height: 50)
+                                    
+                                    Text(colorOption.name)
+                                        .font(.getFont(name: .libreRegular, size: 10))
+                                        .foregroundColor(.black)
                                 }
+                                
                             }
-                            .frame(width: 50, height: 50)
+                            
                         }
                     }
                     .padding(.horizontal)
@@ -88,17 +101,15 @@ struct ColorDropdownView: View {
     
     // Function to toggle the selection
     private func toggleSelection(for colorOption: ColorOption) {
-        if selectedColors.contains(colorOption.name) {
-            selectedColors.removeAll { $0 == colorOption.name }  // Deselect if already selected
+        if selectedColor == colorOption.name {
+            selectedColor = nil  // Deselect if the same color is tapped
         } else {
-            selectedColors.append(colorOption.name)  // Select the color
+            selectedColor = colorOption.name  // Select the new color
         }
     }
 }
 
-
-// Preview
-//#Preview {
-//    @State var selectedColors = [String]()
-//    ColorDropdownView(selectedColors: $selectedColors)
-//}
+#Preview {
+    @Previewable @State var selectedColor: String? = nil
+    ColorDropdownView(selectedColor: $selectedColor, title: "Colors", isCollapsible: true)
+}

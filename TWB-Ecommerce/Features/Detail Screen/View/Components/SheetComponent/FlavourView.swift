@@ -21,7 +21,7 @@ struct FlavourView: View {
         VStack(alignment: .leading) {
             // Header
             HStack {
-                Text("Flavour")
+                Text("Choose Flavour")
                     .font(.getFont(name: .libreRegular, size: 13))
                     .fontWeight(.semibold)
                 
@@ -55,7 +55,7 @@ struct FlavourView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 30)
+                .padding(.vertical, 15)
             }
         }
        

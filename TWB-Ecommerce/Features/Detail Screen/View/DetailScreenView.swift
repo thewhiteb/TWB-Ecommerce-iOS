@@ -12,13 +12,16 @@ struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0  // Track the header opacity
     @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height  // Initial banner height
     @State private var isCustomizeDone = false
-   
- 
+    
+    
     private enum CoordinateSpaces {
         case scrollView
     }
     
     var itemName: String  // Accept the itemName
+    var onBackButtonPressed: () -> Void
+    
+    var onImageTapped: (Int, [String]) -> Void
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -27,7 +30,10 @@ struct DetailScreenView: View {
                     DetailBannerView(
                         images: ["Bouquet1", "Test", "Bouquet1"],
                         coordinateSpace: CoordinateSpaces.scrollView,
-                        defaultHeight: bannerHeight
+                        defaultHeight: bannerHeight,
+                        onImageTapped: { selectedIndex, imagesArray in
+                            onImageTapped(selectedIndex, imagesArray)
+                        }
                     )
                 }
                 .frame(height: bannerHeight)
@@ -43,7 +49,9 @@ struct DetailScreenView: View {
             .coordinateSpace(name: CoordinateSpaces.scrollView)
             
             // Header that appears with scrolling
-            DetailHeaderView(headerOpacity: $headerOpacity)
+            DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
+                onBackButtonPressed()
+            })
             
         }
         .background(Color.white)
@@ -56,5 +64,8 @@ struct DetailScreenView: View {
 
 // Preview
 #Preview {
-    DetailScreenView(itemName: "Sample Item")
+    DetailScreenView(itemName: "Sample Item", onBackButtonPressed: {
+        print("Back button pressed")
+    }, onImageTapped: { selectedIndex, imagesArray in
+        print("Selected image at index \(selectedIndex) with array \(imagesArray)")})
 }

@@ -27,7 +27,7 @@ struct LetterSmallView: View {
         VStack(alignment: .leading) {
             // Header
             HStack {
-                Text("Letter(s)")
+                Text("Choose Letter")
                     .font(.getFont(name: .libreRegular, size: 13))
                     .fontWeight(.semibold)
                 
@@ -78,7 +78,7 @@ struct LetterSmallView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 30)
+                .padding(.vertical, 15)
             }
         }
         // Whenever selected letters change, notify the parent via the callback

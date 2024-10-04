@@ -27,6 +27,13 @@ struct TwitterHeart: View {
     @State private var start: Bool = false
     @State private var finish: Bool = false
 
+    // No longer private, to allow public access to the view
+    init(width: CGFloat, height: CGFloat, imageIcon: String) {
+        self.width = width
+        self.height = height
+        self.imageIcon = imageIcon
+    }
+
     private var base: Animation = Animation.timingCurve(0.54, 1.65, 0.68, 0.79, duration: 0.5)
 
     private var positions: [Spark] {
@@ -50,19 +57,20 @@ struct TwitterHeart: View {
         return arr
     }
 
+    // Passed from the parent view
+    var width: CGFloat
+    var height: CGFloat
+    var imageIcon: String
+
     var body: some View {
         ZStack {
             ZStack {
-
                 sparks
                 ZStack {
-                    Image("SmallEmptyHeart")
+                    Image(imageIcon)  // Use the passed image name for the empty heart
                         .resizable()
                         .scaleEffect(touch ? 0 : 1)
-                        .aspectRatio(contentMode: .fit)
-                        .opacity(touch ? 0 : 0.4)
-                        .foregroundColor(Color(UIColor.white))
-                        .animation(base)
+                        .aspectRatio(contentMode: .fit)       
 
                     Image("SmallFillHeart")
                         .resizable()
@@ -70,14 +78,15 @@ struct TwitterHeart: View {
                         .aspectRatio(contentMode: .fit)
                         .opacity(touch ? 1 : 0)
                         .foregroundColor(Color(UIColor.systemRed))
-                        .animation(Animation.timingCurve(0.17,1.67,0.61,0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.3 : 0))
+                        .animation(Animation.timingCurve(0.17, 1.67, 0.61, 0.77, duration: touch ? 0.8 : 0).delay(touch ? 0.3 : 0))
 
-                }.frame(width: 24)
+                }
+                .frame(width: width, height: height)  // Use the width and height from the parent view
    
-            }.frame(width: 24)
-
+            }
+            .frame(width: width, height: height)
         }
-        .frame(width: 24)
+        .frame(width: width, height: height)
         .contentShape(Rectangle())
         .onTapGesture{
             if self.start {
@@ -115,10 +124,11 @@ struct TwitterHeart: View {
                     .offset(x: touch ? pos.x2 : 0, y: touch ? pos.y2 : 0)
                     .animation(Animation.timingCurve(0.5, 1, 0.89, 1, duration: touch ? 0.5 : 0).delay(touch ? pos.delay : 0))
             }
-        }.frame(width: 24, height: 24)
+        }
+        .frame(width: width, height: height)  // Set frame for sparks based on width and height
     }
 }
 
 #Preview {
-    TwitterHeart()
+    TwitterHeart(width: 24, height: 24, imageIcon: "favorite")
 }

@@ -10,10 +10,13 @@ import SwiftUI
 
 struct TabContentView: View {
     @State private var selectedTab = 0
-    @State private var showBottomNavigation = true  // Manage bottom nav visibility
-    @State private var showTabs = true  // Control tab selection
+    @State private var showBottomNavigation = true
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
+    @State private var isDetailFullImageViewActive = false
+    
+    @State private var images: [String] = []
+    @State private var selectedImageIndex = 0
     
     var body: some View {
         NavigationView {
@@ -23,12 +26,10 @@ struct TabContentView: View {
                     if !isListingViewActive && !isDetailViewActive {
                         switch selectedTab {
                         case 0:
-                            HomeView(onItemSelected: { item in
-                                // Open ListingScreenView when an item is clicked
+                            HomeView(onItemSelected: { _ in
                                 isListingViewActive = true
                                 selectedTab = -1
-                                showBottomNavigation = true  // Show bottom nav but no tab selected
-                                showTabs = false  // No tab selected
+                                showBottomNavigation = true
                             })
                         case 1:
                             SearchView()
@@ -39,7 +40,7 @@ struct TabContentView: View {
                         case 4:
                             ProfileView()
                         default:
-                            HomeView(onItemSelected: { item in
+                            HomeView(onItemSelected: { _ in
                                 isListingViewActive = true
                             })
                         }
@@ -54,39 +55,46 @@ struct TabContentView: View {
                                 safeArea: safeArea,
                                 size: size,
                                 title: "Shop By Style",
-                                onItemSelected: { item in  // Move this argument before onBackButtonPressed
+                                onItemSelected: { _ in
                                     isDetailViewActive = true
-                                    showBottomNavigation = false  // Hide bottom nav for Detail screen
+                                    showBottomNavigation = false
                                 },
                                 onBackButtonPressed: {
                                     isListingViewActive = false
-                                    showTabs = true  // Restore tab bar selection when going back
                                     selectedTab = 0
                                 }
                             )
                             .transition(.move(edge: .trailing))
                         }
-                        
                     }
                     
                     // DetailScreenView
                     if isDetailViewActive {
-                        DetailScreenView(itemName: "Testing")
-                            .transition(.move(edge: .trailing))
-                            .onDisappear {
-                                // Show the bottom nav again after leaving Detail screen
-                                showBottomNavigation = true
-                                isDetailViewActive = false
-                            }
+                        DetailScreenView(itemName: "Tube Acrylic 018", onBackButtonPressed: {
+                            showBottomNavigation = true
+                            isDetailViewActive = false
+                            selectedTab = isListingViewActive ? -1 : 0
+                        }, onImageTapped: { selectedIndex, image in
+                            images = image
+                            selectedImageIndex = selectedIndex
+                            isDetailFullImageViewActive = true
+                        })
+                        .transition(.move(edge: .trailing))
+                    }
+                    
+                    // DetailFullImageView
+                    if isDetailFullImageViewActive {
+                        DetailFullImageView(images: images, selectedIndex: selectedImageIndex, onClickDismiss: {
+                            isDetailFullImageViewActive = false
+                        })
                     }
                 }
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(.all, edges: .top)
                 
-                // Show bottom navigation bar if `showBottomNavigation` is true
+                // Bottom Navigation
                 if showBottomNavigation {
                     VStack(spacing: 0) {
-                        // Top border for the tab bar
                         Rectangle()
                             .frame(height: 1)
                             .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -116,9 +124,8 @@ struct TabContentView: View {
     private func tabBarButton(image: String, selectedImage: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {
         Button(action: {
             selectedTab = tag
-            isListingViewActive = false  // Go back to main tabs
-            isDetailViewActive = false  // Go back to main tabs
-            showTabs = true
+            isListingViewActive = false
+            isDetailViewActive = false
             showBottomNavigation = true
         }) {
             VStack(alignment: .center, spacing: 0) {
@@ -132,11 +139,10 @@ struct TabContentView: View {
                         .padding(.top, 5)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .top)
+            .frame(maxWidth: .infinity)
         }
     }
 }
-
 
 #Preview {
     TabContentView()

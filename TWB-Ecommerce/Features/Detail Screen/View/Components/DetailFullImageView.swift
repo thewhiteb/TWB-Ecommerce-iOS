@@ -10,12 +10,14 @@ import SwiftUI
 struct DetailFullImageView: View {
     let images: [String]  // List of images
     @State private var currentIndex: Int  // Current selected image index
-    @Environment(\.presentationMode) var presentationMode  // To close the view
     @State private var scale: CGFloat = 1.0  // Track zoom level
     
-    init(images: [String], selectedIndex: Int) {
+    var onClickDismiss: () -> Void  // Dismiss action callback
+    
+    init(images: [String], selectedIndex: Int, onClickDismiss: @escaping () -> Void) {
         self.images = images
         self._currentIndex = State(initialValue: selectedIndex)
+        self.onClickDismiss = onClickDismiss  // Initialize the dismiss action
     }
     
     var body: some View {
@@ -69,7 +71,7 @@ struct DetailFullImageView: View {
             VStack {
                 Spacer()
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()  // Close the full-screen view
+                    onClickDismiss()
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .resizable()
@@ -85,5 +87,8 @@ struct DetailFullImageView: View {
 }
 
 #Preview {
-    DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
+    DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0, onClickDismiss: {
+        // Handle dismiss action
+        print("Dismiss clicked")
+    })
 }

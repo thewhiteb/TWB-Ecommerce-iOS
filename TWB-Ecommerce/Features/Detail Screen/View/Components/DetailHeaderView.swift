@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailHeaderView: View {
     @Binding var headerOpacity: Double
+    var onBackButtonPressed: () -> Void
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,7 +19,7 @@ struct DetailHeaderView: View {
             VStack {
                 HStack {
                     Button(action: {
-                       
+                        onBackButtonPressed()
                     }) {
                         Image("back")
                             .foregroundColor(.black)
@@ -48,7 +49,7 @@ struct DetailHeaderView: View {
                     Button(action: {
                         // Favorite button action
                     }) {
-                        Image("favorite")
+                        TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
                             .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
                     }
                 }
