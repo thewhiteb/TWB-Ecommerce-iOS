@@ -13,22 +13,22 @@ struct SocialMediaLinks: View {
         VStack(spacing: 17) {
             HStack(spacing: 6) {
                 Button {
-                    openURL(using: Constants.facebookString)
+                    openURL(using: Constants.SocialMedia.facebookString)
                 } label: {
                     Image(.facebook)
                 }
                 Button {
-                    openURL(using: Constants.instagramString)
+                    openURL(using: Constants.SocialMedia.instagramString)
                 } label: {
                     Image(.instagram)
                 }
                 Button {
-                    openURL(using: Constants.tikTokString)
+                    openURL(using: Constants.SocialMedia.tikTokString)
                 } label: {
                     Image(.tiktok)
                 }
                 Button {
-                    openURL(using: Constants.snapChatString)
+                    openURL(using: Constants.SocialMedia.snapChatString)
                 } label: {
                     Image(.snapchat)
                 }
