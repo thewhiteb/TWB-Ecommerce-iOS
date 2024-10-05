@@ -339,6 +339,14 @@
 			path = "Add To Bag";
 			sourceTree = "<group>";
 		};
+		200283D52CB1FD4100F45E44 /* Flavor */ = {
+			isa = PBXGroup;
+			children = (
+				20418A0B2CA6CB11006FBB27 /* FlavourView.swift */,
+			);
+			path = Flavor;
+			sourceTree = "<group>";
+		};
 		20056EBF2C62412F000B661B = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +396,7 @@
 		20418A052CA6C040006FBB27 /* SheetComponent */ = {
 			isa = PBXGroup;
 			children = (
+				200283D52CB1FD4100F45E44 /* Flavor */,
 				200283D02CB01D0D00F45E44 /* Add To Bag */,
 				200283C92CB0047C00F45E44 /* Need Help */,
 				200283C42CAFDE3E00F45E44 /* Care Instructions */,
@@ -395,7 +404,6 @@
 				20418A0D2CA6CC42006FBB27 /* Topper */,
 				20418A082CA6C342006FBB27 /* Letter */,
 				20418A062CA6C194006FBB27 /* DetailMainSheet.swift */,
-				20418A0B2CA6CB11006FBB27 /* FlavourView.swift */,
 			);
 			path = SheetComponent;
 			sourceTree = "<group>";
