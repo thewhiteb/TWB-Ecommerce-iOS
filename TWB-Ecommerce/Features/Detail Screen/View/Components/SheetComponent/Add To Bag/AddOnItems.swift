@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct AddOnItems: View {
-    let images: [String] // Array of image names
-    let itemName: String
-    let itemPrice: String
-    let isCustomizable: Bool
+    
+    
+    let addOnItem : TrendingProduct
     
     @State private var currentPage = 0
     @State private var count: Int = 0
     @State private var isExpanded: Bool = false
     @State private var isPlusButtonPressed: Bool = false
+    
+    @State private var showAddOnDetail: Bool = false
     
     
     var body: some View {
@@ -26,8 +27,8 @@ struct AddOnItems: View {
                 ZStack {
                     // Image slider using TabView
                     TabView(selection: $currentPage) {
-                        ForEach(0..<images.count, id: \.self) { index in
-                            Image(images[index])
+                        ForEach(0..<addOnItem.images.count, id: \.self) { index in
+                            Image(addOnItem.images[index])
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 170, height: 200) // Fixed height, dynamic width
@@ -42,7 +43,7 @@ struct AddOnItems: View {
                     VStack {
                         Spacer()
                         HStack(spacing: 5) { // Customize the spacing between indicators
-                            ForEach(0..<images.count, id: \.self) { index in
+                            ForEach(0..<addOnItem.images.count, id: \.self) { index in
                                 Circle()
                                     .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
                                     .foregroundColor(currentPage == index ? .black : .gray)
@@ -50,30 +51,21 @@ struct AddOnItems: View {
                         }
                         .padding(.bottom, 10)
                     }
-                    
-                    HStack {
-                        Spacer()
-                        
-                        VStack {
-                            TwitterHeart(width: 24, height: 24, imageIcon: "SmallEmptyHeart")
-                                .padding(.top, 15)
-                                .padding(.trailing, 10)
-                            Spacer()
-                        }
-                    }
-                    
                 }
                 .background(Color(hex: "#F5F5F5"))
+                .onTapGesture {
+                    showAddOnDetail.toggle()
+                }
                 
                 
                 // Item name
-                Text(itemName)
+                Text(addOnItem.itemName)
                     .font(Font.custom("Baskerville", size: 12))
                     .foregroundColor(.black)
-                    .padding(.top, 10)
+                    .padding(.top, 15)
                 
                 // Item price
-                Text(itemPrice)
+                Text(addOnItem.itemPrice)
                     .font(Font.custom("Baskerville", size: 14).weight(.semibold))
                     .foregroundColor(.black)
                     .padding(.top, 2)
@@ -95,21 +87,21 @@ struct AddOnItems: View {
                                     }
                                 }
                             }
-
+                        
                         Image(systemName: count == 1 ? "trash" : "minus")
                             .foregroundColor(Color.white)
                             .padding(.leading, 16)
                     }
-
+                    
                     Spacer()
-
+                    
                     Text("\(count)")
                         .foregroundColor(.white)
                         .font(.system(size: 16))
-
+                    
                     Spacer()
                 }
-
+                
                 Image(systemName: "plus")
                     .foregroundColor(Color.white)
                     .padding(.trailing, isExpanded ? 16 : 0)
@@ -131,14 +123,20 @@ struct AddOnItems: View {
             .animation(.easeInOut(duration: 0.3), value: isExpanded)
         }
         .frame(width: 170, height: 200) // Explicitly set frame to avoid expanding
+        .sheet(isPresented: $showAddOnDetail){
+            AddOnsDetailSheet(addOnItem: addOnItem, count: $count)
+                .presentationDetents([.fraction(0.8), .large])
+        }
     }
 }
 
 #Preview {
+    @Previewable @State var addOnItem =
+    TrendingProduct( images: ["Bouquet1","Bouquet1","Bouquet1"],
+                         itemName: "Rectangular Acrylic 061",
+                         itemPrice: "AED 365",
+                         isCustomizable: true)
     AddOnItems(
-        images: ["Bouquet1","Bouquet1","Bouquet1"], // Add your image names here
-        itemName: "Rectangular Acrylic 061",
-        itemPrice: "AED 365",
-        isCustomizable: true
+        addOnItem: addOnItem
     )
 }

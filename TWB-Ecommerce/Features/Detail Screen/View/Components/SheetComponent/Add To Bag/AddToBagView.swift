@@ -102,10 +102,7 @@ struct AddToBagView: View {
                     // Filter items based on the selected add-on type
                     ForEach(itemsByType[selectedAddOns] ?? [], id: \.self) { item in
                         AddOnItems(
-                            images: item.images,
-                            itemName: item.itemName,
-                            itemPrice: item.itemPrice,
-                            isCustomizable: item.isCustomizable
+                            addOnItem: item
                         )
                     }
                 }

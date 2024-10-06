@@ -14,6 +14,7 @@
 		200283CF2CB0111100F45E44 /* NeedHelpLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200283CE2CB0111100F45E44 /* NeedHelpLargeView.swift */; };
 		200283D22CB01D2D00F45E44 /* AddToBagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200283D12CB01D2D00F45E44 /* AddToBagView.swift */; };
 		200283D42CB0218B00F45E44 /* AddOnItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200283D32CB0218B00F45E44 /* AddOnItems.swift */; };
+		200283D72CB1FDD500F45E44 /* AddOnsDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200283D62CB1FDD500F45E44 /* AddOnsDetailSheet.swift */; };
 		20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */; };
 		20056ED02C624130000B661B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ECF2C624130000B661B /* Assets.xcassets */; };
 		20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ED22C624130000B661B /* Preview Assets.xcassets */; };
@@ -159,6 +160,7 @@
 		200283CE2CB0111100F45E44 /* NeedHelpLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedHelpLargeView.swift; sourceTree = "<group>"; };
 		200283D12CB01D2D00F45E44 /* AddToBagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBagView.swift; sourceTree = "<group>"; };
 		200283D32CB0218B00F45E44 /* AddOnItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnItems.swift; sourceTree = "<group>"; };
+		200283D62CB1FDD500F45E44 /* AddOnsDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnsDetailSheet.swift; sourceTree = "<group>"; };
 		20056EC82C62412F000B661B /* TWB-Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWB-Ecommerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceApp.swift; sourceTree = "<group>"; };
 		20056ECF2C624130000B661B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				20418A0D2CA6CC42006FBB27 /* Topper */,
 				20418A082CA6C342006FBB27 /* Letter */,
 				20418A062CA6C194006FBB27 /* DetailMainSheet.swift */,
+				200283D62CB1FDD500F45E44 /* AddOnsDetailSheet.swift */,
 			);
 			path = SheetComponent;
 			sourceTree = "<group>";
@@ -1176,6 +1179,7 @@
 				5E1E269C2CA696B600D839B5 /* SortSheet.swift in Sources */,
 				204EFBB02CA41571002D9986 /* DetailScreenView.swift in Sources */,
 				5E1E268B2CA696B600D839B5 /* ColorOption.swift in Sources */,
+				200283D72CB1FDD500F45E44 /* AddOnsDetailSheet.swift in Sources */,
 				5E90685D2CA2C49700C9EFE9 /* ProfileListingView.swift in Sources */,
 				20418A0A2CA6C353006FBB27 /* LetterSmallView.swift in Sources */,
 				20C0CEB52C9198560074471B /* ShopByStyleItem.swift in Sources */,
