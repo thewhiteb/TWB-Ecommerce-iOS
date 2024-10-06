@@ -125,7 +125,7 @@ struct AddOnItems: View {
         .frame(width: 170, height: 200) // Explicitly set frame to avoid expanding
         .sheet(isPresented: $showAddOnDetail){
             AddOnsDetailSheet(addOnItem: addOnItem, count: $count)
-                .presentationDetents([.fraction(0.8), .large])
+                .presentationDetents([.fraction(0.85), .large])
         }
     }
 }

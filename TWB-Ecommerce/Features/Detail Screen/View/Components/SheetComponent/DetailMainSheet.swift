@@ -73,7 +73,7 @@ struct DetailMainSheet: View {
             .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)  // Add shadow to the bottom buttons
             .sheet(isPresented : $showAddToCart){
                 AddToBagView()
-                .presentationDetents([.fraction(0.7), .large])
+                .presentationDetents([.fraction(0.6), .large])
             }
             
         }

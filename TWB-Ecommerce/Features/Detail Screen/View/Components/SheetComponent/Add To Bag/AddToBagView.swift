@@ -108,6 +108,7 @@ struct AddToBagView: View {
                 }
                 .padding(.horizontal)
             }
+            .frame(height: 250)
             
             Spacer()
             
