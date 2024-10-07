@@ -100,6 +100,7 @@
 		5E09D8392CB3E095003BB140 /* NewArivalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09D8382CB3E095003BB140 /* NewArivalAPI.swift */; };
 		5E09D83C2CB3F8B4003BB140 /* MainResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09D83B2CB3F8B4003BB140 /* MainResponseModel.swift */; };
 		5E09D83E2CB400EF003BB140 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09D83D2CB400EF003BB140 /* NetworkErrors.swift */; };
+		5E09D8412CB40568003BB140 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E09D8402CB40568003BB140 /* SDWebImageSwiftUI */; };
 		5E137BCA2CAE7B02005CD225 /* BannerUpdateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E137BC92CAE7B02005CD225 /* BannerUpdateAPI.swift */; };
 		5E137BCC2CAE82C5005CD225 /* GetBannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E137BCB2CAE82C5005CD225 /* GetBannerAPI.swift */; };
 		5E137BCE2CAE946B005CD225 /* Endpoint+Extension+Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E137BCD2CAE946B005CD225 /* Endpoint+Extension+Variables.swift */; };
@@ -302,6 +303,7 @@
 				5E987D9B2CAC2BA7001C3195 /* Alamofire in Frameworks */,
 				20C0D5302C8725A20060354A /* Lottie in Frameworks */,
 				20C0D5432C88356C0060354A /* FacebookCore in Frameworks */,
+				5E09D8412CB40568003BB140 /* SDWebImageSwiftUI in Frameworks */,
 				20C0D5412C88356C0060354A /* FacebookBasics in Frameworks */,
 				20C0D5562C89884C0060354A /* GoogleSignIn in Frameworks */,
 			);
@@ -1047,6 +1049,7 @@
 				20FE05712C902E4E0022E022 /* ACarousel */,
 				20C0CEE32C92D5500074471B /* OTPView */,
 				5E987D9A2CAC2BA7001C3195 /* Alamofire */,
+				5E09D8402CB40568003BB140 /* SDWebImageSwiftUI */,
 			);
 			productName = "TWB-Ecommerce";
 			productReference = 20056EC82C62412F000B661B /* TWB-Ecommerce.app */;
@@ -1084,6 +1087,7 @@
 				20FE05702C902E4D0022E022 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				20C0CEE22C92D5500074471B /* XCRemoteSwiftPackageReference "otpview-swiftui" */,
 				5E987D992CAC2BA6001C3195 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5E09D83F2CB40568003BB140 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 20056EC92C62412F000B661B /* Products */;
 			projectDirPath = "";
@@ -1499,6 +1503,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		5E09D83F2CB40568003BB140 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
 		5E987D992CAC2BA6001C3195 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1554,6 +1566,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 20FE05702C902E4D0022E022 /* XCRemoteSwiftPackageReference "ACarousel" */;
 			productName = ACarousel;
+		};
+		5E09D8402CB40568003BB140 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E09D83F2CB40568003BB140 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		5E987D9A2CAC2BA7001C3195 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
