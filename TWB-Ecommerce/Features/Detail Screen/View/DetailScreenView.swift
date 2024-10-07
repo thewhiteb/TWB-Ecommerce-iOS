@@ -24,42 +24,57 @@ struct DetailScreenView: View {
     var onImageTapped: (Int, [String]) -> Void
     
     var body: some View {
-        ZStack(alignment: .top) {
-            ScrollView(showsIndicators: false) {
-                GeometryReader { geo in
-                    DetailBannerView(
-                        images: ["Bouquet1", "Test", "Bouquet1"],
-                        coordinateSpace: CoordinateSpaces.scrollView,
-                        defaultHeight: bannerHeight,
-                        onImageTapped: { selectedIndex, imagesArray in
-                            onImageTapped(selectedIndex, imagesArray)
-                        }
-                    )
+        VStack(spacing :0) {
+            
+            ZStack(alignment: .top) {
+                ScrollView(showsIndicators: false) {
+                    GeometryReader { geo in
+                        DetailBannerView(
+                            images: ["2", "3", "2"],
+                            coordinateSpace: CoordinateSpaces.scrollView,
+                            defaultHeight: bannerHeight,
+                            onImageTapped: { selectedIndex, imagesArray in
+                                onImageTapped(selectedIndex, imagesArray)
+                            }
+                        )
+                    }
+                    .frame(height: bannerHeight)
+                    
+                    Spacer()
+                    
+                    // Scroll content below the banner
+                    DetailBottomView(bannerHeight: bannerHeight, headerOpacity: $headerOpacity, itemName: itemName)
+                        .background(Color.white)
                 }
-                .frame(height: bannerHeight)
+                .coordinateSpace(name: CoordinateSpaces.scrollView)
                 
-                Spacer()
-                
-                // Scroll content below the banner
-                DetailBottomView(bannerHeight: bannerHeight, headerOpacity: $headerOpacity, onAddToBagClicked: { success in
-                    isCustomizeDone = success
-                }, itemName: itemName)
+                DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
+                    onBackButtonPressed()
+                })
+            }
+            
+            VStack {
+                HStack{
+                    AddToBagButton(action: {
+                        isCustomizeDone.toggle()
+                    }, text: "Add to Bag", imageName: "bag")
+                    
+                }
+                .padding(.horizontal,16)
+                .padding(.vertical, 12)
                 .background(Color.white)
             }
-            .coordinateSpace(name: CoordinateSpaces.scrollView)
-            
-            // Header that appears with scrolling
-            DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                onBackButtonPressed()
-            })
+            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
             
         }
         .background(Color.white)
         .sheet(isPresented: $isCustomizeDone) {
             DetailMainSheet()
                 .presentationDetents([.fraction(0.7), .large])
+                .presentationDragIndicator(.visible)
         }
     }
+    
 }
 
 // Preview

@@ -12,8 +12,7 @@ struct DetailBottomView: View {
     @Binding var headerOpacity: Double
     @State var customizedTextValue: String = ""
     
-    var onAddToBagClicked: (Bool) -> Void
-    
+
     var itemName : String
     
     let description = DescriptionModel(
@@ -28,7 +27,7 @@ struct DetailBottomView: View {
     
     @State var selectedWrapperColor: String? = nil
     var body: some View {
-        VStack {
+        VStack (spacing : 0) {
             GeometryReader { geo -> Color in
                 let minY = geo.frame(in: .global).minY
                 DispatchQueue.main.async {
@@ -44,24 +43,25 @@ struct DetailBottomView: View {
                 
                 Text(itemName)
                     .font(
-                        .getFont(name: .libreBold, size: 16)
+                        .getFont(name: .libreBold, size: 18)
                     )
                     .foregroundColor(.black)
-                    .padding(.top, 10)
+                    .padding(.top, 15)
+                
                 
                 Text("AED 447")
                     .font(
                         .getFont(name: .libreBold, size: 16)
                     )
                     .foregroundColor(.black)
-                    .padding(.top, 20)
+                    .padding(.top, 15)
                 
                 Text("Including VAT")
                     .font(
                         .getFont(name: .libreBold, size: 10)
                     )
                     .foregroundColor(Constants.gray)
-                    .padding(.top, 10)
+                    .padding(.top, 5)
                 
                 ZStack {
                     
@@ -101,26 +101,18 @@ struct DetailBottomView: View {
                     }
                 }
                 .padding()
-                .padding(.top, 30)
+                .padding(.top, 15)
                 
-                VStack{
-                    // Make the buttons sticky at the bottom
-                    HStack(spacing: 10) {
-                        AddToBagButton(action: {
-                            onAddToBagClicked(true)
-                        }, text: "Add to Bag",imageName: "bag")
-                    }
-                    .padding()
-                    .background(Color.white)  // Background for the buttons
-                    .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)  // Add shadow to the bottom buttons
-                }
-                .padding(.top, 10)
-                
+                Rectangle()
+                    .fill(Constants.lightGray)
+                    .frame(height: 1)
+                    .padding(.top, 20)
+                    .padding(.horizontal)
                 
                 LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 5, onSelectionChanged: { selectedLetters in
                     print("Selected letters: \(selectedLetters)")
                 })
-                .padding(.top, 50)
+                .padding(.top, 30)
                 
                 FlavourView(onSelectionChanged: { selectedFlavour in
                     print("Selected flavour: \(selectedFlavour)")
@@ -138,12 +130,13 @@ struct DetailBottomView: View {
                 Rectangle()
                     .fill(Constants.lightGray)
                     .frame(height: 10)
+                    .padding(.top, 20)
                 
                 //                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Leather Bag Color", isCollapsible: false)
                 //                    .padding(.top, 30)
                 
                 DescriptionView(description: description)
-                    .padding(.top, 30)
+                    .padding(.top, 20)
                 
                 Rectangle()
                     .fill(Constants.lightGray)
@@ -171,7 +164,7 @@ struct DetailBottomView: View {
                 
                 Rectangle()
                     .fill(Constants.lightGray)
-                    .frame(height: 1)
+                    .frame(height: 2)
                     .padding(.top, 30)
                 
                 HStack{
@@ -193,7 +186,5 @@ struct DetailBottomView: View {
 }
 
 #Preview {
-    DetailBottomView(bannerHeight: 400, headerOpacity: .constant(0.0), onAddToBagClicked: { success in
-        print("Add to bag clicked: \(success)")
-    }, itemName: "Tube Acrylic 018")
+    DetailBottomView(bannerHeight: 400, headerOpacity: .constant(0.0), itemName: "Tube Acrylic 018")
 }

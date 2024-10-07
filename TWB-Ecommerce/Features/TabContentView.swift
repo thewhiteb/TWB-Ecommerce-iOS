@@ -57,7 +57,7 @@ struct TabContentView: View {
                                 title: "Shop By Style",
                                 onItemSelected: { _ in
                                     isDetailViewActive = true
-                                    showBottomNavigation = false
+                                    showBottomNavigation = true
                                 },
                                 onBackButtonPressed: {
                                     isListingViewActive = false

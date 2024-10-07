@@ -22,8 +22,8 @@ struct FlavourView: View {
             // Header
             HStack {
                 Text("Choose Flavour")
-                    .font(.getFont(name: .libreRegular, size: 13))
-                    .fontWeight(.semibold)
+                    .font(.getFont(name: .libreBold, size: 16))
+                
                 
                 Spacer()
                 
@@ -38,16 +38,18 @@ struct FlavourView: View {
                             // Black background for selected flavour, gray border otherwise
                             Rectangle()
                                 .fill(selectedFlavour == flavour ? Color.black : Color.clear)  // Black background when selected
-                                .frame(height: 50)
+                                .frame(height:  50)
                                 .overlay(
                                     Rectangle()
                                         .stroke(selectedFlavour == flavour ? Color.black : Color.gray, lineWidth: 1)
                                 )
+                            
+                                .shadow(color: selectedFlavour == flavour ? Color.black.opacity(0.2) : Color.clear, radius: 2)
                                 
                             Text(flavour)
-                                .font(.getFont(name: .libreRegular, size: 12))
+                                .font(.getFont(name: .libreRegular, size: 14))
                                 .foregroundColor(selectedFlavour == flavour ? .white : Constants.gray)  // White text on black background
-                                .padding(.horizontal, 10)
+                                .padding(.horizontal, 7)
                         }
                         .onTapGesture {
                             selectFlavour(flavour)
@@ -55,7 +57,7 @@ struct FlavourView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 15)
+                .padding(.vertical, 10)
             }
         }
        

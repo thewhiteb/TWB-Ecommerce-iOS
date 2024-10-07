@@ -29,7 +29,7 @@ struct RelatedProductsView: View {
                             itemPrice: item.itemPrice,
                             isCustomizable: item.isCustomizable
                         )
-                        .frame(width: 190, height: 240)  // Set a fixed width for each item to ensure proper scrolling
+                        .frame(width: 190, height: 270)  // Set a fixed width for each item to ensure proper scrolling
                     }
                 }
                 .padding(.horizontal)  // Add padding to scroll view

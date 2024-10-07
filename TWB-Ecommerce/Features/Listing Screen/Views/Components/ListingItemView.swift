@@ -88,7 +88,7 @@ struct ListingItemView: View {
             }
             .frame(width: geometry.size.width) // Dynamic width, fixed height
         }
-        .frame(height: 240) // 195 for the image + padding for text
+        .frame(height: 270)
     }
 }
 

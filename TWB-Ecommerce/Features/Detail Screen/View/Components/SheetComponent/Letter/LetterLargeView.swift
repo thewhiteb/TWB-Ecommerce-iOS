@@ -69,6 +69,7 @@ struct LetterLargeView: View {
                                     Rectangle()
                                         .stroke(selectedLetters.contains(String(letter)) ? Color.black : Color.gray, lineWidth: 1)
                                 )
+                                .shadow(color: selectedLetters.contains(String(letter)) ? Color.black.opacity(0.2) : Color.clear, radius: 2)
                             
                             Text(String(letter))
                                 .font(.getFont(name: .libreRegular, size: 14))

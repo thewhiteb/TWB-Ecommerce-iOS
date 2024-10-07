@@ -73,10 +73,9 @@ struct DetailFullImageView: View {
                 Button(action: {
                     onClickDismiss()
                 }) {
-                    Image(systemName: "xmark.circle.fill")
+                    Image("circle_close")
                         .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
+                        .frame(width: 60, height: 60)
                         .padding(.bottom, 50)
                 }
                 .shadow(radius: 5)

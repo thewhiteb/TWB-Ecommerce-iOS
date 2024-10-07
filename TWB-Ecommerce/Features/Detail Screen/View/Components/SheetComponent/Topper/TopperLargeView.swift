@@ -26,10 +26,19 @@ struct TopperLargeView: View {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    Image("Close Button")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
+                    
+                    if selectedTopper.name == "Choose topper"{
+                        Image("Close Button")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                    } else {
+                        
+                        Text("Done")
+                            .font(.getFont(name: .latoBold,size: 12))
+                            .foregroundColor(Constants.gray)
+                    }
+                  
                         
                 }
             }

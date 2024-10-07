@@ -30,8 +30,7 @@ struct ColorDropdownView: View {
             // Header for the section with expand/collapse toggle
             HStack {
                 Text(title)  // Use the dynamic title
-                    .font(Font.custom("Baskerville", size: 16))
-                    .fontWeight(.semibold)
+                    .font(.getFont(name: .libreBold, size: 16))
                     .foregroundColor(.black)
                 
                 Spacer()
@@ -42,6 +41,7 @@ struct ColorDropdownView: View {
                         .foregroundColor(.gray)
                 }
             }
+            .padding()
             .contentShape(Rectangle()) // Make the whole header tappable
             .onTapGesture {
                 if isCollapsible {  // Toggle expand/collapse only if collapsible
@@ -92,11 +92,10 @@ struct ColorDropdownView: View {
                     }
                     .padding(.horizontal)
                 }
-                .padding(.top, 10)
                 .transition(.slide) // Add slide transition
             }
         }
-        .padding()
+       
     }
     
     // Function to toggle the selection

@@ -6,7 +6,7 @@ struct TopperSmallView: View {
     
     let toppers = [
         TopperItem(name: "Without Topper", price: ""),
-        TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 83"),
+        TopperItem(name: "Customized Topper (3 Working Days)", price: "AED 30"),
         TopperItem(name: "52 UAE", price: "AED 32"),
         TopperItem(name: "Love You", price: "AED 32"),
         TopperItem(name: "Happy Birthday", price: "AED 32"),
@@ -28,8 +28,8 @@ struct TopperSmallView: View {
             // Header
             HStack {
                 Text("Select Topper")
-                    .font(.getFont(name: .libreRegular, size: 13))
-                    .fontWeight(.semibold)
+                    .font(.getFont(name: .libreBold, size: 16))
+                   
                 
                 Spacer()
             }
@@ -41,23 +41,46 @@ struct TopperSmallView: View {
                     .fill(Color.clear)
                     .frame(height: 56)  // Set fixed height
                     .overlay(
-                        Rectangle()
-                            .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 0)
+                            .stroke(
+                                   (selectedTopper.name == "Choose topper" || selectedTopper.name == "Customized Topper (3 Working Days)")
+                                   ? Constants.grayBorder
+                                   : Constants.black,
+                                   lineWidth: 1
+                               )
                     )
                 
-                HStack {
-                    Text(selectedTopper.name)  // Show selected topper
-                        .font(.getFont(name: .libreBold, size: 12))
-                        .foregroundColor(Constants.gray)
-                        .padding(.horizontal, 10)
+                HStack (spacing : 0) {
                     
-                    Spacer()
+                    Text(selectedTopper.name == "Customized Topper (3 Working Days)" ? "Customized Topper" : selectedTopper.name)  // Show selected topper
+                        .font(.getFont(name: .libreBold, size: 14))
+                        .foregroundColor(selectedTopper.name == "Choose topper" ? Constants.gray : Constants.black)
+                        .padding(.horizontal, 10)
+                   
                     
                     if !selectedTopper.price.isEmpty{
-                        Text(selectedTopper.price)  // Show selected topper price
+                        Text("(\(selectedTopper.price))")  // Show selected topper price
                             .font(.getFont(name: .libreBold, size: 12))
                             .foregroundColor(Constants.gray)
                     }
+                    
+                    Spacer()
+                    
+                    if(selectedTopper.name == "Customized Topper (3 Working Days)"){
+                        
+                        Text("3 Working Days")
+                            .font(.getFont(name: .latoBold,size : 12))
+                            .padding(.horizontal,5)
+                            .padding(.vertical, 4)
+                            .foregroundColor(Constants.bloodRed)
+                            .background(Constants.bloodRed.opacity(0.1))
+                            .padding(.trailing, 10)
+                        
+                        Divider().frame(width: 1,height: 40)
+                    }
+                   
+                    
+                   
                   
                     
                     Image("DownArrow")
@@ -65,8 +88,9 @@ struct TopperSmallView: View {
                 }
             }
             .frame(height: 56)  // Ensure the height matches the TextField
+            .contentShape(Rectangle())
             .padding(.horizontal)
-            .padding(.top, 15)
+            .padding(.top, 10)
             .onTapGesture {
                 showTopperLargeView.toggle()  // Open the large view when tapped
             }
@@ -86,19 +110,20 @@ struct TopperSmallView: View {
                         onSelectionChanged(selected.name)
                     }
                 )
-                .presentationDetents([.fraction(0.7), .medium])
+                .presentationDetents([.fraction(0.7), .large])
             }
             
             // Show TextField if "Customized Topper" is selected
             if selectedTopper.name == "Customized Topper (3 Working Days)" {
                 TextField("Input Customized Topper Text", text: $text)
-                    .font(.getFont(name: .libreRegular, size: 12))
+                    .font(.getFont(name: .libreRegular, size: 14))
                     .frame(height: 56)  // Set fixed height to match the ZStack
                     .padding(.horizontal, 10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 0)
-                            .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
+                            .stroke(Constants.black, lineWidth: 1)
                     )
+                    .foregroundColor(Constants.black)
                     .padding(.horizontal)
                     .padding(.top, 10)
             }
