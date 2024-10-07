@@ -1,13 +1,6 @@
 import Foundation
 import Alamofire
 
-struct MainResponse<T: Codable>: Codable {
-    var data: T?
-    var messages: [String]
-    var statusCode: Int
-}
-
-
 protocol Endpoint {
     associatedtype ResponseType: Codable
 
@@ -37,7 +30,7 @@ extension Endpoint {
         let result = response.result
         switch result {
         case .success(let data):
-            return try parseData(using: data)  // Parse the data into the expected ResponseType
+            return try parseData(using: data)
         case .failure(let error):
             if let statusCode = response.response?.statusCode {
                 if (400...599).contains(statusCode), let data = response.data {
@@ -45,7 +38,9 @@ extension Endpoint {
                     return try parseData(using: data)
                 }
             }
-            throw error
+            throw NSError(domain: "Alamofire Error",
+                          code: NetworkErrors.getErrorCode(for: error),
+                          userInfo: ["reason": "\(error.localizedDescription)"])
         }
     }
 
@@ -76,7 +71,7 @@ extension Endpoint {
             // Handle decoding errors
             print("Error in parsing: \(error.localizedDescription)")
             throw NSError(domain: "Decoding Error",
-                          code: 101,
+                          code: NetworkErrors.parsingError.rawValue,
                           userInfo: ["reason": "Failed to decode response data"])
         }
     }

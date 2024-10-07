@@ -8,16 +8,23 @@
 import Foundation
 
 protocol Repository {
-    func getMainItemCategories() async -> MainItemCategories?
+    static func getNewArrivalsItems() async -> MainResponse<[MainItem]>
 }
 
 struct RepositoryImplementation: Repository {
 
-    func getMainItemCategories() async -> MainItemCategories? {
+    static func getNewArrivalsItems() async -> MainResponse<[MainItem]> {
         do {
-           return nil
+            let response = try await NewArivalAPI().call()
+            return response
         } catch let error {
-            return nil
+            // There are two cases for the error:
+            // 1. Parsing failed
+            // 2. Alamofire error
+            let response = MainResponse<[MainItem]>(data: nil,
+                                             messages: ["Server is not working!"],
+                                             statusCode: (error as NSError).code)
+            return response
         }
     }
 }

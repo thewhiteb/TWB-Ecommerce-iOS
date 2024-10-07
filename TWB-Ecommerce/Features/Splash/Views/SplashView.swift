@@ -125,11 +125,14 @@ struct SplashView: View {
 
     func newArivalAPI() {
         Task {
-            do {
-                let response = try await NewArivalAPI().call()
+            let response = await RepositoryImplementation.getNewArrivalsItems()
+            if response.data != nil {
+                print(response.data)
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
                 print(response)
-            } catch let error {
-                print("Error \(error.localizedDescription)")
             }
         }
     }
