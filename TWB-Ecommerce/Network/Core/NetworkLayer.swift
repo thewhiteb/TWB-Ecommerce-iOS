@@ -1,6 +1,13 @@
 import Foundation
 import Alamofire
 
+struct MainResponse<T: Codable>: Codable {
+    var data: T?
+    var messages: [String]
+    var statusCode: Int
+}
+
+
 protocol Endpoint {
     associatedtype ResponseType: Codable
 
@@ -8,7 +15,7 @@ protocol Endpoint {
     var headers: HTTPHeaders { get }
     var httpMethod: HTTPMethod { get }
     var baseURL: String { get }
-    var encoding: JSONEncoding  { get } // Use `ParameterEncoding` instead of `URLEncoding` for flexibility
+    var encoding: JSONEncoding  { get }
     var params: [String: Any] { get }
     var contentType: String { get }
 }
@@ -21,20 +28,24 @@ extension Endpoint {
             throw AFError.parameterEncodingFailed(reason: .missingURL)
         }
         let request = getRequest(using: url)
-        // Print cURL command
-        request.cURLDescription { curl in
-            print(curl)
-        }
+        printCurl(using: request)
         // Use Alamofire's built-in async/await functionality
-        let response = request
+        let response = await request
             .validate()
-            .serializingData()  // Alamofire’s built-in async/await version
-        let result = await response.result
+            .serializingData()
+            .response
+        let result = response.result
         switch result {
         case .success(let data):
             return try parseData(using: data)  // Parse the data into the expected ResponseType
         case .failure(let error):
-            throw error  // Forward Alamofire error
+            if let statusCode = response.response?.statusCode {
+                if (400...599).contains(statusCode), let data = response.data {
+                    logNonFetalException(using: data)
+                    return try parseData(using: data)
+                }
+            }
+            throw error
         }
     }
 
@@ -61,11 +72,22 @@ extension Endpoint {
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(ResponseType.self, from: data)
-        } catch {
+        } catch let error {
             // Handle decoding errors
+            print("Error in parsing: \(error.localizedDescription)")
             throw NSError(domain: "Decoding Error",
                           code: 101,
                           userInfo: ["reason": "Failed to decode response data"])
         }
+    }
+
+    private func printCurl(using request: DataRequest) {
+        request.cURLDescription { curl in
+            print(curl)
+        }
+    }
+
+    private func logNonFetalException(using request: Data) {
+        //TODO: - Log non fetal exception over the firebase
     }
 }

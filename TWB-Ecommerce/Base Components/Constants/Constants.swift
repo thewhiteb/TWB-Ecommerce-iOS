@@ -22,5 +22,6 @@ struct Constants {
         static let contentType = "Content-Type"
     }
 
-    static let baseURL = "https://dev-thewhitebtq-be.twb.ae"
+    static let baseURL = "https://dev-thewhitebtq-be.twb.ae/mobile"
+    static let imagesBaseURL = "https://d1951zx0r40k66.cloudfront.net/"
 }

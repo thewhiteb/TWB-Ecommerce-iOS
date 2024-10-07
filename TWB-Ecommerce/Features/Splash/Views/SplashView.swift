@@ -54,9 +54,10 @@ struct SplashView: View {
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
             .onAppear {
-                updateBannerAPI()
-                callBannerAPI()
-                callPerfumeAPI()
+//                updateBannerAPI()
+//                callBannerAPI()
+//                callPerfumeAPI()
+                newArivalAPI()
             }
         }
         .background(Color.white)
@@ -118,6 +119,17 @@ struct SplashView: View {
                 print(secondResponse)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func newArivalAPI() {
+        Task {
+            do {
+                let response = try await NewArivalAPI().call()
+                print(response)
+            } catch let error {
+                print("Error \(error.localizedDescription)")
             }
         }
     }
