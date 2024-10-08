@@ -41,32 +41,36 @@ struct AddToBagView: View {
     @State private var selectedAddOns: String = "Chocolates"
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Image("tick_added")
-                Text("Successfully Added To Your Bag")
-                    .font(.getFont(name: .libreRegular, size: 12))
-                
-                Spacer()
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image("Close Button")
-                        .frame(width: 24, height: 24)
+        VStack(alignment: .leading,spacing: 0) {
+            VStack(spacing: 0) {
+                HStack {
+                    Image("tick_added")
+                    Text("Successfully Added To Your Bag")
+                        .font(.getFont(name: .libreRegular, size: 12))
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image("Close Button")
+                            .frame(width: 24, height: 24)
+                    }
                 }
+                .padding(.top, 20)
+                .padding(.horizontal)
             }
-            .padding(.top, 20)
-            .padding()
+            .background(Color.white)
             
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Constants.grayBorder)
                 .padding(.horizontal)
+                .padding(.top,20)
             
             Text("Enhance your Gift Experience")
                 .font(.getFont(name: .libreBold, size: 16))
-                .padding(.top, 10)
+                .padding(.top, 20)
                 .padding(.horizontal)
             
             // First ScrollView for selecting the add-on type

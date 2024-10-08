@@ -46,6 +46,7 @@
 		209A33762C6B4255008B8D9B /* Latobold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209A336D2C6B4255008B8D9B /* Latobold.ttf */; };
 		209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A337C2C6B85D0008B8D9B /* SimpleButton.swift */; };
 		209A33852C6CCE3E008B8D9B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A33842C6CCE3E008B8D9B /* Country.swift */; };
+		20A03D8B2CB4289400213305 /* AddToBagButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A03D8A2CB4289400213305 /* AddToBagButtonView.swift */; };
 		20A4141D2C8B336C00D03BC4 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */; };
 		20A414212C8EC31400D03BC4 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414202C8EC31400D03BC4 /* TabContentView.swift */; };
 		20A414232C8EC85700D03BC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A414222C8EC85700D03BC4 /* HomeView.swift */; };
@@ -194,6 +195,7 @@
 		209A336D2C6B4255008B8D9B /* Latobold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Latobold.ttf; sourceTree = "<group>"; };
 		209A337C2C6B85D0008B8D9B /* SimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		209A33842C6CCE3E008B8D9B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Country.swift; path = "TWB-Ecommerce/Features/Login Signup/Views/Country.swift"; sourceTree = SOURCE_ROOT; };
+		20A03D8A2CB4289400213305 /* AddToBagButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBagButtonView.swift; sourceTree = "<group>"; };
 		20A4141B2C8B31C300D03BC4 /* TWB-EcommerceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWB-EcommerceDebug.entitlements"; sourceTree = "<group>"; };
 		20A4141C2C8B336C00D03BC4 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		20A414202C8EC31400D03BC4 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			children = (
 				200283D12CB01D2D00F45E44 /* AddToBagView.swift */,
 				200283D32CB0218B00F45E44 /* AddOnItems.swift */,
+				20A03D8A2CB4289400213305 /* AddToBagButtonView.swift */,
 			);
 			path = "Add To Bag";
 			sourceTree = "<group>";
@@ -1232,6 +1235,7 @@
 				209A337D2C6B85D0008B8D9B /* SimpleButton.swift in Sources */,
 				20C0CECB2C91CDF60074471B /* OnSale.swift in Sources */,
 				5E1E26902CA696B600D839B5 /* PriceDropDownView.swift in Sources */,
+				20A03D8B2CB4289400213305 /* AddToBagButtonView.swift in Sources */,
 				20C0CEB82C919D8E0074471B /* NewArrivals.swift in Sources */,
 				20B5BB8F2CAEC9480061911A /* LetterItem.swift in Sources */,
 				20FE057C2C9058E80022E022 /* OffsetReader.swift in Sources */,

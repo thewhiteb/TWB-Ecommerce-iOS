@@ -63,16 +63,16 @@ struct DetailScreenView: View {
                 .padding(.horizontal,16)
                 .padding(.vertical, 12)
                 .background(Color.white)
+                .sheet(isPresented: $isCustomizeDone) {
+                    DetailMainSheet()
+                        .presentationDetents([.fraction(0.7), .large])
+                        .presentationDragIndicator(.visible)
+                }
             }
             .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
             
         }
         .background(Color.white)
-        .sheet(isPresented: $isCustomizeDone) {
-            DetailMainSheet()
-                .presentationDetents([.fraction(0.7), .large])
-                .presentationDragIndicator(.visible)
-        }
     }
     
 }
