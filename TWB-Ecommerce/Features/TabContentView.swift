@@ -36,10 +36,10 @@ struct TabContentView: View {
                                 showBottomNavigation = true
                             }
                         })
-                        .scaleEffect(isListingViewActive ? 0.9 : 1.0)
-                        .offset(x: isListingViewActive ? -UIScreen.main.bounds.width * 0.2 : 0)
-                        .zIndex(isListingViewActive ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
+                       
+                        .offset(x: parallaxOffsetForFirstView())
+                        .zIndex(0)
+                        .animation(.easeInOut(duration: 0.2), value: isListingViewActive)
                     case 1:
                         SearchView()
                     case 2:
@@ -56,10 +56,10 @@ struct TabContentView: View {
                                 showBottomNavigation = true
                             }
                         })
-                        .scaleEffect(isListingViewActive ? 0.9 : 1.0)
-                        .offset(x: isListingViewActive ? -UIScreen.main.bounds.width * 0.2 : 0)
-                        .zIndex(isListingViewActive ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
+                    
+                        .offset(x: parallaxOffsetForFirstView())
+                        .zIndex(0)
+                        .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
 
 
@@ -81,17 +81,15 @@ struct TabContentView: View {
                                 }
                             }
                         )
-                        .scaleEffect(isListingViewActive ? 1.0 : 0.9)
-                        .offset(x: dragOffset + gestureDragOffset)
+                        .offset(x: dragOffset > 0 ? dragOffset : 0 )
+                        .zIndex(1)
                         .gesture(
                             DragGesture()
-                                .updating($gestureDragOffset) { value, state, _ in
-                                    state = value.translation.width  // Update temporary drag offset
-                                   
-                                    
+                                .onChanged { value in
+                                    dragOffset = value.translation.width
                                 }
                                 .onEnded { value in
-                                    if value.translation.width > UIScreen.main.bounds.width / 2 {
+                                    if value.translation.width > UIScreen.main.bounds.width / 3 {
                                         withAnimation {
                                             dragOffset = 0
                                             isListingViewActive = false
@@ -105,7 +103,7 @@ struct TabContentView: View {
                                 }
                         )
                         .transition(.move(edge: .trailing))
-                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
+                        .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
                     
                     // DetailScreenView (no parallax needed here)
@@ -188,6 +186,17 @@ struct TabContentView: View {
             .frame(maxWidth: .infinity)
         }
     }
+    
+    // Parallax offset for the first view based on whether second view is visible
+        private func parallaxOffsetForFirstView() -> CGFloat {
+            if isListingViewActive {
+                // Move the first view 20% to the left while second view is entering
+                return -UIScreen.main.bounds.width * 0.2 + dragOffset * 0.2
+            } else {
+                // Move the first view back to its original position
+                return dragOffset * 0.2
+            }
+        }
 }
 
 #Preview {

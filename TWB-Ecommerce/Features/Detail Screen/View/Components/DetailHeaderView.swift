@@ -66,6 +66,8 @@ struct DetailHeaderView: View {
     }
 }
 
-//#Preview {
-//    DetailHeaderView(headerOpacity: .constant(1.0))
-//}
+#Preview {
+    DetailHeaderView(headerOpacity: .constant(1.0), onBackButtonPressed: {
+        
+    })
+}
