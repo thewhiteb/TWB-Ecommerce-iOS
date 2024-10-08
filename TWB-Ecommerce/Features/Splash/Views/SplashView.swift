@@ -26,6 +26,7 @@ struct SplashView: View {
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(rotationAngle))
                         .onAppear {
+                            newArivalAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -54,9 +55,10 @@ struct SplashView: View {
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
             .onAppear {
-                updateBannerAPI()
-                callBannerAPI()
-                callPerfumeAPI()
+//                updateBannerAPI()
+//                callBannerAPI()
+//                callPerfumeAPI()
+                newArivalAPI()
             }
         }
         .background(Color.white)
@@ -118,6 +120,21 @@ struct SplashView: View {
                 print(secondResponse)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func newArivalAPI() {
+        Task {
+            let response = await RepositoryImplementation.getNewArrivalsItems()
+            if response.data != nil {
+                NewArrivalSingleton.shared.items = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.items = nil
             }
         }
     }

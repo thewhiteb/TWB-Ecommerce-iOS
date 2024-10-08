@@ -14,22 +14,31 @@ struct NewArrivals: View {
     ]
     
     // Sample list of items
-    @State private var items: [TrendingProduct] = [
-        TrendingProduct(images: ["Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
-        TrendingProduct(images: ["Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
-        TrendingProduct(images: ["Bouquet1"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
-        TrendingProduct(images: ["Bouquet1"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false)
-    ]
-    
+//    @State private var items: [TrendingProduct] = [
+//        TrendingProduct(images: ["Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
+//        TrendingProduct(images: ["Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
+//        TrendingProduct(images: ["Bouquet1"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
+//        TrendingProduct(images: ["Bouquet1"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false)
+//    ]
+
+    @State var items: [MainItem]
+
+    var limitedItems: [MainItem] {
+        if items.count > 4 {
+            return Array(items.prefix(4)) // Take the first 4 items
+        }
+        return items
+    }
+
     var body: some View {
         ScrollView{
             LazyVGrid(columns: adaptiveColumn, spacing: 15) {
-                ForEach(items, id: \.self) { item in
+                ForEach(limitedItems, id: \.self) { item in
                     NewArrivalItem(
-                        images: item.images,
-                        itemName: item.itemName,
-                        itemPrice: item.itemPrice,
-                        isCustomizable: item.isCustomizable
+                        images: item.mainItemImages ?? [],
+                        itemName: item.name ?? "",
+                        itemPrice: String(item.price ?? 0.0),
+                        isCustomizable: true
                     )
                 }
             }
@@ -39,5 +48,5 @@ struct NewArrivals: View {
 }
 
 #Preview {
-    NewArrivals()
+    NewArrivals(items: [])
 }

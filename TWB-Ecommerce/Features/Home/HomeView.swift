@@ -106,7 +106,7 @@ struct HomeView: View {
                             }
                             .padding(.top, 20)
                             
-                            NewArrivals()
+                            NewArrivals(items: NewArrivalSingleton.shared.items ?? [])
                                 .padding(.leading, 10)
                                 .padding(.trailing, 10)
                                 .padding(.top, 30)
