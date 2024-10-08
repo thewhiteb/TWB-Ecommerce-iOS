@@ -18,7 +18,7 @@ struct NewArivalAPI: Endpoint {
 }
 
 // MARK: - MainItem
-struct MainItem: Codable {
+struct MainItem: Codable, Hashable {
     let id: Int?
     let name: String?
     let price: Double?
@@ -65,7 +65,7 @@ struct MainItem: Codable {
 }
 
 // MARK: - MainItemImage
-struct MainItemImage: Codable {
+struct MainItemImage: Codable, Hashable {
     let id: Int?
     let mainItemId: Int?
     let imageKey: String?
@@ -78,7 +78,7 @@ struct MainItemImage: Codable {
 }
 
 // MARK: - SaleDetails
-struct SaleDetails: Codable {
+struct SaleDetails: Codable, Hashable {
     let discountByPercent: Int?
     let fixedPrice: Int?
     let salePrice: Double?

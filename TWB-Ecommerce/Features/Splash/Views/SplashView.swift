@@ -26,6 +26,7 @@ struct SplashView: View {
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(rotationAngle))
                         .onAppear {
+                            newArivalAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -127,12 +128,13 @@ struct SplashView: View {
         Task {
             let response = await RepositoryImplementation.getNewArrivalsItems()
             if response.data != nil {
-                print(response.data)
+                NewArrivalSingleton.shared.items = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
+                NewArrivalSingleton.shared.items = nil
             }
         }
     }
