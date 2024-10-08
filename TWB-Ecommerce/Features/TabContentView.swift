@@ -10,83 +10,127 @@ import SwiftUI
 
 struct TabContentView: View {
     @State private var selectedTab = 0
+    @State private var isTabBarEnable = true
     @State private var showBottomNavigation = true
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
     @State private var isDetailFullImageViewActive = false
+    @State private var dragOffset: CGFloat = 0.0
+    @GestureState private var gestureDragOffset: CGFloat = 0.0
     
     @State private var images: [String] = []
     @State private var selectedImageIndex = 0
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            VStack (spacing : 0){
                 ZStack {
-                    // Main screens with tab navigation
-                    if !isListingViewActive && !isDetailViewActive {
-                        switch selectedTab {
-                        case 0:
-                            HomeView(onItemSelected: { _ in
+
+                    switch selectedTab {
+                    case 0:
+                        
+                        HomeView(onItemSelected: { _ in
+                            withAnimation {
                                 isListingViewActive = true
-                                selectedTab = -1
+                                isTabBarEnable = false
                                 showBottomNavigation = true
-                            })
-                        case 1:
-                            SearchView()
-                        case 2:
-                            MenuView()
-                        case 3:
-                            BagView(items: items)
-                        case 4:
-                            ProfileView()
-                        default:
-                            HomeView(onItemSelected: { _ in
+                            }
+                        })
+                        .scaleEffect(isListingViewActive ? 0.9 : 1.0)
+                        .offset(x: isListingViewActive ? -UIScreen.main.bounds.width * 0.2 : 0)
+                        .zIndex(isListingViewActive ? 0 : 1)
+                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
+                    case 1:
+                        SearchView()
+                    case 2:
+                        MenuView()
+                    case 3:
+                        BagView(items: items)
+                    case 4:
+                        ProfileView()
+                    default:
+                        HomeView(onItemSelected: { _ in
+                            withAnimation {
                                 isListingViewActive = true
-                            })
-                        }
+                                isTabBarEnable = true
+                                showBottomNavigation = true
+                            }
+                        })
+                        .scaleEffect(isListingViewActive ? 0.9 : 1.0)
+                        .offset(x: isListingViewActive ? -UIScreen.main.bounds.width * 0.2 : 0)
+                        .zIndex(isListingViewActive ? 0 : 1)
+                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
                     }
+
+
                     
-                    // ListingScreenView
+            
                     if isListingViewActive {
-                        GeometryReader { geometry in
-                            let safeArea = geometry.safeAreaInsets
-                            let size = geometry.size
-                            ListingScreenView(
-                                safeArea: safeArea,
-                                size: size,
-                                title: "Shop By Style",
-                                onItemSelected: { _ in
+                        ListingScreenView(
+                            title: "Shop By Style",
+                            onItemSelected: { _ in
+                                withAnimation {
                                     isDetailViewActive = true
-                                    showBottomNavigation = true
-                                },
-                                onBackButtonPressed: {
-                                    isListingViewActive = false
-                                    selectedTab = 0
                                 }
-                            )
-                            .transition(.move(edge: .trailing))
-                        }
+                            },
+                            onBackButtonPressed: {
+                                withAnimation {
+                                    isListingViewActive = false
+                                    isTabBarEnable = true
+                                    
+                                }
+                            }
+                        )
+                        .scaleEffect(isListingViewActive ? 1.0 : 0.9)
+                        .offset(x: dragOffset + gestureDragOffset)
+                        .gesture(
+                            DragGesture()
+                                .updating($gestureDragOffset) { value, state, _ in
+                                    state = value.translation.width  // Update temporary drag offset
+                                   
+                                    
+                                }
+                                .onEnded { value in
+                                    if value.translation.width > UIScreen.main.bounds.width / 2 {
+                                        withAnimation {
+                                            dragOffset = 0
+                                            isListingViewActive = false
+                                            isTabBarEnable = true
+                                        }
+                                    } else {
+                                        withAnimation {
+                                            dragOffset = 0
+                                        }
+                                    }
+                                }
+                        )
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeInOut(duration: 0.5), value: isListingViewActive)
                     }
                     
-                    // DetailScreenView
+                    // DetailScreenView (no parallax needed here)
                     if isDetailViewActive {
-                        DetailScreenView(itemName: "Tube Acrylic 018", onBackButtonPressed: {
-                            showBottomNavigation = true
-                            isDetailViewActive = false
-                            selectedTab = isListingViewActive ? -1 : 0
+                        DetailScreenView(itemName: "Tube Acrylic 018",
+                            onBackButtonPressed: {
+                            withAnimation {
+                                isTabBarEnable = isListingViewActive ? false : true
+                                isDetailViewActive = false
+                            }
                         }, onImageTapped: { selectedIndex, image in
                             images = image
                             selectedImageIndex = selectedIndex
                             isDetailFullImageViewActive = true
                         })
-                        .transition(.move(edge: .trailing))
                     }
                     
-                    // DetailFullImageView
+                    // DetailFullImageView (no parallax needed here)
                     if isDetailFullImageViewActive {
                         DetailFullImageView(images: images, selectedIndex: selectedImageIndex, onClickDismiss: {
-                            isDetailFullImageViewActive = false
+                            withAnimation {
+                                isDetailFullImageViewActive = false
+                            }
                         })
+                        .transition(.move(edge: .trailing))  // Slide-in from right to left
                     }
                 }
                 .frame(maxHeight: .infinity)
@@ -123,13 +167,15 @@ struct TabContentView: View {
     
     private func tabBarButton(image: String, selectedImage: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {
         Button(action: {
-            selectedTab = tag
-            isListingViewActive = false
-            isDetailViewActive = false
-            showBottomNavigation = true
+            withAnimation {
+                selectedTab = tag
+                isListingViewActive = false
+                isDetailViewActive = false
+                showBottomNavigation = true
+            }
         }) {
             VStack(alignment: .center, spacing: 0) {
-                Image(selectedTab == tag ? image : selectedImage)
+                Image(isTabBarEnable && selectedTab == tag ? image : selectedImage)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: isWhiteBTQ ? 35 : 24, height: isWhiteBTQ ? 35 : 24)
                 if !text.isEmpty {

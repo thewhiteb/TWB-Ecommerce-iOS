@@ -17,7 +17,7 @@ struct ArtWork: View {
         GeometryReader { proxy in
             let size = proxy.size
             let minY = proxy.frame(in: .named("SCROLL")).minY
-            let progress = minY / (height * (minY > 0 ? 0 : 0.9))
+            let progress = minY / (height * (minY > 0 ? 0 : 1))
             
             
             VStack{
