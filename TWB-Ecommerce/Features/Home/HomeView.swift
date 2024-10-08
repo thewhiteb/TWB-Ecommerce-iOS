@@ -63,7 +63,7 @@ struct HomeView: View {
                             }
                             .padding(.top, 40)
                             
-                            SimpleGiftOccasionList()
+                            SimpleGiftOccasionList(items: NewArrivalSingleton.shared.giftByOccasion ?? [])
                                 .padding(.top, 30)
                                 .padding(.leading, 10)
                             NowOpeningBanner()

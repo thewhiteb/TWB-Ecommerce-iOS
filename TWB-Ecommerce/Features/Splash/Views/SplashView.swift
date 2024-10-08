@@ -27,6 +27,7 @@ struct SplashView: View {
                         .rotationEffect(.degrees(rotationAngle))
                         .onAppear {
                             newArivalAPI()
+                            giftByOccasionAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -135,6 +136,21 @@ struct SplashView: View {
                 print(response.messages.first)
                 print(response)
                 NewArrivalSingleton.shared.items = nil
+            }
+        }
+    }
+
+    func giftByOccasionAPI() {
+        Task {
+            let response = await RepositoryImplementation.getGiftByOccasionItems()
+            if response.data != nil {
+                NewArrivalSingleton.shared.giftByOccasion = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.giftByOccasion = nil
             }
         }
     }
