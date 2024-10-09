@@ -145,6 +145,7 @@
 		5EAA61352C9C42D100089A90 /* BagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA61342C9C42D100089A90 /* BagItem.swift */; };
 		5EAA61372C9C431C00089A90 /* BagItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA61362C9C431C00089A90 /* BagItemView.swift */; };
 		5EAA61392C9C438500089A90 /* BagListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA61382C9C438500089A90 /* BagListingView.swift */; };
+		5EAF54392CB66D3A00229A2F /* ShopByStyleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAF54382CB66D3A00229A2F /* ShopByStyleAPI.swift */; };
 		5EBAE1952CAA9506006106CA /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBAE1942CAA9506006106CA /* NetworkLayer.swift */; };
 		5ED005582C9BFDC7003B899B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED005572C9BFDC7003B899B /* Color+Extension.swift */; };
 		5ED0055B2C9BFFA9003B899B /* Color+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0055A2C9BFFA9003B899B /* Color+Constants.swift */; };
@@ -286,6 +287,7 @@
 		5EAA61342C9C42D100089A90 /* BagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagItem.swift; sourceTree = "<group>"; };
 		5EAA61362C9C431C00089A90 /* BagItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagItemView.swift; sourceTree = "<group>"; };
 		5EAA61382C9C438500089A90 /* BagListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagListingView.swift; sourceTree = "<group>"; };
+		5EAF54382CB66D3A00229A2F /* ShopByStyleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopByStyleAPI.swift; sourceTree = "<group>"; };
 		5EBAE1942CAA9506006106CA /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		5ED005572C9BFDC7003B899B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5ED0055A2C9BFFA9003B899B /* Color+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Constants.swift"; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 				5E09D83A2CB3F6A3003BB140 /* sample */,
 				5E09D8382CB3E095003BB140 /* NewArivalAPI.swift */,
 				5E0E92BB2CB55CEE00EC59BD /* GiftByOccasionAPI.swift */,
+				5EAF54382CB66D3A00229A2F /* ShopByStyleAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1170,6 +1173,7 @@
 				20C0D54D2C8843B90060354A /* FBLoginManager.swift in Sources */,
 				5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */,
 				2075F3A42C636F670010536E /* LoginView.swift in Sources */,
+				5EAF54392CB66D3A00229A2F /* ShopByStyleAPI.swift in Sources */,
 				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
 				204EFBB62CA5523B002D9986 /* DetailHeaderView.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,

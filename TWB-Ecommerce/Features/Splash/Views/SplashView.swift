@@ -28,6 +28,7 @@ struct SplashView: View {
                         .onAppear {
                             newArivalAPI()
                             giftByOccasionAPI()
+                            shopByStyleAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -151,6 +152,21 @@ struct SplashView: View {
                 print(response.messages.first)
                 print(response)
                 NewArrivalSingleton.shared.giftByOccasion = nil
+            }
+        }
+    }
+
+    func shopByStyleAPI() {
+        Task {
+            let response = await RepositoryImplementation.getShopByStyleItems()
+            if response.data != nil {
+                NewArrivalSingleton.shared.shopByStyle = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.shopByStyle = nil
             }
         }
     }

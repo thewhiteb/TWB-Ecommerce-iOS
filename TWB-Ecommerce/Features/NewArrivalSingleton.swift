@@ -15,4 +15,5 @@ class NewArrivalSingleton {
 
     var items: [MainItem]?
     var giftByOccasion: [Category]?
+    var shopByStyle: [ProductItem]?
 }
