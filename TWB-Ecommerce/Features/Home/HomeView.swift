@@ -83,8 +83,9 @@ struct HomeView: View {
                                     .padding(.top, 2)
                             }
                             .padding(.top, 40)
-                            
-                            ShopByStyles { itemName in
+
+                            let list = NewArrivalSingleton.shared.shopByStyle ?? []
+                            ShopByStyles(items: list) { itemName in
 //                                selectedItem = itemName
 //                                isShowingDetail = true
                                 onItemSelected(itemName)

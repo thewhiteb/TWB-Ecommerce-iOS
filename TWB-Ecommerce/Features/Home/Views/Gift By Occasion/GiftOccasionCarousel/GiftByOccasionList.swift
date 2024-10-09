@@ -51,7 +51,7 @@ struct GiftByOccasionList: View {
             let cappedWidth = min(reducingWidth,130)
             
             let frameWidth = size.width - (minX > 0 ? cappedWidth : -cappedWidth)
-            let url = Constants.imagesBaseURL + (item.storyImageKey ?? "")
+            let url = Constants.imagesBaseURL + (item.storyImageKey ?? .defaultStr)
             WebImage(url: URL(string: url)) { image in
                 image.resizable().aspectRatio(contentMode: .fill)
             } placeholder: {

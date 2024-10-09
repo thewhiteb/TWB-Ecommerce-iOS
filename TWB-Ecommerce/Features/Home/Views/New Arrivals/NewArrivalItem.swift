@@ -24,7 +24,6 @@ struct NewArrivalItem: View {
             VStack(spacing: 0) {
                 ZStack {
                     VStack{
-//                        Image(images[0])
                         let url = Constants.imagesBaseURL + (images.first?.imageKey ?? "")
                         WebImage(url: URL(string: url)) { image in
                             image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
