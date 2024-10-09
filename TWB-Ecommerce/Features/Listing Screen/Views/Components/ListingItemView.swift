@@ -24,13 +24,14 @@ struct ListingItemView: View {
                             Image(item.images[index])
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.width, height: 195) // Fixed height, dynamic width
+                                .frame(width: geometry.size.width, height: 220) // Fixed height, dynamic width
                                 .clipped()
                                 .tag(index)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide default page indicator
-                    .frame(width: geometry.size.width, height: 195) // Fixed height for image slider
+                    .frame(width: geometry.size.width, height: 220) // Fixed height for image slider
+                    .matchedGeometryEffect (id : item.id,in : animation)
                     
                     // Custom page indicator dots
                     VStack {
@@ -44,24 +45,10 @@ struct ListingItemView: View {
                         }
                         .padding(.bottom, 10)
                     }
+                   
                     
                     HStack {
-                        //                        VStack(alignment: .leading) {
-                        //                            if isCustomizable {
-                        //                                Text("Customizable")
-                        //                                    .font(.custom("Lato", size: 10))
-                        //                                    .padding(6)
-                        //                                    .background(Color.black.opacity(0.7))
-                        //                                    .foregroundColor(.white)
-                        //                                    .padding(8)
-                        //                            }
-                        //                            Spacer()
-                        //                        }
-                        //                        .padding(.top, 5)
-                        //                        .padding(.leading, 5)
-                        
                         Spacer()
-                        
                         VStack {
                             TwitterHeart(width: 24, height: 24, imageIcon: "SmallEmptyHeart")
                                 .padding(.top, 15)
@@ -85,7 +72,6 @@ struct ListingItemView: View {
                     .padding(.top, 2)
             }
             .frame(width: geometry.size.width) // Dynamic width, fixed height
-            .matchedGeometryEffect (id : item.id,in : animation)
         }
         .frame(height: 270)
     }

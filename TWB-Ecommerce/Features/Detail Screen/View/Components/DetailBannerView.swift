@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailBannerView<Space: Hashable>: View {
-    let images: [String]
+    let item: TrendingProduct
     @State private var currentIndex = 0
     
     let coordinateSpace: Space
@@ -22,23 +22,20 @@ struct DetailBannerView<Space: Hashable>: View {
     var body: some View {
         GeometryReader { proxy in
             let offset = offset(for: proxy)
-            let heightModifier = heightModifier(for: proxy)
-            
+       
             ZStack(alignment: .bottom) {
                 Spacer()
                 
                 TabView(selection: $currentIndex) {
-                    ForEach(0..<images.count, id: \.self) { index in
-                        Image(images[index])
+                    ForEach(0..<item.images.count, id: \.self) { index in
+                        Image(item.images[index])
                             .resizable()
                             .scaledToFit()
                             .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)
                             .clipped()
                             .tag(index)
-                            .matchedGeometryEffect(id: index, in: animation)
                             .onTapGesture {
-                                
-                                onImageTapped(index, images)
+                                onImageTapped(index, item.images)
                             }
                     }
                 }
@@ -51,7 +48,7 @@ struct DetailBannerView<Space: Hashable>: View {
                     Spacer()
                     
                     HStack(spacing: 8) {
-                        ForEach(0..<images.count, id: \.self) { index in
+                        ForEach(0..<item.images.count, id: \.self) { index in
                             Circle()
                                 .fill(index == currentIndex ? Color.black : Color.gray.opacity(0.5))
                                 .frame(width: 8, height: 8)
@@ -64,7 +61,7 @@ struct DetailBannerView<Space: Hashable>: View {
             .edgesIgnoringSafeArea(.horizontal)
             .frame(
                 width: proxy.size.width,
-                height: proxy.size.height + heightModifier
+                height: proxy.size.height
             )
         }
         .frame(height: defaultHeight)
@@ -76,11 +73,6 @@ struct DetailBannerView<Space: Hashable>: View {
             return -frame.minY * 0.65
         }
         return 0
-    }
-    
-    private func heightModifier(for proxy: GeometryProxy) -> CGFloat {
-        let frame = proxy.frame(in: .named(coordinateSpace))
-        return max(0, frame.minY)
     }
 }
 

@@ -12,11 +12,7 @@ struct DetailHeaderView: View {
     var onBackButtonPressed: () -> Void
     
     var body: some View {
-        GeometryReader { geometry in
-            let topSafeAreaHeight = geometry.safeAreaInsets.top
-            let totalHeight = 50 + topSafeAreaHeight  // Base height of 50 plus the top safe area height
-            
-            VStack {
+            VStack (spacing : 0) {
                 HStack {
                     Button(action: {
                         onBackButtonPressed()
@@ -55,14 +51,13 @@ struct DetailHeaderView: View {
                 }
                 .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
                 .frame(height: 70)  // Set the fixed content height for the header
-                .padding(.top, totalHeight)
                 .padding(.horizontal)
+                .padding(.top, 60)
                 .background(Color.white.opacity(headerOpacity))  // Background opacity depends on scroll
                 Spacer()  // Pushes the content of the VStack up
             }
             .shadow(color: Color.black.opacity(headerOpacity * 0.2), radius: 5, x: 0, y: 2)
-        }
-        .frame(height: 50)  // Ensure it has a minimum height of 50
+        
     }
 }
 
