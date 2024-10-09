@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ListingScreenView: View {
     
+    var animation : Namespace.ID
+    
     @State private var scale: CGFloat = 1.0
     @State private var isSortOptionClicked = false
     @State private var isFilterOptionClicked = false
     
     var title: String
-    var onItemSelected: (String) -> Void
+    var onItemSelected: (TrendingProduct) -> Void
     var onBackButtonPressed: () -> Void
     
     var body: some View {
@@ -56,9 +58,9 @@ struct ListingScreenView: View {
                             }
                             .zIndex(1)
                             
-                            BottomView(onItemSelected: { selectedItem in
+                            BottomView( onItemSelected: { selectedItem in
                                 onItemSelected(selectedItem)  // Handle item selection
-                            })
+                            }, animation : animation )
                             
                         }
                         .background(Color.white)
@@ -137,14 +139,14 @@ struct ListingScreenView: View {
     }
 }
 
-#Preview {
-    ListingScreenView(
-        title: "Shop By Style",
-        onItemSelected: { item in
-            print("Selected item: \(item)")
-        },
-        onBackButtonPressed: {
-            print("Back button pressed")
-        }
-    )
-}
+//#Preview {
+//    ListingScreenView(
+//        title: "Shop By Style",
+//        onItemSelected: { item in
+//            print("Selected item: \(item)")
+//        },
+//        onBackButtonPressed: {
+//            print("Back button pressed")
+//        }
+//    )
+//}

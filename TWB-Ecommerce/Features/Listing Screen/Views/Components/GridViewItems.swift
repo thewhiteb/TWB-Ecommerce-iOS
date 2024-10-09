@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct GridViewItems: View {
+    
+    var animation  : Namespace.ID
+    
     // Define the grid layout: 2 columns with flexible widths
     private let gridItems = [
         GridItem(.flexible(), spacing: 15),
         GridItem(.flexible(), spacing: 15)
     ]
-    
+
     // Sample list of items
     @State private var items: [TrendingProduct] = [
         TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
@@ -34,12 +37,10 @@ struct GridViewItems: View {
     
     var body: some View {
         LazyVGrid(columns: gridItems, spacing: 15) {
-            ForEach(items, id: \.self) { item in
+            ForEach(items) { item in
                 ListingItemView(
-                    images: item.images,
-                    itemName: item.itemName,
-                    itemPrice: item.itemPrice,
-                    isCustomizable: item.isCustomizable
+                   item: item,
+                   animation: animation
                 )
                 .onTapGesture {
                     onItemClick(item)  // Trigger the item click closure

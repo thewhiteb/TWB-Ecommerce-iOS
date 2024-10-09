@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetailBottomView: View {
+    
+    var animation : Namespace.ID
     let bannerHeight: CGFloat
     @Binding var headerOpacity: Double
     @State var customizedTextValue: String = ""
@@ -159,7 +161,7 @@ struct DetailBottomView: View {
                 .padding(.top, 30)
                 .padding(.horizontal)
                 
-                RelatedProductsView()
+                RelatedProductsView(animation: animation)
                     .padding(.top, 30)
                 
                 Rectangle()
@@ -176,7 +178,7 @@ struct DetailBottomView: View {
                 .padding(.top, 30)
                 .padding(.horizontal)
                 
-                RelatedProductsView()
+                RelatedProductsView(animation: animation)
                     .padding(.top, 30)
                     .padding(.bottom, 50)
                 
@@ -185,6 +187,6 @@ struct DetailBottomView: View {
     }
 }
 
-#Preview {
-    DetailBottomView(bannerHeight: 400, headerOpacity: .constant(0.0), itemName: "Tube Acrylic 018")
-}
+//#Preview {
+//    DetailBottomView(bannerHeight: 400, headerOpacity: .constant(0.0), itemName: "Tube Acrylic 018")
+//}

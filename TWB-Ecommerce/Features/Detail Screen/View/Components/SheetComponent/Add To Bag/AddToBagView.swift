@@ -104,7 +104,7 @@ struct AddToBagView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 5) {
                     // Filter items based on the selected add-on type
-                    ForEach(itemsByType[selectedAddOns] ?? [], id: \.self) { item in
+                    ForEach(itemsByType[selectedAddOns] ?? []) { item in
                         AddOnItems(
                             addOnItem: item
                         )

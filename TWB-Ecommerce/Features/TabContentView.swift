@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct TabContentView: View {
+    @Namespace var animation
+    
     @State private var selectedTab = 0
+    @State private var listItemSelected : TrendingProduct? = nil
     @State private var isTabBarEnable = true
     @State private var showBottomNavigation = true
     @State private var isListingViewActive = false
@@ -25,7 +28,7 @@ struct TabContentView: View {
         NavigationView {
             VStack (spacing : 0){
                 ZStack {
-
+                    
                     switch selectedTab {
                     case 0:
                         
@@ -36,7 +39,7 @@ struct TabContentView: View {
                                 showBottomNavigation = true
                             }
                         })
-                       
+                        
                         .offset(x: parallaxOffsetForFirstView())
                         .zIndex(0)
                         .animation(.easeInOut(duration: 0.2), value: isListingViewActive)
@@ -56,21 +59,23 @@ struct TabContentView: View {
                                 showBottomNavigation = true
                             }
                         })
-                    
+                        
                         .offset(x: parallaxOffsetForFirstView())
                         .zIndex(0)
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
-
-
                     
-            
+                    
+                    
+                    
                     if isListingViewActive {
                         ListingScreenView(
+                            animation : animation,
                             title: "Shop By Style",
-                            onItemSelected: { _ in
-                                withAnimation {
+                            onItemSelected: { item in
+                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)) {
                                     isDetailViewActive = true
+                                    listItemSelected = item
                                 }
                             },
                             onBackButtonPressed: {
@@ -106,11 +111,10 @@ struct TabContentView: View {
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
                     
-                    // DetailScreenView (no parallax needed here)
-                    if isDetailViewActive {
-                        DetailScreenView(itemName: "Tube Acrylic 018",
-                            onBackButtonPressed: {
-                            withAnimation {
+                    if isDetailViewActive, let selectedItem = listItemSelected {
+                        DetailScreenView(animation: animation, item: selectedItem,  // Pass the selected item to DetailScreenView
+                                         onBackButtonPressed: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)) {
                                 isTabBarEnable = isListingViewActive ? false : true
                                 isDetailViewActive = false
                             }
@@ -119,6 +123,7 @@ struct TabContentView: View {
                             selectedImageIndex = selectedIndex
                             isDetailFullImageViewActive = true
                         })
+                        .zIndex(2)
                     }
                     
                     // DetailFullImageView (no parallax needed here)
@@ -188,17 +193,17 @@ struct TabContentView: View {
     }
     
     // Parallax offset for the first view based on whether second view is visible
-        private func parallaxOffsetForFirstView() -> CGFloat {
-            if isListingViewActive {
-                // Move the first view 20% to the left while second view is entering
-                return -UIScreen.main.bounds.width * 0.2 + dragOffset * 0.2
-            } else {
-                // Move the first view back to its original position
-                return dragOffset * 0.2
-            }
+    private func parallaxOffsetForFirstView() -> CGFloat {
+        if isListingViewActive {
+            // Move the first view 20% to the left while second view is entering
+            return -UIScreen.main.bounds.width * 0.4 + dragOffset * 0.4
+        } else {
+            // Move the first view back to its original position
+            return dragOffset * 0.4
         }
+    }
 }
 
-#Preview {
-    TabContentView()
-}
+//#Preview {
+//    TabContentView()
+//}

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RelatedProductsView: View {
+    var animation : Namespace.ID
+    
     
     // Sample list of items
     @State private var items: [TrendingProduct] = [
@@ -22,12 +24,10 @@ struct RelatedProductsView: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {  // Add spacing for items
-                    ForEach(items, id: \.self) { item in
+                    ForEach(items) { item in
                         ListingItemView(
-                            images: item.images,
-                            itemName: item.itemName,
-                            itemPrice: item.itemPrice,
-                            isCustomizable: item.isCustomizable
+                            item : item,
+                            animation : animation
                         )
                         .frame(width: 190, height: 270)  // Set a fixed width for each item to ensure proper scrolling
                     }
@@ -38,7 +38,7 @@ struct RelatedProductsView: View {
     }
 }
 
-#Preview {
-    RelatedProductsView()
-}
+//#Preview {
+//    RelatedProductsView()
+//}
 

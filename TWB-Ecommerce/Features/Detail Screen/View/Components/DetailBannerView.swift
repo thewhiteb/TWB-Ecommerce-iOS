@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct DetailBannerView<Space: Hashable>: View {
-    let images: [String]  // Image names or URLs
+    let images: [String]
     @State private var currentIndex = 0
     
     let coordinateSpace: Space
     let defaultHeight: CGFloat
     
-    // Callback for image tap with the selected index
+   
     var onImageTapped: (Int, [String]) -> Void
+    
+    var animation : Namespace.ID
     
     var body: some View {
         GeometryReader { proxy in
@@ -29,35 +31,36 @@ struct DetailBannerView<Space: Hashable>: View {
                     ForEach(0..<images.count, id: \.self) { index in
                         Image(images[index])
                             .resizable()
-                            .scaledToFit()  // Fit image to its available space while preserving aspect ratio
-                            .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)  // Align image to the bottom of the view
+                            .scaledToFit()
+                            .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)
                             .clipped()
                             .tag(index)
+                            .matchedGeometryEffect(id: index, in: animation)
                             .onTapGesture {
-                                // Call the callback with the tapped image index and images array
+                                
                                 onImageTapped(index, images)
                             }
                     }
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))  // Disable default indicators
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: proxy.size.width, height: defaultHeight)
-                .offset(y: offset)  // Adjust offset as the user scrolls
+                .offset(y: offset)
                 
-                // Custom page indicator dots aligned near the bottom
+            
                 VStack {
                     Spacer()
                     
                     HStack(spacing: 8) {
                         ForEach(0..<images.count, id: \.self) { index in
                             Circle()
-                                .fill(index == currentIndex ? Color.black : Color.gray.opacity(0.5))  // Custom indicator colors
+                                .fill(index == currentIndex ? Color.black : Color.gray.opacity(0.5))
                                 .frame(width: 8, height: 8)
                         }
                     }
-                    .padding(.bottom, 10)  // Add some padding at the bottom of the indicator
+                    .padding(.bottom, 10)
                 }
             }
-            .background(Color(hex: "#F5F5F5"))  // Example background color
+            .background(Color(hex: "#F5F5F5"))
             .edgesIgnoringSafeArea(.horizontal)
             .frame(
                 width: proxy.size.width,
@@ -72,7 +75,7 @@ struct DetailBannerView<Space: Hashable>: View {
         if frame.minY < 0 {
             return -frame.minY * 0.65
         }
-        return -frame.minY
+        return 0
     }
     
     private func heightModifier(for proxy: GeometryProxy) -> CGFloat {
@@ -81,28 +84,28 @@ struct DetailBannerView<Space: Hashable>: View {
     }
 }
 
-struct DetailBannerViewPreview: View {
-    var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                ScrollView {
-                    VStack {
-                        DetailBannerView(
-                            images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
-                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
-                            defaultHeight: 600,
-                            onImageTapped: { selectedIndex, imagesArray in
-                                print("Image \(selectedIndex) was tapped")
-                            }
-                        )
-                    }
-                }
-                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
-            }
-        }
-    }
-}
-
-#Preview {
-    DetailBannerViewPreview()
-}
+//struct DetailBannerViewPreview: View {
+//    var body: some View {
+//        NavigationView {
+//            GeometryReader { geometry in
+//                ScrollView {
+//                    VStack {
+//                        DetailBannerView(
+//                            images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
+//                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
+//                            defaultHeight: 600,
+//                            onImageTapped: { selectedIndex, imagesArray in
+//                                print("Image \(selectedIndex) was tapped")
+//                            }
+//                        )
+//                    }
+//                }
+//                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    DetailBannerViewPreview()
+//}

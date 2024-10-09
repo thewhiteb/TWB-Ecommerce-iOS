@@ -24,7 +24,7 @@ struct NewArrivals: View {
     var body: some View {
         ScrollView{
             LazyVGrid(columns: adaptiveColumn, spacing: 15) {
-                ForEach(items, id: \.self) { item in
+                ForEach(items) { item in
                     NewArrivalItem(
                         images: item.images,
                         itemName: item.itemName,
