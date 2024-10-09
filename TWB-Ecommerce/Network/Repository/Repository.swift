@@ -9,7 +9,7 @@ import Foundation
 
 protocol Repository {
     static func getNewArrivalsItems() async -> MainResponse<[MainItem]>
-    static func getGiftByOccasionItems() async -> MainResponse<[Category]>
+    static func getGiftByOccasionItems() async -> MainResponse<[ProductItem]>
     static func getShopByStyleItems() async -> MainResponse<[ProductItem]>
 }
 
@@ -30,7 +30,7 @@ struct RepositoryImplementation: Repository {
         }
     }
 
-    static func getGiftByOccasionItems() async -> MainResponse<[Category]> {
+    static func getGiftByOccasionItems() async -> MainResponse<[ProductItem]> {
         do {
             let response = try await GiftByOccasionAPI().call()
             return response
@@ -38,7 +38,7 @@ struct RepositoryImplementation: Repository {
             // There are two cases for the error:
             // 1. Parsing failed
             // 2. Alamofire error
-            let response = MainResponse<[Category]>(data: nil,
+            let response = MainResponse<[ProductItem]>(data: nil,
                                              messages: ["Server is not working!"],
                                              statusCode: (error as NSError).code)
             return response

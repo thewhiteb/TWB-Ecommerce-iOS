@@ -14,6 +14,6 @@ class NewArrivalSingleton {
     static let shared = NewArrivalSingleton()
 
     var items: [MainItem]?
-    var giftByOccasion: [Category]?
+    var giftByOccasion: [ProductItem]?
     var shopByStyle: [ProductItem]?
 }

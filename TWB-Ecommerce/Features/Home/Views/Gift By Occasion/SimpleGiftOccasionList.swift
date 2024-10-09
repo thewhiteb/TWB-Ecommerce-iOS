@@ -16,7 +16,7 @@ struct SimpleGiftOccasionList: View {
     @State private var contentWidth: CGFloat = 0    // To store the total content width
     
     // Sample list of items
-    @State var items: [Category]
+    @State var items: [ProductItem]
     
     var body: some View {
         VStack{
@@ -63,7 +63,7 @@ struct SimpleGiftOccasionList: View {
 
 // Separate view for the first item
 struct FirstItemView: View {
-    var item: Category
+    var item: ProductItem
     
     var body: some View {
         ZStack {
@@ -99,12 +99,12 @@ struct FirstItemView: View {
 
 // Separate ItemView struct to handle individual item display
 struct ItemView: View {
-    var item: Category
+    var item: ProductItem
     
     var body: some View {
         ZStack {
             VStack {
-                Text(item.name)
+                Text(item.name ?? "")
                     .font(Font.custom("Baskerville", size: 14))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)

@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 struct GiftByOccasionList: View {
     
     // Sample list of 10 items
-    @State var items: [Category]
+    @State var items: [ProductItem]
     
     var body: some View {
         VStack {
@@ -42,7 +42,7 @@ struct GiftByOccasionList: View {
     
     
     @ViewBuilder
-    func CardView(_ item : Category) -> some View{
+    func CardView(_ item : ProductItem) -> some View{
         GeometryReader {proxy in
             let size = proxy.size
             let minX = proxy.frame(in: .scrollView).minX

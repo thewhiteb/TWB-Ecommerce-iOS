@@ -32,8 +32,8 @@ extension View {
     }
 }
 
-extension [Category] {
-    func indexOf(_ itemModel : Category) -> Int {
+extension [ProductItem] {
+    func indexOf(_ itemModel : ProductItem) -> Int {
         return self.firstIndex(of: itemModel) ?? 0
     }
 }
