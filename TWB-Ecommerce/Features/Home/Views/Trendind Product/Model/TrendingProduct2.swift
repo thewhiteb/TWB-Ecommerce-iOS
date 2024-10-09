@@ -5,7 +5,7 @@
 //  Created by Khurram Ansar on 11/09/2024.
 //
 
-struct TrendingProduct : Hashable {
+struct TrendingProduct2 : Hashable {
     let images: [String]
     let itemName: String
     let itemPrice: String
