@@ -14,26 +14,26 @@ struct AddToBagView: View {
     let addOnsTypeList = ["Chocolates", "Perfumes", "Small Cakes", "Bouquets", "Balloons"]
     
     // Sample items related to each add-on type
-    let itemsByType: [String: [TrendingProduct]] = [
+    let itemsByType: [String: [TrendingProduct2]] = [
         "Chocolates": [
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Dessert Acrylic 012", itemPrice: "AED 267", isCustomizable: true),
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Dessert Box Small 015", itemPrice: "AED 137", isCustomizable: false),
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Chocolate Box Grande 101", itemPrice: "AED 300", isCustomizable: true),
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Truffle Delight Box 011", itemPrice: "AED 195", isCustomizable: false),
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Choco Set 202", itemPrice: "AED 400", isCustomizable: true),
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Chocolate Hamper 005", itemPrice: "AED 215", isCustomizable: false)
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Dessert Acrylic 012", itemPrice: "AED 267", isCustomizable: true),
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Dessert Box Small 015", itemPrice: "AED 137", isCustomizable: false),
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Chocolate Box Grande 101", itemPrice: "AED 300", isCustomizable: true),
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Truffle Delight Box 011", itemPrice: "AED 195", isCustomizable: false),
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Choco Set 202", itemPrice: "AED 400", isCustomizable: true),
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Chocolate Hamper 005", itemPrice: "AED 215", isCustomizable: false)
         ],
         "Perfumes": [
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Perfume 011", itemPrice: "AED 500", isCustomizable: false)
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Perfume 011", itemPrice: "AED 500", isCustomizable: false)
         ],
         "Small Cakes": [
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Mini Cake Set", itemPrice: "AED 180", isCustomizable: false)
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Mini Cake Set", itemPrice: "AED 180", isCustomizable: false)
         ],
         "Bouquets": [
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Bouquet", itemPrice: "AED 500", isCustomizable: false)
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Bouquet", itemPrice: "AED 500", isCustomizable: false)
         ],
         "Balloons": [
-            TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Birthday Balloons", itemPrice: "AED 80", isCustomizable: false)
+            TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Birthday Balloons", itemPrice: "AED 80", isCustomizable: false)
         ]
     ]
     

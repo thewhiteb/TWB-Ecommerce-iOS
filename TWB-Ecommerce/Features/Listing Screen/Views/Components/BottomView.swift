@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BottomView: View {
-    var onItemSelected: (TrendingProduct) -> Void  // Closure to pass selected item back
+    var onItemSelected: (TrendingProduct2) -> Void  // Closure to pass selected item back
     
     var animation : Namespace.ID
     

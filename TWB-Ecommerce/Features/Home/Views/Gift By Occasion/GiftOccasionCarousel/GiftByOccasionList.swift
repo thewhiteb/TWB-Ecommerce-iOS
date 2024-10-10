@@ -6,22 +6,13 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct GiftByOccasionList: View {
     
     // Sample list of 10 items
-    @State private var items: [ItemModel] = [
-        ItemModel(imageName: "GiftCake", itemText: "Item 1"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 2"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 3"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 4"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 5"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 6"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 7"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 8"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 9"),
-        ItemModel(imageName: "GiftCake", itemText: "Item 10")
-    ]
+    @State var items: [ProductItem]
     
     var body: some View {
         VStack {
@@ -51,7 +42,7 @@ struct GiftByOccasionList: View {
     
     
     @ViewBuilder
-    func CardView(_ item : ItemModel) -> some View{
+    func CardView(_ item : ProductItem) -> some View{
         GeometryReader {proxy in
             let size = proxy.size
             let minX = proxy.frame(in: .scrollView).minX
@@ -60,15 +51,19 @@ struct GiftByOccasionList: View {
             let cappedWidth = min(reducingWidth,130)
             
             let frameWidth = size.width - (minX > 0 ? cappedWidth : -cappedWidth)
-            
-            Image(item.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: size.width,height: size.height)
-                .frame(width: frameWidth)
-                .clipShape(.rect(cornerRadius: 0))
-                .offset(x: minX > 0 ? 0 : -cappedWidth)
-                .offset(x: -item.previousOffset)
+            let url = Constants.imagesBaseURL + (item.storyImageKey ?? .defaultStr)
+            WebImage(url: URL(string: url)) { image in
+                image.resizable().aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Rectangle().foregroundColor(.gray)
+            }
+            .indicator(.activity) // Activity Indicator
+            .transition(.fade(duration: 0.5)) // Fade Transition with duration
+            .frame(width: size.width,height: size.height)
+            .frame(width: frameWidth)
+            clipShape(.rect(cornerRadius: 0))
+            .offset(x: minX > 0 ? 0 : -cappedWidth)
+            .offset(x: -item.previousOffset)
         }
         .frame(width: 180,height: 250)
         .offsetX { offset in
@@ -84,5 +79,5 @@ struct GiftByOccasionList: View {
 }
 
 #Preview {
-    GiftByOccasionList()
+    GiftByOccasionList(items: [])
 }

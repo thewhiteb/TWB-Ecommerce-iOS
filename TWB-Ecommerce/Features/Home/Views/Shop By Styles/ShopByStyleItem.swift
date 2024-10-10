@@ -6,24 +6,32 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+import SDWebImage
 
 struct ShopByStyleItem: View {
-    var item: ItemModel
+    var item: ProductItem
     
     var body: some View {
         VStack(alignment: .center,spacing: 0) {
-            Text(item.itemText)
+            Text(item.name ?? .defaultStr)
                 .font(Font.custom("Baskerville", size: 16))
                 .fontWeight(.semibold)
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
                 .padding(.top,20)
             Spacer()
-            Image(item.imageName)
-                .resizable() // Make image resizable
-                .scaledToFit() // Ensure the image scales proportionally
-                .frame(height: 180) // Set a fixed size for the image
-                .padding(0)
+            let url = Constants.imagesBaseURL + (item.storyImageKey ?? .defaultStr)
+            WebImage(url: URL(string: url)) { image in
+                image.resizable().scaledToFit()
+            } placeholder: {
+                Rectangle().foregroundColor(.gray)
+            }
+            .indicator(.activity) // Activity Indicator
+            .transition(.fade(duration: 0.5)) // Fade Transition with duration
+            .scaledToFit()
+            .frame(height: 180)
+            .padding(0)
         }
         .frame(width: 130, height: 220) // Fix the frame size of the VStack
         .padding()
@@ -33,5 +41,5 @@ struct ShopByStyleItem: View {
 }
 
 #Preview {
-    ShopByStyleItem(item: ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"))
+//    ShopByStyleItem(item: ItemModel(imageName: "AcrylicBox", itemText: "ACRYLIC BOXES"))
 }

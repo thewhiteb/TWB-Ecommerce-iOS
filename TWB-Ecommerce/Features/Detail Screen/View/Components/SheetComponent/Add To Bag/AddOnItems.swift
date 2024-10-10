@@ -10,7 +10,7 @@ import SwiftUI
 struct AddOnItems: View {
     
     
-    let addOnItem : TrendingProduct
+    let addOnItem : TrendingProduct2
     
     @State private var currentPage = 0
     @State private var count: Int = 0
@@ -132,7 +132,7 @@ struct AddOnItems: View {
 
 #Preview {
     @Previewable @State var addOnItem =
-    TrendingProduct( images: ["Bouquet1","Bouquet1","Bouquet1"],
+    TrendingProduct2( images: ["Bouquet1","Bouquet1","Bouquet1"],
                          itemName: "Rectangular Acrylic 061",
                          itemPrice: "AED 365",
                          isCustomizable: true)
