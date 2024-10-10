@@ -9,16 +9,13 @@ import SwiftUI
 
 struct DetailHeaderView: View {
     @Binding var headerOpacity: Double
+    var onBackButtonPressed: () -> Void
     
     var body: some View {
-        GeometryReader { geometry in
-            let topSafeAreaHeight = geometry.safeAreaInsets.top
-            let totalHeight = 50 + topSafeAreaHeight  // Base height of 50 plus the top safe area height
-            
-            VStack {
+            VStack (spacing : 0) {
                 HStack {
                     Button(action: {
-                       
+                        onBackButtonPressed()
                     }) {
                         Image("back")
                             .foregroundColor(.black)
@@ -48,23 +45,24 @@ struct DetailHeaderView: View {
                     Button(action: {
                         // Favorite button action
                     }) {
-                        Image("favorite")
+                        TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
                             .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
                     }
                 }
                 .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
                 .frame(height: 70)  // Set the fixed content height for the header
-                .padding(.top, topSafeAreaHeight + 50)
                 .padding(.horizontal)
+                .padding(.top, 60)
                 .background(Color.white.opacity(headerOpacity))  // Background opacity depends on scroll
                 Spacer()  // Pushes the content of the VStack up
             }
             .shadow(color: Color.black.opacity(headerOpacity * 0.2), radius: 5, x: 0, y: 2)
-        }
-        .frame(height: 50)  // Ensure it has a minimum height of 50
+        
     }
 }
 
 #Preview {
-    DetailHeaderView(headerOpacity: .constant(1.0))
+    DetailHeaderView(headerOpacity: .constant(1.0), onBackButtonPressed: {
+        
+    })
 }

@@ -8,65 +8,63 @@
 import SwiftUI
 
 struct DetailBannerView<Space: Hashable>: View {
-    let images: [String]  // Image names or URLs
+    let item: TrendingProduct
     @State private var currentIndex = 0
     
     let coordinateSpace: Space
     let defaultHeight: CGFloat
     
-    // State to show the navigation to full-screen image view
-    @State private var isNavigatingToFullImage = false
+   
+    var onImageTapped: (Int, [String]) -> Void
+    
+    var animation : Namespace.ID
     
     var body: some View {
         GeometryReader { proxy in
             let offset = offset(for: proxy)
-            let heightModifier = heightModifier(for: proxy)
-            
+       
             ZStack(alignment: .bottom) {
+                Spacer()
+                
                 TabView(selection: $currentIndex) {
-                    ForEach(0..<images.count, id: \.self) { index in
-                        Image(images[index])
+                    ForEach(0..<item.images.count, id: \.self) { index in
+                        Image(item.images[index])
                             .resizable()
                             .scaledToFit()
-                            .frame(width: proxy.size.width, height: defaultHeight)
+                            .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)
                             .clipped()
                             .tag(index)
                             .onTapGesture {
-                                isNavigatingToFullImage.toggle()  // Trigger navigation to full-screen image view
+                                onImageTapped(index, item.images)
                             }
                     }
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))  // Disable default indicators
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: proxy.size.width, height: defaultHeight)
+                .offset(y: offset)
                 
-                // Custom page indicator dots
-                HStack(spacing: 8) {
-                    ForEach(0..<images.count, id: \.self) { index in
-                        Circle()
-                            .fill(index == currentIndex ? Color.black : Color.gray.opacity(0.5))  // Custom indicator colors
-                            .frame(width: 8, height: 8)
+            
+                VStack {
+                    Spacer()
+                    
+                    HStack(spacing: 8) {
+                        ForEach(0..<item.images.count, id: \.self) { index in
+                            Circle()
+                                .fill(index == currentIndex ? Color.black : Color.gray.opacity(0.5))
+                                .frame(width: 8, height: 8)
+                        }
                     }
+                    .padding(.bottom, 10)
                 }
-                .padding(.bottom, 25)
             }
-            .background(Constants.imageBG)
+            .background(Color(hex: "#F5F5F5"))
             .edgesIgnoringSafeArea(.horizontal)
             .frame(
                 width: proxy.size.width,
-                height: proxy.size.height + heightModifier
+                height: proxy.size.height
             )
-            .offset(y: offset)
         }
         .frame(height: defaultHeight)
-        // Navigation to the full-screen image view
-        .background(
-            NavigationLink(
-                destination: DetailFullImageView(images: images, selectedIndex: currentIndex),
-                isActive: $isNavigatingToFullImage,
-                label: { EmptyView() }
-            )
-            .hidden()  // Hide the navigation link, it will be triggered programmatically
-        )
     }
     
     private func offset(for proxy: GeometryProxy) -> CGFloat {
@@ -74,37 +72,32 @@ struct DetailBannerView<Space: Hashable>: View {
         if frame.minY < 0 {
             return -frame.minY * 0.65
         }
-        return -frame.minY
-    }
-    
-    private func heightModifier(for proxy: GeometryProxy) -> CGFloat {
-        let frame = proxy.frame(in: .named(coordinateSpace))
-        return max(0, frame.minY)
+        return 0
     }
 }
 
-struct DetailBannerViewPreview: View {
-    var body: some View {
-        NavigationView {
-            // Define a named coordinate space for the GeometryReader
-            GeometryReader { geometry in
-                ScrollView {
-                    VStack {
-                        // Using DetailBannerView in a named coordinate space for the GeometryReader
-                        DetailBannerView(
-                            images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
-                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
-                            defaultHeight: 600  // Example height for the banner
-                        )
-                    }
-                }
-                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
-            }
-        }
-    }
-}
-
-#Preview {
-    DetailBannerViewPreview()
-}
-
+//struct DetailBannerViewPreview: View {
+//    var body: some View {
+//        NavigationView {
+//            GeometryReader { geometry in
+//                ScrollView {
+//                    VStack {
+//                        DetailBannerView(
+//                            images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
+//                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
+//                            defaultHeight: 600,
+//                            onImageTapped: { selectedIndex, imagesArray in
+//                                print("Image \(selectedIndex) was tapped")
+//                            }
+//                        )
+//                    }
+//                }
+//                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    DetailBannerViewPreview()
+//}

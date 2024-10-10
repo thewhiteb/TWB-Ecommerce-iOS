@@ -54,6 +54,7 @@ struct SplashView: View {
             .background(Color.white)
             .navigationDestination(isPresented: $navigateToNextScreen) {
                 TabContentView()
+                   .navigationBarBackButtonHidden(true)
                 
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }

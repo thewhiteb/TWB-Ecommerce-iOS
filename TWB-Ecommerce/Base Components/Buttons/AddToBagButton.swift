@@ -27,8 +27,7 @@ struct AddToBagButton: View {
                     .font(.getFont(name: .libreRegular, size: 16))  // Customize text style
                     .foregroundColor(Color.white)  // Text color
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: 50)  // Ensure the button fills available space
+            .frame(maxWidth: .infinity, maxHeight: 50) 
             .background(Color.black)  // Set background color
         }
     }

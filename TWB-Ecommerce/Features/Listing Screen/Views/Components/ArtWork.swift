@@ -13,11 +13,11 @@ struct ArtWork: View {
     var size: CGSize
     
     var body: some View {
-        let height = size.height * 0.30
+        let height = size.height * 0.35
         GeometryReader { proxy in
             let size = proxy.size
             let minY = proxy.frame(in: .named("SCROLL")).minY
-            let progress = minY / (height * (minY > 0 ? 0.7 : 0.9))
+            let progress = minY / (height * (minY > 0 ? 0 : 1))
             
             
             VStack{
@@ -32,14 +32,7 @@ struct ArtWork: View {
                             Rectangle()
                                 .fill(
                                     .linearGradient(colors: [
-                                        .white.opacity(0 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
-                                        .white.opacity(0.1 - progress),
+                                        .white.opacity(0 - progress)
                                     ], startPoint: .top, endPoint: .bottom)
                                 )
                                 

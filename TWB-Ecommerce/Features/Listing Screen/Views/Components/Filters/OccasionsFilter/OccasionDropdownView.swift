@@ -108,7 +108,7 @@ struct OccasionDropdownView: View {
     }
 }
 
-//#Preview {
-//    @State var selectedOccasionNames: [String] = []
-//    OccasionDropdownView(selectedOccasionNames: $selectedOccasionNames)
-//}
+#Preview {
+    @State var selectedOccasionNames: [String] = []
+    OccasionDropdownView(selectedOccasionNames: $selectedOccasionNames)
+}
