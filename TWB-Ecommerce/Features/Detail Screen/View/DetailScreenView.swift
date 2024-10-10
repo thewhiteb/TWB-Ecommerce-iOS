@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0
-    @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height
+    @State private var bannerHeight: CGFloat = UIScreen.main.bounds.height * 0.65
     @State private var isCustomizeDone = false
     @State private var showDetails = false  // State to control when to show details
     var animation: Namespace.ID
@@ -31,13 +31,15 @@ struct DetailScreenView: View {
             if showDetails {
                 // Fixed header at the top
                 DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                        showDetails = false
-                    onBackButtonPressed()
+                    showDetails = false
+                    withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
+                        onBackButtonPressed()
+                    }
                 },
-                showDetails: $showDetails)
+                 showDetails: $showDetails)
                 .zIndex(1)
             }
-          
+            
             
             // Main ScrollView for content
             ScrollView(.vertical, showsIndicators: false) {
@@ -52,18 +54,26 @@ struct DetailScreenView: View {
                         animation: animation
                     )
                     .frame(height: bannerHeight)
+                    .onAppear {
+                        // Expand image to full screen height after 0.3 seconds
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
+                                showDetails = true
+                            }
+                        }
+                    }
                     
                     // Show DetailBottomView after 1 second
-                  
-                        DetailBottomView(
-                            animation: animation,
-                            bannerHeight: bannerHeight,
-                            headerOpacity: $headerOpacity,
-                            showDetails: $showDetails,
-                            itemName: item.itemName
-                            )
-                        .background(Color.white)
-                        .transition(.opacity)  // Smooth fade-in transition
+                    
+                    DetailBottomView(
+                        animation: animation,
+                        bannerHeight: bannerHeight,
+                        headerOpacity: $headerOpacity,
+                        showDetails: $showDetails,
+                        itemName: item.itemName
+                    )
+                    .background(Color.white)
+                    .transition(.opacity)  // Smooth fade-in transition
                     
                 }
             }
@@ -90,16 +100,7 @@ struct DetailScreenView: View {
                 }
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
             }
-           
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                withAnimation {
-                    showDetails = true
-                }
-                    
-                
-            }
+            
         }
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -130,6 +131,7 @@ struct DetailScreenView: View {
         .background(Color.white)
         .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
+        
     }
 }
 

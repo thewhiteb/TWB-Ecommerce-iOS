@@ -126,6 +126,9 @@ struct TabContentView: View {
                         })
                         .frame(height: isDetailViewActive ? UIScreen.main.bounds.height * 0.9 : 220) // Initial height of listing item
                         .zIndex(2)
+                        .opacity(1)
+                        .transition(AnyTransition.scale(scale: 1))
+                        .background(Color.clear)
                     }
                     
                     // DetailFullImageView (no parallax needed here)
