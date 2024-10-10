@@ -54,16 +54,17 @@ struct DetailScreenView: View {
                     .frame(height: bannerHeight)
                     
                     // Show DetailBottomView after 1 second
-                    if showDetails {
+                  
                         DetailBottomView(
                             animation: animation,
                             bannerHeight: bannerHeight,
                             headerOpacity: $headerOpacity,
+                            showDetails: $showDetails,
                             itemName: item.itemName
-                        )
+                            )
                         .background(Color.white)
                         .transition(.opacity)  // Smooth fade-in transition
-                    }
+                    
                 }
             }
             .scrollDisabled(isDragging)
@@ -93,7 +94,7 @@ struct DetailScreenView: View {
         }
         .onAppear {
             // Delay showing the details for 1 second
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 withAnimation {
                     showDetails = true
                 }

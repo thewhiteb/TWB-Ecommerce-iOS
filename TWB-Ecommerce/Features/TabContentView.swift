@@ -73,7 +73,7 @@ struct TabContentView: View {
                             animation : animation,
                             title: "Shop By Style",
                             onItemSelected: { item in
-                                withAnimation(.spring()) {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1.5, blendDuration: 0)) {
                                     isDetailViewActive = true
                                     listItemSelected = item
                                 }
@@ -114,7 +114,7 @@ struct TabContentView: View {
                     if isDetailViewActive, let selectedItem = listItemSelected {
                         DetailScreenView(animation: animation, item: selectedItem,  // Pass the selected item to DetailScreenView
                                          onBackButtonPressed: {
-                            withAnimation(.spring()) {
+                            withAnimation(.spring(response: 0.2, dampingFraction: 1.5, blendDuration: 0)) {
                                 isTabBarEnable = isListingViewActive ? false : true
                                 isDetailViewActive = false
                             }

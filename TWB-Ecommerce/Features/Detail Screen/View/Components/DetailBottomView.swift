@@ -13,6 +13,7 @@ struct DetailBottomView: View {
     let bannerHeight: CGFloat
     @Binding var headerOpacity: Double
     @State var customizedTextValue: String = ""
+    @Binding var showDetails: Bool
     
 
     var itemName : String
@@ -58,130 +59,131 @@ struct DetailBottomView: View {
                     .foregroundColor(.black)
                     .padding(.top, 15)
                 
-                Text("Including VAT")
-                    .font(
-                        .getFont(name: .libreBold, size: 10)
-                    )
-                    .foregroundColor(Constants.gray)
-                    .padding(.top, 5)
-                
-                ZStack {
+                if(showDetails){
+                    Text("Including VAT")
+                        .font(
+                            .getFont(name: .libreBold, size: 10)
+                        )
+                        .foregroundColor(Constants.gray)
+                        .padding(.top, 5)
+                    
+                    ZStack {
+                        
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 56)  // Set fixed height
+                            .overlay(
+                                Rectangle()
+                                    .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
+                            )
+                        
+                        HStack{
+                            
+                            Image("tabby_ic")
+                                .padding(.leading, 10)
+                            
+                            Image("info")
+                            
+                            Divider()
+                                .frame(width: 1,height: 56)
+                            Spacer()
+                            
+                            Text("Buy now pay later")
+                                .font(.getFont(name: .latoBold, size: 12))
+                                .foregroundColor(Constants.black)
+                            
+                            Spacer()
+                            Divider()
+                                .frame(width: 1,height: 56)
+                            Image("tamara_ic")
+                            
+                            Image("info")
+                                .padding(.trailing, 10)
+                            
+                            
+                            
+                        }
+                    }
+                    .padding()
+                    .padding(.top, 15)
                     
                     Rectangle()
-                        .fill(Color.clear)
-                        .frame(height: 56)  // Set fixed height
-                        .overlay(
-                            Rectangle()
-                                .stroke(Color(red: 0.85, green: 0.85, blue: 0.85), lineWidth: 1)
-                        )
+                        .fill(Constants.lightGray)
+                        .frame(height: 1)
+                        .padding(.top, 20)
+                        .padding(.horizontal)
+                    
+                    LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 5, onSelectionChanged: { selectedLetters in
+                        print("Selected letters: \(selectedLetters)")
+                    })
+                    .padding(.top, 30)
+                    
+                    FlavourView(onSelectionChanged: { selectedFlavour in
+                        print("Selected flavour: \(selectedFlavour)")
+                    })
+                    .padding(.top,30)
+                    
+                    TopperSmallView(text: $customizedTextValue, onSelectionChanged: { selectedTopper in
+                        print("Selected Topper: \(selectedTopper)")
+                    })
+                    .padding(.top,30)
+                    
+                    ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Wrapping Color", isCollapsible: false)
+                        .padding(.top, 30)
+                    
+                    Rectangle()
+                        .fill(Constants.lightGray)
+                        .frame(height: 10)
+                        .padding(.top, 20)
+                    
+                    //                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Leather Bag Color", isCollapsible: false)
+                    //                    .padding(.top, 30)
+                    
+                    DescriptionView(description: description)
+                        .padding(.top, 20)
+                    
+                    Rectangle()
+                        .fill(Constants.lightGray)
+                        .frame(height: 1)
+                        .padding(.top, 10)
+                    
+                    CareInstructionView(careInstruction: careInstruction)
+                        .padding(.top, 10)
+                    
+                    NeedHelpSmallView()
+                        .padding(.top, 10)
+                    
                     
                     HStack{
-                        
-                        Image("tabby_ic")
-                            .padding(.leading, 10)
-                        
-                        Image("info")
-                        
-                        Divider()
-                            .frame(width: 1,height: 56)
+                        Text("Related Products")
+                            .font(.getFont(name: .libreBold, size: 18))
+                            .foregroundColor(.black)
                         Spacer()
-                        
-                        Text("Buy now pay later")
-                            .font(.getFont(name: .latoBold, size: 12))
-                            .foregroundColor(Constants.black)
-                        
-                        Spacer()
-                        Divider()
-                            .frame(width: 1,height: 56)
-                        Image("tamara_ic")
-                        
-                        Image("info")
-                            .padding(.trailing, 10)
-                        
-                        
-                        
                     }
-                }
-                .padding()
-                .padding(.top, 15)
-                
-                Rectangle()
-                    .fill(Constants.lightGray)
-                    .frame(height: 1)
-                    .padding(.top, 20)
+                    .padding(.top, 30)
                     .padding(.horizontal)
-                
-                LetterSmallView(allowMultipleSelection: false, maxSelectionCount: 5, onSelectionChanged: { selectedLetters in
-                    print("Selected letters: \(selectedLetters)")
-                })
-                .padding(.top, 30)
-                
-                FlavourView(onSelectionChanged: { selectedFlavour in
-                    print("Selected flavour: \(selectedFlavour)")
-                })
-                .padding(.top,30)
-                
-                TopperSmallView(text: $customizedTextValue, onSelectionChanged: { selectedTopper in
-                    print("Selected Topper: \(selectedTopper)")
-                })
-                .padding(.top,30)
-                
-                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Wrapping Color", isCollapsible: false)
+                    
+                    RelatedProductsView(animation: animation)
+                        .padding(.top, 30)
+                    
+                    Rectangle()
+                        .fill(Constants.lightGray)
+                        .frame(height: 2)
+                        .padding(.top, 30)
+                    
+                    HStack{
+                        Text("Trending Products")
+                            .font(.getFont(name: .libreBold, size: 18))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
                     .padding(.top, 30)
-                
-                Rectangle()
-                    .fill(Constants.lightGray)
-                    .frame(height: 10)
-                    .padding(.top, 20)
-                
-                //                ColorDropdownView(selectedColor: $selectedWrapperColor, title: "Select Leather Bag Color", isCollapsible: false)
-                //                    .padding(.top, 30)
-                
-                DescriptionView(description: description)
-                    .padding(.top, 20)
-                
-                Rectangle()
-                    .fill(Constants.lightGray)
-                    .frame(height: 1)
-                    .padding(.top, 10)
-                
-                CareInstructionView(careInstruction: careInstruction)
-                    .padding(.top, 10)
-                
-                NeedHelpSmallView()
-                    .padding(.top, 10)
-                
-                
-                HStack{
-                    Text("Related Products")
-                        .font(.getFont(name: .libreBold, size: 18))
-                        .foregroundColor(.black)
-                    Spacer()
+                    .padding(.horizontal)
+                    
+                    RelatedProductsView(animation: animation)
+                        .padding(.top, 30)
+                        .padding(.bottom, 50)
                 }
-                .padding(.top, 30)
-                .padding(.horizontal)
-                
-                RelatedProductsView(animation: animation)
-                    .padding(.top, 30)
-                
-                Rectangle()
-                    .fill(Constants.lightGray)
-                    .frame(height: 2)
-                    .padding(.top, 30)
-                
-                HStack{
-                    Text("Trending Products")
-                        .font(.getFont(name: .libreBold, size: 18))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
-                .padding(.top, 30)
-                .padding(.horizontal)
-                
-                RelatedProductsView(animation: animation)
-                    .padding(.top, 30)
-                    .padding(.bottom, 50)
-                
             }
         }
     }

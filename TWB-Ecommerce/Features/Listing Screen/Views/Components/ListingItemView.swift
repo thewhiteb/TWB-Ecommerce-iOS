@@ -21,6 +21,7 @@ struct ListingItemView: View {
                     // Image slider using TabView
                     TabView(selection: $currentPage) {
                         ForEach(0..<item.images.count, id: \.self) { index in
+                            
                             Image(item.images[index])
                                 .resizable()
                                 .scaledToFit()
@@ -75,18 +76,19 @@ struct ListingItemView: View {
         }
         .frame(height: 270)
         .matchedGeometryEffect (id : item.id,in : animation)
+        
     }
 }
 
-//#Preview {
-//    
-//    @Previewable @State var sampleItem =
-//    TrendingProduct( images: ["Bouquet1","Bouquet1","Bouquet1"],
-//                     itemName: "Rectangular Acrylic 061",
-//                     itemPrice: "AED 365",
-//                     isCustomizable: true)
-//    
-//    ListingItemView(
-//        item: sampleItem
-//    )
-//}
+#Preview {
+    
+    @Previewable @Namespace var animation
+    
+    var item =  TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+    
+    
+    ListingItemView(
+        item: item,
+        animation: animation
+    )
+}

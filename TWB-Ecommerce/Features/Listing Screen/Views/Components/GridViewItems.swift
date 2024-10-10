@@ -19,12 +19,12 @@ struct GridViewItems: View {
     
     // Sample list of items
     @State private var items: [TrendingProduct2] = [
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false),
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Classic Red Roses", itemPrice: "AED 300", isCustomizable: true),
-        TrendingProduct2(images: ["2", "3", "2"], itemName: "Sunflower Delight", itemPrice: "AED 275", isCustomizable: false),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Classic Red Roses", itemPrice: "AED 300", isCustomizable: true),
+        TrendingProduct2(images: ["3", "3", "2"], itemName: "Sunflower Delight", itemPrice: "AED 275", isCustomizable: false),
         TrendingProduct2(images: ["2", "3", "2"], itemName: "Tulip Charm", itemPrice: "AED 320", isCustomizable: false),
         TrendingProduct2(images: ["2", "3", "2"], itemName: "Mixed Roses", itemPrice: "AED 350", isCustomizable: true),
         TrendingProduct2(images: ["2", "3", "2"], itemName: "Lavender Dreams", itemPrice: "AED 290", isCustomizable: true),
@@ -42,6 +42,7 @@ struct GridViewItems: View {
                     item: item,
                     animation: animation
                 )
+               
                 .onTapGesture {
                     onItemClick(item)  // Trigger the item click closure
                 }
