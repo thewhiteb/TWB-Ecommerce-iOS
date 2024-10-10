@@ -12,7 +12,7 @@ struct FiltersSheet: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedFilters: [String] = []  // Track selected filters
     @State private var selectedPrice: String? = nil  // Track selected price
-    @State private var selectedColors: [String] = []  // Track selected colors
+    @State private var selectedColor: String? = nil  // Track the selected single color
     @State private var showShadow: Bool = false  // Control shadow visibility
     
     var body: some View {
@@ -40,7 +40,7 @@ struct FiltersSheet: View {
                 // Horizontal scrollable selected filters with cross icon
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(selectedFilters + selectedColors + (selectedPrice != nil ? [selectedPrice!] : []), id: \.self) { filter in
+                        ForEach(selectedFilters + (selectedColor != nil ? [selectedColor!] : []) + (selectedPrice != nil ? [selectedPrice!] : []), id: \.self) { filter in
                             HStack(spacing: 5) {
                                 Text(filter)
                                     .font(.custom("Baskerville", size: 12))
@@ -93,8 +93,8 @@ struct FiltersSheet: View {
                     Divider()
                         .background(Color.gray.opacity(0.3))
                     
-                    // Pass the selected colors to the ColorDropdownView
-                    ColorDropdownView(selectedColors: $selectedColors)
+                    // Pass the selected color to the ColorDropdownView
+                    ColorDropdownView(selectedColor: $selectedColor, title: "Colors", isCollapsible: true)
                     
                     Divider()
                         .background(Color.gray.opacity(0.3))
@@ -117,7 +117,7 @@ struct FiltersSheet: View {
                 SimpleButtonWhite(action: {
                     // Clear filters action
                     selectedFilters.removeAll()
-                    selectedColors.removeAll()
+                    selectedColor = nil
                     selectedPrice = nil
                 }, text: "Clear Filters")
                 
@@ -136,8 +136,8 @@ struct FiltersSheet: View {
     private func removeFilter(_ filter: String) {
         if let index = selectedFilters.firstIndex(of: filter) {
             selectedFilters.remove(at: index)  // Remove the filter from occasions or flowers
-        } else if selectedColors.contains(filter) {
-            selectedColors.removeAll { $0 == filter }  // Remove from colors
+        } else if selectedColor == filter {
+            selectedColor = nil  // Remove the selected color
         } else if filter == selectedPrice {
             selectedPrice = nil  // Deselect the price
         }
@@ -147,4 +147,3 @@ struct FiltersSheet: View {
 #Preview {
     FiltersSheet()
 }
-

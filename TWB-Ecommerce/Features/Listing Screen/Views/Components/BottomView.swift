@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct BottomView: View {
-    var onItemSelected: (String) -> Void  // Closure to pass selected item back
+    var onItemSelected: (TrendingProduct) -> Void  // Closure to pass selected item back
+    
+    var animation : Namespace.ID
     
     var body: some View {
         VStack {
@@ -17,8 +19,8 @@ struct BottomView: View {
                 .foregroundColor(Color(red: 0.35, green: 0.35, blue: 0.35))
                 .padding(.top, 120)
             
-            GridViewItems(onItemClick: { item in
-                onItemSelected(item.itemName)  // Pass the selected item name
+            GridViewItems(animation : animation , onItemClick: { item in
+                onItemSelected(item)  // Pass the selected item name
             })
             .padding(.top, 30)
             .padding(.bottom, 70)
@@ -28,6 +30,6 @@ struct BottomView: View {
 }
 
 
-#Preview {
-    BottomView(onItemSelected: {text in print(text)})
-}
+//#Preview {
+//    BottomView(onItemSelected: {text in print(text)})
+//}

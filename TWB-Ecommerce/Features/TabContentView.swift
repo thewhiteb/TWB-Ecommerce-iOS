@@ -9,84 +9,139 @@
 import SwiftUI
 
 struct TabContentView: View {
+    @Namespace var animation
+    
     @State private var selectedTab = 0
-    @State private var showBottomNavigation = true  // Manage bottom nav visibility
-    @State private var showTabs = true  // Control tab selection
+    @State private var listItemSelected : TrendingProduct? = nil
+    @State private var isTabBarEnable = true
+    @State private var showBottomNavigation = true
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
+    @State private var isDetailFullImageViewActive = false
+    @State private var dragOffset: CGFloat = 0.0
+    @GestureState private var gestureDragOffset: CGFloat = 0.0
+    
+    @State private var images: [String] = []
+    @State private var selectedImageIndex = 0
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            VStack (spacing : 0){
                 ZStack {
-                    // Main screens with tab navigation
-                    if !isListingViewActive && !isDetailViewActive {
-                        switch selectedTab {
-                        case 0:
-                            HomeView(onItemSelected: { item in
-                                // Open ListingScreenView when an item is clicked
-                                isListingViewActive = true
-                                selectedTab = -1
-                                showBottomNavigation = true  // Show bottom nav but no tab selected
-                                showTabs = false  // No tab selected
-                            })
-                        case 1:
-                            SearchView()
-                        case 2:
-                            MenuView()
-                        case 3:
-                            BagView(items: items)
-                        case 4:
-                            ProfileView()
-                        default:
-                            HomeView(onItemSelected: { item in
-                                isListingViewActive = true
-                            })
-                        }
-                    }
                     
-                    // ListingScreenView
-                    if isListingViewActive {
-                        GeometryReader { geometry in
-                            let safeArea = geometry.safeAreaInsets
-                            let size = geometry.size
-                            ListingScreenView(
-                                safeArea: safeArea,
-                                size: size,
-                                title: "Shop By Style",
-                                onItemSelected: { item in  // Move this argument before onBackButtonPressed
-                                    isDetailViewActive = true
-                                    showBottomNavigation = false  // Hide bottom nav for Detail screen
-                                },
-                                onBackButtonPressed: {
-                                    isListingViewActive = false
-                                    showTabs = true  // Restore tab bar selection when going back
-                                    selectedTab = 0
-                                }
-                            )
-                            .transition(.move(edge: .trailing))
-                        }
+                    switch selectedTab {
+                    case 0:
                         
+                        HomeView(onItemSelected: { _ in
+                            withAnimation {
+                                isListingViewActive = true
+                                isTabBarEnable = false
+                                showBottomNavigation = true
+                            }
+                        })
+                        
+                        .offset(x: parallaxOffsetForFirstView())
+                        .zIndex(0)
+                        .animation(.easeInOut(duration: 0.2), value: isListingViewActive)
+                    case 1:
+                        SearchView()
+                    case 2:
+                        MenuView()
+                    case 3:
+                        BagView(items: items)
+                    case 4:
+                        ProfileView()
+                    default:
+                        HomeView(onItemSelected: { _ in
+                            withAnimation {
+                                isListingViewActive = true
+                                isTabBarEnable = true
+                                showBottomNavigation = true
+                            }
+                        })
+                        
+                        .offset(x: parallaxOffsetForFirstView())
+                        .zIndex(0)
+                        .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
                     
-                    // DetailScreenView
-                    if isDetailViewActive {
-                        DetailScreenView(itemName: "Testing")
-                            .transition(.move(edge: .trailing))
-                            .onDisappear {
-                                // Show the bottom nav again after leaving Detail screen
-                                showBottomNavigation = true
+                    
+                    
+                    
+                    if isListingViewActive {
+                        ListingScreenView(
+                            animation : animation,
+                            title: "Shop By Style",
+                            onItemSelected: { item in
+                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)) {
+                                    isDetailViewActive = true
+                                    listItemSelected = item
+                                }
+                            },
+                            onBackButtonPressed: {
+                                withAnimation {
+                                    isListingViewActive = false
+                                    isTabBarEnable = true
+                                    
+                                }
+                            }
+                        )
+                        .offset(x: dragOffset > 0 ? dragOffset : 0 )
+                        .zIndex(1)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    dragOffset = value.translation.width
+                                }
+                                .onEnded { value in
+                                    if value.translation.width > UIScreen.main.bounds.width / 3 {
+                                        withAnimation {
+                                            dragOffset = 0
+                                            isListingViewActive = false
+                                            isTabBarEnable = true
+                                        }
+                                    } else {
+                                        withAnimation {
+                                            dragOffset = 0
+                                        }
+                                    }
+                                }
+                        )
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
+                    }
+                    
+                    if isDetailViewActive, let selectedItem = listItemSelected {
+                        DetailScreenView(animation: animation, item: selectedItem,  // Pass the selected item to DetailScreenView
+                                         onBackButtonPressed: {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)) {
+                                isTabBarEnable = isListingViewActive ? false : true
                                 isDetailViewActive = false
                             }
+                        }, onImageTapped: { selectedIndex, image in
+                            images = image
+                            selectedImageIndex = selectedIndex
+                            isDetailFullImageViewActive = true
+                        })
+                        .zIndex(2)
+                    }
+                    
+                    // DetailFullImageView (no parallax needed here)
+                    if isDetailFullImageViewActive {
+                        DetailFullImageView(images: images, selectedIndex: selectedImageIndex, onClickDismiss: {
+                            withAnimation {
+                                isDetailFullImageViewActive = false
+                            }
+                        })
+                        .transition(.move(edge: .trailing))  // Slide-in from right to left
                     }
                 }
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(.all, edges: .top)
                 
-                // Show bottom navigation bar if `showBottomNavigation` is true
+                // Bottom Navigation
                 if showBottomNavigation {
                     VStack(spacing: 0) {
-                        // Top border for the tab bar
                         Rectangle()
                             .frame(height: 1)
                             .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -109,20 +164,21 @@ struct TabContentView: View {
                     }
                 }
             }
-            .ignoresSafeArea(.all, edges: .bottom)
+            .ignoresSafeArea()
         }
     }
     
     private func tabBarButton(image: String, selectedImage: String, text: String, tag: Int, isWhiteBTQ: Bool = false) -> some View {
         Button(action: {
-            selectedTab = tag
-            isListingViewActive = false  // Go back to main tabs
-            isDetailViewActive = false  // Go back to main tabs
-            showTabs = true
-            showBottomNavigation = true
+            withAnimation {
+                selectedTab = tag
+                isListingViewActive = false
+                isDetailViewActive = false
+                showBottomNavigation = true
+            }
         }) {
             VStack(alignment: .center, spacing: 0) {
-                Image(selectedTab == tag ? image : selectedImage)
+                Image(isTabBarEnable && selectedTab == tag ? image : selectedImage)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: isWhiteBTQ ? 35 : 24, height: isWhiteBTQ ? 35 : 24)
                 if !text.isEmpty {
@@ -132,12 +188,22 @@ struct TabContentView: View {
                         .padding(.top, 5)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .top)
+            .frame(maxWidth: .infinity)
+        }
+    }
+    
+    // Parallax offset for the first view based on whether second view is visible
+    private func parallaxOffsetForFirstView() -> CGFloat {
+        if isListingViewActive {
+            // Move the first view 20% to the left while second view is entering
+            return -UIScreen.main.bounds.width * 0.4 + dragOffset * 0.4
+        } else {
+            // Move the first view back to its original position
+            return dragOffset * 0.4
         }
     }
 }
 
-
-#Preview {
-    TabContentView()
-}
+//#Preview {
+//    TabContentView()
+//}

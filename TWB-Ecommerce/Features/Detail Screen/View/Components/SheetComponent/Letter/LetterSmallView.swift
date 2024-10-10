@@ -27,9 +27,9 @@ struct LetterSmallView: View {
         VStack(alignment: .leading) {
             // Header
             HStack {
-                Text("Letter(s)")
-                    .font(.getFont(name: .libreRegular, size: 12))
-                    .fontWeight(.semibold)
+                Text("Choose Letter")
+                    .font(.getFont(name: .libreBold, size: 16))
+
                 
                 Spacer()
                 
@@ -38,7 +38,7 @@ struct LetterSmallView: View {
                     isQuickViewPresented.toggle()
                 }) {
                     Text("Quick View")
-                        .font(.getFont(name: .libreRegular, size: 12))
+                        .font(.getFont(name: .libreRegular, size: 10))
                         .fontWeight(.semibold)
                         .foregroundColor(Constants.bloodRed)
                         .underline()
@@ -47,7 +47,7 @@ struct LetterSmallView: View {
                     LetterLargeView(
                         allowMultipleSelection: allowMultipleSelection,
                         maxSelectionCount: maxSelectionCount,
-                        selectedLetters: $selectedLetters  
+                        selectedLetters: $selectedLetters
                     )
                     .presentationDetents([.fraction(0.7), .large])
                 }
@@ -62,15 +62,19 @@ struct LetterSmallView: View {
                             // Black background for selected letters, gray border otherwise
                             Rectangle()
                                 .fill(selectedLetters.contains(String(letter)) ? Color.black : Color.clear)  // Black background when selected
-                                .frame(width: 50, height: 50)
+                                .frame(width:  40,
+                                       height: 40)
                                 .overlay(
                                     Rectangle()
                                         .stroke(selectedLetters.contains(String(letter)) ? Color.black : Color.gray, lineWidth: 1)
+                                       
                                 )
-                                
+                                .shadow(color: selectedLetters.contains(String(letter)) ? Color.black.opacity(0.2) : Color.clear, radius: 2)
+                            
+                            
                             Text(String(letter))
                                 .font(.getFont(name: .libreRegular, size: 14))
-                                .foregroundColor(selectedLetters.contains(String(letter)) ? .white : Constants.gray)  // White text on black background
+                                .foregroundColor(selectedLetters.contains(String(letter)) ? .white : Constants.gray) 
                         }
                         .onTapGesture {
                             selectLetter(String(letter))
@@ -78,12 +82,8 @@ struct LetterSmallView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 30)
+                .padding(.vertical, 10)
             }
-        }
-        // Whenever selected letters change, notify the parent via the callback
-        .onChange(of: selectedLetters) { newSelectedLetters in
-            onSelectionChanged(newSelectedLetters)
         }
     }
     

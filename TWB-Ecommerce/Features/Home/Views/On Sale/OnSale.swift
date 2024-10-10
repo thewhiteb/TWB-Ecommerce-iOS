@@ -22,7 +22,7 @@ struct OnSale: View {
     var body: some View {
         ScrollView{
             LazyVGrid(columns: adaptiveColumn, spacing: 5) {
-                ForEach(items, id: \.self) { item in
+                ForEach(items) { item in
                     OnSaleItem(
                         images: item.images,
                         itemName: item.itemName,
