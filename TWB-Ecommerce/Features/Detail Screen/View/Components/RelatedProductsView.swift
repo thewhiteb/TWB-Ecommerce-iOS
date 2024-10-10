@@ -12,12 +12,13 @@ struct RelatedProductsView: View {
     
     
     // Sample list of items
-    @State private var items: [TrendingProduct] = [
-        TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
-        TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
-        TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
-        TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false),
-        TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Classic Red Roses", itemPrice: "AED 300", isCustomizable: true),
+    @State private var items: [TrendingProduct2] = [
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true),
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Round Bouquet", itemPrice: "AED 250", isCustomizable: true),
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Elegant Roses", itemPrice: "AED 180", isCustomizable: false),
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Luxury Tulips", itemPrice: "AED 500", isCustomizable: false),
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Classic Red Roses", itemPrice: "AED 300", isCustomizable: true),
+        TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Classic Red Roses", itemPrice: "AED 300", isCustomizable: true),
     ]
     
     var body: some View {

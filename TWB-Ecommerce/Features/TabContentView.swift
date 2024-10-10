@@ -12,7 +12,7 @@ struct TabContentView: View {
     @Namespace var animation
     
     @State private var selectedTab = 0
-    @State private var listItemSelected : TrendingProduct? = nil
+    @State private var listItemSelected : TrendingProduct2? = nil
     @State private var isTabBarEnable = true
     @State private var showBottomNavigation = true
     @State private var isListingViewActive = false

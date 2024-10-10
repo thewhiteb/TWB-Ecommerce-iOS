@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct SimpleGiftOccasionList: View {
     
@@ -14,15 +16,7 @@ struct SimpleGiftOccasionList: View {
     @State private var contentWidth: CGFloat = 0    // To store the total content width
     
     // Sample list of items
-    @State private var items: [ItemModel] = [
-        ItemModel(imageName: "GiftCake3", itemText: "Class of 2024"),
-        ItemModel(imageName: "GiftCake3", itemText: "Eid and Hajj Collection"),
-        ItemModel(imageName: "GiftCake3", itemText: "Father's Day"),
-        ItemModel(imageName: "GiftCake3", itemText: "Thank You"),
-        ItemModel(imageName: "GiftCake3", itemText: "Happy Anniversary"),
-        ItemModel(imageName: "GiftCake3", itemText: "Welcome Back"),
-        ItemModel(imageName: "GiftCake3", itemText: "Best Wishes"),
-    ]
+    @State var items: [ProductItem]
     
     var body: some View {
         VStack{
@@ -69,7 +63,7 @@ struct SimpleGiftOccasionList: View {
 
 // Separate view for the first item
 struct FirstItemView: View {
-    var item: ItemModel
+    var item: ProductItem
     
     var body: some View {
         ZStack {
@@ -82,13 +76,19 @@ struct FirstItemView: View {
                 Spacer()
                 
             }
-            
-            Image(item.imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200) // Larger image but within the frame limit
-                .clipped()// Ensures that the image stays within its frame
-                .offset(x:50)
+
+            let url = Constants.imagesBaseURL + (item.storyImageKey ?? "")
+            WebImage(url: URL(string: url)) { image in
+                image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
+            } placeholder: {
+                Rectangle().foregroundColor(.gray)
+            }
+            .indicator(.activity) // Activity Indicator
+            .transition(.fade(duration: 0.5)) // Fade Transition with duration
+            .scaledToFit()
+            .frame(width: 200, height: 200) // Larger image but within the frame limit
+            .clipped()// Ensures that the image stays within its frame
+            .offset(x:50)
             
         }
         .frame(width: 287, height: 250) // Larger frame for first item
@@ -99,12 +99,12 @@ struct FirstItemView: View {
 
 // Separate ItemView struct to handle individual item display
 struct ItemView: View {
-    var item: ItemModel
+    var item: ProductItem
     
     var body: some View {
         ZStack {
             VStack {
-                Text(item.itemText)
+                Text(item.name ?? "")
                     .font(Font.custom("Baskerville", size: 14))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
@@ -115,10 +115,16 @@ struct ItemView: View {
                 
                 Spacer()
                 
-                Image(item.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 180) // Standard image height
+                let url = Constants.imagesBaseURL + (item.storyImageKey ?? "")
+                WebImage(url: URL(string: url)) { image in
+                    image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
+                } placeholder: {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .indicator(.activity) // Activity Indicator
+                .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                .scaledToFit()
+                .frame(height: 180) // Standard image height
             }
         }
         .frame(width: 142, height: 250) // Standard frame for remaining items
@@ -128,6 +134,6 @@ struct ItemView: View {
 
 
 #Preview {
-    SimpleGiftOccasionList()
+    SimpleGiftOccasionList(items: [])
 }
 

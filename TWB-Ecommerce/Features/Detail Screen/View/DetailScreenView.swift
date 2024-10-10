@@ -21,7 +21,7 @@ struct DetailScreenView: View {
         case scrollView
     }
     
-    var item: TrendingProduct
+    var item: TrendingProduct2
     var onBackButtonPressed: () -> Void
     var onImageTapped: (Int, [String]) -> Void
     
@@ -137,9 +137,10 @@ struct DetailScreenView: View {
 #Preview {
     @Previewable @Namespace var animation
     
-    var item = TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+    var item =  TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
     
-    DetailScreenView(animation: animation, item: item, onBackButtonPressed: {
+    
+    DetailScreenView(animation: animation,item: item, onBackButtonPressed: {
         print("Back button pressed")
     }, onImageTapped: { selectedIndex, imagesArray in
         print("Selected image at index \(selectedIndex) with array \(imagesArray)")})

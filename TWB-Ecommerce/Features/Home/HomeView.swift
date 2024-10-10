@@ -57,7 +57,7 @@ struct HomeView: View {
                         }
                         .padding(.top, 40)
                         
-                        SimpleGiftOccasionList()
+                        SimpleGiftOccasionList(items: NewArrivalSingleton.shared.giftByOccasion ?? [])
                             .padding(.top, 30)
                             .padding(.leading, 10)
                         
@@ -78,8 +78,8 @@ struct HomeView: View {
                                 .padding(.top, 2)
                         }
                         .padding(.top, 40)
-                        
-                        ShopByStyles { itemName in
+                        let list = NewArrivalSingleton.shared.shopByStyle ?? []
+                        ShopByStyles(items: list) { itemName in
                             onItemSelected(itemName)
                         }
                         .padding(.top, 20)

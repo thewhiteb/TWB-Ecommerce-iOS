@@ -16,7 +16,7 @@ struct ListingScreenView: View {
     @State private var isFilterOptionClicked = false
     
     var title: String
-    var onItemSelected: (TrendingProduct) -> Void
+    var onItemSelected: (TrendingProduct2) -> Void
     var onBackButtonPressed: () -> Void
     
     var body: some View {

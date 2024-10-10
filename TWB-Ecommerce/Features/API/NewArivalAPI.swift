@@ -73,7 +73,7 @@ struct MainItemImage: Codable, Hashable {
     enum CodingKeys: String, CodingKey {
         case id
         case mainItemId = "mainItemId"
-        case imageKey
+        case imageKey = "imageKey"
     }
 }
 

@@ -10,7 +10,7 @@ import Lottie
 
 struct ListingItemView: View {
     
-    let  item  : TrendingProduct
+    let  item  : TrendingProduct2
     @State private var currentPage = 0
     var animation  : Namespace.ID
     

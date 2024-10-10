@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailBannerView<Space: Hashable>: View {
-    let item: TrendingProduct
+    let item: TrendingProduct2
     @State private var currentIndex = 0
     
     let coordinateSpace: Space

@@ -23,4 +23,6 @@ extension String {
         
         return Text(AttributedString(attributedString))
     }
+    
+    static let defaultStr: Self = Constants.defaultString
 }
