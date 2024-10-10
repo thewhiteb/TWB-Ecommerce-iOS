@@ -31,7 +31,7 @@ struct ListingItemView: View {
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide default page indicator
                     .frame(width: geometry.size.width, height: 220) // Fixed height for image slider
-                    .matchedGeometryEffect (id : item.id,in : animation)
+                    
                     
                     // Custom page indicator dots
                     VStack {
@@ -74,6 +74,7 @@ struct ListingItemView: View {
             .frame(width: geometry.size.width) // Dynamic width, fixed height
         }
         .frame(height: 270)
+        .matchedGeometryEffect (id : item.id,in : animation)
     }
 }
 

@@ -12,6 +12,7 @@ struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0
     @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height
     @State private var isCustomizeDone = false
+    @State private var showDetails = false  // State to control when to show details
     var animation: Namespace.ID
     
     @State var scale: CGFloat = 1
@@ -22,24 +23,27 @@ struct DetailScreenView: View {
     
     var item: TrendingProduct
     var onBackButtonPressed: () -> Void
-    
     var onImageTapped: (Int, [String]) -> Void
     
     @State private var isDragging = false
     
     var body: some View {
-        
         ZStack(alignment: .top) {
-            // Fixed header at the top
-            DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                onBackButtonPressed()
-            })
-            .zIndex(1)
+            if showDetails {
+                // Fixed header at the top
+                DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
+                        showDetails = false
+                    onBackButtonPressed()
+                })
+                .zIndex(1)
+            }
+          
+            
             // Main ScrollView for content
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
                     DetailBannerView(
-                        item : item,
+                        item: item,
                         coordinateSpace: CoordinateSpaces.scrollView,
                         defaultHeight: bannerHeight,
                         onImageTapped: { selectedIndex, imagesArray in
@@ -49,47 +53,62 @@ struct DetailScreenView: View {
                     )
                     .frame(height: bannerHeight)
                     
-                    // Scroll content below the banner
-                    DetailBottomView(
-                        animation: animation,
-                        bannerHeight: bannerHeight,
-                        headerOpacity: $headerOpacity,
-                        itemName: item.itemName
-                    )
-                    .background(Color.white)
+                    // Show DetailBottomView after 1 second
+                    if showDetails {
+                        DetailBottomView(
+                            animation: animation,
+                            bannerHeight: bannerHeight,
+                            headerOpacity: $headerOpacity,
+                            itemName: item.itemName
+                        )
+                        .background(Color.white)
+                        .transition(.opacity)  // Smooth fade-in transition
+                    }
                 }
             }
             .scrollDisabled(isDragging)
             .coordinateSpace(name: CoordinateSpaces.scrollView)
             
-            
-            
-            VStack {
-                Spacer()
-                HStack {
-                    AddToBagButton(action: {
-                        isCustomizeDone.toggle()
-                    }, text: "Add to Bag", imageName: "bag")
+            if showDetails {
+                // Add to Bag Button
+                VStack {
+                    Spacer()
+                    HStack {
+                        AddToBagButton(action: {
+                            isCustomizeDone.toggle()
+                        }, text: "Add to Bag", imageName: "bag")
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .background(Color.white)
+                    .sheet(isPresented: $isCustomizeDone) {
+                        DetailMainSheet()
+                            .presentationDetents([.fraction(0.7), .large])
+                            .presentationDragIndicator(.visible)
+                    }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
-                .background(Color.white)
-                .sheet(isPresented: $isCustomizeDone) {
-                    DetailMainSheet()
-                        .presentationDetents([.fraction(0.7), .large])
-                        .presentationDragIndicator(.visible)
-                }
+                .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
             }
-            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
+           
+        }
+        .onAppear {
+            // Delay showing the details for 1 second
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                withAnimation {
+                    showDetails = true
+                }
+                    
+                
+            }
         }
         .gesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { value in
-                    print("Value : \(value)")
+                    print("Value: \(value)")
                     if value.translation.height > 0 {
                         isDragging = true
                         let scale = value.translation.height / UIScreen.main.bounds.height
-                        print(" Scale Value : \(scale)")
+                        print("Scale Value: \(scale)")
                         if 1 - scale > 0.7 {
                             self.scale = 1 - scale
                         }
@@ -118,10 +137,9 @@ struct DetailScreenView: View {
 #Preview {
     @Previewable @Namespace var animation
     
-    var item =  TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+    var item = TrendingProduct(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
     
-    
-    DetailScreenView(animation: animation,item: item, onBackButtonPressed: {
+    DetailScreenView(animation: animation, item: item, onBackButtonPressed: {
         print("Back button pressed")
     }, onImageTapped: { selectedIndex, imagesArray in
         print("Selected image at index \(selectedIndex) with array \(imagesArray)")})
