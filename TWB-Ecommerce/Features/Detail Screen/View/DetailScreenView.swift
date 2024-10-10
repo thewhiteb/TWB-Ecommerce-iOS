@@ -28,18 +28,18 @@ struct DetailScreenView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            if showDetails {
+            
                 // Fixed header at the top
                 DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
                     showDetails = false
-                    withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
+                    withAnimation {
+                        bannerHeight = 220
                         onBackButtonPressed()
                     }
+                   
                 },
                  showDetails: $showDetails)
                 .zIndex(1)
-            }
-            
             
             // Main ScrollView for content
             ScrollView(.vertical, showsIndicators: false) {
@@ -54,17 +54,7 @@ struct DetailScreenView: View {
                         animation: animation
                     )
                     .frame(height: bannerHeight)
-                    .onAppear {
-                        // Expand image to full screen height after 0.3 seconds
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                            withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
-                                showDetails = true
-                            }
-                        }
-                    }
-                    
-                    // Show DetailBottomView after 1 second
-                    
+
                     DetailBottomView(
                         animation: animation,
                         bannerHeight: bannerHeight,
@@ -73,7 +63,6 @@ struct DetailScreenView: View {
                         itemName: item.itemName
                     )
                     .background(Color.white)
-                    .transition(.opacity)  // Smooth fade-in transition
                     
                 }
             }
@@ -102,6 +91,14 @@ struct DetailScreenView: View {
             }
             
         }
+        .onAppear {
+            // Expand image to full screen height after 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.4)) {
+                    showDetails = true
+                }
+            }
+        }
         .gesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { value in
@@ -118,9 +115,13 @@ struct DetailScreenView: View {
                 .onEnded { value in
                     if value.translation.height > 0 {
                         isDragging = false
-                        withAnimation(.spring()) {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.4)) {
                             if scale < 0.9 {
-                                onBackButtonPressed()
+                                showDetails = false
+                                withAnimation {
+                                    bannerHeight = 220
+                                    onBackButtonPressed()
+                                }
                             }
                             scale = 1
                         }
@@ -131,6 +132,7 @@ struct DetailScreenView: View {
         .background(Color.white)
         .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
+       
         
     }
 }

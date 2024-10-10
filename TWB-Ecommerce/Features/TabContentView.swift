@@ -72,7 +72,7 @@ struct TabContentView: View {
                             animation : animation,
                             title: "Shop By Style",
                             onItemSelected: { item in
-                                withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.3)) {
                                     isDetailViewActive = true
                                     listItemSelected = item
                                     isTabBarEnable = false

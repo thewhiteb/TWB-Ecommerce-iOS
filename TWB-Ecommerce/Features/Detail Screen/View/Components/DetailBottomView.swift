@@ -15,7 +15,7 @@ struct DetailBottomView: View {
     @State var customizedTextValue: String = ""
     @Binding var showDetails: Bool
     
-
+    
     var itemName : String
     
     let description = DescriptionModel(
@@ -44,31 +44,32 @@ struct DetailBottomView: View {
             // Scrollable content
             VStack(alignment :.center,spacing: 0) {
                 
+                
                 if(showDetails){
-                    
-                    Text(itemName)
-                        .font(
-                            .getFont(name: .libreBold, size: 18)
-                        )
-                        .foregroundColor(.black)
-                        .padding(.top, 15)
-                    
-                    
-                    Text("AED 447")
-                        .font(
-                            .getFont(name: .libreBold, size: 16)
-                        )
-                        .foregroundColor(.black)
-                        .padding(.top, 15)
-                    
-                    Text("Including VAT")
-                        .font(
-                            .getFont(name: .libreBold, size: 10)
-                        )
-                        .foregroundColor(Constants.gray)
-                        .padding(.top, 5)
-                    
-                    
+                
+                Text(itemName)
+                    .font(
+                        .getFont(name: .libreBold, size: 18)
+                    )
+                    .foregroundColor(.black)
+                    .padding(.top, 15)
+                
+                
+                Text("AED 447")
+                    .font(
+                        .getFont(name: .libreBold, size: 16)
+                    )
+                    .foregroundColor(.black)
+                    .padding(.top, 15)
+                
+                Text("Including VAT")
+                    .font(
+                        .getFont(name: .libreBold, size: 10)
+                    )
+                    .foregroundColor(Constants.gray)
+                    .padding(.top, 5)
+                
+                
                     ZStack {
                         
                         Rectangle()

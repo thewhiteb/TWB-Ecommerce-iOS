@@ -15,7 +15,6 @@ struct DetailHeaderView: View {
     var body: some View {
             VStack (spacing : 0) {
                 HStack {
-                    
                     if showDetails{
                         Button(action: {
                             onBackButtonPressed()
@@ -44,13 +43,15 @@ struct DetailHeaderView: View {
                                 .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
                         }
                         .padding(.trailing, 10)
+                        
+                        Button(action: {
+                            // Favorite button action
+                        }) {
+                            TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
+                                .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
+                        }
                     }
-                    Button(action: {
-                        // Favorite button action
-                    }) {
-                        TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
-                            .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
-                    }
+                   
                 }
                 .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
                 .frame(height: 70)  // Set the fixed content height for the header
