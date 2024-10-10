@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrendingProduct : Identifiable {
+struct TrendingProduct2 : Identifiable {
     var id  = UUID().uuidString
     let images: [String]
     let itemName: String
