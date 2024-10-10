@@ -76,55 +76,55 @@ struct ListingScreenView: View {
                 .coordinateSpace(name: "SCROLL")
                 
                 
-                VStack {
-                    Spacer() // Push the button to the bottom
-                    HStack(spacing: 0) {
-                        Button {
-                            // Sort action here
-                            isSortOptionClicked = true
-                        } label: {
-                            HStack(spacing: 0) {
-                                Text("Sort")
-                                    .font(
-                                        Font.custom("Lato", size: 14)
-                                            .weight(.bold)
-                                    )
-                                    .foregroundColor(.white)
-                                Image("swap_vert")
-                            }
-                        }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 12)
-                        .frame(width: 90)
-                        
-                        Rectangle()
-                            .frame(width: 1, height: 20)
-                            .foregroundColor(.white)
-                        
-                        Button {
-                            // Filters action here
-                            isFilterOptionClicked = true
-                        } label: {
-                            HStack(spacing: 0) {
-                                Text("Filters")
-                                    .font(
-                                        Font.custom("Lato", size: 14)
-                                            .weight(.bold)
-                                    )
-                                    .foregroundColor(.white)
-                                Image("filter_list")
-                            }
-                        }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 7)
-                        .frame(width: 90)
-                    }
-                    .background(Color.black)
-                    .padding(.horizontal, 20) // Add horizontal margin
-                    .padding(.vertical, 10) // Add vertical padding to the whole button view
-                }
-                .padding(.bottom, 30) // Add margin from the bottom
-                .ignoresSafeArea()
+//                VStack {
+//                    Spacer() // Push the button to the bottom
+//                    HStack(spacing: 0) {
+//                        Button {
+//                            // Sort action here
+//                            isSortOptionClicked = true
+//                        } label: {
+//                            HStack(spacing: 0) {
+//                                Text("Sort")
+//                                    .font(
+//                                        Font.custom("Lato", size: 14)
+//                                            .weight(.bold)
+//                                    )
+//                                    .foregroundColor(.white)
+//                                Image("swap_vert")
+//                            }
+//                        }
+//                        .padding(.horizontal, 10)
+//                        .padding(.vertical, 12)
+//                        .frame(width: 90)
+//                        
+//                        Rectangle()
+//                            .frame(width: 1, height: 20)
+//                            .foregroundColor(.white)
+//                        
+//                        Button {
+//                            // Filters action here
+//                            isFilterOptionClicked = true
+//                        } label: {
+//                            HStack(spacing: 0) {
+//                                Text("Filters")
+//                                    .font(
+//                                        Font.custom("Lato", size: 14)
+//                                            .weight(.bold)
+//                                    )
+//                                    .foregroundColor(.white)
+//                                Image("filter_list")
+//                            }
+//                        }
+//                        .padding(.horizontal, 10)
+//                        .padding(.vertical, 7)
+//                        .frame(width: 90)
+//                    }
+//                    .background(Color.black)
+//                    .padding(.horizontal, 20) // Add horizontal margin
+//                    .padding(.vertical, 10) // Add vertical padding to the whole button view
+//                }
+//                .padding(.bottom, 30) // Add margin from the bottom
+//                .ignoresSafeArea()
             }
             .sheet(isPresented: $isSortOptionClicked) {
                 SortSheet()

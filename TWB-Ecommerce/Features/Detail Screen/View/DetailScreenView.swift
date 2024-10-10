@@ -5,7 +5,6 @@
 //  Created by Khurram Ansar on 25/09/2024.
 //
 
-
 import SwiftUI
 
 struct DetailScreenView: View {
@@ -34,7 +33,8 @@ struct DetailScreenView: View {
                 DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
                         showDetails = false
                     onBackButtonPressed()
-                })
+                },
+                showDetails: $showDetails)
                 .zIndex(1)
             }
           
@@ -93,7 +93,6 @@ struct DetailScreenView: View {
            
         }
         .onAppear {
-            // Delay showing the details for 1 second
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 withAnimation {
                     showDetails = true

@@ -55,7 +55,7 @@ struct TabContentView: View {
                         HomeView(onItemSelected: { _ in
                             withAnimation {
                                 isListingViewActive = true
-                                isTabBarEnable = true
+                                isTabBarEnable = false
                                 showBottomNavigation = true
                             }
                         })
@@ -67,15 +67,15 @@ struct TabContentView: View {
                     
                     
                     
-                    
                     if isListingViewActive {
                         ListingScreenView(
                             animation : animation,
                             title: "Shop By Style",
                             onItemSelected: { item in
-                                withAnimation(.spring(response: 0.2, dampingFraction: 1.5, blendDuration: 0)) {
+                                withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
                                     isDetailViewActive = true
                                     listItemSelected = item
+                                    isTabBarEnable = false
                                 }
                             },
                             onBackButtonPressed: {
@@ -98,7 +98,7 @@ struct TabContentView: View {
                                         withAnimation {
                                             dragOffset = 0
                                             isListingViewActive = false
-                                            isTabBarEnable = true
+                                            
                                         }
                                     } else {
                                         withAnimation {
@@ -114,15 +114,17 @@ struct TabContentView: View {
                     if isDetailViewActive, let selectedItem = listItemSelected {
                         DetailScreenView(animation: animation, item: selectedItem,  // Pass the selected item to DetailScreenView
                                          onBackButtonPressed: {
-                            withAnimation(.spring(response: 0.2, dampingFraction: 1.5, blendDuration: 0)) {
+                            withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
                                 isTabBarEnable = isListingViewActive ? false : true
                                 isDetailViewActive = false
                             }
                         }, onImageTapped: { selectedIndex, image in
+                            print("Image full screen tapped")
                             images = image
                             selectedImageIndex = selectedIndex
                             isDetailFullImageViewActive = true
                         })
+                        .frame(height: isDetailViewActive ? UIScreen.main.bounds.height * 0.9 : 220) // Initial height of listing item
                         .zIndex(2)
                     }
                     
@@ -136,6 +138,7 @@ struct TabContentView: View {
                         .transition(.move(edge: .trailing))  // Slide-in from right to left
                     }
                 }
+                .zIndex(3)
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(.all, edges: .top)
                 

@@ -10,9 +10,9 @@ import Lottie
 
 struct ListingItemView: View {
     
-    let  item  : TrendingProduct2
+    let item: TrendingProduct2
     @State private var currentPage = 0
-    var animation  : Namespace.ID
+    var animation: Namespace.ID
     
     var body: some View {
         GeometryReader { geometry in
@@ -21,7 +21,6 @@ struct ListingItemView: View {
                     // Image slider using TabView
                     TabView(selection: $currentPage) {
                         ForEach(0..<item.images.count, id: \.self) { index in
-                            
                             Image(item.images[index])
                                 .resizable()
                                 .scaledToFit()
@@ -32,7 +31,6 @@ struct ListingItemView: View {
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide default page indicator
                     .frame(width: geometry.size.width, height: 220) // Fixed height for image slider
-                    
                     
                     // Custom page indicator dots
                     VStack {
@@ -46,7 +44,6 @@ struct ListingItemView: View {
                         }
                         .padding(.bottom, 10)
                     }
-                   
                     
                     HStack {
                         Spacer()
@@ -75,8 +72,9 @@ struct ListingItemView: View {
             .frame(width: geometry.size.width) // Dynamic width, fixed height
         }
         .frame(height: 270)
-        .matchedGeometryEffect (id : item.id,in : animation)
-        
+        .background(
+            Color.clear.matchedGeometryEffect(id: item.id, in: animation)
+        )
     }
 }
 
@@ -84,11 +82,11 @@ struct ListingItemView: View {
     
     @Previewable @Namespace var animation
     
-    var item =  TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
-    
+    var item = TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
     
     ListingItemView(
         item: item,
         animation: animation
     )
 }
+
