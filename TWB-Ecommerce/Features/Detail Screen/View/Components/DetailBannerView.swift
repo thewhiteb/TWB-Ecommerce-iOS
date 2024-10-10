@@ -24,13 +24,12 @@ struct DetailBannerView<Space: Hashable>: View {
             let offset = offset(for: proxy)
        
             ZStack(alignment: .bottom) {
-                Spacer()
-                
+              
                 TabView(selection: $currentIndex) {
                     ForEach(0..<item.images.count, id: \.self) { index in
                         Image(item.images[index])
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)
                             .clipped()
                             .tag(index)
@@ -56,6 +55,8 @@ struct DetailBannerView<Space: Hashable>: View {
                     }
                     .padding(.bottom, 10)
                 }
+                
+                Spacer()
             }
             .background(Color(hex: "#F5F5F5"))
             .edgesIgnoringSafeArea(.horizontal)
@@ -76,28 +77,35 @@ struct DetailBannerView<Space: Hashable>: View {
     }
 }
 
-//struct DetailBannerViewPreview: View {
-//    var body: some View {
-//        NavigationView {
-//            GeometryReader { geometry in
-//                ScrollView {
-//                    VStack {
-//                        DetailBannerView(
-//                            images: ["Bouquet1", "Test", "Bouquet1"],  // Example images
-//                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
-//                            defaultHeight: 600,
-//                            onImageTapped: { selectedIndex, imagesArray in
-//                                print("Image \(selectedIndex) was tapped")
-//                            }
-//                        )
-//                    }
-//                }
-//                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
-//            }
-//        }
-//    }
-//}
-//
-//#Preview {
-//    DetailBannerViewPreview()
-//}
+struct DetailBannerViewPreview: View {
+    
+    @Namespace var animation
+    
+    var body: some View {
+        NavigationView {
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack {
+                        DetailBannerView(
+                            item : TrendingProduct2( images: ["2","3","2"],
+                                             itemName: "Rectangular Acrylic 061",
+                                             itemPrice: "AED 365",
+                                             isCustomizable: true),
+                            coordinateSpace: "bannerCoordinateSpace",  // Coordinate space name
+                            defaultHeight: 600,
+                            onImageTapped: { selectedIndex, imagesArray in
+                                print("Image \(selectedIndex) was tapped")
+                            },
+                            animation: animation
+                        )
+                    }
+                }
+                .coordinateSpace(name: "bannerCoordinateSpace")  // Declare the named coordinate space
+            }
+        }
+    }
+}
+
+#Preview {
+    DetailBannerViewPreview()
+}
