@@ -18,7 +18,7 @@ struct NewArivalAPI: Endpoint {
 }
 
 // MARK: - MainItem
-struct MainItem: Codable, Hashable {
+struct MainItem: Codable, Hashable, Identifiable {
     let id: Int?
     let name: String?
     let price: Double?
