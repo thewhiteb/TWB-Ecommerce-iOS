@@ -87,7 +87,7 @@ struct DetailBannerViewPreview: View {
                 ScrollView {
                     VStack {
                         DetailBannerView(
-                            item : TrendingProduct( images: ["2","3","2"],
+                            item : TrendingProduct2( images: ["2","3","2"],
                                              itemName: "Rectangular Acrylic 061",
                                              itemPrice: "AED 365",
                                              isCustomizable: true),
