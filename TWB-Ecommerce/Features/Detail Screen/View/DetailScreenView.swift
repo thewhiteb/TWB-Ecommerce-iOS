@@ -12,6 +12,7 @@ struct DetailScreenView: View {
     @State private var bannerHeight: CGFloat = UIScreen.main.bounds.height * 0.65
     @State private var isCustomizeDone = false
     @State private var showDetails = false  // State to control when to show details
+    @State private var backgroundOpacity: Double = 0.0
     var animation: Namespace.ID
     
     @State var scale: CGFloat = 1
@@ -33,6 +34,7 @@ struct DetailScreenView: View {
                 DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
                     showDetails = false
                     withAnimation {
+                        backgroundOpacity = 0
                         bannerHeight = 220
                         onBackButtonPressed()
                     }
@@ -92,6 +94,10 @@ struct DetailScreenView: View {
             
         }
         .onAppear {
+            
+            withAnimation {
+                backgroundOpacity = 1
+            }
             // Expand image to full screen height after 0.3 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.4)) {
@@ -129,11 +135,9 @@ struct DetailScreenView: View {
                 }
         )
         .matchedGeometryEffect(id: item.id, in: animation)
-        .background(Color.white)
+        .background(Color.white.opacity(backgroundOpacity))
         .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
-       
-        
     }
 }
 

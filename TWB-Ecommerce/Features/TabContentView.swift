@@ -139,9 +139,10 @@ struct TabContentView: View {
                             }
                         })
                         .transition(.move(edge: .trailing))  // Slide-in from right to left
+                        .zIndex(3)
                     }
                 }
-                .zIndex(3)
+                
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(.all, edges: .top)
                 
