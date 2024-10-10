@@ -7,10 +7,12 @@
 
 import SwiftUI
 import Lottie
+import SDWebImageSwiftUI
+import SDWebImage
 
 struct NewArrivalItem: View {
     
-    let images: [String] // Array of image names
+    let images: [MainItemImage]
     let itemName: String
     let itemPrice: String
     let isCustomizable: Bool
@@ -22,11 +24,18 @@ struct NewArrivalItem: View {
             VStack(spacing: 0) {
                 ZStack {
                     VStack{
-                        Image(images[0])
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geometry.size.width, height: 195) // Fixed height, dynamic width
-                            .clipped()
+//                        Image(images[0])
+                        let url = Constants.imagesBaseURL + (images.first?.imageKey ?? "")
+                        WebImage(url: URL(string: url)) { image in
+                            image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
+                        } placeholder: {
+                            Rectangle().foregroundColor(.gray)
+                        }
+                        .indicator(.activity) // Activity Indicator
+                        .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                        .scaledToFit()
+                        .frame(width: geometry.size.width, height: 195)
+                        .clipped()
                     }
                     
 
@@ -49,6 +58,7 @@ struct NewArrivalItem: View {
                     .font(Font.custom("Baskerville", size: 12))
                     .foregroundColor(.black)
                     .padding(.top, 10)
+                    .lineLimit(1)
 
                 // Item price
                 Text(itemPrice)
@@ -63,9 +73,9 @@ struct NewArrivalItem: View {
 }
 
 #Preview {
-    NewArrivalItem(
-        images: ["Bouquets"], // Add your image names here
-        itemName: "Rectangular Acrylic 061",
-        itemPrice: "AED 365",
-        isCustomizable: true)
+//    NewArrivalItem(
+//        images: ["Bouquets"], // Add your image names here
+//        itemName: "Rectangular Acrylic 061",
+//        itemPrice: "AED 365",
+//        isCustomizable: true)
 }

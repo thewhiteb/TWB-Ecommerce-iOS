@@ -26,6 +26,7 @@ struct SplashView: View {
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(rotationAngle))
                         .onAppear {
+                            newArivalAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -54,6 +55,12 @@ struct SplashView: View {
                 
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
+            .onAppear {
+//                updateBannerAPI()
+//                callBannerAPI()
+//                callPerfumeAPI()
+                newArivalAPI()
+            }
         }
         .background(Color.white)
     }
@@ -64,6 +71,71 @@ struct SplashView: View {
             
             for fontName in UIFont.fontNames(forFamilyName: familyNames) {
                 print("-- \(fontName)")
+            }
+        }
+    }
+
+    func callBannerAPI() {
+        Task {
+            do {
+                let response = try await AllBannerAPI().call()
+                print(response)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func callPerfumeAPI() {
+        Task {
+            do {
+                let bannerDictionary: [String: Any] = [
+                    "heading": "",
+                    "imageKey": "Announcement-Mobile-Template copy_2024-09-04 11.34.32 AM.jpg",
+                    "imageKeyForDesktop": "Announcement-Template-Black2_2024-09-04 11.26.19 AM.jpg",
+                    "description": "",
+                    "buttonName": "",
+                    "link": "https://www.twb.ae/flowers/abu-dhabi-showroom",
+                    "active": true,
+                    "bannerTypeEnum": "Announcement",
+                    "createdByUserId": "a30629db-e52a-41e5-aaee-a0014d969b30",
+                    "modifiedByUserId": "",
+                    "portalTypeEnum": "Flower"
+                ]
+                let endpoint = PerfumeAPI(params: bannerDictionary)
+                let response = try await endpoint.call()
+                print(response)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func updateBannerAPI() {
+        Task {
+            do {
+                var response = try await GetBannerAPI(id: 78).call()
+                response.banner.active.toggle()
+                let secondResponse = try await UpdateBannerAPI(id: 78,
+                                                               params: response.banner.getBannerDictionary()).call()
+                print(secondResponse)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func newArivalAPI() {
+        Task {
+            let response = await RepositoryImplementation.getNewArrivalsItems()
+            if response.data != nil {
+                NewArrivalSingleton.shared.items = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.items = nil
             }
         }
     }
