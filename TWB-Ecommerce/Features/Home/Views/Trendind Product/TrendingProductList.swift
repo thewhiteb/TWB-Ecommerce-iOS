@@ -11,14 +11,19 @@ struct TrendingProductList: View {
     @State private var scrollOffset: CGFloat = 0.25  // Start progress at 25%
     @State private var maxScrollWidth: CGFloat = 0  // To store the scrollable width
     @State private var contentWidth: CGFloat = 0    // To store the total content width
+
+    var trendingProductList: [TrendingProduct]
     
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(0..<6, id: \.self) { _ in
-                        TrendingProductItem(images: ["Bouquet1", "Bouquet1", "Bouquet1"],
-                                            itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+//                    ForEach(0..<6, id: \.self) { _ in
+//                        TrendingProductItem(images: ["Bouquet1", "Bouquet1", "Bouquet1"],
+//                                            itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
+//                    }
+                    ForEach(trendingProductList) { product in
+                        TrendingProductItem(item: product)
                     }
                 }
                 .background(
@@ -49,7 +54,7 @@ struct TrendingProductList: View {
 }
 
 #Preview {
-    TrendingProductList()
+    TrendingProductList(trendingProductList: [])
 }
 
 
