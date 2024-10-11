@@ -7,12 +7,12 @@
 
 import Alamofire
 
-struct GetBannerAPI: Endpoint {
-    typealias ResponseType = SingleBanner
-
-    let id: Int
-    var pathURL: String { "/banner/\(id)" }
-    var headers: HTTPHeaders = [:]
-    var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
-}
+//struct GetBannerAPI: Endpoint {
+//    typealias ResponseType = SingleBanner
+//
+//    let id: Int
+//    var pathURL: String { "/banner/\(id)" }
+//    var headers: HTTPHeaders = [:]
+//    var httpMethod: HTTPMethod = .get
+//    var encoding: JSONEncoding = .default
+//}

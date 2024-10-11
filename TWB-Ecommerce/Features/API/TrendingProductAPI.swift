@@ -25,16 +25,15 @@ struct TrendingProduct: Codable, Identifiable {
     let totalPrice: Double?
     let soldOut: Bool?
     let itemOnSale: Bool?
-    let mainItemSaleDetails: SaleDetails?
+    let mainItemSaleDetails: String?
     let popularItem: Bool?
     let discountPercent: Int?
     let fixedPriceDiscount: Int?
     let mainItemImages: [MainItemImage]?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, price, vat, totalPrice, soldOut, itemOnSale
+        case id, name, price, vat, totalPrice, soldOut, itemOnSale, popularItem, discountPercent, fixedPriceDiscount
         case mainItemSaleDetails = "mainItem_SaleDetails"
-        case popularItem, discountPercent, fixedPriceDiscount
         case mainItemImages = "mainItem_Images"
     }
 }
