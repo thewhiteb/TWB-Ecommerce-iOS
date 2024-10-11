@@ -72,7 +72,7 @@ struct TabContentView: View {
                             animation : animation,
                             title: "Shop By Style",
                             onItemSelected: { item in
-                                withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.3)) {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1, blendDuration: 0.3)) {
                                     isDetailViewActive = true
                                     listItemSelected = item
                                     isTabBarEnable = false
@@ -126,9 +126,9 @@ struct TabContentView: View {
                         })
                         .frame(height: isDetailViewActive ? UIScreen.main.bounds.height * 0.9 : 220) // Initial height of listing item
                         .zIndex(2)
-                        .opacity(1)
-                        .transition(AnyTransition.scale(scale: 1))
-                        .background(Color.clear)
+//                        .opacity(1)
+//                        .transition(AnyTransition.scale(scale: 1))
+//                        .background(Color.clear)
                     }
                     
                     // DetailFullImageView (no parallax needed here)

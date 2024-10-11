@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0
-    @State private var bannerHeight: CGFloat = UIScreen.main.bounds.height * 0.65
+    @State private var bannerHeight: CGFloat = UIScreen.main.bounds.height * 0.62
     @State private var isCustomizeDone = false
     @State private var showDetails = false  // State to control when to show details
     @State private var backgroundOpacity: Double = 0.0
@@ -30,18 +30,17 @@ struct DetailScreenView: View {
     var body: some View {
         ZStack(alignment: .top) {
             
-                // Fixed header at the top
-                DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                    showDetails = false
-                    withAnimation {
-                        backgroundOpacity = 0
-                        bannerHeight = 220
-                        onBackButtonPressed()
-                    }
-                   
-                },
-                 showDetails: $showDetails)
-                .zIndex(1)
+            // Fixed header at the top
+            DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
+                showDetails = false
+                withAnimation {
+                    bannerHeight = 220
+                    onBackButtonPressed()
+                }
+                
+            },
+                             showDetails: $showDetails)
+            .zIndex(1)
             
             // Main ScrollView for content
             ScrollView(.vertical, showsIndicators: false) {
@@ -56,7 +55,9 @@ struct DetailScreenView: View {
                         animation: animation
                     )
                     .frame(height: bannerHeight)
-
+                    
+                    
+                    
                     DetailBottomView(
                         animation: animation,
                         bannerHeight: bannerHeight,
@@ -67,6 +68,7 @@ struct DetailScreenView: View {
                     .background(Color.white)
                     
                 }
+                
             }
             .scrollDisabled(isDragging)
             .coordinateSpace(name: CoordinateSpaces.scrollView)
@@ -90,20 +92,22 @@ struct DetailScreenView: View {
                     }
                 }
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
+                .transition(.move(edge: .bottom))  // Move in from bottom
+                .animation(.easeInOut(duration: 0.4), value: showDetails)
             }
             
         }
         .onAppear {
             
-            withAnimation {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 backgroundOpacity = 1
             }
             // Expand image to full screen height after 0.3 seconds
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.4)) {
-                    showDetails = true
-                }
+            
+            withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.3)) {
+                showDetails = true
             }
+            
         }
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -138,6 +142,7 @@ struct DetailScreenView: View {
         .background(Color.white.opacity(backgroundOpacity))
         .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
+        
     }
 }
 
