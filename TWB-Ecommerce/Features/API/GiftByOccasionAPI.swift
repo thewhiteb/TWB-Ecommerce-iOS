@@ -10,7 +10,7 @@ import Alamofire
 
 struct GiftByOccasionAPI: Endpoint {
     typealias ResponseType = MainResponse<[ProductItem]>
-    var pathURL: String = "/mainitem/categories"
+    var pathURL: String = "/mainitem/1/categories"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
     var encoding: JSONEncoding = .default

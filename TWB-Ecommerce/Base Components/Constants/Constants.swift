@@ -22,7 +22,10 @@ struct Constants {
         static let contentType = "Content-Type"
     }
 
-    static let baseURL = "https://dev-thewhitebtq-be.twb.ae/mobile"
+    // Dev
+//    static let baseURL = "https://dev-thewhitebtq-be.twb.ae/mobile"
+    // Live
+    static let baseURL = "http://thewhitebtq.eu-west-1.elasticbeanstalk.com/mobile"
     static let imagesBaseURL = "https://d1951zx0r40k66.cloudfront.net/"
     static let defaultString = "Default"
 }

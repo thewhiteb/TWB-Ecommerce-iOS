@@ -54,18 +54,13 @@ struct SplashView: View {
                 
 //                DetailFullImageView(images: ["Bouquet1", "Test", "Bouquet1"], selectedIndex: 0)
             }
-            .onAppear {
-//                updateBannerAPI()
-//                callBannerAPI()
-//                callPerfumeAPI()
-//                newArivalAPI()
-            }
         }
         .onAppear() {
             newArivalAPI()
             giftByOccasionAPI()
             shopByStyleAPI()
             trendingProductsAPI()
+            topCrouselsAPI()
         }
         .background(Color.white)
     }
@@ -80,16 +75,16 @@ struct SplashView: View {
         }
     }
 
-    func callBannerAPI() {
-        Task {
-            do {
-                let response = try await AllBannerAPI().call()
-                print(response)
-            } catch let error {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
-    }
+//    func callBannerAPI() {
+//        Task {
+//            do {
+//                let response = try await AllBannerAPI().call()
+//                print(response)
+//            } catch let error {
+//                print("Error: \(error.localizedDescription)")
+//            }
+//        }
+//    }
 
     func callPerfumeAPI() {
         Task {
@@ -116,19 +111,19 @@ struct SplashView: View {
         }
     }
 
-    func updateBannerAPI() {
-        Task {
-            do {
-                var response = try await GetBannerAPI(id: 78).call()
-                response.banner.active.toggle()
-                let secondResponse = try await UpdateBannerAPI(id: 78,
-                                                               params: response.banner.getBannerDictionary()).call()
-                print(secondResponse)
-            } catch let error {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
-    }
+//    func updateBannerAPI() {
+//        Task {
+//            do {
+//                var response = try await GetBannerAPI(id: 78).call()
+//                response.banner.active.toggle()
+//                let secondResponse = try await UpdateBannerAPI(id: 78,
+//                                                               params: response.banner.getBannerDictionary()).call()
+//                print(secondResponse)
+//            } catch let error {
+//                print("Error: \(error.localizedDescription)")
+//            }
+//        }
+//    }
 
     func newArivalAPI() {
         Task {
@@ -186,6 +181,21 @@ struct SplashView: View {
                 print(response.messages.first)
                 print(response)
                 NewArrivalSingleton.shared.trendingProducts = nil
+            }
+        }
+    }
+
+    func topCrouselsAPI() {
+        Task {
+            let response = await RepositoryImplementation.getTopCrouselBanners()
+            if response.data != nil {
+                NewArrivalSingleton.shared.topCrouselBanners = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.topCrouselBanners = nil
             }
         }
     }

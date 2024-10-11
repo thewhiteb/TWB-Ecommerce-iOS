@@ -12,6 +12,7 @@ protocol Repository {
     static func getGiftByOccasionItems() async -> MainResponse<[ProductItem]>
     static func getShopByStyleItems() async -> MainResponse<[ProductItem]>
     static func getTrendingProductItems() async -> MainResponse<[TrendingProduct]>
+    static func getTopCrouselBanners() async -> MainResponse<[Banner]>
 }
 
 struct RepositoryImplementation: Repository {
@@ -70,6 +71,21 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[TrendingProduct]>(data: nil,
+                                             messages: ["Server is not working!"],
+                                             statusCode: (error as NSError).code)
+            return response
+        }
+    }
+
+    static func getTopCrouselBanners() async -> MainResponse<[Banner]> {
+        do {
+            let response = try await TopCrouselAPI().call()
+            return response
+        } catch let error {
+            // There are two cases for the error:
+            // 1. Parsing failed
+            // 2. Alamofire error
+            let response = MainResponse<[Banner]>(data: nil,
                                              messages: ["Server is not working!"],
                                              statusCode: (error as NSError).code)
             return response

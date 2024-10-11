@@ -5,6 +5,7 @@
 //  Created by Hassam Ali on 01/10/2024.
 //
 
+/*
 import Foundation
 import Alamofire
 
@@ -54,3 +55,5 @@ struct BannerResponse: Codable {
 struct SingleBanner: Codable {
     var banner: Banner
 }
+
+*/
