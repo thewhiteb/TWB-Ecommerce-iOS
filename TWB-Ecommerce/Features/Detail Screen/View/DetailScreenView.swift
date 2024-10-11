@@ -5,14 +5,14 @@
 //  Created by Khurram Ansar on 25/09/2024.
 //
 
-
 import SwiftUI
 
 struct DetailScreenView: View {
     @State private var headerOpacity: Double = 0.0
-    @State private var bannerHeight: CGFloat = 0.65 * UIScreen.main.bounds.height
+    @State private var bannerHeight: CGFloat = UIScreen.main.bounds.height * 0.62
     @State private var isCustomizeDone = false
     @State private var showDetails = false  // State to control when to show details
+    @State private var backgroundOpacity: Double = 0.0
     var animation: Namespace.ID
     
     @State var scale: CGFloat = 1
@@ -29,15 +29,18 @@ struct DetailScreenView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            if showDetails {
-                // Fixed header at the top
-                DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                        showDetails = false
+            
+            // Fixed header at the top
+            DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
+                showDetails = false
+                withAnimation {
+                    bannerHeight = 220
                     onBackButtonPressed()
-                })
-                .zIndex(1)
-            }
-          
+                }
+                
+            },
+                             showDetails: $showDetails)
+            .zIndex(1)
             
             // Main ScrollView for content
             ScrollView(.vertical, showsIndicators: false) {
@@ -53,18 +56,19 @@ struct DetailScreenView: View {
                     )
                     .frame(height: bannerHeight)
                     
-                    // Show DetailBottomView after 1 second
-                    if showDetails {
-                        DetailBottomView(
-                            animation: animation,
-                            bannerHeight: bannerHeight,
-                            headerOpacity: $headerOpacity,
-                            itemName: item.itemName
-                        )
-                        .background(Color.white)
-                        .transition(.opacity)  // Smooth fade-in transition
-                    }
+                    
+                    
+                    DetailBottomView(
+                        animation: animation,
+                        bannerHeight: bannerHeight,
+                        headerOpacity: $headerOpacity,
+                        showDetails: $showDetails,
+                        itemName: item.itemName
+                    )
+                    .background(Color.white)
+                    
                 }
+                
             }
             .scrollDisabled(isDragging)
             .coordinateSpace(name: CoordinateSpaces.scrollView)
@@ -88,18 +92,22 @@ struct DetailScreenView: View {
                     }
                 }
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
+                .transition(.move(edge: .bottom))  // Move in from bottom
+                .animation(.easeInOut(duration: 0.4), value: showDetails)
             }
-           
+            
         }
         .onAppear {
-            // Delay showing the details for 1 second
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation {
-                    showDetails = true
-                }
-                    
-                
+            
+            withAnimation(.easeInOut(duration: 0.2)) {
+                backgroundOpacity = 1
             }
+            // Expand image to full screen height after 0.3 seconds
+            
+            withAnimation(.spring(response: 0.3, dampingFraction: 1, blendDuration: 0.3)) {
+                showDetails = true
+            }
+            
         }
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -117,9 +125,13 @@ struct DetailScreenView: View {
                 .onEnded { value in
                     if value.translation.height > 0 {
                         isDragging = false
-                        withAnimation(.spring()) {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.4)) {
                             if scale < 0.9 {
-                                onBackButtonPressed()
+                                showDetails = false
+                                withAnimation {
+                                    bannerHeight = 220
+                                    onBackButtonPressed()
+                                }
                             }
                             scale = 1
                         }
@@ -127,9 +139,10 @@ struct DetailScreenView: View {
                 }
         )
         .matchedGeometryEffect(id: item.id, in: animation)
-        .background(Color.white)
+        .background(Color.white.opacity(backgroundOpacity))
         .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
+        
     }
 }
 

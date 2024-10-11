@@ -10,44 +10,48 @@ import SwiftUI
 struct DetailHeaderView: View {
     @Binding var headerOpacity: Double
     var onBackButtonPressed: () -> Void
+    @Binding var showDetails: Bool
     
     var body: some View {
             VStack (spacing : 0) {
                 HStack {
-                    Button(action: {
-                        onBackButtonPressed()
-                    }) {
-                        Image("back")
-                            .foregroundColor(.black)
-                            .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
+                    if showDetails{
+                        Button(action: {
+                            onBackButtonPressed()
+                        }) {
+                            Image("back")
+                                .foregroundColor(.black)
+                                .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
+                        }
+                        
+                        Spacer()
+                        
+                       
+                         Text("Tube Acrylic 018")
+                            .font(.getFont(name: .libreBold, size: 16))
+                             .fontWeight(.semibold)
+                             .opacity(headerOpacity)
+                             .padding(.leading, 32)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // Share button action
+                        }) {
+                            Image("Share")
+                                .foregroundColor(.black)
+                                .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
+                        }
+                        .padding(.trailing, 10)
+                        
+                        Button(action: {
+                            // Favorite button action
+                        }) {
+                            TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
+                                .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
+                        }
                     }
-                    
-                    Spacer()
-                    
                    
-                     Text("Tube Acrylic 018")
-                        .font(.getFont(name: .libreBold, size: 16))
-                         .fontWeight(.semibold)
-                         .opacity(headerOpacity)
-                         .padding(.leading, 32)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        // Share button action
-                    }) {
-                        Image("Share")
-                            .foregroundColor(.black)
-                            .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
-                    }
-                    .padding(.trailing, 10)
-                    
-                    Button(action: {
-                        // Favorite button action
-                    }) {
-                        TwitterHeart(width: 27, height: 27, imageIcon: "favorite")
-                            .frame(maxHeight: .infinity)  // Ensure the button takes full available height for vertical centering
-                    }
                 }
                 .frame(maxWidth: .infinity)  // Ensure the HStack takes full width
                 .frame(height: 70)  // Set the fixed content height for the header
@@ -61,8 +65,3 @@ struct DetailHeaderView: View {
     }
 }
 
-#Preview {
-    DetailHeaderView(headerOpacity: .constant(1.0), onBackButtonPressed: {
-        
-    })
-}

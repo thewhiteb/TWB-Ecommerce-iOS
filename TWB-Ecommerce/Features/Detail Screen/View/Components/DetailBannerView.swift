@@ -29,7 +29,7 @@ struct DetailBannerView<Space: Hashable>: View {
                     ForEach(0..<item.images.count, id: \.self) { index in
                         Image(item.images[index])
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .frame(width: proxy.size.width, height: defaultHeight, alignment: .bottom)
                             .clipped()
                             .tag(index)
