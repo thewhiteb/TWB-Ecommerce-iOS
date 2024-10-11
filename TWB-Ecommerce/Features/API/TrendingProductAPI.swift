@@ -17,7 +17,7 @@ struct TrendingProductAPI: Endpoint {
     var encoding: JSONEncoding = .default
 }
 
-struct TrendingProduct: Codable {
+struct TrendingProduct: Codable, Identifiable {
     let id: Int?
     let name: String?
     let price: Double?

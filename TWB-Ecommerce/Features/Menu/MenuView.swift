@@ -45,7 +45,7 @@ struct MenuView: View {
                             }
                             .padding([.top, .bottom], 30)
                             .padding(.leading, 16)
-                            TrendingProductList()
+                            TrendingProductList(trendingProductList: NewArrivalSingleton.shared.trendingProducts ?? [])
                                 .padding(.leading, 16)
                         }
                         .background(Constants.white)

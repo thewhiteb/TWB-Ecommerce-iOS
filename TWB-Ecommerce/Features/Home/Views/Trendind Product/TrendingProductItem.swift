@@ -7,30 +7,29 @@
 
 import SwiftUI
 import Lottie
+import SDWebImageSwiftUI
+import SDWebImage
 
 struct TrendingProductItem: View {
-    let images: [String] // Array of image names
-    let itemName: String
-    let itemPrice: String
-    let isCustomizable: Bool
+    var item: TrendingProduct
     
     @State private var currentPage = 0
     
     var body: some View {
         VStack(spacing : 0) {
-            ZStack {             
-                Image(images[0])
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 167, height: 195)
-                    .clipped()
-
-
-
+            ZStack {
+                let url = Constants.imagesBaseURL + (item.mainItemImages?.first?.imageKey ?? .defaultStr)
+                WebImage(url: URL(string: url)) { image in
+                    image.resizable().scaledToFit()
+                } placeholder: {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .indicator(.activity) // Activity Indicator
+                .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                .frame(width: 167, height: 195)
+                .clipped()
                 HStack {
-                    
                     Spacer()
-                    
                     VStack {
                         TwitterHeart(width: 24, height: 24, imageIcon: "SmallEmptyHeart")
                             .padding(.top,15)
@@ -43,12 +42,12 @@ struct TrendingProductItem: View {
             .background(Color(red: 0.93, green: 0.95, blue: 0.96))
 
             // Item name
-            Text(itemName)
+            Text(item.name ?? .defaultStr)
                 .font(Font.custom("Baskerville", size: 12))
                 .foregroundColor(.black)
                 .padding(.top,10)
             // Item price
-            Text(itemPrice)
+            Text(String(describing: item.price ?? 0.0))
                 .font(
                     Font.custom("Baskerville", size: 14)
                         .weight(.semibold)
@@ -60,10 +59,10 @@ struct TrendingProductItem: View {
 }
 
 #Preview {
-    TrendingProductItem(
-        images: ["Bouquet1"], // Add your image names here
-        itemName: "Rectangular Acrylic 061",
-        itemPrice: "AED 365",
-        isCustomizable: true
-    )
+//    TrendingProductItem(
+//        images: ["Bouquet1"], // Add your image names here
+//        itemName: "Rectangular Acrylic 061",
+//        itemPrice: "AED 365",
+//        isCustomizable: true
+//    )
 }

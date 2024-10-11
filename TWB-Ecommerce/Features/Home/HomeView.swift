@@ -35,7 +35,7 @@ struct HomeView: View {
                         }
                         .padding(.top, 40)
                         
-                        TrendingProductList()
+                        TrendingProductList(trendingProductList: NewArrivalSingleton.shared.trendingProducts ?? [])
                             .padding(.top, 30)
                             .padding(.leading, 10)
                         

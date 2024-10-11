@@ -100,7 +100,7 @@ struct BagListingView: View {
                 .font(.getFont(name: .libreBold, size: 18))
                 .foregroundStyle(Constants.black)
                 .padding([.top, .bottom], 30)
-            TrendingProductList()
+            TrendingProductList(trendingProductList: NewArrivalSingleton.shared.trendingProducts ?? [])
         }
     }
 
