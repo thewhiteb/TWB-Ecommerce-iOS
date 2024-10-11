@@ -26,10 +26,6 @@ struct SplashView: View {
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(rotationAngle))
                         .onAppear {
-                            newArivalAPI()
-                            giftByOccasionAPI()
-                            shopByStyleAPI()
-                            trendingProductsAPI()
                             withAnimation(.linear(duration: 2.0)) {
                                 rotationAngle = 360.0
                             }
@@ -62,8 +58,14 @@ struct SplashView: View {
 //                updateBannerAPI()
 //                callBannerAPI()
 //                callPerfumeAPI()
-                newArivalAPI()
+//                newArivalAPI()
             }
+        }
+        .onAppear() {
+            newArivalAPI()
+            giftByOccasionAPI()
+            shopByStyleAPI()
+            trendingProductsAPI()
         }
         .background(Color.white)
     }
