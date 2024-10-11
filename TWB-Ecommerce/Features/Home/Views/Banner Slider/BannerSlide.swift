@@ -6,26 +6,34 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+import SDWebImage
 
 struct BannerSlide: View {
     
     @State private var currentPage = 0
-    let images = ["MainBanner1", "MainBanner2","MainBanner3"]
-    
+    let banners: [Banner]
     var size: CGSize
-    
     
     var body: some View {
         let height = size.height * 0.55
         
         VStack {
             TabView(selection: $currentPage) {
-                ForEach(0..<images.count, id: \.self) { index in
-                    Image(images[index])
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: height)
-                        .clipped()
+                ForEach(banners) { banner in
+                    let url = Constants.imagesBaseURL + (banner.imageKey ?? .defaultStr)
+                    WebImage(url: URL(string: url)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .clipped()
+                    } placeholder: {
+                        Rectangle()
+                            .foregroundColor(.gray)
+                    }
+                    .indicator(.activity) // Activity Indicator
+                    .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                    .frame(height: height)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -36,7 +44,7 @@ struct BannerSlide: View {
             Spacer()
                 .onReceive(timer) { _ in
                     withAnimation {
-                        currentPage = (currentPage + 1) % images.count
+                        currentPage = (currentPage + 1) % banners.count
                     }
                 }
     
@@ -55,7 +63,7 @@ struct BannerSlide: View {
 #Preview {
     GeometryReader {
        let size = $0.size
-       BannerSlide(size: size)
+        BannerSlide(banners: [], size: size)
     }
   
 }

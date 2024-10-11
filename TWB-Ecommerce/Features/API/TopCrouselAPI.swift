@@ -11,13 +11,13 @@ import Alamofire
 struct TopCrouselAPI: Endpoint {
     typealias ResponseType = MainResponse<[Banner]>
 
-    var pathURL: String = "/banner/Announcement/banners"
+    var pathURL: String = "/banner/Main/banners"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
     var encoding: JSONEncoding = .default
 }
 
-struct Banner: Codable {
+struct Banner: Codable, Identifiable, Hashable, Equatable {
     let id: Int?
     let heading: String?
     let imageKey: String?

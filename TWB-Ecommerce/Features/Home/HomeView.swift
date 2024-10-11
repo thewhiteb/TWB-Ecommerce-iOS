@@ -18,7 +18,8 @@ struct HomeView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        BannerSlide(size: size)
+                        BannerSlide(banners: NewArrivalSingleton.shared.topCrouselBanners ?? [],
+                                    size: size)
                         
                         VStack(spacing: 0) {
                             Text("Trending Products")
