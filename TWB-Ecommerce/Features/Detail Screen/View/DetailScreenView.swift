@@ -15,7 +15,6 @@ struct DetailScreenView: View {
     @State private var backgroundOpacity: Double = 0.0
     var animation: Namespace.ID
     
-    @State var scale: CGFloat = 1
     
     private enum CoordinateSpaces {
         case scrollView
@@ -32,9 +31,7 @@ struct DetailScreenView: View {
             
             // Fixed header at the top
             DetailHeaderView(headerOpacity: $headerOpacity, onBackButtonPressed: {
-                showDetails = false
                 withAnimation {
-                    bannerHeight = 220
                     onBackButtonPressed()
                 }
                 
@@ -96,7 +93,6 @@ struct DetailScreenView: View {
         }
         
         .background(Color.white.opacity(backgroundOpacity))
-        .scaleEffect(scale)
         .ignoresSafeArea(.container, edges: .top)
         
     }

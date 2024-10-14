@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let isUserLoggedIn: Bool = true
+    let isUserLoggedIn: Bool = false
+    
+    var onLoginClick : () -> Void
 
     var body: some View {
         VStack {
@@ -83,7 +85,9 @@ struct ProfileView: View {
     }
 }
 #Preview {
-    ProfileView()
+    ProfileView(onLoginClick: {
+        
+    })
 }
 
 
