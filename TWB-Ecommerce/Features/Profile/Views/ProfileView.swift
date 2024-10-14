@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let isUserLoggedIn: Bool = true
+    let isUserLoggedIn: Bool = false
+    
+    var onLoginClick : () -> Void
 
     var body: some View {
         VStack {
@@ -59,6 +61,8 @@ struct ProfileView: View {
         HStack(spacing: 10) {
             Button {
                 print("Login Button Clicked")
+                onLoginClick()
+                
             } label: {
                 Text("Login")
                     .font(.getFont(name: .libreBold, size: 14))
@@ -83,7 +87,9 @@ struct ProfileView: View {
     }
 }
 #Preview {
-    ProfileView()
+    ProfileView(onLoginClick: {
+        
+    })
 }
 
 

@@ -15,6 +15,7 @@ struct ListingScreenView: View {
     @State private var isSortOptionClicked = false
     @State private var isFilterOptionClicked = false
     
+    var isDragDisable: Bool
     var title: String
     var onItemSelected: (TrendingProduct2) -> Void
     var onBackButtonPressed: () -> Void
@@ -73,6 +74,7 @@ struct ListingScreenView: View {
                         })
                     }
                 }
+                .scrollDisabled(isDragDisable)
                 .coordinateSpace(name: "SCROLL")
                 
                 

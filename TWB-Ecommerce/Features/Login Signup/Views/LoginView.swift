@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(\.presentationMode) var presentationMode  // To handle navigation back
     @State private var phoneNumber: String = ""
     @State private var err: String = " "
     @State private var navigateToOtp = false  // To control navigation to OtpView
@@ -19,13 +18,16 @@ struct LoginView: View {
     @ObservedObject var googleManager = GoogleLoginManager()     // Google login manager
     @ObservedObject var appleManager = AppleSignInManager()      // Apple login manager
     
+    var onCrossClick : () -> Void
+    var onLoginClick : (String) -> Void
+    
     var body: some View {
-        NavigationStack {
+       
             VStack(alignment:.leading) {
                 // Top bar with cross icon
                 HStack {
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()  // Go back to the previous view
+                        onCrossClick()
                     }) {
                         Image("cross")
                             .resizable()
@@ -35,6 +37,7 @@ struct LoginView: View {
                     .padding(.top, 20)
                     Spacer()
                 }
+                .padding(.top, 100)
                 
                 // Welcome text
                 HStack {
@@ -76,7 +79,7 @@ struct LoginView: View {
                         // Show error if the phone number is empty
                         err = "Please enter your phone number"
                     } else {
-                        navigateToOtp = true
+                        onLoginClick(phoneNumber)
                     }
                 })
                 .padding(.top, 0)
@@ -143,20 +146,25 @@ struct LoginView: View {
                 }
                 .padding(.bottom, 50) // Adjust bottom padding as needed
             }
-            .navigationDestination(isPresented: $navigateToOtp) {
-                OtpView(phoneNumber: phoneNumber)  // Navigate and pass the phone number
-            }
-            .navigationDestination(isPresented: $navigateToSignup) {
-                SignupView()  // Navigate to SignupView
-            }
-            .navigationBarBackButtonHidden(true) // Hide back button
+            .background(Color.white)
+//            .navigationDestination(isPresented: $navigateToOtp) {
+//                OtpView(phoneNumber: phoneNumber)  // Navigate and pass the phone number
+//            }
+//            .navigationDestination(isPresented: $navigateToSignup) {
+//                SignupView()  // Navigate to SignupView
+//            }
+//            .navigationBarBackButtonHidden(true) // Hide back button
             .onTapGesture {
                 UIApplication.shared.hideKeyboard()  // Dismiss the keyboard when tapping outside
             }
-        }
+        
     }
 }
 
 #Preview {
-    LoginView()
+    LoginView(onCrossClick : {
+        
+    }, onLoginClick: { value in
+        
+    })
 }

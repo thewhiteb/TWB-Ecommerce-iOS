@@ -21,6 +21,8 @@ struct PhoneNumberField: View {
                     isCountryPickerPresented.toggle()  // Show country picker when tapped
                 }
             
+            Image("DownArrow")
+            
             Divider()  // Horizontal divider between the flag and the phone number
             
             // Non-editable country code and editable phone number field
