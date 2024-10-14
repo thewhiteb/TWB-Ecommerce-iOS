@@ -41,7 +41,7 @@ struct CountryPickerView: View {
                     Image("Close Button")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20) // Adjust size as needed
+                        .frame(width: 30, height:  30)
                 }
             }
             .padding(.top, 18)
@@ -59,14 +59,6 @@ struct CountryPickerView: View {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                         .padding(.leading, 10) // Position the icon inside the text field
-                }
-                Spacer()
-                Button(action: {
-                    searchText = "" // Clear the search text
-                }) {
-                    Text("Cancel")
-                        .font(.custom("Baskerville", size: 16))
-                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                 }
             }
             .padding(.horizontal)
@@ -117,8 +109,7 @@ struct CountryPickerView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
-            // Set a default selected country if needed
-            selectedCountry = countries.first
+            selectedCountry =  countries.first
         }
     }
 }
