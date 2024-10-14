@@ -29,7 +29,7 @@ struct FeatureProductParallax: View {
                                             .offset(x: phase.isIdentity ? 0 : phase.value * -200)
                                     }
                             } placeholder: {
-                                Rectangle().background(.gray)
+                                ImagePlaceholderView()
                             }
                         }
                         .containerRelativeFrame(.horizontal)

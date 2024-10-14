@@ -28,7 +28,7 @@ struct NewArrivalItem: View {
                         WebImage(url: URL(string: url)) { image in
                             image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
                         } placeholder: {
-                            Rectangle().foregroundColor(.gray)
+                            ImagePlaceholderView()
                         }
                         .indicator(.activity) // Activity Indicator
                         .transition(.fade(duration: 0.5)) // Fade Transition with duration

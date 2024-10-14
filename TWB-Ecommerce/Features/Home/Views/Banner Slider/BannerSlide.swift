@@ -28,8 +28,7 @@ struct BannerSlide: View {
                             .scaledToFit()
                             .clipped()
                     } placeholder: {
-                        Rectangle()
-                            .foregroundColor(.gray)
+                        ImagePlaceholderView()
                     }
                     .indicator(.activity) // Activity Indicator
                     .transition(.fade(duration: 0.5)) // Fade Transition with duration

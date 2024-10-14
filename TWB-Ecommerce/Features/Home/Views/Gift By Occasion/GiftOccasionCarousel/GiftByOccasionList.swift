@@ -55,7 +55,7 @@ struct GiftByOccasionList: View {
             WebImage(url: URL(string: url)) { image in
                 image.resizable().aspectRatio(contentMode: .fill)
             } placeholder: {
-                Rectangle().foregroundColor(.gray)
+                ImagePlaceholderView()
             }
             .indicator(.activity) // Activity Indicator
             .transition(.fade(duration: 0.5)) // Fade Transition with duration
