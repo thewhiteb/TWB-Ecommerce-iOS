@@ -21,6 +21,8 @@ struct TabContentView: View {
     @State private var isDetailViewActive = false
     @State private var isDetailFullImageViewActive = false
     
+    
+    
     @State private var dragOffset: CGFloat = 0.0
     @State private var dragDetailOffset: CGFloat = 0.0
     @GestureState private var gestureDragOffset: CGFloat = 0.0
@@ -65,7 +67,7 @@ struct TabContentView: View {
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
                     
-                    // Separate component for Listing screen
+                   
                     if isListingViewActive {
                         ListingScreenTabComponent(
                             animation: animation,
@@ -86,7 +88,7 @@ struct TabContentView: View {
                         .zIndex(1)
                     }
                     
-                    // Separate component for Detail screen
+                
                     if isDetailViewActive, let selectedItem = listItemSelected {
                         DetailScreenTabComponent(
                             animation: animation,
@@ -99,6 +101,7 @@ struct TabContentView: View {
                                 images = image
                                 selectedImageIndex = selectedIndex
                                 isDetailFullImageViewActive = true
+                                showBottomNavigation = false
                             },
                             dragDetailOffset: $dragDetailOffset
                         )
@@ -107,17 +110,21 @@ struct TabContentView: View {
                         .zIndex(2)
                     }
                     
-                    // Separate component for Full image view
+                 
                     if isDetailFullImageViewActive {
                         DetailFullImageTabComponent(
                             images: images,
                             selectedImageIndex: selectedImageIndex,
-                            isDetailFullImageViewActive: $isDetailFullImageViewActive
+                            isDetailFullImageViewActive: $isDetailFullImageViewActive,
+                            showBottomNavigation: $showBottomNavigation
                         )
                         .transition(.move(edge: .trailing))
                         .animation(.easeInOut(duration: 0.3), value: isDetailViewActive)
                         .zIndex(3)
                     }
+                    
+                    
+                    
                 }
                 .frame(maxHeight: .infinity)
                 .ignoresSafeArea(.all, edges: .top)
