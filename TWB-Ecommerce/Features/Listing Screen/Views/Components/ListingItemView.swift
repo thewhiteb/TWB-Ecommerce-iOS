@@ -72,9 +72,6 @@ struct ListingItemView: View {
             .frame(width: geometry.size.width) // Dynamic width, fixed height
         }
         .frame(height: 270)
-        .background(
-            Color.clear.matchedGeometryEffect(id: item.id, in: animation)
-        )
     }
 }
 

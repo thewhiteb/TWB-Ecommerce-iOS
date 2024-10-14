@@ -14,11 +14,13 @@ struct TabContentView: View {
     @State private var selectedTab = 0
     @State private var listItemSelected : TrendingProduct2? = nil
     @State private var isTabBarEnable = true
+    @State private var isDragDisable = false
     @State private var showBottomNavigation = true
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
     @State private var isDetailFullImageViewActive = false
     @State private var dragOffset: CGFloat = 0.0
+    @State private var dragDetailOffset: CGFloat = 0.0
     @GestureState private var gestureDragOffset: CGFloat = 0.0
     
     @State private var images: [String] = []
@@ -70,9 +72,10 @@ struct TabContentView: View {
                     if isListingViewActive {
                         ListingScreenView(
                             animation : animation,
+                            isDragDisable: isDragDisable,
                             title: "Shop By Style",
                             onItemSelected: { item in
-                                withAnimation(.spring(response: 0.2, dampingFraction: 1, blendDuration: 0.3)) {
+                                withAnimation {
                                     isDetailViewActive = true
                                     listItemSelected = item
                                     isTabBarEnable = false
@@ -91,17 +94,21 @@ struct TabContentView: View {
                         .gesture(
                             DragGesture()
                                 .onChanged { value in
+                                    isDragDisable = true
                                     dragOffset = value.translation.width
                                 }
                                 .onEnded { value in
+                                   
                                     if value.translation.width > UIScreen.main.bounds.width / 3 {
                                         withAnimation {
                                             dragOffset = 0
                                             isListingViewActive = false
+                                            isTabBarEnable = true
                                             
                                         }
                                     } else {
                                         withAnimation {
+                                            isDragDisable = false
                                             dragOffset = 0
                                         }
                                     }
@@ -112,9 +119,9 @@ struct TabContentView: View {
                     }
                     
                     if isDetailViewActive, let selectedItem = listItemSelected {
-                        DetailScreenView(animation: animation, item: selectedItem,  // Pass the selected item to DetailScreenView
+                        DetailScreenView(animation: animation, isDragDisable: isDragDisable, item: selectedItem,  // Pass the selected item to DetailScreenView
                                          onBackButtonPressed: {
-                            withAnimation(.spring(response: 0.4, dampingFraction: 1, blendDuration: 0.3)) {
+                            withAnimation {
                                 isTabBarEnable = isListingViewActive ? false : true
                                 isDetailViewActive = false
                             }
@@ -124,11 +131,33 @@ struct TabContentView: View {
                             selectedImageIndex = selectedIndex
                             isDetailFullImageViewActive = true
                         })
-                        .frame(height: isDetailViewActive ? UIScreen.main.bounds.height * 0.9 : 220) // Initial height of listing item
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeInOut(duration: 0.3), value: isDetailViewActive)
                         .zIndex(2)
-//                        .opacity(1)
-//                        .transition(AnyTransition.scale(scale: 1))
-//                        .background(Color.clear)
+                        .offset(x: dragDetailOffset > 0 ? dragDetailOffset : 0 )
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    isDragDisable = true
+                                    dragDetailOffset = value.translation.width
+                                }
+                                .onEnded { value in
+                                    if value.translation.width > UIScreen.main.bounds.width / 3 {
+                                        withAnimation {
+                                            isTabBarEnable = isListingViewActive ? false : true
+                                            dragDetailOffset = 0
+                                            isDetailViewActive = false
+                                            
+                                        }
+                                    } else {
+                                        withAnimation {
+                                            isDragDisable = false
+                                            dragDetailOffset = 0
+                                        }
+                                    }
+                                }
+                        )
+                        
                     }
                     
                     // DetailFullImageView (no parallax needed here)
@@ -165,6 +194,9 @@ struct TabContentView: View {
                             Spacer()
                             tabBarButton(image: "ProfileIcon_Sel", selectedImage: "ProfileIcon_UnSel", text: "Profile", tag: 4)
                             Spacer()
+                        }
+                        .onTapGesture {
+                            isTabBarEnable = true
                         }
                         .padding(.vertical, 20)
                         .background(Color.white)
