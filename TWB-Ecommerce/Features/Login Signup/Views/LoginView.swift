@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var phoneNumber: String = ""
-    @State private var err: String = " "
+    @StateObject private var viewModel = LoginViewModel()
+    
     @State private var navigateToOtp = false  // To control navigation to OtpView
     @State private var navigateToSignup = false  // To control navigation to SignupView
     
@@ -59,7 +59,7 @@ struct LoginView: View {
                 }
                 
                 // Phone number input field
-                PhoneNumberField(phoneNumber: $phoneNumber)
+                PhoneNumberField(phoneNumber: $viewModel.phoneNumber)
                     .frame(height: 60) // Set height to 60
                     .frame(maxWidth: .infinity) // Make it span the full width
                     .padding(.leading, 16)
@@ -67,19 +67,21 @@ struct LoginView: View {
                     .padding(.top, 50) // Optional: Adjust top padding as needed
                 
                 // Show error message if the phone number is empty
-                Text(err)
-                    .foregroundColor(.red)
-                    .font(.custom("Baskerville", size: 14))
-                    .padding(.top, 8)
-                    .padding(.leading,20)
-                
+                if let error = viewModel.err{
+                    Text(error)
+                        .foregroundColor(.red)
+                        .font(.custom("Baskerville", size: 14))
+                        .padding(.top, 8)
+                        .padding(.leading,20)
+                }
                 // Login button
                 SimpleButton(title: "Login", action: {
-                    if phoneNumber.isEmpty {
+                    if viewModel.phoneNumber.isEmpty {
                         // Show error if the phone number is empty
-                        err = "Please enter your phone number"
+                        viewModel.err = "Please enter your phone number"
                     } else {
-                        onLoginClick(phoneNumber)
+                        viewModel.sendOtp()
+                        onLoginClick(viewModel.phoneNumber)
                     }
                 })
                 .padding(.top, 0)
