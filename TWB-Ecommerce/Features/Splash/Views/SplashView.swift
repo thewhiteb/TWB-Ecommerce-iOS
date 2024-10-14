@@ -61,6 +61,7 @@ struct SplashView: View {
             shopByStyleAPI()
             trendingProductsAPI()
             topCrouselsAPI()
+            secondCrouselsAPI()
         }
         .background(Color.white)
     }
@@ -196,6 +197,21 @@ struct SplashView: View {
                 print(response.messages.first)
                 print(response)
                 NewArrivalSingleton.shared.topCrouselBanners = nil
+            }
+        }
+    }
+
+    func secondCrouselsAPI() {
+        Task {
+            let response = await RepositoryImplementation.getTopCrouselBanners()
+            if response.data != nil {
+                NewArrivalSingleton.shared.secondCrouselBanners = response.data
+            } else {
+                // Show Alert
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
+                NewArrivalSingleton.shared.secondCrouselBanners = nil
             }
         }
     }

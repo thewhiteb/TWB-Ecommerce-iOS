@@ -40,9 +40,9 @@ struct HomeView: View {
                             .padding(.top, 30)
                             .padding(.leading, 10)
                         
-                        FeatureProductParallax()
+                        FeatureProductParallax(banners: NewArrivalSingleton.shared.secondCrouselBanners ?? [])
                             .padding(.top, 30)
-                        
+
                         VStack(spacing: 0) {
                             Text("GIFT BY OCCASION")
                                 .font(Font.custom("Baskerville", size: 22))

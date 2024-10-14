@@ -18,4 +18,5 @@ class NewArrivalSingleton {
     var shopByStyle: [ProductItem]?
     var trendingProducts: [TrendingProduct]?
     var topCrouselBanners: [Banner]?
+    var secondCrouselBanners: [Banner]?
 }
