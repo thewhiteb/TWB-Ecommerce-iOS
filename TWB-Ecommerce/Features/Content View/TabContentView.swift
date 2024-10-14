@@ -16,10 +16,13 @@ struct TabContentView: View {
     @State private var isTabBarEnable = true
     @State private var isDragDisable = false
     @State private var showBottomNavigation = true
+    @State private var loginPhoneNumber : String = ""
     
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
     @State private var isDetailFullImageViewActive = false
+    @State private var isLoginViewActive = false
+    @State private var isOTPViewActive = false
     
     
     
@@ -53,7 +56,13 @@ struct TabContentView: View {
                     case 3:
                         BagView(items: items)
                     case 4:
-                        ProfileView(onLoginClick: {})
+                        ProfileView(onLoginClick: {
+                            withAnimation {
+                                isLoginViewActive = true
+                                showBottomNavigation = false
+                            }
+                            
+                        })
                     default:
                         HomeView(onItemSelected: { _ in
                             withAnimation {
@@ -67,7 +76,7 @@ struct TabContentView: View {
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)
                     }
                     
-                   
+                    
                     if isListingViewActive {
                         ListingScreenTabComponent(
                             animation: animation,
@@ -88,7 +97,7 @@ struct TabContentView: View {
                         .zIndex(1)
                     }
                     
-                
+                    
                     if isDetailViewActive, let selectedItem = listItemSelected {
                         DetailScreenTabComponent(
                             animation: animation,
@@ -110,7 +119,7 @@ struct TabContentView: View {
                         .zIndex(2)
                     }
                     
-                 
+                    
                     if isDetailFullImageViewActive {
                         DetailFullImageTabComponent(
                             images: images,
@@ -121,6 +130,20 @@ struct TabContentView: View {
                         .transition(.move(edge: .trailing))
                         .animation(.easeInOut(duration: 0.3), value: isDetailViewActive)
                         .zIndex(3)
+                    }
+                    
+                    
+                    if isLoginViewActive{
+                        LoginViewTabComponent(isLoginViewActive: $isLoginViewActive, onCrossClick: {
+                            withAnimation {
+                                showBottomNavigation = true
+                                isLoginViewActive = false
+                            }
+                        },onVerifyNumber: { value in
+                            
+                        })
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeInOut(duration: 0.3), value: isLoginViewActive)
                     }
                     
                     

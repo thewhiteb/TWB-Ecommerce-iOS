@@ -61,6 +61,8 @@ struct ProfileView: View {
         HStack(spacing: 10) {
             Button {
                 print("Login Button Clicked")
+                onLoginClick()
+                
             } label: {
                 Text("Login")
                     .font(.getFont(name: .libreBold, size: 14))
