@@ -22,7 +22,7 @@ struct TrendingProductItem: View {
                 WebImage(url: URL(string: url)) { image in
                     image.resizable().scaledToFit()
                 } placeholder: {
-                    Rectangle().foregroundColor(.gray)
+                    ImagePlaceholderView()
                 }
                 .indicator(.activity) // Activity Indicator
                 .transition(.fade(duration: 0.5)) // Fade Transition with duration
