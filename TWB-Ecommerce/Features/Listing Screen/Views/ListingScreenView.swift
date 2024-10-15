@@ -141,7 +141,7 @@ struct ListingScreenView: View {
     }
 }
 
-//#Preview {
+#Preview {
 //    ListingScreenView(
 //        title: "Shop By Style",
 //        onItemSelected: { item in
@@ -151,4 +151,14 @@ struct ListingScreenView: View {
 //            print("Back button pressed")
 //        }
 //    )
-//}
+    @Previewable @Namespace var animation
+    ListingScreenView(
+        animation: animation,
+        isDragDisable: true,
+        title: "Shop By Style",
+        onItemSelected: { item in
+            print(item)
+        },
+        onBackButtonPressed: { }
+    )
+}

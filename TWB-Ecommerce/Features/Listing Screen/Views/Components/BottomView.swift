@@ -30,6 +30,7 @@ struct BottomView: View {
 }
 
 
-//#Preview {
-//    BottomView(onItemSelected: {text in print(text)})
-//}
+#Preview {
+    @Previewable @Namespace var animation
+    BottomView(onItemSelected: {text in print(text)}, animation: animation)
+}

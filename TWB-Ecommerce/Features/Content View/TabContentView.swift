@@ -39,7 +39,7 @@ struct TabContentView: View {
                 ZStack {
                     switch selectedTab {
                     case 0:
-                        HomeView(onItemSelected: { _ in
+                        HomeView(onItemSelected: { item in
                             withAnimation {
                                 isListingViewActive = true
                                 isTabBarEnable = false
