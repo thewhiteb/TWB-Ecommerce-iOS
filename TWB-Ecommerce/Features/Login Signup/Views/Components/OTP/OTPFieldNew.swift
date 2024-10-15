@@ -65,6 +65,11 @@ public struct OTPFieldNew: View {
                 }
             }
         }
+        .onTapGesture {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                isTextFieldFocused = true
+            }
+        }
         .frame(height: 50)
     }
     
@@ -86,6 +91,9 @@ public struct OTPFieldNew: View {
         // Only call onCompletion if the OTP length is exactly equal to the limit (4 digits)
         if otpCode.count == otpCodeLength {
             onCompletion?()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                isTextFieldFocused = false
+            }
         }
     }
 }
