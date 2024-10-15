@@ -13,7 +13,7 @@ struct UpdateBannerAPI: Endpoint {
     var pathURL: String { "/banner/\(id)" }
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .put
-    var encoding: JSONEncoding = .prettyPrinted
+    var encoding: ParameterEncoding = JSONEncoding.prettyPrinted
     var params: [String : Any]
 }
 

@@ -15,5 +15,5 @@ struct MainItemsCategoriesAPI: Endpoint {
     var pathURL = "/mainitem/categories/v2"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = JSONEncoding.default
 }

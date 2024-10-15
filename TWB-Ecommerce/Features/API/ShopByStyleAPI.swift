@@ -14,7 +14,7 @@ struct ShopByStyleAPI: Endpoint {
     var pathURL: String = "/mainitem/2/categories"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = JSONEncoding.default
 }
 
 

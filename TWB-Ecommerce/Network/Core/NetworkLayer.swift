@@ -8,7 +8,7 @@ protocol Endpoint {
     var headers: HTTPHeaders { get }
     var httpMethod: HTTPMethod { get }
     var baseURL: String { get }
-    var encoding: JSONEncoding  { get }
+    var encoding: ParameterEncoding  { get }
     var params: [String: Any] { get }
     var contentType: String { get }
 }

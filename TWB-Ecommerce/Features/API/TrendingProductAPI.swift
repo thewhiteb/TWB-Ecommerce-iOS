@@ -14,7 +14,7 @@ struct TrendingProductAPI: Endpoint {
     var pathURL: String = "/mainitem/popular-items"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = JSONEncoding.default
 }
 
 struct TrendingProduct: Codable, Identifiable {

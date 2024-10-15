@@ -13,7 +13,7 @@ struct PerfumeAPI: Endpoint {
     var pathURL: String { "/banner" }
     var headers: HTTPHeaders { getDefaultHeaders() }
     var httpMethod: HTTPMethod { .post }
-    var encoding: JSONEncoding = .prettyPrinted
+    var encoding: ParameterEncoding = JSONEncoding.prettyPrinted
     var params: [String : Any]
 }
 
