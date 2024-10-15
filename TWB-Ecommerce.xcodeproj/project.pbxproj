@@ -18,6 +18,7 @@
 		20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */; };
 		20056ED02C624130000B661B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ECF2C624130000B661B /* Assets.xcassets */; };
 		20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ED22C624130000B661B /* Preview Assets.xcassets */; };
+		201A215F2CBF03B80059E427 /* OTPFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A215E2CBF03B80059E427 /* OTPFieldNew.swift */; };
 		20418A072CA6C194006FBB27 /* DetailMainSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A062CA6C194006FBB27 /* DetailMainSheet.swift */; };
 		20418A0A2CA6C353006FBB27 /* LetterSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A092CA6C353006FBB27 /* LetterSmallView.swift */; };
 		20418A0F2CA6CC5A006FBB27 /* TopperSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A0E2CA6CC5A006FBB27 /* TopperSmallView.swift */; };
@@ -200,6 +201,7 @@
 		20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceApp.swift; sourceTree = "<group>"; };
 		20056ECF2C624130000B661B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20056ED22C624130000B661B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		201A215E2CBF03B80059E427 /* OTPFieldNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFieldNew.swift; sourceTree = "<group>"; };
 		20418A062CA6C194006FBB27 /* DetailMainSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainSheet.swift; sourceTree = "<group>"; };
 		20418A092CA6C353006FBB27 /* LetterSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSmallView.swift; sourceTree = "<group>"; };
 		20418A0E2CA6CC5A006FBB27 /* TopperSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopperSmallView.swift; sourceTree = "<group>"; };
@@ -808,6 +810,7 @@
 			children = (
 				20C0CEE72C92D5AB0074471B /* OtpFieldView.swift */,
 				20C0CEED2C931A8F0074471B /* MoreOptions.swift */,
+				201A215E2CBF03B80059E427 /* OTPFieldNew.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -1372,6 +1375,7 @@
 				5E137BCA2CAE7B02005CD225 /* BannerUpdateAPI.swift in Sources */,
 				5E9068612CA2EC7500C9EFE9 /* ProfileListItemModel.swift in Sources */,
 				5E1E269F2CA6C14A00D839B5 /* Constants.swift in Sources */,
+				201A215F2CBF03B80059E427 /* OTPFieldNew.swift in Sources */,
 				20D8DF8A2CA593900086CC62 /* DetailFullImageView.swift in Sources */,
 				20D9DA5B2CBE6B7D0025F402 /* OTPViewTabComponent.swift in Sources */,
 				5E04B4622CAD3305002109CC /* PerfumeAPI.swift in Sources */,

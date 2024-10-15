@@ -54,22 +54,36 @@ struct OtpView: View {
                     .foregroundColor(Constants.grayBorder)
                     .padding(.top, 30)
                 
-                HStack{
-                    // Display phone number (Optional)
-                    Text("Enter the code we've sent by text to \n\(phoneNumber)")
+                Text("Enter the code we've sent by text to")
+                    .font(.getFont(name: .libreRegular, size: 14))
+                    .padding(.top, 30)
+                    .padding(.horizontal, 16)
+                HStack (spacing : 0){
+                  
+                    Text(phoneNumber)
                         .font(.getFont(name: .libreRegular, size: 14))
-                        .padding(.top, 30)
+                    Text("Edit")
+                        .font(.getFont(name: .libreBold, size: 14))
+                        .underline()
+                        .padding(.leading,5)
+                        
                     Spacer()
                 }
+                .frame(height: 17)
                 .padding(.horizontal, 16)
                 
-                HStack{
-                    OtpFieldView(isError: viewModel.isError, error: (viewModel.err ?? "") , verifyOTP: { value in
-                        viewModel.otp = value
-                        viewModel.verifyOTP(phoneNumber: phoneNumber)
-                    })
-                    Spacer()
+                
+                ZStack{
+                    Rectangle()
+                        .stroke(Color.black, lineWidth: 1)
+                        .frame(maxWidth: .infinity,maxHeight: .infinity)
+                    
+                        OTPFieldNew(otpCode: $viewModel.otp, onCompletion: {
+                            viewModel.verifyOTP(phoneNumber: phoneNumber)
+                        })
+                            .frame(width: 200)
                 }
+                .frame(width: 260, height: 60)
                 .padding(.top, 30)
                 .padding(.horizontal, 16)
                 
@@ -106,7 +120,7 @@ struct OtpView: View {
                         viewModel.startTimer()
                     }){
                         Text ("Send Again")
-                            .font(.getFont(name: .latoBold, size: 14))
+                            .font(.getFont(name: .libreBold, size: 14))
                             .underline()
                             .foregroundColor(Color.black)
                     }
@@ -153,6 +167,9 @@ struct OtpView: View {
             .onDisappear(){
                 viewModel.stopTimer()
             }
+        }
+        .onTapGesture {
+            UIApplication.shared.hideKeyboard() 
         }
         .background(Color.white)
         .padding(.bottom, 50)
