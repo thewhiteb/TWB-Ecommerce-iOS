@@ -116,4 +116,3 @@ let trendingProductList: [TrendingProduct] = [
         ]
     )
 ]
-3
