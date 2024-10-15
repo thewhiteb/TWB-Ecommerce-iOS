@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @EnvironmentObject var viewModel : LoginViewModel
     
     @State private var navigateToOtp = false  // To control navigation to OtpView
     @State private var navigateToSignup = false  // To control navigation to SignupView

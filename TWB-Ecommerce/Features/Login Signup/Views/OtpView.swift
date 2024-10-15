@@ -10,32 +10,17 @@ import SwiftUI
 struct OtpView: View {
     
     @StateObject private var viewModel = OTPViewModel()
+    @EnvironmentObject var loginViewModel : LoginViewModel
     
     var phoneNumber: String
-    @State private var timeRemaining = 10
-    @State private var isTimerRunning = true
-    @State private var isClickable = false
-    @State private var isMoreOptionClicked = false
-    
+    var isComingFromCheckout: Bool = false
     var onBackButtonClick: () -> Void
     
-    // Function to start the timer
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if self.timeRemaining > 0 {
-                self.timeRemaining -= 1
-            } else {
-                self.isTimerRunning = false
-                self.isClickable = true // Enable click after timer ends
-                timer.invalidate() // Stop the timer
-            }
-        }
-    }
     
     var body: some View {
         
         VStack {
-            VStack {
+            VStack (alignment : .leading) {
                 HStack(spacing: 0) {
                     // Custom back button
                     Button(action: {
@@ -48,92 +33,136 @@ struct OtpView: View {
                     }
                     
                     Text("Confirm your number")
-                        .font(.getFont(name: .libreBold , size: 16))
+                        .font(.getFont(name: .libreBold, size: 16))
                         .foregroundColor(.black)
                         .fontWeight(.semibold)
                         .frame(width: 192, height: 18, alignment: .topLeading)
                         .padding(.leading, 12)
                     Spacer()
                     
-                    // Skip button
-                    SkipButton(action: {
-                    })
+                    if (isComingFromCheckout && viewModel.count >= 2){
+                        SkipButton(action: {
+                        })
+                    }
+                    
                 }
-                .padding(.top, 100)
+                .padding(.top, 70)
+                .padding(.horizontal, 16)
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Constants.grayBorder)
+                    .padding(.top, 30)
                 
                 HStack{
                     // Display phone number (Optional)
                     Text("Enter the code we've sent by text to \n\(phoneNumber)")
-                        .font(.getFont(name: .libreRegular , size: 14))
-                        .padding(.top, 50)
+                        .font(.getFont(name: .libreRegular, size: 14))
+                        .padding(.top, 30)
                     Spacer()
                 }
-                
+                .padding(.horizontal, 16)
                 
                 HStack{
-                    OtpFieldView(verifyOTP: { value in
+                    OtpFieldView(isError: viewModel.isError, error: (viewModel.err ?? "") , verifyOTP: { value in
                         viewModel.otp = value
                         viewModel.verifyOTP(phoneNumber: phoneNumber)
                     })
                     Spacer()
                 }
-                .padding(.top,30)
-                
+                .padding(.top, 30)
+                .padding(.horizontal, 16)
                 
                 HStack{
                     // Text for resend OTP with timer
                     Button(action: {
-                        if isClickable {
-                            isMoreOptionClicked.toggle()
-                        }
+                        
                     }) {
-                        Text(isClickable ? "I didn't receive the code" : "I didn't receive the code in (\(formatTime(timeRemaining)))")
-                            .font(.getFont(name: .libreRegular , size: 14))
-                            .padding(.vertical,10)
-                            .padding(.horizontal)
-                            .background(isClickable ? Color.black : Color.gray.opacity(0.2)) // Change background when clickable
-                            .foregroundColor(isClickable ? .white : .black) // Text color changes when clickable
-                            .cornerRadius(25) // Capsule background
+                        Group {
+                            if viewModel.isClickable {
+                                getColoredText() // Assuming this returns a Text view
+                            } else {
+                                Text("I didn't receive the code in (\(viewModel.formatTime()))")
+                            }
+                        }
+                        .font(.getFont(name: .libreRegular, size: 14))
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        .background(Color.gray.opacity(0.2)) // Change background when clickable
+                        .foregroundColor(viewModel.isClickable ? .white : .black) // Text color changes when clickable
+                        .cornerRadius(25) // Capsule background
                     }
-                    .disabled(!isClickable) // Disable button until it's clickable
+                    .disabled(!viewModel.isClickable) // Disable button until it's clickable
                     
                     Spacer()
                 }
-                .padding(.top,30)
+                .padding(.top, 30)
+                .padding(.horizontal, 16)
+                
+                if viewModel.isClickable {
+                    
+                    Button(action : {
+                        loginViewModel.sendOtp()
+                        viewModel.startTimer()
+                    }){
+                        Text ("Send Again")
+                            .font(.getFont(name: .latoBold, size: 14))
+                            .underline()
+                            .foregroundColor(Color.black)
+                    }
+                    
+                    .padding(.top,10)
+                    .padding(.horizontal, 16)
+                }
+                
+                
+                
                 
                 Spacer()
+                
+                if viewModel.isClickable {
+                    HStack (spacing : 0) {
+                        Text("Having trouble?")
+                            .font(.getFont(name: .libreRegular , size: 12))
+                        Text(" Choose another way")
+                            .font(.getFont(name: .libreBold , size: 12)).underline()
+                            .onTapGesture {
+                                if viewModel.isClickable {
+                                    viewModel.toggleMoreOptions()
+                                }
+                            }
+                        Spacer()
+                    }
+                    
+                    .padding(.horizontal, 16)
+                }
                 
                 SimpleButton(title: "Continue", action: {
                     print("Hello")
                 })
             }
-            .padding(.horizontal, 16)
+            
             .navigationBarBackButtonHidden(true)  // Hides the default back button
-            .sheet(isPresented: $isMoreOptionClicked) {
+            .sheet(isPresented: $viewModel.isMoreOptionClicked) {
                 MoreOptions(phoneNumber: phoneNumber)
                     .presentationDetents([.fraction(0.8), .large])
             }
             .onAppear {
-                startTimer() // Start the timer when the view appears
+                viewModel.startTimer() // Start the timer when the view appears
+            }
+            .onDisappear(){
+                viewModel.stopTimer()
             }
         }
         .background(Color.white)
         .padding(.bottom, 50)
-        
     }
     
-    // Format the time to "mm:ss"
-    private func formatTime(_ totalSeconds: Int) -> String {
-        let minutes = totalSeconds / 60
-        let seconds = totalSeconds % 60
-        return String(format: "%d:%02d", minutes, seconds)
+    private func getColoredText() -> Text {
+        "I didn't receive the code (0:00)"
+            .colorWord("(0:00)",
+                       wordColor: Color.red,
+                       defaultColor: Constants.black)
+            .font(.getFont(name: .libreRegular, size: 14))
     }
 }
-
-#Preview {
-    OtpView(phoneNumber: "123456789", onBackButtonClick: {
-        
-    })
-}
-
-

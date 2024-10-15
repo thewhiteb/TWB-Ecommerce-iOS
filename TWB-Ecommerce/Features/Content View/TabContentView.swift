@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TabContentView: View {
     @Namespace var animation
+    @StateObject private var loginViewModel = LoginViewModel()
     
     @State private var selectedTab = 0
     @State private var listItemSelected : TrendingProduct2? = nil
@@ -17,6 +18,7 @@ struct TabContentView: View {
     @State private var isDragDisable = false
     @State private var showBottomNavigation = true
     @State private var loginPhoneNumber : String = ""
+    @State private var isComingFromCheckout : Bool = true
     
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
@@ -149,7 +151,7 @@ struct TabContentView: View {
                     
                     
                     if isOTPViewActive{
-                        OTPViewTabComponent(phoneNumber: $loginPhoneNumber, onBackClick: {
+                        OTPViewTabComponent(phoneNumber: $loginPhoneNumber,isComingFromCheckout: isComingFromCheckout, onBackClick: {
                             withAnimation {
                                 isOTPViewActive = false
                             }  
@@ -178,6 +180,7 @@ struct TabContentView: View {
                 }
             }
             .ignoresSafeArea()
+            .environmentObject(loginViewModel)
         }
     }
     
