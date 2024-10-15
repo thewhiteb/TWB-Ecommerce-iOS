@@ -134,6 +134,7 @@
 		5E137BD02CAE9490005CD225 /* Endpoint+Extension+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E137BCF2CAE9490005CD225 /* Endpoint+Extension+Headers.swift */; };
 		5E1BD9A32CA18B970060AA6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BD9A22CA18B970060AA6D /* String+Extension.swift */; };
 		5E1DEF7C2CBE8CAC00E8E1F9 /* HomeScreenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DEF7B2CBE8CAC00E8E1F9 /* HomeScreenRepository.swift */; };
+		5E1DEF7F2CBE943600E8E1F9 /* ListingScreenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DEF7E2CBE943600E8E1F9 /* ListingScreenRepository.swift */; };
 		5E1E268A2CA696B600D839B5 /* ColorDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E266E2CA696B600D839B5 /* ColorDropdownView.swift */; };
 		5E1E268B2CA696B600D839B5 /* ColorOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E266F2CA696B600D839B5 /* ColorOption.swift */; };
 		5E1E268C2CA696B600D839B5 /* Flowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E26712CA696B600D839B5 /* Flowers.swift */; };
@@ -305,6 +306,7 @@
 		5E137BCF2CAE9490005CD225 /* Endpoint+Extension+Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Extension+Headers.swift"; sourceTree = "<group>"; };
 		5E1BD9A22CA18B970060AA6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E1DEF7B2CBE8CAC00E8E1F9 /* HomeScreenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRepository.swift; sourceTree = "<group>"; };
+		5E1DEF7E2CBE943600E8E1F9 /* ListingScreenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingScreenRepository.swift; sourceTree = "<group>"; };
 		5E1E266E2CA696B600D839B5 /* ColorDropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDropdownView.swift; sourceTree = "<group>"; };
 		5E1E266F2CA696B600D839B5 /* ColorOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorOption.swift; sourceTree = "<group>"; };
 		5E1E26712CA696B600D839B5 /* Flowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flowers.swift; sourceTree = "<group>"; };
@@ -974,6 +976,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		5E1DEF7D2CBE91E300E8E1F9 /* Listing Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5E1DEF7E2CBE943600E8E1F9 /* ListingScreenRepository.swift */,
+			);
+			path = "Listing Screen";
+			sourceTree = "<group>";
+		};
 		5E1E26702CA696B600D839B5 /* ColorsFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1088,6 +1098,7 @@
 		5E47E4CF2CB001D200138BA1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				5E1DEF7D2CBE91E300E8E1F9 /* Listing Screen */,
 				5E1DEF7A2CBE8C9400E8E1F9 /* Home */,
 				20D9DA552CBD51420025F402 /* Login */,
 			);
@@ -1403,6 +1414,7 @@
 				20A5223A2CBD093500B76BA7 /* ListingScreenTabComponent.swift in Sources */,
 				20C0CEC72C91CA980074471B /* ShopByFlowers.swift in Sources */,
 				5E1E268D2CA696B600D839B5 /* FlowersDropDownView.swift in Sources */,
+				5E1DEF7F2CBE943600E8E1F9 /* ListingScreenRepository.swift in Sources */,
 				20418A072CA6C194006FBB27 /* DetailMainSheet.swift in Sources */,
 				20C95CD62C981FC900B5174D /* FeatureProductParallax.swift in Sources */,
 				20D9DA542CBD50C10025F402 /* LoginResponse.swift in Sources */,
@@ -1582,7 +1594,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
-				DEVELOPMENT_TEAM = HTLHQV8AQ3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";
@@ -1591,6 +1603,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1613,7 +1626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TWB-Ecommerce/Preview Content\"";
-				DEVELOPMENT_TEAM = HTLHQV8AQ3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TWB-Ecommerce/Info.plist";
@@ -1622,6 +1635,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

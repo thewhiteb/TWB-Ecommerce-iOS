@@ -20,8 +20,8 @@ struct BannerSlide: View {
         
         VStack {
             TabView(selection: $currentPage) {
-                ForEach(banners) { banner in
-                    let url = Constants.imagesBaseURL + (banner.imageKey ?? .defaultStr)
+                ForEach(0..<banners.count) { index in
+                    let url = Constants.imagesBaseURL + (banners[index].imageKey ?? .defaultStr)
                     WebImage(url: URL(string: url)) { image in
                         image
                             .resizable()
@@ -62,8 +62,7 @@ struct BannerSlide: View {
 #Preview {
     GeometryReader {
        let size = $0.size
-        BannerSlide(banners: [], size: size)
+        BannerSlide(banners: globalBanners, size: size)
     }
   
 }
-
