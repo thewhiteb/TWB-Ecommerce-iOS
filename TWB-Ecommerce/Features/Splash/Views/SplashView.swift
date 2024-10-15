@@ -15,7 +15,9 @@ struct SplashView: View {
     @State private var isSecondImageVisible = false
     @State private var rotationAngle = 0.0
     @State private var navigateToNextScreen = false
-    
+
+    let homeRepository: HomeRepository = HomeRepositoryImplementation()
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -76,17 +78,6 @@ struct SplashView: View {
         }
     }
 
-//    func callBannerAPI() {
-//        Task {
-//            do {
-//                let response = try await AllBannerAPI().call()
-//                print(response)
-//            } catch let error {
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-
     func callPerfumeAPI() {
         Task {
             do {
@@ -112,106 +103,92 @@ struct SplashView: View {
         }
     }
 
-//    func updateBannerAPI() {
-//        Task {
-//            do {
-//                var response = try await GetBannerAPI(id: 78).call()
-//                response.banner.active.toggle()
-//                let secondResponse = try await UpdateBannerAPI(id: 78,
-//                                                               params: response.banner.getBannerDictionary()).call()
-//                print(secondResponse)
-//            } catch let error {
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-
     func newArivalAPI() {
         Task {
-            let response = await RepositoryImplementation.getNewArrivalsItems()
+            let response = await homeRepository.getNewArrivalsItems()
             if response.data != nil {
-                NewArrivalSingleton.shared.items = response.data
+                HomeScreenDataSingleton.shared.items = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.items = nil
+                HomeScreenDataSingleton.shared.items = nil
             }
         }
     }
 
     func giftByOccasionAPI() {
         Task {
-            let response = await RepositoryImplementation.getGiftByOccasionItems()
+            let response = await homeRepository.getGiftByOccasionItems()
             if response.data != nil {
-                NewArrivalSingleton.shared.giftByOccasion = response.data
+                HomeScreenDataSingleton.shared.giftByOccasion = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.giftByOccasion = nil
+                HomeScreenDataSingleton.shared.giftByOccasion = nil
             }
         }
     }
 
     func shopByStyleAPI() {
         Task {
-            let response = await RepositoryImplementation.getShopByStyleItems()
+            let response = await homeRepository.getShopByStyleItems()
             if response.data != nil {
-                NewArrivalSingleton.shared.shopByStyle = response.data
+                HomeScreenDataSingleton.shared.shopByStyle = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.shopByStyle = nil
+                HomeScreenDataSingleton.shared.shopByStyle = nil
             }
         }
     }
 
     func trendingProductsAPI() {
         Task {
-            let response = await RepositoryImplementation.getTrendingProductItems()
+            let response = await homeRepository.getTrendingProductItems()
             if response.data != nil {
-                NewArrivalSingleton.shared.trendingProducts = response.data
+                HomeScreenDataSingleton.shared.trendingProducts = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.trendingProducts = nil
+                HomeScreenDataSingleton.shared.trendingProducts = nil
             }
         }
     }
 
     func topCrouselsAPI() {
         Task {
-            let response = await RepositoryImplementation.getTopCrouselBanners()
+            let response = await homeRepository.getTopCrouselBanners()
             if response.data != nil {
-                NewArrivalSingleton.shared.topCrouselBanners = response.data
+                HomeScreenDataSingleton.shared.topCrouselBanners = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.topCrouselBanners = nil
+                HomeScreenDataSingleton.shared.topCrouselBanners = nil
             }
         }
     }
 
     func secondCrouselsAPI() {
         Task {
-            let response = await RepositoryImplementation.getTopCrouselBanners()
+            let response = await homeRepository.getTopCrouselBanners()
             if response.data != nil {
-                NewArrivalSingleton.shared.secondCrouselBanners = response.data
+                HomeScreenDataSingleton.shared.secondCrouselBanners = response.data
             } else {
                 // Show Alert
                 print(response.statusCode)
                 print(response.messages.first)
                 print(response)
-                NewArrivalSingleton.shared.secondCrouselBanners = nil
+                HomeScreenDataSingleton.shared.secondCrouselBanners = nil
             }
         }
     }

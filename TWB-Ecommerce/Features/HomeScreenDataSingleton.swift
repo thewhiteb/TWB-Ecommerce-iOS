@@ -7,11 +7,11 @@
 
 import Foundation
 
-class NewArrivalSingleton {
+class HomeScreenDataSingleton {
 
     private init() {}
 
-    static let shared = NewArrivalSingleton()
+    static let shared = HomeScreenDataSingleton()
 
     var items: [MainItem]?
     var giftByOccasion: [ProductItem]?

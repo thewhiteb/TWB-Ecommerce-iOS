@@ -18,7 +18,7 @@ struct HomeView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        BannerSlide(banners: NewArrivalSingleton.shared.topCrouselBanners ?? [],
+                        BannerSlide(banners: HomeScreenDataSingleton.shared.topCrouselBanners ?? [],
                                     size: size)
                         
                         VStack(spacing: 0) {
@@ -36,11 +36,11 @@ struct HomeView: View {
                         }
                         .padding(.top, 40)
                         
-                        TrendingProductList(trendingProductList: NewArrivalSingleton.shared.trendingProducts ?? [])
+                        TrendingProductList(trendingProductList: HomeScreenDataSingleton.shared.trendingProducts ?? [])
                             .padding(.top, 30)
                             .padding(.leading, 10)
                         
-                        FeatureProductParallax(banners: NewArrivalSingleton.shared.secondCrouselBanners ?? [])
+                        FeatureProductParallax(banners: HomeScreenDataSingleton.shared.secondCrouselBanners ?? [])
                             .padding(.top, 30)
 
                         VStack(spacing: 0) {
@@ -58,7 +58,7 @@ struct HomeView: View {
                         }
                         .padding(.top, 40)
                         
-                        SimpleGiftOccasionList(items: NewArrivalSingleton.shared.giftByOccasion ?? [])
+                        SimpleGiftOccasionList(items: HomeScreenDataSingleton.shared.giftByOccasion ?? [])
                             .padding(.top, 30)
                             .padding(.leading, 10)
                         
@@ -79,7 +79,7 @@ struct HomeView: View {
                                 .padding(.top, 2)
                         }
                         .padding(.top, 40)
-                        let list = NewArrivalSingleton.shared.shopByStyle ?? []
+                        let list = HomeScreenDataSingleton.shared.shopByStyle ?? []
                         ShopByStyles(items: list) { itemName in
                             onItemSelected(itemName)
                         }
@@ -100,7 +100,7 @@ struct HomeView: View {
                         }
                         .padding(.top, 20)
                         
-                        NewArrivals(items: NewArrivalSingleton.shared.items ?? [])
+                        NewArrivals(items: HomeScreenDataSingleton.shared.items ?? [])
                             .padding(.horizontal, 10)
                             .padding(.top, 30)
                         
