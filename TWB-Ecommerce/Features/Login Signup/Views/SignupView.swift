@@ -165,9 +165,7 @@ struct SignupView: View {
                 .padding(.bottom, 50) // Adjust bottom padding as needed
             }
             .navigationDestination(isPresented: $navigateToOtp) {
-                OtpView(phoneNumber: phoneNumber, onBackButtonClick: {
-                    
-                })  // Navigate and pass the phone number
+                OtpView(phoneNumber: phoneNumber)  // Navigate and pass the phone number
             }
             .navigationBarBackButtonHidden(true) // Hide back button
             .onTapGesture {

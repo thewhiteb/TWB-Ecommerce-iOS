@@ -11,10 +11,10 @@ struct OtpView: View {
     
     @StateObject private var viewModel = OTPViewModel()
     @EnvironmentObject var loginViewModel : LoginViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var phoneNumber: String
     var isComingFromCheckout: Bool = false
-    var onBackButtonClick: () -> Void
     
     
     var body: some View {
@@ -25,11 +25,10 @@ struct OtpView: View {
                     // Custom back button
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        onBackButtonClick()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
-                        Image(systemName: "arrow.left")  // Use a system image for the back arrow
+                        Image("Close Button")  // Use a system image for the back arrow
                             .foregroundColor(.black)  // Set the color of the back button
-                            .font(.system(size: 22, weight: .semibold))  // Customize the size and weight of the icon
                     }
                     
                     Text("Confirm your number")
@@ -46,7 +45,7 @@ struct OtpView: View {
                     }
                     
                 }
-                .padding(.top, 70)
+                .padding(.top, 20)
                 .padding(.horizontal, 16)
                 
                 Rectangle()

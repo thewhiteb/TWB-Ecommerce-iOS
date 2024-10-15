@@ -14,8 +14,6 @@ struct OTPViewTabComponent: View {
     
     var onBackClick : () -> Void
     var body: some View {
-        OtpView(phoneNumber: phoneNumber,isComingFromCheckout: isComingFromCheckout ,onBackButtonClick: {
-            onBackClick()
-        })
+        OtpView(phoneNumber: phoneNumber,isComingFromCheckout: isComingFromCheckout)
     }
 }

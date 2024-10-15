@@ -13,9 +13,7 @@ struct LoginViewTabComponent: View {
     var onVerifyNumber : (String) -> Void
     
     var body: some View {
-        LoginView(onCrossClick: onCrossClick, onLoginClick: { value in
-            onVerifyNumber(value)
-        })
+        LoginView()
     }
 }
 

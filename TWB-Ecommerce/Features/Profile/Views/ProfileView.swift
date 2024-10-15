@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ProfileView: View {
     let isUserLoggedIn: Bool = false
-    
-    var onLoginClick : () -> Void
+    @State private var clickOnLogin = false
+    @StateObject private var loginViewModel = LoginViewModel()
 
     var body: some View {
         VStack {
@@ -23,7 +23,13 @@ struct ProfileView: View {
         .safeAreaInset(edge: .top) {
             Color.clear.frame(height: 50)
         }
+        .sheet(isPresented: $clickOnLogin) {
+            
+            LoginView()
+                .presentationDetents([.fraction(0.95), .large])
+        }
         .background(Constants.lightGray)
+        .environmentObject(loginViewModel)
     }
 
     @ViewBuilder
@@ -61,7 +67,7 @@ struct ProfileView: View {
         HStack(spacing: 10) {
             Button {
                 print("Login Button Clicked")
-                onLoginClick()
+                clickOnLogin = true
                 
             } label: {
                 Text("Login")
@@ -87,9 +93,7 @@ struct ProfileView: View {
     }
 }
 #Preview {
-    ProfileView(onLoginClick: {
-        
-    })
+    ProfileView()
 }
 
 

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var viewModel : LoginViewModel
+    @Environment(\.presentationMode) var presentationMode
     
-//    @StateObject var viewModel : LoginViewModel = LoginViewModel()
+    @State private var clickOnContinue = false
     
     @State private var navigateToOtp = false  // To control navigation to OtpView
     @State private var navigateToSignup = false  // To control navigation to SignupView
@@ -20,9 +21,6 @@ struct LoginView: View {
     @ObservedObject var googleManager = GoogleLoginManager()     // Google login manager
     @ObservedObject var appleManager = AppleSignInManager()      // Apple login manager
     
-    var onCrossClick : () -> Void
-    var onLoginClick : (String) -> Void
-    
     var body: some View {
        
             VStack(alignment:.leading) {
@@ -30,6 +28,9 @@ struct LoginView: View {
                 ZStack{
                     HStack {
                         Image ("Close Button")
+                            .onTapGesture {
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         Spacer()
                     }
                     .padding(.horizontal)
@@ -38,6 +39,7 @@ struct LoginView: View {
                     Text("Log In Or Sign Up")
                         .font(.getFont(name: .libreBold, size: 16))
                 }
+                .padding(.top, 20)
                
                 
                 Divider()
@@ -64,14 +66,18 @@ struct LoginView: View {
                         .padding(.leading,20)
                 }
                 // Login button
-                SimpleButton(title: "Login", action: {
+                SimpleButton(title: "Continue", action: {
                     if viewModel.phoneNumber.isEmpty {
                         // Show error if the phone number is empty
                         viewModel.err = "Please enter your phone number"
                     } else {
                         viewModel.sendOtp()
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        onLoginClick("+971\(viewModel.phoneNumber)")
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            clickOnContinue = true
+                        }
+                        
                     }
                 })
                 .padding(.top, 12)
@@ -92,29 +98,7 @@ struct LoginView: View {
                         .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .padding(.trailing, 16)
                 }
-                .padding(.top, 30)
-                
-//                // Social login buttons (Google, Apple, Facebook)
-//                HStack {
-//                    SocialButton(imageName: "google_logo", action: {
-//                        Task {
-//                            await googleManager.googleOauth() // Call Google sign-in
-//                        }
-//                    })
-//                    Spacer()
-//                    SocialButton(imageName: "apple_logo", action: {
-//                        appleManager.startSignInWithAppleFlow() // Call Apple sign-in
-//                    })
-//                    Spacer()
-//                    SocialButton(imageName: "facebook_logo", action: {
-//                        fbManager.facebookLogin() // Call Facebook sign-in
-//                    })
-//                }
-//                .padding(.leading, 16)
-//                .padding(.trailing, 16)
-//                .padding(.top, 30)
-                
-                
+                .padding(.top, 30) 
                 ZStack {
                     // Background rectangle with border
                     Rectangle()
@@ -196,6 +180,11 @@ struct LoginView: View {
                 Spacer()
                 
             }
+            .sheet(isPresented: $clickOnContinue) {
+                
+                OtpView(phoneNumber: "+971\(viewModel.phoneNumber)")
+                    .presentationDetents([.fraction(0.95), .large])
+            }
             .background(Color.white)
             .onTapGesture {
                 UIApplication.shared.hideKeyboard()  // Dismiss the keyboard when tapping outside
@@ -205,9 +194,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(onCrossClick : {
-        
-    }, onLoginClick: { value in
-        
-    })
+    LoginView()
 }
