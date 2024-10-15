@@ -14,7 +14,7 @@ struct NewArivalAPI: Endpoint {
     var pathURL: String = "/mainitem/new-arrival"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = JSONEncoding.default
 }
 
 // MARK: - MainItem

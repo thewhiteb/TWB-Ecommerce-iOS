@@ -13,5 +13,5 @@ struct GiftByOccasionAPI: Endpoint {
     var pathURL: String = "/mainitem/1/categories"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = JSONEncoding.default
 }
