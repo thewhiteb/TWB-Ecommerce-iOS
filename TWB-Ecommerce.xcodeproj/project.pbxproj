@@ -557,6 +557,8 @@
 		2075F3A12C636EC70010536E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				20D9DA512CBD50970025F402 /* LoginRequest.swift */,
+				20D9DA532CBD50C10025F402 /* LoginResponse.swift */,
 				209A33842C6CCE3E008B8D9B /* Country.swift */,
 			);
 			path = Models;
@@ -692,8 +694,6 @@
 		20BB05E42C6257A800A3DF38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				20D9DA512CBD50970025F402 /* LoginRequest.swift */,
-				20D9DA532CBD50C10025F402 /* LoginResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

@@ -25,7 +25,7 @@ class LoginViewModel: ObservableObject {
             return
         }
         
-        let formattedPhoneNumber = "%2B971\(phoneNumber)"
+        let formattedPhoneNumber = "+971\(phoneNumber)"
 
         Task {
             let request = LoginRequest(

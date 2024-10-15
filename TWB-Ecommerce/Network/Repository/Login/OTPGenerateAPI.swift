@@ -15,7 +15,7 @@ struct OTPGenerateAPI: Endpoint {
     var pathURL: String = "/otp-code/generate"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .post
-    var encoding: JSONEncoding = .prettyPrinted
+    var encoding: JSONEncoding = .default
     var params: [String: Any]
     
     init(request: LoginRequest) {
