@@ -38,7 +38,7 @@ struct TrendingProduct: Codable, Identifiable {
     }
 }
 
-let trendingProductList: [TrendingProduct] = [
+let globalTrendingProductList: [TrendingProduct] = [
     .init(
         id: 444,
         name: "Rectangular Acrylic 061",
