@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 
 struct OTPGenerateAPI: Endpoint {
-    typealias ResponseType = MainResponse<[LoginResponse]>
+    typealias ResponseType = MainResponse<LoginResponse>
     
     var pathURL: String = "/otp-code/generate"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .post
-    var encoding: JSONEncoding = .default
+    var encoding: ParameterEncoding = URLEncoding.queryString
     var params: [String: Any]
     
     init(request: LoginRequest) {
