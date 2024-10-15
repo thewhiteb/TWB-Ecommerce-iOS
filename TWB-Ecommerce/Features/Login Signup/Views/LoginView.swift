@@ -81,7 +81,8 @@ struct LoginView: View {
                         viewModel.err = "Please enter your phone number"
                     } else {
                         viewModel.sendOtp()
-                        onLoginClick(viewModel.phoneNumber)
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        onLoginClick("+971\(viewModel.phoneNumber)")
                     }
                 })
                 .padding(.top, 0)

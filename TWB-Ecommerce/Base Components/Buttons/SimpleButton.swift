@@ -13,7 +13,7 @@ struct SimpleButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.custom("Baskerville-SemiBold", fixedSize: 18))
+                .font(.getFont(name: .libreBold , size: 16))
                 .fontWeight(.bold)
                 .padding()
                 .frame(maxWidth: .infinity, minHeight: 60) // Make button full width

@@ -13,16 +13,9 @@ struct OtpFieldView: View {
     @State private var isError: Bool = false  // To indicate an error and turn squares red
     @FocusState private var isFieldFocused: Int?  // Focused state
     
-    // Closure to return OTP verification result to the parent view
-    var onOtpVerified: (Bool) -> Void
+   
     
-    // API Call simulation (replace with actual API call)
-    func verifyOtp(_ otp: String, completion: @escaping (Bool) -> Void) {
-        // Simulate API call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            completion(otp == "1234")  // Dummy check: Only accept "1234"
-        }
-    }
+    var verifyOTP : (String) -> Void
     
     var body: some View {
         VStack(alignment :.leading) {
@@ -47,15 +40,7 @@ struct OtpFieldView: View {
                                 // All OTP digits are filled, verify OTP
                                 let enteredOtp = otp.joined()
                                 isFieldFocused = nil  // Remove focus after the last digit is entered
-                                verifyOtp(enteredOtp) { isSuccess in
-                                    if isSuccess {
-                                        print("OTP Verified: \(enteredOtp)")
-                                        onOtpVerified(true)  // Notify parent of successful verification
-                                    } else {
-                                        handleWrongOtp()
-                                        onOtpVerified(false)  // Notify parent of failure
-                                    }
-                                }
+                                verifyOTP(enteredOtp)
                             } else if newValue.isEmpty && index > 0 {
                                 // Move back to the previous field if the field is empty
                                 focusedIndex = index - 1
@@ -78,9 +63,9 @@ struct OtpFieldView: View {
                 .padding(.top, 8)
             }
         }
-        .onAppear {
-            isFieldFocused = 0  // Focus the first field on appear
-        }
+//        .onAppear {
+//            isFieldFocused = 0  // Focus the first field on appear
+//        }
     }
     
     // Handles the wrong OTP case: clears fields, turns red, then resets after 1 second
@@ -103,8 +88,8 @@ struct ContentViewOTP: View {
     
     var body: some View {
         VStack {
-            OtpFieldView(onOtpVerified: { success in
-                isOtpVerified = success
+            OtpFieldView(verifyOTP: { value in
+                
             })
             
             if isOtpVerified {

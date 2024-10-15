@@ -134,18 +134,30 @@ struct TabContentView: View {
                     
                     
                     if isLoginViewActive{
-                        LoginViewTabComponent(isLoginViewActive: $isLoginViewActive, onCrossClick: {
+                        LoginViewTabComponent(onCrossClick: {
                             withAnimation {
                                 showBottomNavigation = true
                                 isLoginViewActive = false
                             }
                         },onVerifyNumber: { value in
-                            
+                            loginPhoneNumber = value
+                            isOTPViewActive = true
                         })
                         .transition(.move(edge: .trailing))
                         .animation(.easeInOut(duration: 0.3), value: isLoginViewActive)
                     }
                     
+                    
+                    if isOTPViewActive{
+                        OTPViewTabComponent(phoneNumber: $loginPhoneNumber, onBackClick: {
+                            withAnimation {
+                                isOTPViewActive = false
+                            }  
+                        })
+                            .transition(.move(edge: .trailing))
+                            .animation(.easeInOut(duration: 0.3), value: isOTPViewActive)
+                        
+                    }
                     
                     
                 }
