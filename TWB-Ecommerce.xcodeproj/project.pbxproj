@@ -104,6 +104,11 @@
 		20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C95CD82C98316F00B5174D /* ListTabItem.swift */; };
 		20D4FAD12CBD128B00175414 /* LoginViewTabComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4FAD02CBD128B00175414 /* LoginViewTabComponent.swift */; };
 		20D8DF8A2CA593900086CC62 /* DetailFullImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8DF892CA593900086CC62 /* DetailFullImageView.swift */; };
+		20D9DA4E2CBD3F7C0025F402 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA4D2CBD3F7C0025F402 /* LoginViewModel.swift */; };
+		20D9DA522CBD50970025F402 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA512CBD50970025F402 /* LoginRequest.swift */; };
+		20D9DA542CBD50C10025F402 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA532CBD50C10025F402 /* LoginResponse.swift */; };
+		20D9DA572CBD51590025F402 /* OTPGenerateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */; };
+		20D9DA592CBD520F0025F402 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA582CBD520F0025F402 /* LoginRepository.swift */; };
 		20E211CC2CAD372D007BC536 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E211CB2CAD372D007BC536 /* DescriptionView.swift */; };
 		20E211CF2CAD397C007BC536 /* DescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E211CE2CAD397C007BC536 /* DescriptionModel.swift */; };
 		20FE056D2C8F38EA0022E022 /* FeatureProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */; };
@@ -272,6 +277,11 @@
 		20C95CD82C98316F00B5174D /* ListTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabItem.swift; sourceTree = "<group>"; };
 		20D4FAD02CBD128B00175414 /* LoginViewTabComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTabComponent.swift; sourceTree = "<group>"; };
 		20D8DF892CA593900086CC62 /* DetailFullImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFullImageView.swift; sourceTree = "<group>"; };
+		20D9DA4D2CBD3F7C0025F402 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = "TWB-Ecommerce/Features/Login Signup/LoginViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		20D9DA512CBD50970025F402 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginRequest.swift; path = "TWB-Ecommerce/Features/Splash/LoginRequest.swift"; sourceTree = SOURCE_ROOT; };
+		20D9DA532CBD50C10025F402 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginResponse.swift; path = "TWB-Ecommerce/Features/Splash/LoginResponse.swift"; sourceTree = SOURCE_ROOT; };
+		20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPGenerateAPI.swift; sourceTree = "<group>"; };
+		20D9DA582CBD520F0025F402 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		20E211CB2CAD372D007BC536 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		20E211CE2CAD397C007BC536 /* DescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionModel.swift; sourceTree = "<group>"; };
 		20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProducts.swift; sourceTree = "<group>"; };
@@ -539,6 +549,7 @@
 		2075F3A02C636EBD0010536E /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				20D9DA4D2CBD3F7C0025F402 /* LoginViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -546,6 +557,8 @@
 		2075F3A12C636EC70010536E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				20D9DA512CBD50970025F402 /* LoginRequest.swift */,
+				20D9DA532CBD50C10025F402 /* LoginResponse.swift */,
 				209A33842C6CCE3E008B8D9B /* Country.swift */,
 			);
 			path = Models;
@@ -858,6 +871,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		20D9DA552CBD51420025F402 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */,
+				20D9DA582CBD520F0025F402 /* LoginRepository.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		20E211CD2CAD3963007BC536 /* Description */ = {
 			isa = PBXGroup;
 			children = (
@@ -1052,6 +1074,7 @@
 		5E47E4CF2CB001D200138BA1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				20D9DA552CBD51420025F402 /* Login */,
 				5E47E4D02CB001E700138BA1 /* Repository.swift */,
 			);
 			path = Repository;
@@ -1314,10 +1337,12 @@
 				5EAF54392CB66D3A00229A2F /* ShopByStyleAPI.swift in Sources */,
 				20C0CED42C92C7060074471B /* SocialButton.swift in Sources */,
 				204EFBB62CA5523B002D9986 /* DetailHeaderView.swift in Sources */,
+				20D9DA592CBD520F0025F402 /* LoginRepository.swift in Sources */,
 				20C0D52B2C8715580060354A /* TrendingProductItem.swift in Sources */,
 				20C0D5262C870A6F0060354A /* BannerSlide.swift in Sources */,
 				20A414292C8EC8D100D03BC4 /* BagView.swift in Sources */,
 				5E1E26942CA696B600D839B5 /* TabListSmallView.swift in Sources */,
+				20D9DA4E2CBD3F7C0025F402 /* LoginViewModel.swift in Sources */,
 				200283CF2CB0111100F45E44 /* NeedHelpLargeView.swift in Sources */,
 				5E1E269C2CA696B600D839B5 /* SortSheet.swift in Sources */,
 				204EFBB02CA41571002D9986 /* DetailScreenView.swift in Sources */,
@@ -1362,6 +1387,7 @@
 				204EFBB42CA54BCC002D9986 /* DetailBannerView.swift in Sources */,
 				20418A132CA6D6AC006FBB27 /* AddToBagButton.swift in Sources */,
 				20C95CD92C98316F00B5174D /* ListTabItem.swift in Sources */,
+				20D9DA572CBD51590025F402 /* OTPGenerateAPI.swift in Sources */,
 				5EBAE1952CAA9506006106CA /* NetworkLayer.swift in Sources */,
 				20C0CED72C92C7F60074471B /* UIApplication.swift in Sources */,
 				5EAF543B2CB6ADB200229A2F /* TrendingProductAPI.swift in Sources */,
@@ -1371,11 +1397,13 @@
 				5E1E268D2CA696B600D839B5 /* FlowersDropDownView.swift in Sources */,
 				20418A072CA6C194006FBB27 /* DetailMainSheet.swift in Sources */,
 				20C95CD62C981FC900B5174D /* FeatureProductParallax.swift in Sources */,
+				20D9DA542CBD50C10025F402 /* LoginResponse.swift in Sources */,
 				20C0CED22C92C6D50074471B /* PhoneNumberField.swift in Sources */,
 				5E0E92BC2CB55CEE00EC59BD /* GiftByOccasionAPI.swift in Sources */,
 				5E09D83C2CB3F8B4003BB140 /* MainResponseModel.swift in Sources */,
 				5E9F3BF12CB95C0F00B0823C /* TopCrouselAPI.swift in Sources */,
 				5E1E269D2CA696B600D839B5 /* ListingScreenView.swift in Sources */,
+				20D9DA522CBD50970025F402 /* LoginRequest.swift in Sources */,
 				5E1E26972CA696B600D839B5 /* BottomView.swift in Sources */,
 				20C0CEC52C91C8480074471B /* GiftItem.swift in Sources */,
 				5ED0055B2C9BFFA9003B899B /* Color+Constants.swift in Sources */,
