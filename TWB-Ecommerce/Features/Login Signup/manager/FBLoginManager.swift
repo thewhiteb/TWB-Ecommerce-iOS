@@ -27,15 +27,17 @@ class FBLoginManager: ObservableObject {
     }
 
     private func fetchUserProfile() {
-        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"])
+        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email,birthday"])
         graphRequest.start { _, result, error in
             if let error = error {
                 print("Failed to fetch user profile: \(error)")
             } else if let userProfile = result as? [String: Any] {
                 let name = userProfile["name"] as? String ?? "No Name"
                 let email = userProfile["email"] as? String ?? "No Email"
+                let birthday = userProfile["birthday"] as? String ?? "No Birthday"
                 print("User Name: \(name)")
                 print("User Email: \(email)")
+                print("User Birthday: \(birthday)")
             }
         }
     }

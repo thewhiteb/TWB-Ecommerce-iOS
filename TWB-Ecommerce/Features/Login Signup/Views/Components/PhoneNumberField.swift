@@ -28,10 +28,12 @@ struct PhoneNumberField: View {
             // Non-editable country code and editable phone number field
             HStack {
                 Text(selectedCountry?.code ?? "+971")  // Non-editable country code
+                    .font(.getFont(name: .libreBold , size: 16))
                     .foregroundColor(.gray)
                 
                 // Phone Number Field
                 TextField("Phone Number", text: $phoneNumber)
+                    .font(.getFont(name: .libreBold , size: 16))
                     .keyboardType(.phonePad)
                     .padding(.leading, 0)  // Add padding to the left of the TextField
             }

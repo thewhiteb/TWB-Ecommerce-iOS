@@ -18,6 +18,7 @@
 		20056ECC2C62412F000B661B /* TWB_EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */; };
 		20056ED02C624130000B661B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ECF2C624130000B661B /* Assets.xcassets */; };
 		20056ED32C624130000B661B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20056ED22C624130000B661B /* Preview Assets.xcassets */; };
+		201A215F2CBF03B80059E427 /* OTPFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A215E2CBF03B80059E427 /* OTPFieldNew.swift */; };
 		20418A072CA6C194006FBB27 /* DetailMainSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A062CA6C194006FBB27 /* DetailMainSheet.swift */; };
 		20418A0A2CA6C353006FBB27 /* LetterSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A092CA6C353006FBB27 /* LetterSmallView.swift */; };
 		20418A0F2CA6CC5A006FBB27 /* TopperSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418A0E2CA6CC5A006FBB27 /* TopperSmallView.swift */; };
@@ -109,6 +110,11 @@
 		20D9DA542CBD50C10025F402 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA532CBD50C10025F402 /* LoginResponse.swift */; };
 		20D9DA572CBD51590025F402 /* OTPGenerateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */; };
 		20D9DA592CBD520F0025F402 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA582CBD520F0025F402 /* LoginRepository.swift */; };
+		20D9DA5B2CBE6B7D0025F402 /* OTPViewTabComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA5A2CBE6B7D0025F402 /* OTPViewTabComponent.swift */; };
+		20D9DA5D2CBE8B970025F402 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA5C2CBE8B970025F402 /* OTPViewModel.swift */; };
+		20D9DA5F2CBE8C010025F402 /* OTPVerifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA5E2CBE8C010025F402 /* OTPVerifyAPI.swift */; };
+		20D9DA612CBE8C710025F402 /* OTPVerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA602CBE8C710025F402 /* OTPVerifyRequest.swift */; };
+		20D9DA632CBE8D310025F402 /* OTPVerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9DA622CBE8D310025F402 /* OTPVerifyResponse.swift */; };
 		20E211CC2CAD372D007BC536 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E211CB2CAD372D007BC536 /* DescriptionView.swift */; };
 		20E211CF2CAD397C007BC536 /* DescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E211CE2CAD397C007BC536 /* DescriptionModel.swift */; };
 		20FE056D2C8F38EA0022E022 /* FeatureProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */; };
@@ -196,6 +202,7 @@
 		20056ECB2C62412F000B661B /* TWB_EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWB_EcommerceApp.swift; sourceTree = "<group>"; };
 		20056ECF2C624130000B661B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20056ED22C624130000B661B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		201A215E2CBF03B80059E427 /* OTPFieldNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFieldNew.swift; sourceTree = "<group>"; };
 		20418A062CA6C194006FBB27 /* DetailMainSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainSheet.swift; sourceTree = "<group>"; };
 		20418A092CA6C353006FBB27 /* LetterSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSmallView.swift; sourceTree = "<group>"; };
 		20418A0E2CA6CC5A006FBB27 /* TopperSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopperSmallView.swift; sourceTree = "<group>"; };
@@ -283,6 +290,11 @@
 		20D9DA532CBD50C10025F402 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginResponse.swift; path = "TWB-Ecommerce/Features/Splash/LoginResponse.swift"; sourceTree = SOURCE_ROOT; };
 		20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPGenerateAPI.swift; sourceTree = "<group>"; };
 		20D9DA582CBD520F0025F402 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		20D9DA5A2CBE6B7D0025F402 /* OTPViewTabComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewTabComponent.swift; sourceTree = "<group>"; };
+		20D9DA5C2CBE8B970025F402 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OTPViewModel.swift; path = "TWB-Ecommerce/Features/Login Signup/OTPViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		20D9DA5E2CBE8C010025F402 /* OTPVerifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyAPI.swift; sourceTree = "<group>"; };
+		20D9DA602CBE8C710025F402 /* OTPVerifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OTPVerifyRequest.swift; path = "TWB-Ecommerce/Features/Login Signup/OTPVerifyRequest.swift"; sourceTree = SOURCE_ROOT; };
+		20D9DA622CBE8D310025F402 /* OTPVerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OTPVerifyResponse.swift; path = "TWB-Ecommerce/Features/Login Signup/OTPVerifyResponse.swift"; sourceTree = SOURCE_ROOT; };
 		20E211CB2CAD372D007BC536 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		20E211CE2CAD397C007BC536 /* DescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionModel.swift; sourceTree = "<group>"; };
 		20FE056C2C8F38EA0022E022 /* FeatureProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProducts.swift; sourceTree = "<group>"; };
@@ -552,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				20D9DA4D2CBD3F7C0025F402 /* LoginViewModel.swift */,
+				20D9DA5C2CBE8B970025F402 /* OTPViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -562,6 +575,8 @@
 				20D9DA512CBD50970025F402 /* LoginRequest.swift */,
 				20D9DA532CBD50C10025F402 /* LoginResponse.swift */,
 				209A33842C6CCE3E008B8D9B /* Country.swift */,
+				20D9DA602CBE8C710025F402 /* OTPVerifyRequest.swift */,
+				20D9DA622CBE8D310025F402 /* OTPVerifyResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -651,6 +666,7 @@
 				20A5223B2CBD095800B76BA7 /* DetailScreenTabComponent.swift */,
 				20A5223D2CBD097300B76BA7 /* DetailFullImageTabComponent.swift */,
 				20D4FAD02CBD128B00175414 /* LoginViewTabComponent.swift */,
+				20D9DA5A2CBE6B7D0025F402 /* OTPViewTabComponent.swift */,
 			);
 			path = "Tab Components";
 			sourceTree = "<group>";
@@ -796,6 +812,7 @@
 			children = (
 				20C0CEE72C92D5AB0074471B /* OtpFieldView.swift */,
 				20C0CEED2C931A8F0074471B /* MoreOptions.swift */,
+				201A215E2CBF03B80059E427 /* OTPFieldNew.swift */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -878,6 +895,7 @@
 			children = (
 				20D9DA562CBD51590025F402 /* OTPGenerateAPI.swift */,
 				20D9DA582CBD520F0025F402 /* LoginRepository.swift */,
+				20D9DA5E2CBE8C010025F402 /* OTPVerifyAPI.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1368,13 +1386,16 @@
 				200283D72CB1FDD500F45E44 /* AddOnsDetailSheet.swift in Sources */,
 				5E90685D2CA2C49700C9EFE9 /* ProfileListingView.swift in Sources */,
 				5E47E4CD2CB0015B00138BA1 /* MainItemCategories.swift in Sources */,
+				20D9DA5F2CBE8C010025F402 /* OTPVerifyAPI.swift in Sources */,
 				20418A0A2CA6C353006FBB27 /* LetterSmallView.swift in Sources */,
 				20C0CEB52C9198560074471B /* ShopByStyleItem.swift in Sources */,
 				5E1E26962CA696B600D839B5 /* ArtWork.swift in Sources */,
 				5E137BCA2CAE7B02005CD225 /* BannerUpdateAPI.swift in Sources */,
 				5E9068612CA2EC7500C9EFE9 /* ProfileListItemModel.swift in Sources */,
 				5E1E269F2CA6C14A00D839B5 /* Constants.swift in Sources */,
+				201A215F2CBF03B80059E427 /* OTPFieldNew.swift in Sources */,
 				20D8DF8A2CA593900086CC62 /* DetailFullImageView.swift in Sources */,
+				20D9DA5B2CBE6B7D0025F402 /* OTPViewTabComponent.swift in Sources */,
 				5E04B4622CAD3305002109CC /* PerfumeAPI.swift in Sources */,
 				20FE056F2C9028750022E022 /* FeatureProductsBanner.swift in Sources */,
 				20C0CEEA2C92F71F0074471B /* OtpView.swift in Sources */,
@@ -1420,7 +1441,9 @@
 				20D9DA542CBD50C10025F402 /* LoginResponse.swift in Sources */,
 				20C0CED22C92C6D50074471B /* PhoneNumberField.swift in Sources */,
 				5E0E92BC2CB55CEE00EC59BD /* GiftByOccasionAPI.swift in Sources */,
+				20D9DA632CBE8D310025F402 /* OTPVerifyResponse.swift in Sources */,
 				5E09D83C2CB3F8B4003BB140 /* MainResponseModel.swift in Sources */,
+				20D9DA612CBE8C710025F402 /* OTPVerifyRequest.swift in Sources */,
 				5E9F3BF12CB95C0F00B0823C /* TopCrouselAPI.swift in Sources */,
 				5E1E269D2CA696B600D839B5 /* ListingScreenView.swift in Sources */,
 				20D9DA522CBD50970025F402 /* LoginRequest.swift in Sources */,
@@ -1451,6 +1474,7 @@
 				20418A0F2CA6CC5A006FBB27 /* TopperSmallView.swift in Sources */,
 				20B5BB8D2CAEB0AA0061911A /* MultipleLetterView.swift in Sources */,
 				20A4142C2C8EC90800D03BC4 /* ProfileView.swift in Sources */,
+				20D9DA5D2CBE8B970025F402 /* OTPViewModel.swift in Sources */,
 				20C0D5602C89A0D80060354A /* GoogleLoginManager.swift in Sources */,
 				5E47E4C92CB0003900138BA1 /* MainItemsCategoriesAPI.swift in Sources */,
 				5E137BCC2CAE82C5005CD225 /* GetBannerAPI.swift in Sources */,
