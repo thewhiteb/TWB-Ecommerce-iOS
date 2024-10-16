@@ -32,15 +32,16 @@ extension Endpoint {
         case .success(let data):
             return try parseData(using: data)
         case .failure(let error):
+            logNonFetalException()
             if let statusCode = response.response?.statusCode {
                 if (400...599).contains(statusCode), let data = response.data {
-                    logNonFetalException(using: data)
                     return try parseData(using: data)
                 }
             }
             throw NSError(domain: "Alamofire Error",
                           code: NetworkErrors.getErrorCode(for: error),
-                          userInfo: ["reason": "\(error.localizedDescription)"])
+                          userInfo: ["reason": "\(error.localizedDescription)",
+                                     "urlPath": url.absoluteString])
         }
     }
 
@@ -75,7 +76,8 @@ extension Endpoint {
         }
     }
 
-    private func logNonFetalException(using request: Data) {
+    private func logNonFetalException() {
         //TODO: - Log non fetal exception over the firebase
+        print("API Failed for \(self.pathURL)")
     }
 }

@@ -15,6 +15,8 @@ struct SplashView: View {
     @State private var isSecondImageVisible = false
     @State private var rotationAngle = 0.0
     @State private var navigateToNextScreen = false
+    @State private var showErrorAlert = false
+    @State private var errorAlert : Alert?
 
     let homeRepository: HomeRepository = HomeRepositoryImplementation()
 
@@ -66,6 +68,11 @@ struct SplashView: View {
             secondCrouselsAPI()
             getListingScreenData()
         }
+        .alert(isPresented: $showErrorAlert) {
+            self.errorAlert ?? Alert(title: Text("Error"),
+                                     message: Text("Something went wrong. Please try again later."),
+                                     dismissButton: .default(Text("OK")))
+        }
         .background(Color.white)
     }
     
@@ -111,9 +118,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.items = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.items = nil
             }
         }
@@ -126,9 +132,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.giftByOccasion = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.giftByOccasion = nil
             }
         }
@@ -141,9 +146,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.shopByStyle = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.shopByStyle = nil
             }
         }
@@ -156,9 +160,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.trendingProducts = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.trendingProducts = nil
             }
         }
@@ -171,9 +174,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.topCrouselBanners = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.topCrouselBanners = nil
             }
         }
@@ -186,9 +188,8 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.secondCrouselBanners = response.data
             } else {
                 // Show Alert
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
                 HomeScreenDataSingleton.shared.secondCrouselBanners = nil
             }
         }
@@ -201,11 +202,21 @@ struct SplashView: View {
             if response.data != nil {
                 print(response.data)
             } else {
-                print(response.statusCode)
-                print(response.messages.first)
-                print(response)
+                generateErrorAlert(statusCode: response.statusCode,
+                                   message: response.messages.first ?? .defaultStr)
             }
         }
+    }
+
+    private func generateErrorAlert(statusCode: Int,
+                                    message: String) {
+        self.showErrorAlert = true
+        let message = "statusCode: \(statusCode) \n messages: \(message)"
+        self.errorAlert = Alert(
+            title: Text("Error"),
+            message: Text(message),
+            dismissButton: .default(Text("OK"))
+        )
     }
 }
 

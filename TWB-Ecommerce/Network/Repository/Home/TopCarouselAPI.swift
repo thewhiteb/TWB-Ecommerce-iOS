@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct TopCrouselAPI: Endpoint {
+struct TopCarouselAPI: Endpoint {
     typealias ResponseType = MainResponse<[Banner]>
 
     var pathURL: String = "/banner/Main/banners"

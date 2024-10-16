@@ -22,8 +22,8 @@ struct ListingScreenRepositoryImplementation: ListingScreenRepository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[ListingScreenResponse]>(data: nil,
-                                                       messages: ["Server is not working!"],
-                                                       statusCode: (error as NSError).code)
+                                                                 messages: ["Server is not working!"],
+                                                                 statusCode: (error as NSError).code)
             return response
         }
     }
