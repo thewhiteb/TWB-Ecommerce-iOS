@@ -1,24 +1,25 @@
 //
-//  Repository.swift
+//  HomeScreenRepository.swift
 //  TWB-Ecommerce
 //
-//  Created by Hassam Ali on 04/10/2024.
+//  Created by Hassam Ali on 15/10/2024.
 //
 
 import Foundation
 
-protocol Repository {
-    static func getNewArrivalsItems() async -> MainResponse<[MainItem]>
-    static func getGiftByOccasionItems() async -> MainResponse<[ProductItem]>
-    static func getShopByStyleItems() async -> MainResponse<[ProductItem]>
-    static func getTrendingProductItems() async -> MainResponse<[TrendingProduct]>
-    static func getTopCrouselBanners() async -> MainResponse<[Banner]>
-    static func getSecondCrouselBanners() async -> MainResponse<[Banner]>
+protocol HomeRepository {
+    func getNewArrivalsItems() async -> MainResponse<[MainItem]>
+    func getGiftByOccasionItems() async -> MainResponse<[ProductItem]>
+    func getShopByStyleItems() async -> MainResponse<[ProductItem]>
+    func getTrendingProductItems() async -> MainResponse<[TrendingProduct]>
+    func getTopCrouselBanners() async -> MainResponse<[Banner]>
+    func getSecondCrouselBanners() async -> MainResponse<[Banner]>
 }
 
-struct RepositoryImplementation: Repository {
 
-    static func getNewArrivalsItems() async -> MainResponse<[MainItem]> {
+struct HomeRepositoryImplementation: HomeRepository {
+
+    func getNewArrivalsItems() async -> MainResponse<[MainItem]> {
         do {
             let response = try await NewArivalAPI().call()
             return response
@@ -27,13 +28,13 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[MainItem]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                    messages: ["Server is not working!"],
+                                                    statusCode: (error as NSError).code)
             return response
         }
     }
 
-    static func getGiftByOccasionItems() async -> MainResponse<[ProductItem]> {
+    func getGiftByOccasionItems() async -> MainResponse<[ProductItem]> {
         do {
             let response = try await GiftByOccasionAPI().call()
             return response
@@ -42,13 +43,13 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[ProductItem]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                       messages: ["Server is not working!"],
+                                                       statusCode: (error as NSError).code)
             return response
         }
     }
 
-    static func getShopByStyleItems() async -> MainResponse<[ProductItem]> {
+    func getShopByStyleItems() async -> MainResponse<[ProductItem]> {
         do {
             let response = try await ShopByStyleAPI().call()
             return response
@@ -57,13 +58,13 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[ProductItem]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                       messages: ["Server is not working!"],
+                                                       statusCode: (error as NSError).code)
             return response
         }
     }
 
-    static func getTrendingProductItems() async -> MainResponse<[TrendingProduct]> {
+    func getTrendingProductItems() async -> MainResponse<[TrendingProduct]> {
         do {
             let response = try await TrendingProductAPI().call()
             return response
@@ -72,13 +73,13 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[TrendingProduct]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                           messages: ["Server is not working!"],
+                                                           statusCode: (error as NSError).code)
             return response
         }
     }
 
-    static func getTopCrouselBanners() async -> MainResponse<[Banner]> {
+    func getTopCrouselBanners() async -> MainResponse<[Banner]> {
         do {
             let response = try await TopCrouselAPI().call()
             return response
@@ -87,13 +88,13 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[Banner]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                  messages: ["Server is not working!"],
+                                                  statusCode: (error as NSError).code)
             return response
         }
     }
 
-    static func getSecondCrouselBanners() async -> MainResponse<[Banner]> {
+    func getSecondCrouselBanners() async -> MainResponse<[Banner]> {
         do {
             let response = try await TopCrouselAPI().call()
             return response
@@ -102,8 +103,8 @@ struct RepositoryImplementation: Repository {
             // 1. Parsing failed
             // 2. Alamofire error
             let response = MainResponse<[Banner]>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                  messages: ["Server is not working!"],
+                                                  statusCode: (error as NSError).code)
             return response
         }
     }
