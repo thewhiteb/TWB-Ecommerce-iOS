@@ -27,7 +27,7 @@ struct RelatedProductsView: View {
                 LazyHStack(spacing: 16) {  // Add spacing for items
                     ForEach(items) { item in
                         ListingItemView(
-                            item : item,
+                            listItem: globalListingScreenItem,
                             animation : animation
                         )
                         .frame(width: 190, height: 270)  // Set a fixed width for each item to ensure proper scrolling

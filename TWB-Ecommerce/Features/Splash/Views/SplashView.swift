@@ -211,7 +211,7 @@ struct SplashView: View {
     private func generateErrorAlert(statusCode: Int,
                                     message: String) {
         self.showErrorAlert = true
-        let message = "statusCode: \(statusCode) \n messages: \(message)"
+        let message = "statusCode: \(statusCode) \n messages: \(message))"
         self.errorAlert = Alert(
             title: Text("Error"),
             message: Text(message),

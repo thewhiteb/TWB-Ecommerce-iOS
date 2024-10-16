@@ -17,8 +17,9 @@ struct ListingScreenView: View {
     
     var isDragDisable: Bool
     var title: String
-    var onItemSelected: (TrendingProduct2) -> Void
+    var onItemSelected: (ListingScreenItem) -> Void
     var onBackButtonPressed: () -> Void
+    var items: [ListingScreenItem]
     
     var body: some View {
         GeometryReader { geometry in
@@ -61,7 +62,7 @@ struct ListingScreenView: View {
                             
                             BottomView( onItemSelected: { selectedItem in
                                 onItemSelected(selectedItem)  // Handle item selection
-                            }, animation : animation )
+                            }, items: items, animation : animation )
                             
                         }
                         .background(Color.white)
@@ -159,6 +160,6 @@ struct ListingScreenView: View {
         onItemSelected: { item in
             print(item)
         },
-        onBackButtonPressed: { }
+        onBackButtonPressed: { }, items: []
     )
 }

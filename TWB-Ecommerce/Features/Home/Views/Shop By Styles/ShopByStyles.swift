@@ -9,22 +9,40 @@ import SwiftUI
 
 struct ShopByStyles: View {
     @State var items: [ProductItem]
+    @State var isLoading: Bool = false
+
+    let respositorty: ListingScreenRepository = ListingScreenRepositoryImplementation()
     
-    var onItemSelected: (String) -> Void
+    var onItemSelected: ([ListingScreenItem]) -> Void
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing : 15) {
-                ForEach(items) { item in
-                    ShopByStyleItem(item: item)
-                        .onTapGesture {
-                            onItemSelected(item.name ?? .defaultStr) // Trigger the closure with the selected item text
-                        }
+        ZStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing : 15) {
+                    ForEach(items) { item in
+                        ShopByStyleItem(item: item)
+                            .onTapGesture {
+                                isLoading = true
+                                openListingScreen(for: item)
+                            }
+                    }
                 }
+                .padding()
             }
-            .padding()
+            if isLoading {
+                ProgressView("Loading...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .padding()
+            }
         }
-        
+    }
+
+    private func openListingScreen(for item: ProductItem) {
+        Task {
+            let results = await respositorty.getAllListingsItems()
+            isLoading = false
+            onItemSelected(results.data ?? []) // Trigger the closure with the selected item text
+        }
     }
 }
 #Preview {

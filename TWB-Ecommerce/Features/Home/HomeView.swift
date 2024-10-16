@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showTopShadow = false
-    var onItemSelected: (String) -> Void
+    var onItemSelected: ([ListingScreenItem]) -> Void
     
     var body: some View {
         GeometryReader {

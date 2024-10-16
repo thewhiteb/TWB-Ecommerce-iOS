@@ -13,6 +13,7 @@ struct TabContentView: View {
     
     @State private var selectedTab = 0
     @State private var listItemSelected : TrendingProduct2? = nil
+    @State private var listItemSelected2 : ListingScreenItem? = nil
     @State private var isTabBarEnable = true
     @State private var isDragDisable = false
     @State private var showBottomNavigation = true
@@ -32,6 +33,8 @@ struct TabContentView: View {
     
     @State private var images: [String] = []
     @State private var selectedImageIndex = 0
+
+    @State var listingScreenItems: [ListingScreenItem] = []
     
     var body: some View {
         NavigationView {
@@ -39,7 +42,8 @@ struct TabContentView: View {
                 ZStack {
                     switch selectedTab {
                     case 0:
-                        HomeView(onItemSelected: { item in
+                        HomeView(onItemSelected: { items in
+                            self.listingScreenItems = items
                             withAnimation {
                                 isListingViewActive = true
                                 isTabBarEnable = false
@@ -86,11 +90,12 @@ struct TabContentView: View {
                             onItemSelected: { item in
                                 withAnimation {
                                     isDetailViewActive = true
-                                    listItemSelected = item
+                                    listItemSelected2 = item
                                     isTabBarEnable = false
                                 }
                             },
-                            dragOffset: $dragOffset
+                            dragOffset: $dragOffset,
+                            items: self.listingScreenItems
                         )
                         .transition(.move(edge: .trailing))
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)

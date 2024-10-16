@@ -8,12 +8,12 @@
 import Foundation
 
 protocol ListingScreenRepository {
-    func getAllListingsItems() async -> MainResponse<[ListingScreenResponse]>
+    func getAllListingsItems() async -> MainResponse<[ListingScreenItem]>
 }
 
 struct ListingScreenRepositoryImplementation: ListingScreenRepository {
 
-    func getAllListingsItems() async -> MainResponse<[ListingScreenResponse]> {
+    func getAllListingsItems() async -> MainResponse<[ListingScreenItem]> {
         do {
             let response = try await ListingScreenAPI().call()
             return response
@@ -21,7 +21,7 @@ struct ListingScreenRepositoryImplementation: ListingScreenRepository {
             // There are two cases for the error:
             // 1. Parsing failed
             // 2. Alamofire error
-            let response = MainResponse<[ListingScreenResponse]>(data: nil,
+            let response = MainResponse<[ListingScreenItem]>(data: nil,
                                                                  messages: ["Server is not working!"],
                                                                  statusCode: (error as NSError).code)
             return response
