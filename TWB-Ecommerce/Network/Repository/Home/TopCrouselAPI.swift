@@ -14,7 +14,6 @@ struct TopCrouselAPI: Endpoint {
     var pathURL: String = "/banner/Main/banners"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: ParameterEncoding = JSONEncoding.default
 }
 
 struct Banner: Codable, Identifiable, Hashable, Equatable {

@@ -64,6 +64,7 @@ struct SplashView: View {
             trendingProductsAPI()
             topCrouselsAPI()
             secondCrouselsAPI()
+            getListingScreenData()
         }
         .background(Color.white)
     }
@@ -189,6 +190,20 @@ struct SplashView: View {
                 print(response.messages.first)
                 print(response)
                 HomeScreenDataSingleton.shared.secondCrouselBanners = nil
+            }
+        }
+    }
+
+    func getListingScreenData() {
+        Task {
+            let repository = ListingScreenRepositoryImplementation()
+            let response = await repository.getAllListingsItems()
+            if response.data != nil {
+                print(response.data)
+            } else {
+                print(response.statusCode)
+                print(response.messages.first)
+                print(response)
             }
         }
     }

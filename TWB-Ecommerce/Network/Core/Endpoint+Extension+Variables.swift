@@ -5,7 +5,7 @@
 //  Created by Hassam Ali on 03/10/2024.
 //
 
-import Foundation
+import Alamofire
 
 // MARK: - Default Variables
 extension Endpoint {
@@ -19,5 +19,9 @@ extension Endpoint {
 
     var contentType: String {
         "application/json"
+    }
+
+    var encoding: ParameterEncoding {
+        URLEncoding.queryString
     }
 }

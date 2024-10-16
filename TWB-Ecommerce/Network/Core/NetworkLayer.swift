@@ -47,18 +47,11 @@ extension Endpoint {
     private func getRequest(using url: URL) -> DataRequest {
         // Create Alamofire Request
         let request: DataRequest
-        if httpMethod == .get {
-            request = AF.request(url,
-                                 method: httpMethod,
-                                 encoding: encoding,
-                                 headers: getHeaders())
-        } else {
-            request = AF.request(url,
-                                 method: httpMethod,
-                                 parameters: params,
-                                 encoding: encoding,
-                                 headers: getHeaders())
-        }
+        request = AF.request(url,
+                             method: httpMethod,
+                             parameters: params,
+                             encoding: encoding,
+                             headers: getHeaders())
         return request
     }
 
