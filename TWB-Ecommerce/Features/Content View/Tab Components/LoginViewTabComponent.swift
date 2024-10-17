@@ -9,14 +9,11 @@ import SwiftUI
 
 struct LoginViewTabComponent: View {
     
-    @Binding var isLoginViewActive : Bool
     var onCrossClick :  () -> Void
     var onVerifyNumber : (String) -> Void
     
     var body: some View {
-        LoginView(onCrossClick: onCrossClick, onLoginClick: { value in
-            onVerifyNumber(value)
-        })
+        LoginView()
     }
 }
 

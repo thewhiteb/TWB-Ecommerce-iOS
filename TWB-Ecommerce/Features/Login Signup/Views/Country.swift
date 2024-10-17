@@ -17,6 +17,7 @@ struct Country: Identifiable,Equatable {
 // Define a class or struct to manage country data
 struct CountryData {
     static let allCountries: [Country] = [
+        Country(name: "United Arab Emirates", code: "+971", flag: "🇦🇪"),
         Country(name: "Afghanistan", code: "+93", flag: "🇦🇫"),
         Country(name: "Albania", code: "+355", flag: "🇦🇱"),
         Country(name: "Algeria", code: "+213", flag: "🇩🇿"),
@@ -205,7 +206,6 @@ struct CountryData {
         Country(name: "Tuvalu", code: "+688", flag: "🇹🇻"),
         Country(name: "Uganda", code: "+256", flag: "🇺🇬"),
         Country(name: "Ukraine", code: "+380", flag: "🇺🇦"),
-        Country(name: "United Arab Emirates", code: "+971", flag: "🇦🇪"),
         Country(name: "United Kingdom", code: "+44", flag: "🇬🇧"),
         Country(name: "United States", code: "+1", flag: "🇺🇸"),
         Country(name: "Uruguay", code: "+598", flag: "🇺🇾"),

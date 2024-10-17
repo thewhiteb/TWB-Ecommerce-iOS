@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginRepository {
     func sendOtp(request: LoginRequest) async -> MainResponse<LoginResponse>
+    func verifyOtp(request: OTPVerifyRequest) async -> MainResponse<OTPVerifyResponse>
 }
 
 struct LoginRepositoryImplementation: LoginRepository {
@@ -19,8 +20,20 @@ struct LoginRepositoryImplementation: LoginRepository {
             return response
         } catch let error {
             let response = MainResponse<LoginResponse>(data: nil,
-                                             messages: ["Server is not working!"],
-                                             statusCode: (error as NSError).code)
+                                                       messages: ["Server is not working!"],
+                                                       statusCode: (error as NSError).code)
+            return response
+        }
+    }
+    
+    func verifyOtp(request: OTPVerifyRequest) async ->  MainResponse<OTPVerifyResponse> {
+        do {
+            let response = try await OTPVerifyAPI(request: request).call()
+            return response
+        } catch let error {
+            let response = MainResponse<OTPVerifyResponse>(data: nil,
+                                                           messages: ["Server is not working!"],
+                                                           statusCode: (error as NSError).code)
             return response
         }
     }

@@ -11,6 +11,7 @@ import SwiftUI
 struct TabContentView: View {
     @Namespace var animation
     
+    
     @State private var selectedTab = 0
     @State private var listItemSelected : TrendingProduct2? = nil
     @State private var listItemSelected2 : ListingScreenItem? = nil
@@ -18,6 +19,7 @@ struct TabContentView: View {
     @State private var isDragDisable = false
     @State private var showBottomNavigation = true
     @State private var loginPhoneNumber : String = ""
+    @State private var isComingFromCheckout : Bool = true
     
     @State private var isListingViewActive = false
     @State private var isDetailViewActive = false
@@ -60,13 +62,7 @@ struct TabContentView: View {
                     case 3:
                         BagView(items: items)
                     case 4:
-                        ProfileView(onLoginClick: {
-                            withAnimation {
-                                isLoginViewActive = true
-                                showBottomNavigation = false
-                            }
-                            
-                        })
+                        ProfileView()
                     default:
                         HomeView(onItemSelected: { _ in
                             withAnimation {
@@ -138,19 +134,31 @@ struct TabContentView: View {
                     }
                     
                     
-                    if isLoginViewActive{
-                        LoginViewTabComponent(isLoginViewActive: $isLoginViewActive, onCrossClick: {
-                            withAnimation {
-                                showBottomNavigation = true
-                                isLoginViewActive = false
-                            }
-                        },onVerifyNumber: { value in
-                            
-                        })
-                        .transition(.move(edge: .trailing))
-                        .animation(.easeInOut(duration: 0.3), value: isLoginViewActive)
-                    }
-                    
+//                    if isLoginViewActive{
+//                        LoginViewTabComponent(onCrossClick: {
+//                            withAnimation {
+//                                showBottomNavigation = true
+//                                isLoginViewActive = false
+//                            }
+//                        },onVerifyNumber: { value in
+//                            loginPhoneNumber = value
+//                            isOTPViewActive = true
+//                        })
+//                        .transition(.move(edge: .trailing))
+//                        .animation(.easeInOut(duration: 0.3), value: isLoginViewActive)
+//                    }
+//                    
+//                    
+//                    if isOTPViewActive{
+//                        OTPViewTabComponent(phoneNumber: $loginPhoneNumber,isComingFromCheckout: isComingFromCheckout, onBackClick: {
+//                            withAnimation {
+//                                isOTPViewActive = false
+//                            }  
+//                        })
+//                            .transition(.move(edge: .trailing))
+//                            .animation(.easeInOut(duration: 0.3), value: isOTPViewActive)
+//                        
+//                    }
                     
                     
                 }
@@ -171,6 +179,7 @@ struct TabContentView: View {
                 }
             }
             .ignoresSafeArea()
+            
         }
     }
     
