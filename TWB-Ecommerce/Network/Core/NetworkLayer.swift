@@ -64,9 +64,11 @@ extension Endpoint {
         } catch let error {
             // Handle decoding errors
             print("Error in parsing: \(error.localizedDescription)")
+            print("URL Path: \(self.pathURL)")
             throw NSError(domain: "Decoding Error",
                           code: NetworkErrors.parsingError.rawValue,
-                          userInfo: ["reason": "Failed to decode response data"])
+                          userInfo: ["reason": "Failed to decode response data",
+                                    "urlPath": self.pathURL])
         }
     }
 

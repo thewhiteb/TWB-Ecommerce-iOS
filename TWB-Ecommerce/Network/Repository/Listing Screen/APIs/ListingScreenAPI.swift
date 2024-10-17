@@ -20,27 +20,24 @@ struct ListingScreenAPI: Endpoint {
     ]
 }
 
+
+
 struct ListingScreenItem: Codable {
-    let id: Int
-    let name: String
-    let price: Double
-    let vat: Double
-    let totalPrice: Double
-    let newArrival: Bool
-    let bestSeller: Bool
-    let soldOut: Bool
-    let itemOnSale: Bool
-    let mainItemSaleDetails: String?
-    let popularItem: Bool
-    let discountPercent: Int
-    let fixedPriceDiscount: Int
-    let createdByUser: String
-    let modifiedByUser: String
-    let createdDate: String
-    let mainItemCategoriesLink: [MainItemCategoryLink]
-    let mainItemSubItemLink: [MainItemSubItemLink]
-    let mainItemImages: [MainItemImage]
-    let mainItemSubCategoriesLink: [MainItemSubCategoryLink]
+    let id: Int?
+    let name: String?
+    let price: Double?
+    let vat: Double?
+    let totalPrice: Double?
+    let newArrival, bestSeller, soldOut, itemOnSale: Bool?
+    let mainItemSaleDetails: SaleDetails?
+    let popularItem: Bool?
+    let discountPercent: Int?
+    let fixedPriceDiscount: Int?
+    let createdByUser, modifiedByUser, createdDate: String?
+    let mainItemCategoriesLink: [MainItemCategoryLink]?
+    let mainItemSubItemLink: [MainItemSubItemLink]?
+    let mainItemImages: [MainItemImage]?
+    let mainItemSubCategoriesLink: [MainItemSubCategoryLink]?
     
     enum CodingKeys: String, CodingKey {
         case id, name, price, vat, totalPrice, newArrival, bestSeller, soldOut, itemOnSale
@@ -54,9 +51,9 @@ struct ListingScreenItem: Codable {
 }
 
 struct MainItemCategoryLink: Codable {
-    let mainItemCategoryId: Int
-    let mainItemCategoryName: String
-    let mainItemCategoryTagId: Int
+    let mainItemCategoryId: Int?
+    let mainItemCategoryName: String?
+    let mainItemCategoryTagId: Int?
     
     enum CodingKeys: String, CodingKey {
         case mainItemCategoryId = "mainItem_CategoryId"
@@ -66,25 +63,30 @@ struct MainItemCategoryLink: Codable {
 }
 
 struct MainItemSubItemLink: Codable {
-    let id: Int
-    let name: String
-    let subItemCategoryId: Int
-    let subItemSubCategoryId: Int
+    let id: Int?
+    let name: String?
+    let subItemCategoryId, subItemSubCategoryId: Int?
     let sku: String?
-    let subItemColorsList: [SubItemColor]
+    let subItemColorsList: [SubItemColor]?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, sku
+        case id, name
         case subItemCategoryId = "subItemCategoryId"
         case subItemSubCategoryId = "subItemSubCategoryId"
+        case sku
         case subItemColorsList = "subItemColorsList"
     }
 }
 
 struct SubItemColor: Codable {
-    let colorId: Int
-    let colorName: String
-    let colorCode: String
+    let colorId: Int?
+    let colorName, colorCode: String?
+
+    enum CodingKeys: String, CodingKey {
+        case colorId
+        case colorName
+        case colorCode
+    }
 }
 
 

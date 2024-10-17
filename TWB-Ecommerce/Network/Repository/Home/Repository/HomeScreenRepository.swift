@@ -29,7 +29,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[MainItem]>(data: nil,
                                                     messages: ["Server is not working!"],
-                                                    statusCode: (error as NSError).code)
+                                                    statusCode: (error as NSError).code,
+                                                    error: .init(error: (error as NSError)))
             return response
         }
     }
@@ -44,7 +45,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[ProductItem]>(data: nil,
                                                        messages: ["Server is not working!"],
-                                                       statusCode: (error as NSError).code)
+                                                       statusCode: (error as NSError).code,
+                                                       error: .init(error: (error as NSError)))
             return response
         }
     }
@@ -59,7 +61,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[ProductItem]>(data: nil,
                                                        messages: ["Server is not working!"],
-                                                       statusCode: (error as NSError).code)
+                                                       statusCode: (error as NSError).code,
+                                                       error: .init(error: (error as NSError)))
             return response
         }
     }
@@ -74,7 +77,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[TrendingProduct]>(data: nil,
                                                            messages: ["Server is not working!"],
-                                                           statusCode: (error as NSError).code)
+                                                           statusCode: (error as NSError).code,
+                                                           error: .init(error: (error as NSError)))
             return response
         }
     }
@@ -89,7 +93,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[Banner]>(data: nil,
                                                   messages: ["Server is not working!"],
-                                                  statusCode: (error as NSError).code)
+                                                  statusCode: (error as NSError).code,
+                                                  error: .init(error: (error as NSError)))
             return response
         }
     }
@@ -104,7 +109,8 @@ struct HomeRepositoryImplementation: HomeRepository {
             // 2. Alamofire error
             let response = MainResponse<[Banner]>(data: nil,
                                                   messages: ["Server is not working!"],
-                                                  statusCode: (error as NSError).code)
+                                                  statusCode: (error as NSError).code,
+                                                  error: .init(error: (error as NSError)))
             return response
         }
     }

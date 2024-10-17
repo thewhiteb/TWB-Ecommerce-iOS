@@ -118,8 +118,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.items = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.items = nil
             }
         }
@@ -132,8 +131,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.giftByOccasion = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.giftByOccasion = nil
             }
         }
@@ -146,8 +144,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.shopByStyle = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.shopByStyle = nil
             }
         }
@@ -160,8 +157,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.trendingProducts = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.trendingProducts = nil
             }
         }
@@ -174,8 +170,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.topCrouselBanners = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.topCrouselBanners = nil
             }
         }
@@ -188,8 +183,7 @@ struct SplashView: View {
                 HomeScreenDataSingleton.shared.secondCrouselBanners = response.data
             } else {
                 // Show Alert
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.secondCrouselBanners = nil
             }
         }
@@ -202,16 +196,14 @@ struct SplashView: View {
             if response.data != nil {
                 print(response.data)
             } else {
-                generateErrorAlert(statusCode: response.statusCode,
-                                   message: response.messages.first ?? .defaultStr)
+                generateErrorAlert(error: response.error)
             }
         }
     }
 
-    private func generateErrorAlert(statusCode: Int,
-                                    message: String) {
+    private func generateErrorAlert(error: CustomError?) {
         self.showErrorAlert = true
-        let message = "statusCode: \(statusCode) \n messages: \(message))"
+        let message = "statusCode: \(error?.code) \n urlPath: \(error?.userInfo?["urlPath"]))"
         self.errorAlert = Alert(
             title: Text("Error"),
             message: Text(message),

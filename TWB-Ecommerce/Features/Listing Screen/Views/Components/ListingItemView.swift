@@ -31,8 +31,8 @@ struct ListingItemView: View {
                 ZStack {
                     // Image slider using TabView
                     TabView(selection: $currentPage) {
-                        ForEach(0..<listItem.mainItemImages.count, id: \.self) { index in
-                            let url = Constants.imagesBaseURL + (listItem.mainItemImages[index].imageKey ?? "")
+                        ForEach(0..<(listItem.mainItemImages?.count ?? 0), id: \.self) { index in
+                            let url = Constants.imagesBaseURL + (listItem.mainItemImages?[index].imageKey ?? "")
                             WebImage(url: URL(string: url)) { image in
                                 image
                                     .resizable()
@@ -54,7 +54,7 @@ struct ListingItemView: View {
                     VStack {
                         Spacer()
                         HStack(spacing: 5) { // Customize the spacing between indicators
-                            ForEach(0..<listItem.mainItemImages.count, id: \.self) { index in
+                            ForEach(0..<(listItem.mainItemImages?.count ?? 0), id: \.self) { index in
                                 Circle()
                                     .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
                                     .foregroundColor(currentPage == index ? .black : .gray)
@@ -76,7 +76,7 @@ struct ListingItemView: View {
                 .background(Color(hex: "#F5F5F5"))
                 
                 // Item name
-                Text(listItem.name)
+                Text(listItem.name ?? .defaultStr)
                     .font(Font.custom("Baskerville", size: 12))
                     .foregroundColor(.black)
                     .padding(.top, 10)

@@ -24,7 +24,7 @@ struct TrendingProduct: Codable, Identifiable {
     let totalPrice: Double?
     let soldOut: Bool?
     let itemOnSale: Bool?
-    let mainItemSaleDetails: String?
+    let mainItemSaleDetails: SaleDetails?
     let popularItem: Bool?
     let discountPercent: Int?
     let fixedPriceDiscount: Int?
