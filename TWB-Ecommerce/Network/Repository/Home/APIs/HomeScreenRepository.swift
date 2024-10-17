@@ -81,7 +81,7 @@ struct HomeRepositoryImplementation: HomeRepository {
 
     func getTopCrouselBanners() async -> MainResponse<[Banner]> {
         do {
-            let response = try await TopCrouselAPI().call()
+            let response = try await TopCarouselAPI().call()
             return response
         } catch let error {
             // There are two cases for the error:
@@ -96,7 +96,7 @@ struct HomeRepositoryImplementation: HomeRepository {
 
     func getSecondCrouselBanners() async -> MainResponse<[Banner]> {
         do {
-            let response = try await TopCrouselAPI().call()
+            let response = try await TopCarouselAPI().call()
             return response
         } catch let error {
             // There are two cases for the error:

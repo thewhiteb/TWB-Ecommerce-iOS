@@ -43,7 +43,9 @@ struct BannerSlide: View {
             Spacer()
                 .onReceive(timer) { _ in
                     withAnimation {
-                        currentPage = (currentPage + 1) % banners.count
+                        if banners.count > 1 {
+                            currentPage = (currentPage + 1) % banners.count
+                        }
                     }
                 }
     

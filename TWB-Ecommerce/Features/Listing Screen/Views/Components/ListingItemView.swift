@@ -7,10 +7,21 @@
 
 import SwiftUI
 import Lottie
+import SDWebImageSwiftUI
+import SDWebImage
+
+/*
+ Image(item.images[index])
+     .resizable()
+     .scaledToFit()
+     .frame(width: geometry.size.width, height: 220) // Fixed height, dynamic width
+     .clipped()
+     .tag(index)
+ */
 
 struct ListingItemView: View {
     
-    let item: TrendingProduct2
+    let listItem: ListingScreenItem
     @State private var currentPage = 0
     var animation: Namespace.ID
     
@@ -20,13 +31,20 @@ struct ListingItemView: View {
                 ZStack {
                     // Image slider using TabView
                     TabView(selection: $currentPage) {
-                        ForEach(0..<item.images.count, id: \.self) { index in
-                            Image(item.images[index])
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width, height: 220) // Fixed height, dynamic width
-                                .clipped()
-                                .tag(index)
+                        ForEach(0..<(listItem.mainItemImages?.count ?? 0), id: \.self) { index in
+                            let url = Constants.imagesBaseURL + (listItem.mainItemImages?[index].imageKey ?? "")
+                            WebImage(url: URL(string: url)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .tag(index)
+                            } placeholder: {
+                                ImagePlaceholderView()
+                            }
+                            .indicator(.activity) // Activity Indicator
+                            .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                            .frame(width: geometry.size.width, height: 220) // Fixed height, dynamic width
+                            .clipped()
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide default page indicator
@@ -36,7 +54,7 @@ struct ListingItemView: View {
                     VStack {
                         Spacer()
                         HStack(spacing: 5) { // Customize the spacing between indicators
-                            ForEach(0..<item.images.count, id: \.self) { index in
+                            ForEach(0..<(listItem.mainItemImages?.count ?? 0), id: \.self) { index in
                                 Circle()
                                     .frame(width: currentPage == index ? 8 : 6, height: currentPage == index ? 8 : 6)
                                     .foregroundColor(currentPage == index ? .black : .gray)
@@ -58,13 +76,13 @@ struct ListingItemView: View {
                 .background(Color(hex: "#F5F5F5"))
                 
                 // Item name
-                Text(item.itemName)
+                Text(listItem.name ?? .defaultStr)
                     .font(Font.custom("Baskerville", size: 12))
                     .foregroundColor(.black)
                     .padding(.top, 10)
                 
                 // Item price
-                Text(item.itemPrice)
+                Text(String(describing: listItem.price))
                     .font(Font.custom("Baskerville", size: 14).weight(.semibold))
                     .foregroundColor(.black)
                     .padding(.top, 2)
@@ -82,7 +100,7 @@ struct ListingItemView: View {
     var item = TrendingProduct2(images: ["Bouquet1", "Bouquet1", "Bouquet1"], itemName: "Rectangular Acrylic 061", itemPrice: "AED 365", isCustomizable: true)
     
     ListingItemView(
-        item: item,
+        listItem: globalListingScreenItem,
         animation: animation
     )
 }

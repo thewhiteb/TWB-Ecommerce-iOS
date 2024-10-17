@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct BottomView: View {
-    var onItemSelected: (TrendingProduct2) -> Void  // Closure to pass selected item back
+    var onItemSelected: (ListingScreenItem) -> Void  // Closure to pass selected item back
+    var items: [ListingScreenItem]
     
     var animation : Namespace.ID
     
@@ -19,7 +20,7 @@ struct BottomView: View {
                 .foregroundColor(Color(red: 0.35, green: 0.35, blue: 0.35))
                 .padding(.top, 120)
             
-            GridViewItems(animation : animation , onItemClick: { item in
+            GridViewItems(animation : animation, items: items , onItemClick: { item in
                 onItemSelected(item)  // Pass the selected item name
             })
             .padding(.top, 30)
@@ -32,5 +33,5 @@ struct BottomView: View {
 
 #Preview {
     @Previewable @Namespace var animation
-    BottomView(onItemSelected: {text in print(text)}, animation: animation)
+    BottomView(onItemSelected: {text in print(text)}, items: [], animation: animation)
 }

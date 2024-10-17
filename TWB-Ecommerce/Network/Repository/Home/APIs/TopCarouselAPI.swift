@@ -8,13 +8,12 @@
 import Foundation
 import Alamofire
 
-struct TopCrouselAPI: Endpoint {
+struct TopCarouselAPI: Endpoint {
     typealias ResponseType = MainResponse<[Banner]>
 
     var pathURL: String = "/banner/Main/banners"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var encoding: ParameterEncoding = JSONEncoding.default
 }
 
 struct Banner: Codable, Identifiable, Hashable, Equatable {

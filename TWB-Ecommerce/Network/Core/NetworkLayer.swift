@@ -32,33 +32,27 @@ extension Endpoint {
         case .success(let data):
             return try parseData(using: data)
         case .failure(let error):
+            logNonFetalException()
             if let statusCode = response.response?.statusCode {
                 if (400...599).contains(statusCode), let data = response.data {
-                    logNonFetalException(using: data)
                     return try parseData(using: data)
                 }
             }
             throw NSError(domain: "Alamofire Error",
                           code: NetworkErrors.getErrorCode(for: error),
-                          userInfo: ["reason": "\(error.localizedDescription)"])
+                          userInfo: ["reason": "\(error.localizedDescription)",
+                                     "urlPath": url.absoluteString])
         }
     }
 
     private func getRequest(using url: URL) -> DataRequest {
         // Create Alamofire Request
         let request: DataRequest
-        if httpMethod == .get {
-            request = AF.request(url,
-                                 method: httpMethod,
-                                 encoding: encoding,
-                                 headers: getHeaders())
-        } else {
-            request = AF.request(url,
-                                 method: httpMethod,
-                                 parameters: params,
-                                 encoding: encoding,
-                                 headers: getHeaders())
-        }
+        request = AF.request(url,
+                             method: httpMethod,
+                             parameters: params,
+                             encoding: encoding,
+                             headers: getHeaders())
         return request
     }
 
@@ -70,9 +64,11 @@ extension Endpoint {
         } catch let error {
             // Handle decoding errors
             print("Error in parsing: \(error.localizedDescription)")
+            print("URL Path: \(self.pathURL)")
             throw NSError(domain: "Decoding Error",
                           code: NetworkErrors.parsingError.rawValue,
-                          userInfo: ["reason": "Failed to decode response data"])
+                          userInfo: ["reason": "Failed to decode response data",
+                                    "urlPath": self.pathURL])
         }
     }
 
@@ -82,7 +78,8 @@ extension Endpoint {
         }
     }
 
-    private func logNonFetalException(using request: Data) {
+    private func logNonFetalException() {
         //TODO: - Log non fetal exception over the firebase
+        print("API Failed for \(self.pathURL)")
     }
 }

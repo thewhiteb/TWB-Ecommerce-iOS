@@ -12,8 +12,9 @@ struct ListingScreenTabComponent: View {
     @Binding var isDragDisable: Bool
     @Binding var isListingViewActive: Bool
     @Binding var isTabBarEnable: Bool
-    var onItemSelected: (TrendingProduct2) -> Void
+    var onItemSelected: (ListingScreenItem) -> Void
     @Binding var dragOffset: CGFloat
+    var items: [ListingScreenItem]
     
     var body: some View {
         ListingScreenView(
@@ -28,7 +29,8 @@ struct ListingScreenTabComponent: View {
                     isListingViewActive = false
                     isTabBarEnable = true
                 }
-            }
+            },
+            items: self.items
         )
         .offset(x: dragOffset > 0 ? dragOffset : 0)
         .gesture(
