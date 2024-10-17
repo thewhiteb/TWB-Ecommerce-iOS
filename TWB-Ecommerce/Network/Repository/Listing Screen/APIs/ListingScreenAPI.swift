@@ -7,17 +7,32 @@
 
 import Alamofire
 
+enum SortingOrder: String, Codable {
+    case trending = "Popular"
+    case newest = "NewItems"
+    case lowestPrice = "PriceAsc"
+    case highestPrice = "PriceDesc"
+    case topSeller = "TopSeller"
+}
+
 struct ListingScreenAPI: Endpoint {
     typealias ResponseType = MainResponse<[ListingScreenItem]>
 
     var pathURL: String = "/mainitem/filtered"
     var headers: HTTPHeaders = [:]
     var httpMethod: HTTPMethod = .get
-    var params: [String : Any] = [
-        "sortOrderEnum":"TopSeller",
-        "pageNumber": "1",
-        "pageSize": "10"
-    ]
+    var params: [String : Any] {
+        [
+            "sortOrderEnum":"\(sortOrderEnum.rawValue)",
+            "pageNumber": "\(pageNumber)",
+            "pageSize": "\(pageSize)",
+            "mainItem_Category":"\(mainItemCategory)"
+        ]
+    }
+    var pageNumber: Int
+    var pageSize: Int
+    var mainItemCategory: String
+    var sortOrderEnum: SortingOrder
 }
 
 

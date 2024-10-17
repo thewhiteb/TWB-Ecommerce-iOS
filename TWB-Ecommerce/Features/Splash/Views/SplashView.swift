@@ -66,7 +66,6 @@ struct SplashView: View {
             trendingProductsAPI()
             topCrouselsAPI()
             secondCrouselsAPI()
-            getListingScreenData()
         }
         .alert(isPresented: $showErrorAlert) {
             self.errorAlert ?? Alert(title: Text("Error"),
@@ -185,18 +184,6 @@ struct SplashView: View {
                 // Show Alert
                 generateErrorAlert(error: response.error)
                 HomeScreenDataSingleton.shared.secondCrouselBanners = nil
-            }
-        }
-    }
-
-    func getListingScreenData() {
-        Task {
-            let repository = ListingScreenRepositoryImplementation()
-            let response = await repository.getAllListingsItems()
-            if response.data != nil {
-                print(response.data)
-            } else {
-                generateErrorAlert(error: response.error)
             }
         }
     }

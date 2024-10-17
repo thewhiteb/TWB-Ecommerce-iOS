@@ -39,7 +39,10 @@ struct ShopByStyles: View {
 
     private func openListingScreen(for item: ProductItem) {
         Task {
-            let results = await respositorty.getAllListingsItems()
+            let results = await respositorty.getAllListingsItems(for: item.name ?? .defaultStr,
+                                                                 pageSize: 10,
+                                                                 pageNumber: 1,
+                                                                 sortOrder: .trending)
             isLoading = false
             onItemSelected(results.data ?? []) // Trigger the closure with the selected item text
         }

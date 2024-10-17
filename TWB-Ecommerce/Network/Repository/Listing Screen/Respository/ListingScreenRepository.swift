@@ -8,14 +8,24 @@
 import Foundation
 
 protocol ListingScreenRepository {
-    func getAllListingsItems() async -> MainResponse<[ListingScreenItem]>
+    func getAllListingsItems(for item: String,
+                             pageSize: Int,
+                             pageNumber: Int,
+                             sortOrder: SortingOrder) async -> MainResponse<[ListingScreenItem]>
 }
 
 struct ListingScreenRepositoryImplementation: ListingScreenRepository {
 
-    func getAllListingsItems() async -> MainResponse<[ListingScreenItem]> {
+    func getAllListingsItems(for item: String,
+                             pageSize: Int,
+                             pageNumber: Int,
+                             sortOrder: SortingOrder) async -> MainResponse<[ListingScreenItem]> {
         do {
-            let response = try await ListingScreenAPI().call()
+            let response = try await ListingScreenAPI(pageNumber: pageNumber,
+                                                      pageSize: pageSize,
+                                                      mainItemCategory: item,
+                                                      sortOrderEnum: sortOrder)
+                .call()
             return response
         } catch let error {
             // There are two cases for the error:
