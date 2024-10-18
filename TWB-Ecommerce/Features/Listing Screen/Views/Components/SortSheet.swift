@@ -18,9 +18,9 @@ struct SortSheet: View {
         .topSeller: "Top Seller",
         .trending: "Trending"
     ]
-    
-    @State private var selectedOption: Int? = nil  // Track the selected option
-    
+
+    var sortingOptions: [SortingOrder] = [.topSeller, .trending, .newest, .lowestPrice, .highestPrice]
+
     var body: some View {
         ScrollView {
             VStack {
@@ -46,8 +46,8 @@ struct SortSheet: View {
                 
                 // Create a list of 3 Items
                 VStack(spacing: 18) {
-//                    ForEach(0..<options.count, id: \.self) { index in
-                    ForEach(Array(options.keys), id: \.self) { key in
+//                    ForEach(Array(options.keys), id: \.self) { key in
+                    ForEach(sortingOptions, id: \.self) { key in
                         // Add divider between items
                         Divider()
                             .background(Color.gray.opacity(0.3))
