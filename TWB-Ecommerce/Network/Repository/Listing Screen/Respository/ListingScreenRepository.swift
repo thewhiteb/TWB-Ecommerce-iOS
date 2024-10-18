@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListingScreenRepository {
-    func getAllListingsItems(for item: String,
+    func getAllListingsItems(item: String,
                              pageSize: Int,
                              pageNumber: Int,
                              sortOrder: SortingOrder) async -> MainResponse<[ListingScreenItem]>
@@ -16,7 +16,7 @@ protocol ListingScreenRepository {
 
 struct ListingScreenRepositoryImplementation: ListingScreenRepository {
 
-    func getAllListingsItems(for item: String,
+    func getAllListingsItems(item: String,
                              pageSize: Int,
                              pageNumber: Int,
                              sortOrder: SortingOrder) async -> MainResponse<[ListingScreenItem]> {

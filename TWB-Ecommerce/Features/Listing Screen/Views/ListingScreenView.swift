@@ -14,12 +14,13 @@ struct ListingScreenView: View {
     @State private var scale: CGFloat = 1.0
     @State private var isSortOptionClicked = false
     @State private var isFilterOptionClicked = false
+    @State var sortingOrder: SortingOrder = .lowestPrice
     
     var isDragDisable: Bool
     var title: String
     var onItemSelected: (ListingScreenItem) -> Void
     var onBackButtonPressed: () -> Void
-    var items: [ListingScreenItem]
+    @StateObject var viewModel: ListingScreenViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -62,7 +63,7 @@ struct ListingScreenView: View {
                             
                             BottomView( onItemSelected: { selectedItem in
                                 onItemSelected(selectedItem)  // Handle item selection
-                            }, items: items, animation : animation )
+                            }, items: viewModel.items, animation : animation )
                             
                         }
                         .background(Color.white)
@@ -130,8 +131,11 @@ struct ListingScreenView: View {
                 .ignoresSafeArea()
             }
             .sheet(isPresented: $isSortOptionClicked) {
-                SortSheet()
+                SortSheet(sortingOrder: $sortingOrder)
                     .presentationDetents([.fraction(0.5), .medium])
+                    .onChange(of: sortingOrder) { oldValue, newValue in
+                        viewModel.fetchItems(sortingOrder: newValue)
+                    }
             }
             .sheet(isPresented: $isFilterOptionClicked) {
                 FiltersSheet()
@@ -160,6 +164,8 @@ struct ListingScreenView: View {
         onItemSelected: { item in
             print(item)
         },
-        onBackButtonPressed: { }, items: []
+        onBackButtonPressed: { }, viewModel: .init(items: [],
+                                                   repository: ListingScreenRepositoryImplementation(),
+                                                   selectedItem: nil)
     )
 }

@@ -14,7 +14,7 @@ struct TabContentView: View {
     
     @State private var selectedTab = 0
     @State private var listItemSelected : TrendingProduct2? = nil
-    @State private var listItemSelected2 : ListingScreenItem? = nil
+    @State private var listItemSelected2 : ListingScreenItem? = nil // This is for detail screen
     @State private var isTabBarEnable = true
     @State private var isDragDisable = false
     @State private var showBottomNavigation = true
@@ -26,7 +26,7 @@ struct TabContentView: View {
     @State private var isDetailFullImageViewActive = false
     @State private var isLoginViewActive = false
     @State private var isOTPViewActive = false
-    
+    @State var listingScreenSelectedItem: ProductItem?
     
     
     @State private var dragOffset: CGFloat = 0.0
@@ -44,8 +44,9 @@ struct TabContentView: View {
                 ZStack {
                     switch selectedTab {
                     case 0:
-                        HomeView(onItemSelected: { items in
+                        HomeView(onItemSelected: { items, selectedItem in
                             self.listingScreenItems = items
+                            self.listingScreenSelectedItem = selectedItem
                             withAnimation {
                                 isListingViewActive = true
                                 isTabBarEnable = false
@@ -64,7 +65,7 @@ struct TabContentView: View {
                     case 4:
                         ProfileView()
                     default:
-                        HomeView(onItemSelected: { _ in
+                        HomeView(onItemSelected: { _, _ in
                             withAnimation {
                                 isListingViewActive = true
                                 isTabBarEnable = false
@@ -84,6 +85,7 @@ struct TabContentView: View {
                             isListingViewActive: $isListingViewActive,
                             isTabBarEnable: $isTabBarEnable,
                             onItemSelected: { item in
+                                print("I am calling")
                                 withAnimation {
                                     isDetailViewActive = true
                                     listItemSelected2 = item
@@ -91,7 +93,8 @@ struct TabContentView: View {
                                 }
                             },
                             dragOffset: $dragOffset,
-                            items: self.listingScreenItems
+                            items: self.listingScreenItems,
+                            selectedItem: listingScreenSelectedItem
                         )
                         .transition(.move(edge: .trailing))
                         .animation(.easeInOut(duration: 0.3), value: isListingViewActive)

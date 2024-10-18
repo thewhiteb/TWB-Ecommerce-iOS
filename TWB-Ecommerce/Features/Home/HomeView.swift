@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showTopShadow = false
-    var onItemSelected: ([ListingScreenItem]) -> Void
+    var onItemSelected: ([ListingScreenItem], ProductItem) -> Void
     
     var body: some View {
         GeometryReader {
@@ -80,8 +80,8 @@ struct HomeView: View {
                         }
                         .padding(.top, 40)
                         let list = HomeScreenDataSingleton.shared.shopByStyle ?? []
-                        ShopByStyles(items: list) { itemName in
-                            onItemSelected(itemName)
+                        ShopByStyles(items: list) { items, selectedItem in
+                            onItemSelected(items, selectedItem)
                         }
                         .padding(.top, 20)
                         
@@ -185,5 +185,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(onItemSelected: { _ in })
+    HomeView(onItemSelected: { _,_  in })
 }

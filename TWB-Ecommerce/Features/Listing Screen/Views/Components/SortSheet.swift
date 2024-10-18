@@ -9,25 +9,24 @@ import SwiftUI
 
 struct SortSheet: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    // List of options
-    let options = [
-        (title: "Top Seller", image: "Message"),
-        (title: "Trending", image: "Whatsapp"),
-        (title: "Newest", image: "Email"),
-        (title: "Lowest Price", image: "Email"),
-        (title: "Highest Price", image: "Email")
+    @Binding var sortingOrder: SortingOrder
+
+    var options: [SortingOrder: String] = [
+        .newest: "Newest",
+        .highestPrice: "Highest Price",
+        .lowestPrice: "Lowest Price",
+        .topSeller: "Top Seller",
+        .trending: "Trending"
     ]
     
     @State private var selectedOption: Int? = nil  // Track the selected option
     
     var body: some View {
-        
         ScrollView {
             VStack {
                 HStack {
                     Text("Sort By")
-                        .font(.custom("Baskerville", size: 18))
+                        .font(.getFont(name: .baskerville, size: 18))
                         .fontWeight(.semibold)
                         .padding(.leading, 14)
                     Spacer()
@@ -47,27 +46,25 @@ struct SortSheet: View {
                 
                 // Create a list of 3 Items
                 VStack(spacing: 18) {
-                    ForEach(0..<options.count, id: \.self) { index in
-                        
+//                    ForEach(0..<options.count, id: \.self) { index in
+                    ForEach(Array(options.keys), id: \.self) { key in
                         // Add divider between items
-                        
                         Divider()
                             .background(Color.gray.opacity(0.3))
-                        
                         Button(action: {
-                            selectedOption = index
+                            sortingOrder = key
                         }) {
                             HStack {
-                                Text(options[index].title)
-                                    .font(Font.custom("Baskerville", size: 16))
+                                Text(options[key] ?? .defaultStr)
+                                    .font(.getFont(name: .baskerville, size: 16))
                                     .foregroundColor(.black)
                                     .padding(.leading, 14)
                                 
                                 Spacer()
                                 
                                 // Checkmark icon for selected option
-                                Image(systemName: selectedOption == index ? "circle.fill" : "circle")
-                                    .foregroundColor(selectedOption == index ? .black : .gray)
+                                Image(systemName: sortingOrder == key ? "circle.fill" : "circle")
+                                    .foregroundColor(sortingOrder == key ? .black : .gray)
                                     .padding(.trailing, 14)
                             }
                             .background(Color.white)
@@ -87,5 +84,5 @@ struct SortSheet: View {
 }
 
 #Preview {
-    SortSheet()
+    SortSheet(sortingOrder: .constant(SortingOrder.trending))
 }

@@ -13,7 +13,7 @@ struct ShopByStyles: View {
 
     let respositorty: ListingScreenRepository = ListingScreenRepositoryImplementation()
     
-    var onItemSelected: ([ListingScreenItem]) -> Void
+    var onItemSelected: ([ListingScreenItem], ProductItem) -> Void
     
     var body: some View {
         ZStack {
@@ -39,17 +39,18 @@ struct ShopByStyles: View {
 
     private func openListingScreen(for item: ProductItem) {
         Task {
-            let results = await respositorty.getAllListingsItems(for: item.name ?? .defaultStr,
+            let itemName = item.name ?? .defaultStr
+            let results = await respositorty.getAllListingsItems(item: itemName,
                                                                  pageSize: 10,
                                                                  pageNumber: 1,
-                                                                 sortOrder: .trending)
+                                                                 sortOrder: .lowestPrice)
             isLoading = false
-            onItemSelected(results.data ?? []) // Trigger the closure with the selected item text
+            onItemSelected(results.data ?? [], item) // Trigger the closure with the selected item text
         }
     }
 }
 #Preview {
-    ShopByStyles(items: []) { selectedItem in
+    ShopByStyles(items: []) { items, selectedItem in
             print("Selected Item: \(selectedItem)")
         }
 }
